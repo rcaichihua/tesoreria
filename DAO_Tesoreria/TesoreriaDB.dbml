@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BDTESORERIA" Class="TesoreriaDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.14;Initial Catalog=bdtesoreria;Persist Security Info=True;User ID=usuario_teso" SettingsObjectName="DAO_Tesoreria.Properties.Settings" SettingsPropertyName="BDTESORERIAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tipoZona" Member="tipoZona">
+    <Type Name="tipoZona">
+      <Column Name="intTzId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="varTzDescripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="varTzObservacion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tipoZona_ta_zona" Member="ta_zona" ThisKey="intTzId" OtherKey="intTzId" Type="ta_zona" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cementerio" Member="cementerio">
+    <Type Name="cementerio">
+      <Column Name="intCeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="varCeNombre" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="varCeDistrito" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="varCeProvincia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="varCeDepartamento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="varCeDireccion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="cementerio_ta_zona" Member="ta_zona" ThisKey="intCeId" OtherKey="intCeId" Type="ta_zona" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ta_zona" Member="ta_zona">
+    <Type Name="ta_zona">
+      <Column Name="intZId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intTzId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="varZDescripcion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="bitZEstado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="intCeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intZnroFilas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intZnroSepulturas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intZNivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitZConstruido" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="cementerio_ta_zona" Member="cementerio" ThisKey="intCeId" OtherKey="intCeId" Type="cementerio" IsForeignKey="true" />
+      <Association Name="tipoZona_ta_zona" Member="tipoZona" ThisKey="intTzId" OtherKey="intTzId" Type="tipoZona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ta_tipo_sepultura" Member="ta_tipo_sepultura">
+    <Type Name="ta_tipo_sepultura">
+      <Column Name="intTsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="varTsDescripcion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="varTsObservacion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ta_TipoMausoleo" Member="ta_TipoMausoleo">
+    <Type Name="ta_TipoMausoleo">
+      <Column Name="intTipMauId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="varTipMauDescripcion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ta_serviciosFunerarios" Member="ta_serviciosFunerarios">
+    <Type Name="ta_serviciosFunerarios">
+      <Column Name="intServFunId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="varServFunDescripcion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ta_TipoDocVenta" Member="Ta_TipoDocVenta">
+    <Type Name="Ta_TipoDocVenta">
+      <Column Name="Cod_TipoDocVenta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Desc_TipoDocVenta" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Flag_Comprob" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Flag_Ruc" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="flag_impuesto" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="flag_autoimpresion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="nro_serie_ult" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="nro_comprobante_ult" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ta_modalidad_pago" Member="ta_modalidad_pago">
+    <Type Name="ta_modalidad_pago">
+      <Column Name="cod_mod_Pago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="desc_mod_Pago" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="obs_mod_pagp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="intMoId" Type="System.Int32" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ta_entidad_financiera" Member="ta_entidad_financiera">
+    <Type Name="ta_entidad_financiera">
+      <Column Name="cod_entidad_financ" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_entidad" Type="System.String" DbType="NVarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="obs_entidad" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="ta_entidad_financiera_tb_cuenta_bancaria" Member="tb_cuenta_bancaria" ThisKey="cod_entidad_financ" OtherKey="cod_entidad_financ" Type="tb_cuenta_bancaria" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sucursal" Member="sucursal">
+    <Type Name="sucursal">
+      <Column Name="intSuID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="varSuNombreSucursal" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="varSuDireccion" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="varSuTelefonos" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="varSuUsuarioIngresa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dtmSuFechaIngresa" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="varSuUsuarioMododifica" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dtmSuFechaModifica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="intProId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bitEstadoSucursal" Type="System.Boolean" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.moneda" Member="moneda">
+    <Type Name="moneda">
+      <Column Name="intMoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="varMoDescripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bitMoEstado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="varMoAbreviatura" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Association Name="moneda_tb_cuenta_bancaria" Member="tb_cuenta_bancaria" ThisKey="intMoId" OtherKey="intMoId" Type="tb_cuenta_bancaria" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_cuenta_bancaria" Member="tb_cuenta_bancaria">
+    <Type Name="tb_cuenta_bancaria">
+      <Column Name="cuenta_bancaria_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cod_entidad_financ" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="numero_cuenta" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="id_cuenta_contable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intMoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="actividad" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="usuario_ingresa" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_ingresa" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="usuario_modifica" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_modifica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="nombre_host_ip_ing" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre_host_ip_mod" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ta_entidad_financiera_tb_cuenta_bancaria" Member="ta_entidad_financiera" ThisKey="cod_entidad_financ" OtherKey="cod_entidad_financ" Type="ta_entidad_financiera" IsForeignKey="true" />
+      <Association Name="moneda_tb_cuenta_bancaria" Member="moneda" ThisKey="intMoId" OtherKey="intMoId" Type="moneda" IsForeignKey="true" />
+      <Association Name="tb_cta_contable_tb_cuenta_bancaria" Member="tb_cta_contable" ThisKey="id_cuenta_contable" OtherKey="id_cuenta_contable" Type="tb_cta_contable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_cuenta_bancaria_audit" Member="tb_cuenta_bancaria_audit">
+    <Type Name="tb_cuenta_bancaria_audit">
+      <Column Name="id_audit" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cuenta_bancaria_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre_entidad" Type="System.String" DbType="NVarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="numero_cuenta" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_cuenta_contable" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="varMoDescripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="actividad" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="usuario_ingresa" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_ingresa" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="usuario_modifica" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_modifica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="nombre_host_ip_ing" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre_host_ip_mod" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usuario_accion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre_host_ip_accion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_accion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="accion" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_cuenta_contable_audit" Member="tb_cuenta_contable_audit">
+    <Type Name="tb_cuenta_contable_audit">
+      <Column Name="id_audit" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_cuenta_contable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_cuenta_contable" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="descrip_cuenta_contable" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="usuario_modi_cuenta_contable" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_modi_cuenta_contable" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="usuario_ing_cuenta_contable" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_ing_cuenta_contable" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="nombre_host_ip_ing" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="nombre_host_ip_mod" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="usuario_accion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre_host_ip_accion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_accion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="accion" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_residente" Member="tb_residente">
+    <Type Name="tb_residente">
+      <Column Name="residenteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dniResidente" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="NombreResidente" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ApePaternoResidente" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ApeMaternoResidente" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaIngresoResidente" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="tipoPagoResidenteID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pabellon" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="habitacion" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DireccionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CentroGerontologicoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tb_direcciones_tb_residente" Member="tb_direcciones" ThisKey="DireccionId" OtherKey="DireccionId" Type="tb_direcciones" IsForeignKey="true" />
+      <Association Name="tb_centroGerontologico_tb_residente" Member="tb_centroGerontologico" ThisKey="CentroGerontologicoId" OtherKey="CentroGerontologicoId" Type="tb_centroGerontologico" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_direcciones" Member="tb_direcciones">
+    <Type Name="tb_direcciones">
+      <Column Name="DireccionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreDireccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionDireccion" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="tb_direcciones_tb_residente" Member="tb_residente" ThisKey="DireccionId" OtherKey="DireccionId" Type="tb_residente" />
+      <Association Name="tb_direcciones_tb_centroGerontologico" Member="tb_centroGerontologico" ThisKey="DireccionId" OtherKey="DireccionId" Type="tb_centroGerontologico" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_centroGerontologico" Member="tb_centroGerontologico">
+    <Type Name="tb_centroGerontologico">
+      <Column Name="CentroGerontologicoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreCentroGerontologico" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tb_centroGerontologico_tb_residente" Member="tb_residente" ThisKey="CentroGerontologicoId" OtherKey="CentroGerontologicoId" Type="tb_residente" />
+      <Association Name="tb_direcciones_tb_centroGerontologico" Member="tb_direcciones" ThisKey="DireccionId" OtherKey="DireccionId" Type="tb_direcciones" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_cta_contable" Member="tb_cta_contable">
+    <Type Name="tb_cta_contable">
+      <Column Name="id_cuenta_contable" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoCuenta" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcionCuenta" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="id_cuenta_contable_gestion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="elementoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="movimiento" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="presupuesto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usuario_mod" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="fecha_mod" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="usuario_ing" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="fecha_ing" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="pc_ing" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pc_mod" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="tb_cta_contable_tb_cuenta_bancaria" Member="tb_cuenta_bancaria" ThisKey="id_cuenta_contable" OtherKey="id_cuenta_contable" Type="tb_cuenta_bancaria" />
+    </Type>
+  </Table>
+</Database>

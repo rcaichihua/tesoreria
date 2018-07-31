@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 14.5" name="TesoreriaDB">
+  <DataContextMoniker Name="/TesoreriaDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e6087abd-73be-4e88-a41a-4732318b9202" absoluteBounds="2.625, 2.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tipoZona" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e434968-849d-4a2b-8ba2-0f773f9d11b7" absoluteBounds="2.6399999999999997, 3.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fbabc733-9d9e-4f92-8333-6821d032cedd" absoluteBounds="2.75, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/cementerio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b09d7ae0-c876-424a-9632-10d46268cedf" absoluteBounds="2.7649999999999997, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aeb3034a-e0c6-4cd7-87a2-0a0c6846607d" absoluteBounds="5.25, 0.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/ta_zona" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2f7add2-cfe2-46fc-a33e-3542bb0b674c" absoluteBounds="5.265, 1.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 1.54409912109375); (5.25 : 1.54409912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/cementerio/cementerio_ta_zona" />
+      <nodes>
+        <classShapeMoniker Id="fbabc733-9d9e-4f92-8333-6821d032cedd" />
+        <classShapeMoniker Id="aeb3034a-e0c6-4cd7-87a2-0a0c6846607d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 2.89505126953125); (5.25 : 2.89505126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/tipoZona/tipoZona_ta_zona" />
+      <nodes>
+        <classShapeMoniker Id="e6087abd-73be-4e88-a41a-4732318b9202" />
+        <classShapeMoniker Id="aeb3034a-e0c6-4cd7-87a2-0a0c6846607d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="35bebfe9-27c2-4877-90a5-1351c1f3a747" absoluteBounds="7.375, 0.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/ta_tipo_sepultura" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7f0112c-eb7c-46e9-8783-d9002fa4a128" absoluteBounds="7.39, 1.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9b37cd4-0d13-4acb-8c14-8bdd2d563dd8" absoluteBounds="5.25, 3.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/ta_TipoMausoleo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98a32df4-9125-48f3-b71d-bfb5d46052bb" absoluteBounds="5.265, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="646aba4b-88a6-40e0-9327-8ca04ce31297" absoluteBounds="7.375, 2.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/ta_serviciosFunerarios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23b2cad8-6333-4f32-a61d-3eb6c53a45ec" absoluteBounds="7.39, 2.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="339ab7da-6d0f-4a80-91e7-a3a1ec0c791e" absoluteBounds="0.5, 3.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/Ta_TipoDocVenta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ed51b3a-8282-4239-a9cd-fd8c19a5d6e2" absoluteBounds="0.515, 3.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f15d660d-9157-48b2-bfcc-d5d91261ad10" absoluteBounds="2.75, 4.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/ta_modalidad_pago" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86f64231-e6c4-4067-b59a-831bf7a0bf89" absoluteBounds="2.765, 4.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1945fc46-3f50-4e05-acdf-8abc9cdca3d6" absoluteBounds="5.25, 4.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/ta_entidad_financiera" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f97f6c66-1cbc-488b-a435-179d392c18fc" absoluteBounds="5.265, 5.2100000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="77d6b9ac-c2fb-4bee-a43a-d88591d6cec5" absoluteBounds="0.5, 0.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/sucursal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd77061d-2db9-424e-9062-78e699bbd186" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27997481-ca5d-4e3b-a7ed-a994441f7e5d" absoluteBounds="5.875, 6.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/moneda" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4bed6217-727a-4b96-9890-f47bcd6cb2e3" absoluteBounds="5.89, 7.3350000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2da3d2ad-adce-4542-943a-74f3fd34e398" absoluteBounds="0.75, 6.5, 2, 3.1170068359375">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tb_cuenta_bancaria" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53dd4a3d-d60b-4b12-82ce-a65b8606c362" absoluteBounds="0.76499999999999968, 6.9600000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 6.01369466145833); (2.625 : 6.01369466145833); (2.625 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/ta_entidad_financiera/ta_entidad_financiera_tb_cuenta_bancaria" />
+      <nodes>
+        <classShapeMoniker Id="1945fc46-3f50-4e05-acdf-8abc9cdca3d6" />
+        <classShapeMoniker Id="2da3d2ad-adce-4542-943a-74f3fd34e398" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 7.66429768880208); (2.75 : 7.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/moneda/moneda_tb_cuenta_bancaria" />
+      <nodes>
+        <classShapeMoniker Id="27997481-ca5d-4e3b-a7ed-a994441f7e5d" />
+        <classShapeMoniker Id="2da3d2ad-adce-4542-943a-74f3fd34e398" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ffe994b4-e6ae-4d76-85cb-aefb82a95c41" absoluteBounds="8, 5.625, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tb_cuenta_bancaria_audit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d5797a8a-9f6f-42a3-9072-37f752e6e18a" absoluteBounds="8.015, 6.085, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7c571652-9342-4813-ba5f-be7ec9d9aee8" absoluteBounds="0.5, 9.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tb_cuenta_contable_audit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="500e9ae7-839e-4ded-a3a1-96cacaf109c6" absoluteBounds="0.51499999999999968, 10.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70d7c1c9-47ff-445a-a8cf-65f7f6100f04" absoluteBounds="3.625, 10.125, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tb_residente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84152c46-7f06-4bb8-9415-a6f97270be6f" absoluteBounds="3.6399999999999997, 10.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43a63ac5-f373-450b-a9b3-f0d38f1fd062" absoluteBounds="7, 10.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tb_direcciones" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4180fa19-bd85-4707-925e-a4c966fd5e41" absoluteBounds="7.015, 10.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.78125 : 11.8862939453125); (8.78125 : 12.5296541341146); (8.30208333333333 : 12.5296541341146 : JumpStart); (8.13541666666667 : 12.5296541341146 : JumpEnd); (5.625 : 12.5296541341146)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/tb_direcciones/tb_direcciones_tb_residente" />
+      <nodes>
+        <classShapeMoniker Id="43a63ac5-f373-450b-a9b3-f0d38f1fd062" />
+        <classShapeMoniker Id="70d7c1c9-47ff-445a-a8cf-65f7f6100f04" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="88c3997c-8aef-4f9f-ba7f-264aa205d6c0" absoluteBounds="6.5, 12.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tb_centroGerontologico" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70c3e297-94d2-46ac-ad5f-13e1803f655d" absoluteBounds="6.515, 13.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 13.6555001744792); (4.625 : 13.6555001744792); (4.625 : 13.0497054036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/tb_centroGerontologico/tb_centroGerontologico_tb_residente" />
+      <nodes>
+        <classShapeMoniker Id="88c3997c-8aef-4f9f-ba7f-264aa205d6c0" />
+        <classShapeMoniker Id="70d7c1c9-47ff-445a-a8cf-65f7f6100f04" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.21875 : 11.8862939453125); (8.21875 : 12.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/tb_direcciones/tb_direcciones_tb_centroGerontologico" />
+      <nodes>
+        <classShapeMoniker Id="43a63ac5-f373-450b-a9b3-f0d38f1fd062" />
+        <classShapeMoniker Id="88c3997c-8aef-4f9f-ba7f-264aa205d6c0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8e470090-3b37-4153-91ae-ab63a170ce16" absoluteBounds="5.875, 8.875, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/TesoreriaDBDataContext/tb_cta_contable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8291409-ad66-48bc-beeb-3d87fc20423c" absoluteBounds="5.89, 9.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 9.24600341796875); (2.75 : 9.24600341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TesoreriaDBDataContext/tb_cta_contable/tb_cta_contable_tb_cuenta_bancaria" />
+      <nodes>
+        <classShapeMoniker Id="8e470090-3b37-4153-91ae-ab63a170ce16" />
+        <classShapeMoniker Id="2da3d2ad-adce-4542-943a-74f3fd34e398" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

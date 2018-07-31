@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BL_Tesoreria;
+
+namespace GUI_Tesoreria.canevaro
+{
+    public partial class frmGenerarCtaCte : DevComponents.DotNetBar.Metro.MetroForm//Form
+    {
+        CNegocio cn = new CNegocio();
+        public int IdResidente = 0;
+
+        public frmGenerarCtaCte()
+        {
+            InitializeComponent();
+        }
+
+        private void txtPabellon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            VariablesMetodosEstaticos.Decimales_KeyPress(sender, e);
+        }
+
+        private void BtnGenerar_Click(object sender, EventArgs e)
+        {
+            decimal importe = 0;
+            bool canConvert;
+            int resultadoGenera = 0;
+            try
+            {
+                canConvert = decimal.TryParse(txtImporte.Text.Trim(), out importe);
+
+                if (canConvert == true)
+                {
+                    if (Convert.ToDecimal(txtImporte.Text) == 0)
+                    {
+                        MessageBox.Show("Ingrese un valor válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtImporte.Focus();
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un valor válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtImporte.Focus();
+                    return;
+                }
+                if (cboAnio.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un año válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cboAnio.Focus();
+                    return;
+                }
+
+                if ((MessageBox.Show("Se generara el estado de cuenta corriente del año  seleccionado. ¿Desea continuar?", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+                {
+                    resultadoGenera = Convert.ToInt32(cn.TraerDataset("usp_genera_ctacte_residente", IdResidente,
+                            //cn.EjecutarSqlDTS("select YEAR(GETDATE())").Tables[0].Rows[0][0].ToString()
+                            cboAnio.Text.Trim()
+                            , txtImporte.Text, VariablesMetodosEstaticos.varNombreUser,rdbPriSeme.Checked == true ? 6 : 12)
+                            .Tables[0].Rows[0][0]);
+
+                    if (resultadoGenera == 13 || resultadoGenera == 7)
+                    {
+                        MessageBox.Show("Cuenta corriente generada satisfactoriamente", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cuenta corriente para este residente ya fue generada. "
+                            , "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        //private void rdbPriSeme_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    gb1.Visible = true;
+        //    gb2.Visible = false;
+        //}
+
+        //private void rdbSegSeme_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    gb1.Visible = false;
+        //    gb2.Visible = true;
+        //}
+    }
+}
