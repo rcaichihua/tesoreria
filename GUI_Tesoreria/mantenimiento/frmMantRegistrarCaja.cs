@@ -66,7 +66,7 @@ namespace GUI_Tesoreria.mantenimiento
                     if (ctrl != null)
                     {
                         int TamañoNombre = ctrl.Name.Length;
-                        MessageBox.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
                         ctrl.Focus();
                         return;
                     }
@@ -76,7 +76,7 @@ namespace GUI_Tesoreria.mantenimiento
                     {
                         if (intParsed == 0 && accion != "U")
                         {
-                            MessageBox.Show("Ingrese el paremetro, debe ser un numero mayor a cero.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el paremetro, debe ser un numero mayor a cero.", VariablesMetodosEstaticos.encabezado,
                                 MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             return;
                         }
@@ -91,13 +91,13 @@ namespace GUI_Tesoreria.mantenimiento
 
                     if (Convert.ToInt32(dtVerificaCajaSucursalUSuario.Rows[0][0]) == 0)
                     {
-                        MessageBox.Show("El usuario y la MAC tienen asignado sucursales diferentes. Verifique.", VariablesMetodosEstaticos.encabezado, 
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El usuario y la MAC tienen asignado sucursales diferentes. Verifique.", VariablesMetodosEstaticos.encabezado, 
                             MessageBoxButtons.OK,
                                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                         return;
                     }
 
-                    if ((MessageBox.Show("¿Seguro de ingresar esta caja?, una vez ingresado no se podra modificar", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de ingresar esta caja?, una vez ingresado no se podra modificar", VariablesMetodosEstaticos.encabezado,
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
 
@@ -115,12 +115,12 @@ namespace GUI_Tesoreria.mantenimiento
                                                           System.Data.SqlTypes.SqlInt32.Null, System.Data.SqlTypes.SqlInt32.Null,
                                                           Convert.ToInt32(txtParametro.Text), 1,cboMac.SelectedValue);
 
-                            MessageBox.Show("Proceso Realizado con exito", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Proceso Realizado con exito", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         }
                         else
                         {
-                            MessageBox.Show("Usuario Registrado anteriormente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Usuario Registrado anteriormente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                             return;
                         }
@@ -146,7 +146,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Error: " + varglo.mensajeError(Convert.ToInt32(ex.Errors[0].Number)), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error: " + varglo.mensajeError(Convert.ToInt32(ex.Errors[0].Number)), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -167,7 +167,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -184,7 +184,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -199,7 +199,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         } 
@@ -236,7 +236,7 @@ namespace GUI_Tesoreria.mantenimiento
         {
             if (dgvAgregarCaja.Rows.Count > 0)
             {
-                if ((MessageBox.Show("¿Seguro de anular el Registro?", VariablesMetodosEstaticos.encabezado,
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de anular el Registro?", VariablesMetodosEstaticos.encabezado,
                            MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
                     accion = "U";
@@ -314,7 +314,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             else
             {
-                MessageBox.Show("No Existen Datos a Modificar, verifique",
+                DevComponents.DotNetBar.MessageBoxEx.Show("No Existen Datos a Modificar, verifique",
                     VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }

@@ -36,21 +36,38 @@ namespace GUI_Tesoreria.caja
         private void btnVerIngresos_Click(object sender, EventArgs e)
         {
             dtResu = new DataTable();
-            dtResu = cn.TraerDataset("usp_obtiene_ingreso_por_tipo_pago", idCajeroIngresoVouchers
-                ,dtpFechaCobro.Value.ToShortDateString(),11).Tables[0];
+            dtResu = cn.TraerDataset("usp_obtiene_ingreso_por_tipo_pago_programa", cboPrograma.SelectedValue
+                ,dtpFechaCobro.Value.ToString("yyyyMMdd"),11).Tables[0];
             //En la base de datos aparece en vez de 11 pongo 3 -> Depositos
 
             if (dtResu.Rows[0][0].ToString() != "0")
             {
                 txtCantidadDocumentos.Text = dtResu.Rows[0][0].ToString();
                 txtImporteEfectivo.Text = Convert.ToDecimal(dtResu.Rows[0][1]).ToString("##,##0.00");
-
+                txtImportePago.Text = Convert.ToDecimal(dtResu.Rows[0][1]).ToString("##,##0.00");
+                HabilitaControlBusqueda(false);
             }
             else
             {
-                MessageBox.Show("No hay ingresos para la fecha seleccionada", VariablesMetodosEstaticos.encabezado
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay ingresos para la fecha seleccionada", VariablesMetodosEstaticos.encabezado
                     , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void HabilitaControlBusqueda(bool activa)
+        {
+            dtpFechaCobro.Enabled = activa;
+            txtCantidadDocumentos.Enabled = activa;
+            txtImporteEfectivo.Enabled = activa;
+            if (VariablesMetodosEstaticos.intPerfilID != 5)
+            {
+                cboPrograma.Enabled = false;
+            }
+            else
+            {
+                cboPrograma.Enabled = true;
+            }
+            btnVerIngresos.Enabled = activa;
         }
 
         private void frmIngresoVouchers_Load(object sender, EventArgs e)
@@ -58,10 +75,33 @@ namespace GUI_Tesoreria.caja
             cargarModalidadPago();
             cboModalidadPago.SelectedValue = 3;
             cargarConcepto();
+            cargarProgramas();
             cargarEntidadFinanciera();
             cargarCuentaBancaria();
-            cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()), Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()), idCajeroIngresoVouchers);
+            cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"), dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"), 
+            idCajeroIngresoVouchers);
             habilitaBotones(habilita);
+            SeleccionaPrograma();
+        }
+        private void SeleccionaPrograma()
+        {
+            cboPrograma.SelectedValue = VariablesMetodosEstaticos.id_programa;
+
+            if (VariablesMetodosEstaticos.intPerfilID!=5)
+            {
+                cboPrograma.Enabled = false;
+            }
+            else
+            {
+                cboPrograma.Enabled = true;
+            }
+        }
+
+        private void cargarProgramas()
+        {
+            cboPrograma.DataSource = cn.TraerDataset("usp_ListaProgramas").Tables[0];
+            cboPrograma.ValueMember = "intProId";
+            cboPrograma.DisplayMember = "varProDescripcion";
         }
 
         void habilitaBotones(int hab)
@@ -85,14 +125,14 @@ namespace GUI_Tesoreria.caja
             var dt = new DataTable();
             try
             {
-                dt = cn.TraerDataset("usp_select_modalidad_pago").Tables[0];
+                dt = cn.TraerDataset("usp_select_modalidad_pago_VOUCHERS").Tables[0];
                 cboModalidadPago.DataSource = dt;
                 cboModalidadPago.DisplayMember = "desc_mod_Pago";
                 cboModalidadPago.ValueMember = "cod_mod_pago";
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -109,7 +149,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -126,7 +166,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -140,24 +180,33 @@ namespace GUI_Tesoreria.caja
         {
             try
             {
+                if (Convert.ToInt32(cboEntidadFinanciera.SelectedValue) != 0)
+                {
+                    if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una modalidad de pago antes de continuar.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        cboEntidadFinanciera.SelectedValue = 0;
+                        cboModalidadPago.Select();
+                        return;
+                    }
+                }
+                else
+                {
+                    cboModalidadPago_SelectedIndexChanged(sender, e);
+                }
+
                 var dt = new DataTable();
-                try
-                {
-                    dt = cn.TraerDataset("usp_select_cuenta_bancaria", cboEntidadFinanciera.SelectedValue).Tables[0];
-                    cboCuenta.Refresh();
-                    cboCuenta.DataSource = dt;
-                    cboCuenta.DisplayMember = "numero_cuenta";
-                    cboCuenta.ValueMember = "cuenta_bancaria_id";
-                }
-                catch (Exception)
-                {
-                    //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
-                    //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                }
+                dt = cn.TraerDataset("usp_select_cuenta_bancaria", cboEntidadFinanciera.SelectedValue, cboModalidadPago.SelectedValue).Tables[0];
+                cboCuenta.Refresh();
+                cboCuenta.DataSource = dt;
+                cboCuenta.DisplayMember = "numero_cuenta";
+                cboCuenta.ValueMember = "cuenta_bancaria_id";
             }
             catch (Exception)
             {
-
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -165,7 +214,7 @@ namespace GUI_Tesoreria.caja
         {
             try
             {
-                txtTotalCambio.Text = (Convert.ToDecimal(txtImportePago.Text) * Convert.ToDecimal(txtTipoCambio.Text)).ToString("##,##0.00");
+                txtTotalCambio.Text = (Convert.ToDecimal(txtImportePago.Text) * Convert.ToDecimal(txtTipoCambio.Text)).ToString("###,###,##0.00");
             }
             catch (Exception)
             {
@@ -226,8 +275,11 @@ namespace GUI_Tesoreria.caja
                 }
                 else
                 {
-                    lblTipoMoneda.Text = dsetMoneda.Tables[0].Rows[0][0].ToString();
-                    txtTipoCambio.Text = "1.000";
+                    if (lblTipoMoneda.Text == "???")
+                    {
+                        lblTipoMoneda.Text = dsetMoneda.Tables[0].Rows[0][0].ToString();
+                        txtTipoCambio.Text = "1.000";
+                    }
                 }
 
             }
@@ -248,15 +300,22 @@ namespace GUI_Tesoreria.caja
             {
                 return;
             }
-            if (verificaDuplicidad() > 0)                                                                                                                                         
+            if (verificaDuplicidad())                                                                                                                                         
             {
-                MessageBox.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+            if (verificaModalidadPago())
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ya se llego al limite de depositos - cheque por ingreso de efectivo - cheque, verifique.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
                 return;
             }
             try
             {
-                if ((MessageBox.Show("¿Desea continuar con el registro del voucher?", VariablesMetodosEstaticos.encabezado,
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea continuar con el registro del voucher?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
 
@@ -267,13 +326,16 @@ namespace GUI_Tesoreria.caja
                         , Convert.ToDecimal(txtTotalCambio.Text), txtNumDocumento.Text.Trim(), txtObservacionesPago.Text
                         , Convert.ToDateTime(dtpFechaCobro.Value.ToShortDateString()), Convert.ToInt32(txtCantidadDocumentos.Text)
                         , Convert.ToDecimal(txtImporteEfectivo.Text), VariablesMetodosEstaticos.idcajausuario,
-                        VariablesMetodosEstaticos.varNombreUser) > 0)
+                        VariablesMetodosEstaticos.varNombreUser,cboPrograma.SelectedValue) > 0)
                     {
-                        MessageBox.Show("Ingresado correctamente.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente.", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                         Limpiar();
-                        cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()), Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()), idCajeroIngresoVouchers);
+                        cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"), dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"), 
+                            idCajeroIngresoVouchers);
+                        btnVerIngresos_Click(sender, e);
+                        SumaTotalDeposito();
                     }
                 }
             }
@@ -281,30 +343,52 @@ namespace GUI_Tesoreria.caja
             {
             }
         }
+        private bool verificaModalidadPago()
+        {
+            //DataTable dtResu = new DataTable();
+            //dtResu = cn.TraerDataset("usp_verificaModalidadPago",dtpFechaCobro.Value.ToString("yyyyMMdd"),
+            //    cboPrograma.SelectedValue,cboModalidadPago.SelectedValue).Tables[0];
+            dtResu = new DataTable();
+            dtResu = cn.TraerDataset("usp_obtiene_ingreso_por_tipo_pago_programa", cboPrograma.SelectedValue
+                , dtpFechaCobro.Value.ToString("yyyyMMdd"), 11).Tables[0];
+
+            if (Convert.ToDecimal(dtResu.Rows[0][1].ToString())<= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         bool Validar()
         {
             if (cboModalidadPago.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione Modalidad de pago");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione Modalidad de pago", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 cboModalidadPago.Focus();
                 return false;
             }
             if (cboConcepto.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione Concepto");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Concepto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 cboConcepto.Focus();
                 return false;
             }
             if (cboEntidadFinanciera.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione Entidad financiera");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una Entidad financiera.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 cboEntidadFinanciera.Focus();
                 return false;
             }
             if (cboCuenta.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione cuenta");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una cuenta", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 cboCuenta.Focus();
                 return false;
             }
@@ -316,16 +400,18 @@ namespace GUI_Tesoreria.caja
 
             if (!resuNum)
             {
-                MessageBox.Show("Ingrese un importe de pago válido");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe de pago válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 txtImportePago.Focus();
                 return false;
             }
             else
             {
-                if (Convert.ToDecimal(txtImportePago.Text) == 0.00M)
+                if (Convert.ToDecimal(txtTotalCambio.Text) == 0.00M)
                 {
-                    MessageBox.Show("Ingrese un importe mayor a 0.00");
-                    txtImportePago.Focus();
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe mayor a 0.00", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    txtTotalCambio.Focus();
                     return false;
                 }
             }
@@ -335,15 +421,16 @@ namespace GUI_Tesoreria.caja
 
             if (!resuNum)
             {
-                MessageBox.Show("Ingrese un importe de pago válido");
-                txtTotalCambio.Focus();
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe de pago válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 return false;
             }
             else
             {
                 if (Convert.ToDecimal(txtTotalCambio.Text) == 0.00M)
                 {
-                    MessageBox.Show("Ingrese un importe mayor a 0.00");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe mayor a 0.00", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                     txtTotalCambio.Focus();
                     return false;
                 }
@@ -351,32 +438,59 @@ namespace GUI_Tesoreria.caja
 
             if (txtNumDocumento.Text.Trim()==string.Empty)
             {
-                MessageBox.Show("Ingrese número de voucher");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese número de voucher", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 txtNumDocumento.Focus();
                 return false;
             }
             if (txtCantidadDocumentos.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 dtpFechaCobro.Focus();
                 return false;
             }
             if (txtImporteEfectivo.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 dtpFechaCobro.Focus();
                 return false;
             }
+            if (lblTipoMoneda.Text!="S/.")
+            {
+                if (Convert.ToDecimal(txtTipoCambio.Text) <= 1)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un tipo de cambio correcto para el tipo de moneda que ha seleccionado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    txtTipoCambio.Focus();
+                    return false;
+                }
+            }
+            if (lblTipoMoneda.Text == "S/.")
+            {
+                if (Convert.ToDecimal(txtTipoCambio.Text) > 1)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un tipo de cambio correcto para el tipo de moneda que ha seleccionado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    txtTipoCambio.Focus();
+                    return false;
+                }
+            }
             return true;
         }
-                                        
-        int verificaDuplicidad()
+
+        bool verificaDuplicidad()
         {
-            return Convert.ToInt32(cn.TraerDataset("usp_verifica_duplicidad_voucher", dtpFechaDeposito.Value.ToShortDateString()
-                , txtImportePago.Text, txtNumDocumento.Text).Tables[0].Rows[0][0]);
+            DataTable dtTotalRepetido = new DataTable();
+            dtTotalRepetido = cn.TraerDataset("usp_verifica_duplicidad_voucher",
+                dtpFechaDeposito.Value.ToString("yyyyMMdd")
+                , txtNumDocumento.Text.Trim().ToUpper(), cboEntidadFinanciera.SelectedValue).Tables[0];
+
+            return (dtTotalRepetido.Rows.Count > 0);
         }
 
-        void cargarDepositos(DateTime fechaFiltroDesde, DateTime fechaFiltroHasta, int idCajeroIngresoVouchers_)
+        void cargarDepositos(string fechaFiltroDesde, string fechaFiltroHasta, int idCajeroIngresoVouchers_)
         {
             try
             {
@@ -389,13 +503,32 @@ namespace GUI_Tesoreria.caja
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()),Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()), idCajeroIngresoVouchers);
+            cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"),dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"), Convert.ToInt32(cboPrograma.SelectedValue));
+            AlternarGrillaRow(dgvDepositos);
+            SumaTotalDeposito();
+        }
+
+        private void SumaTotalDeposito()
+        {
+            decimal total = 0.00m;
+
+            foreach (DataGridViewRow item in dgvDepositos.Rows)
+            {
+                total = total + Convert.ToDecimal(item.Cells[8].Value);
+            }
+            txtTotalVoucher.Text = total.ToString("###,###,##0.00");
+        }
+
+        private void AlternarGrillaRow(DataGridView dgv)
+        {
+            dgv.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
         }
 
         void Limpiar()
         {
-            cboModalidadPago.SelectedIndex = 0;
-            cboConcepto.SelectedIndex = 0;
+            cboModalidadPago.SelectedValue = 3;
+            cboConcepto.SelectedIndex = 1;
             dtpFechaDeposito.Value = DateTime.Now;
             cboEntidadFinanciera.SelectedIndex = 0;
             cboCuenta.SelectedIndex = 0;
@@ -404,7 +537,7 @@ namespace GUI_Tesoreria.caja
             txtTotalCambio.Text = "0.00";
             txtNumDocumento.Clear();
             txtObservacionesPago.Clear();
-            dtpFechaCobro.Value = DateTime.Now;
+            //dtpFechaCobro.Value = DateTime.Now;
             txtCantidadDocumentos.Clear();
             txtImporteEfectivo.Clear();
         }
@@ -415,7 +548,7 @@ namespace GUI_Tesoreria.caja
             {
                 if (dgvDepositos.RowCount > 0)
                 {
-                    if ((MessageBox.Show("¿Esta seguro de eliminar el deposito seleccionado.?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar el deposito seleccionado.?", VariablesMetodosEstaticos.encabezado,
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         if (cn.EjecutarTransaccionDoble("usp_eliminar_depositos_efectivo", "usp_eliminar_ingreso_voucher_x_caja"
@@ -428,14 +561,15 @@ namespace GUI_Tesoreria.caja
                             , Convert.ToDecimal(dgvDepositos.CurrentRow.Cells[12].Value),VariablesMetodosEstaticos.varUsuario,
                             VariablesMetodosEstaticos.host_user+ " / " + VariablesMetodosEstaticos.ip_user) == 1)
                         {
-                            MessageBox.Show("Eliminado correctamente.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
-                            cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()), Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()), idCajeroIngresoVouchers);
+                            cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"), 
+                                dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"), idCajeroIngresoVouchers);
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo eliminar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No se pudo eliminar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         }
                     }
@@ -443,16 +577,16 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             frmComparaVouchersPagoEfectivo win = new frmComparaVouchersPagoEfectivo();
-            win.desde = dtpDesde.Value;
-            win.hasta = dtpHasta.Value;
-            win.idCajero = idCajeroIngresoVouchers;
+            win.desde = dtpDesde.Value.ToString("yyyyMMdd");
+            win.hasta = dtpHasta.Value.ToString("yyyyMMdd");
+            win.idPrograma = Convert.ToInt32(cboPrograma.SelectedValue);
             win.modPago = 11;
             win.ShowDialog();
         }
@@ -461,7 +595,7 @@ namespace GUI_Tesoreria.caja
         {
             if (dgvDepositos.Rows.Count <= 0)
             {
-                MessageBox.Show("No hay datos para la asignacion de vouchers.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para la asignacion de vouchers.", VariablesMetodosEstaticos.encabezado,
                                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 return;
             }
@@ -478,29 +612,87 @@ namespace GUI_Tesoreria.caja
         {
             if (dgvDepositos.RowCount > 0)
             {
-                foreach (DataGridViewRow row in dgvDepositos.Rows)
-                {
-                    if (row.Cells["asignado"].Value.ToString() == "0")
-                    {
-                        row.DefaultCellStyle.BackColor = Color.Tomato;
-                        row.DefaultCellStyle.ForeColor = Color.White;
 
-                    }
-                    else if (row.Cells["asignado"].Value.ToString() == "1")
-                    {
-                        row.DefaultCellStyle.BackColor = Color.YellowGreen;
-                    }
-                    else if (row.Cells["asignado"].Value.ToString() == "2")
-                    {
-                        row.DefaultCellStyle.BackColor = Color.NavajoWhite;
-                    }
-                }
+                //foreach (DataGridViewRow row in dgvDepositos.Rows)
+                //{
+                //    if (row.Cells["asignado"].Value.ToString() == "0")
+                //    {
+                //        row.DefaultCellStyle.BackColor = Color.Tomato;
+                //        row.DefaultCellStyle.ForeColor = Color.White;
+
+                //    }
+                //    else if (row.Cells["asignado"].Value.ToString() == "1")
+                //    {
+                //        row.DefaultCellStyle.BackColor = Color.YellowGreen;
+                //    }
+                //    else if (row.Cells["asignado"].Value.ToString() == "2")
+                //    {
+                //        row.DefaultCellStyle.BackColor = Color.NavajoWhite;
+                //    }
+                //}
             }
         }
 
         private void dgvDepositos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             marcarGrilla();
+        }
+
+        private void cboModalidadPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 0)
+                {
+                    cboEntidadFinanciera.SelectedValue = 0;
+                }
+
+                DataSet dsetMonedaModPago = new DataSet();
+                int idModPago = Convert.ToInt32(cboModalidadPago.SelectedValue);
+                txtImportePago.Text = "0.00";
+                txtTipoCambio.Text = "1.00";
+                txtTotalCambio.Text = "0.00";
+                txtNumDocumento.Clear();
+                dsetMonedaModPago = cn.TraerDataset("usp_obtiene_abreviatura_moneda_modPago", idModPago);
+
+                if (Convert.ToInt32(dsetMonedaModPago.Tables[0].Rows[0][0]) == 2)
+                {
+                    DataSet dtsValorDolar = new DataSet();
+
+                    dtsValorDolar = cn.TraerDataset("usp_s_tb_tipoCambioDolar_valor");
+                    if (dtsValorDolar.Tables[0].Rows.Count > 0)
+                    {
+                        txtTipoCambio.Text = Convert.ToDecimal(dtsValorDolar.Tables[0].Rows[0][0]).ToString("##0.000");
+                        lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
+                    }
+                    else
+                    {
+                        lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
+                        txtTipoCambio.Text = "1.000";
+                    }
+                }
+                else
+                {
+                    lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
+                    txtTipoCambio.Text = "1.000";
+                }
+                cboEntidadFinanciera.SelectedValue = 0;
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HabilitaControlBusqueda(true);
+            Limpiar();
+            dtpFechaCobro.Value = DateTime.Now;
         }
     }
 }

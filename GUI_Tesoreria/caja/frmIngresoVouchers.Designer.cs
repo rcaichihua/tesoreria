@@ -34,17 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GBPago = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtImporteEfectivo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnVerIngresos = new System.Windows.Forms.Button();
-            this.dtpFechaCobro = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDeposito = new System.Windows.Forms.DateTimePicker();
             this.cboConcepto = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -58,19 +47,20 @@
             this.txtNumDocumento = new System.Windows.Forms.TextBox();
             this.txtTipoCambio = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.txtCantidadDocumentos = new System.Windows.Forms.TextBox();
             this.txtObservacionesPago = new System.Windows.Forms.TextBox();
             this.txtTotalCambio = new System.Windows.Forms.TextBox();
             this.txtImportePago = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblTipoMoneda = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
+            this.txtImporteEfectivo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpFechaCobro = new System.Windows.Forms.DateTimePicker();
+            this.txtCantidadDocumentos = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvDepositos = new System.Windows.Forms.DataGridView();
             this.idIngresosEfectivoDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,25 +88,29 @@
             this.btnAsignar = new System.Windows.Forms.Button();
             this.dtpFechaDepoFiltroHasta = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTotalVoucher = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboPrograma = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnVerIngresos = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.GBPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepositos)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // GBPago
             // 
             this.GBPago.BackColor = System.Drawing.Color.Transparent;
-            this.GBPago.Controls.Add(this.label13);
-            this.GBPago.Controls.Add(this.label11);
-            this.GBPago.Controls.Add(this.label8);
-            this.GBPago.Controls.Add(this.label10);
-            this.GBPago.Controls.Add(this.txtImporteEfectivo);
-            this.GBPago.Controls.Add(this.label9);
-            this.GBPago.Controls.Add(this.label3);
-            this.GBPago.Controls.Add(this.btnEliminar);
-            this.GBPago.Controls.Add(this.label7);
-            this.GBPago.Controls.Add(this.btnVerIngresos);
-            this.GBPago.Controls.Add(this.dtpFechaCobro);
             this.GBPago.Controls.Add(this.dtpFechaDeposito);
             this.GBPago.Controls.Add(this.cboConcepto);
             this.GBPago.Controls.Add(this.label26);
@@ -130,13 +124,10 @@
             this.GBPago.Controls.Add(this.txtNumDocumento);
             this.GBPago.Controls.Add(this.txtTipoCambio);
             this.GBPago.Controls.Add(this.label31);
-            this.GBPago.Controls.Add(this.txtCantidadDocumentos);
             this.GBPago.Controls.Add(this.txtObservacionesPago);
             this.GBPago.Controls.Add(this.txtTotalCambio);
             this.GBPago.Controls.Add(this.txtImportePago);
             this.GBPago.Controls.Add(this.label29);
-            this.GBPago.Controls.Add(this.label2);
-            this.GBPago.Controls.Add(this.label1);
             this.GBPago.Controls.Add(this.label32);
             this.GBPago.Controls.Add(this.label12);
             this.GBPago.Controls.Add(this.lblTipoMoneda);
@@ -145,129 +136,10 @@
             this.GBPago.ForeColor = System.Drawing.Color.Maroon;
             this.GBPago.Location = new System.Drawing.Point(8, 12);
             this.GBPago.Name = "GBPago";
-            this.GBPago.Size = new System.Drawing.Size(656, 220);
+            this.GBPago.Size = new System.Drawing.Size(656, 135);
             this.GBPago.TabIndex = 0;
             this.GBPago.TabStop = false;
-            this.GBPago.Text = "Registro de deposito";
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label13.Location = new System.Drawing.Point(365, 188);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(14, 21);
-            this.label13.TabIndex = 13;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Navy;
-            this.label11.Location = new System.Drawing.Point(385, 192);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 13);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Asignado Parcial";
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.YellowGreen;
-            this.label8.Location = new System.Drawing.Point(489, 188);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(14, 21);
-            this.label8.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Navy;
-            this.label10.Location = new System.Drawing.Point(509, 192);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 13);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Asignado";
-            // 
-            // txtImporteEfectivo
-            // 
-            this.txtImporteEfectivo.BackColor = System.Drawing.Color.White;
-            this.txtImporteEfectivo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtImporteEfectivo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteEfectivo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtImporteEfectivo.Location = new System.Drawing.Point(187, 184);
-            this.txtImporteEfectivo.Name = "txtImporteEfectivo";
-            this.txtImporteEfectivo.ReadOnly = true;
-            this.txtImporteEfectivo.Size = new System.Drawing.Size(77, 21);
-            this.txtImporteEfectivo.TabIndex = 12;
-            this.txtImporteEfectivo.Text = "0.00";
-            this.txtImporteEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(293, 192);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 13);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Sin Asignar";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(73, 188);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
-            this.label3.TabIndex = 122;
-            this.label3.Text = "Importe Efectivo :";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.Navy;
-            this.btnEliminar.Location = new System.Drawing.Point(575, 184);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(74, 30);
-            this.btnEliminar.TabIndex = 14;
-            this.btnEliminar.Text = "&Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.Tomato;
-            this.label7.Location = new System.Drawing.Point(273, 188);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 21);
-            this.label7.TabIndex = 13;
-            // 
-            // btnVerIngresos
-            // 
-            this.btnVerIngresos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVerIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerIngresos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerIngresos.ForeColor = System.Drawing.Color.Navy;
-            this.btnVerIngresos.Location = new System.Drawing.Point(287, 132);
-            this.btnVerIngresos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnVerIngresos.Name = "btnVerIngresos";
-            this.btnVerIngresos.Size = new System.Drawing.Size(149, 22);
-            this.btnVerIngresos.TabIndex = 13;
-            this.btnVerIngresos.Text = "&Ver Ingresos";
-            this.btnVerIngresos.UseVisualStyleBackColor = false;
-            this.btnVerIngresos.Click += new System.EventHandler(this.btnVerIngresos_Click);
-            // 
-            // dtpFechaCobro
-            // 
-            this.dtpFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCobro.Location = new System.Drawing.Point(187, 133);
-            this.dtpFechaCobro.Name = "dtpFechaCobro";
-            this.dtpFechaCobro.Size = new System.Drawing.Size(94, 21);
-            this.dtpFechaCobro.TabIndex = 10;
+            this.GBPago.Text = "Registro de Vouchers";
             // 
             // dtpFechaDeposito
             // 
@@ -388,6 +260,7 @@
             this.cboModalidadPago.Name = "cboModalidadPago";
             this.cboModalidadPago.Size = new System.Drawing.Size(164, 21);
             this.cboModalidadPago.TabIndex = 0;
+            this.cboModalidadPago.SelectedIndexChanged += new System.EventHandler(this.cboModalidadPago_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -396,9 +269,9 @@
             this.label23.ForeColor = System.Drawing.Color.Navy;
             this.label23.Location = new System.Drawing.Point(14, 17);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(119, 13);
+            this.label23.Size = new System.Drawing.Size(137, 13);
             this.label23.TabIndex = 120;
-            this.label23.Text = "Modalidad de pago :";
+            this.label23.Text = "Tipo Registro voucher :";
             // 
             // txtNumDocumento
             // 
@@ -420,7 +293,6 @@
             this.txtTipoCambio.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtTipoCambio.Location = new System.Drawing.Point(279, 74);
             this.txtTipoCambio.Name = "txtTipoCambio";
-            this.txtTipoCambio.ReadOnly = true;
             this.txtTipoCambio.Size = new System.Drawing.Size(83, 21);
             this.txtTipoCambio.TabIndex = 6;
             this.txtTipoCambio.Text = "1.000";
@@ -439,19 +311,6 @@
             this.label31.TabIndex = 2;
             this.label31.Text = "Número de Documento :";
             // 
-            // txtCantidadDocumentos
-            // 
-            this.txtCantidadDocumentos.BackColor = System.Drawing.Color.White;
-            this.txtCantidadDocumentos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCantidadDocumentos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadDocumentos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCantidadDocumentos.Location = new System.Drawing.Point(187, 158);
-            this.txtCantidadDocumentos.Name = "txtCantidadDocumentos";
-            this.txtCantidadDocumentos.ReadOnly = true;
-            this.txtCantidadDocumentos.Size = new System.Drawing.Size(65, 21);
-            this.txtCantidadDocumentos.TabIndex = 11;
-            this.txtCantidadDocumentos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // txtObservacionesPago
             // 
             this.txtObservacionesPago.BackColor = System.Drawing.Color.White;
@@ -460,7 +319,7 @@
             this.txtObservacionesPago.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtObservacionesPago.Location = new System.Drawing.Point(187, 106);
             this.txtObservacionesPago.Name = "txtObservacionesPago";
-            this.txtObservacionesPago.Size = new System.Drawing.Size(446, 21);
+            this.txtObservacionesPago.Size = new System.Drawing.Size(452, 21);
             this.txtObservacionesPago.TabIndex = 9;
             // 
             // txtTotalCambio
@@ -471,6 +330,7 @@
             this.txtTotalCambio.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtTotalCambio.Location = new System.Drawing.Point(387, 74);
             this.txtTotalCambio.Name = "txtTotalCambio";
+            this.txtTotalCambio.ReadOnly = true;
             this.txtTotalCambio.Size = new System.Drawing.Size(77, 21);
             this.txtTotalCambio.TabIndex = 7;
             this.txtTotalCambio.Text = "0.000";
@@ -502,28 +362,6 @@
             this.label29.Size = new System.Drawing.Size(98, 13);
             this.label29.TabIndex = 2;
             this.label29.Text = "Tipo de cambio :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(27, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Cantidad de Documentos :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(90, 138);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Fecha de Caja :";
             // 
             // label32
             // 
@@ -569,37 +407,73 @@
             this.label30.TabIndex = 2;
             this.label30.Text = "Importe :";
             // 
-            // btnGuardar
+            // txtImporteEfectivo
             // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.Navy;
-            this.btnGuardar.Location = new System.Drawing.Point(507, 405);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(74, 32);
-            this.btnGuardar.TabIndex = 4;
-            this.btnGuardar.Text = "&Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.txtImporteEfectivo.BackColor = System.Drawing.Color.White;
+            this.txtImporteEfectivo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtImporteEfectivo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImporteEfectivo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtImporteEfectivo.Location = new System.Drawing.Point(200, 33);
+            this.txtImporteEfectivo.Name = "txtImporteEfectivo";
+            this.txtImporteEfectivo.ReadOnly = true;
+            this.txtImporteEfectivo.Size = new System.Drawing.Size(105, 21);
+            this.txtImporteEfectivo.TabIndex = 12;
+            this.txtImporteEfectivo.Text = "0.00";
+            this.txtImporteEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // btnSalir
+            // label3
             // 
-            this.btnSalir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Navy;
-            this.btnSalir.Location = new System.Drawing.Point(590, 405);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(74, 32);
-            this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(197, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 13);
+            this.label3.TabIndex = 122;
+            this.label3.Text = "Importe Efectivo :";
+            // 
+            // dtpFechaCobro
+            // 
+            this.dtpFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaCobro.Location = new System.Drawing.Point(9, 33);
+            this.dtpFechaCobro.Name = "dtpFechaCobro";
+            this.dtpFechaCobro.Size = new System.Drawing.Size(114, 21);
+            this.dtpFechaCobro.TabIndex = 10;
+            // 
+            // txtCantidadDocumentos
+            // 
+            this.txtCantidadDocumentos.BackColor = System.Drawing.Color.White;
+            this.txtCantidadDocumentos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCantidadDocumentos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidadDocumentos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCantidadDocumentos.Location = new System.Drawing.Point(129, 33);
+            this.txtCantidadDocumentos.Name = "txtCantidadDocumentos";
+            this.txtCantidadDocumentos.ReadOnly = true;
+            this.txtCantidadDocumentos.Size = new System.Drawing.Size(65, 21);
+            this.txtCantidadDocumentos.TabIndex = 11;
+            this.txtCantidadDocumentos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(141, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Nº Doc";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(6, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Fecha de Caja :";
             // 
             // dgvDepositos
             // 
@@ -621,12 +495,13 @@
             this.CantDocumentos,
             this.ImporteEfectivo,
             this.asignado});
-            this.dgvDepositos.Location = new System.Drawing.Point(8, 238);
+            this.dgvDepositos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDepositos.Location = new System.Drawing.Point(3, 17);
             this.dgvDepositos.Name = "dgvDepositos";
             this.dgvDepositos.ReadOnly = true;
-            this.dgvDepositos.RowHeadersWidth = 24;
+            this.dgvDepositos.RowHeadersWidth = 5;
             this.dgvDepositos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDepositos.Size = new System.Drawing.Size(656, 155);
+            this.dgvDepositos.Size = new System.Drawing.Size(650, 183);
             this.dgvDepositos.TabIndex = 1;
             this.dgvDepositos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDepositos_CellFormatting);
             // 
@@ -652,7 +527,6 @@
             this.desc_mod_Pago.HeaderText = "Mod Pago";
             this.desc_mod_Pago.Name = "desc_mod_Pago";
             this.desc_mod_Pago.ReadOnly = true;
-            this.desc_mod_Pago.Visible = false;
             // 
             // nombre_entidad
             // 
@@ -756,9 +630,9 @@
             // dtpFechaDepoFiltroDesde
             // 
             this.dtpFechaDepoFiltroDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDepoFiltroDesde.Location = new System.Drawing.Point(60, 405);
+            this.dtpFechaDepoFiltroDesde.Location = new System.Drawing.Point(56, 23);
             this.dtpFechaDepoFiltroDesde.Name = "dtpFechaDepoFiltroDesde";
-            this.dtpFechaDepoFiltroDesde.Size = new System.Drawing.Size(78, 20);
+            this.dtpFechaDepoFiltroDesde.Size = new System.Drawing.Size(111, 21);
             this.dtpFechaDepoFiltroDesde.TabIndex = 2;
             // 
             // label4
@@ -766,7 +640,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(12, 409);
+            this.label4.Location = new System.Drawing.Point(8, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 122;
@@ -779,12 +653,15 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Navy;
-            this.btnBuscar.Location = new System.Drawing.Point(275, 400);
+            this.btnBuscar.Image = global::GUI_Tesoreria.Properties.Resources.buscar;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(335, 19);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(74, 30);
+            this.btnBuscar.Size = new System.Drawing.Size(74, 35);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "&Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -795,9 +672,10 @@
             this.groupBox1.Controls.Add(this.dtpDesde);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.btnAsignar);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox1.Location = new System.Drawing.Point(8, 453);
+            this.groupBox1.Location = new System.Drawing.Point(8, 548);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(656, 57);
             this.groupBox1.TabIndex = 123;
@@ -807,9 +685,9 @@
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(234, 20);
+            this.dtpHasta.Location = new System.Drawing.Point(241, 20);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(94, 21);
+            this.dtpHasta.Size = new System.Drawing.Size(106, 21);
             this.dtpHasta.TabIndex = 12;
             // 
             // label6
@@ -817,7 +695,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(180, 26);
+            this.label6.Location = new System.Drawing.Point(187, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 11;
@@ -828,7 +706,7 @@
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDesde.Location = new System.Drawing.Point(73, 20);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(94, 21);
+            this.dtpDesde.Size = new System.Drawing.Size(108, 21);
             this.dtpDesde.TabIndex = 12;
             // 
             // button1
@@ -838,12 +716,15 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Navy;
-            this.button1.Location = new System.Drawing.Point(335, 17);
+            this.button1.Image = global::GUI_Tesoreria.Properties.Resources.compararV;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(354, 13);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 30);
+            this.button1.Size = new System.Drawing.Size(101, 39);
             this.button1.TabIndex = 3;
             this.button1.Text = "&Comparar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -865,21 +746,22 @@
             this.btnAsignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsignar.ForeColor = System.Drawing.Color.Navy;
-            this.btnAsignar.Location = new System.Drawing.Point(363, 398);
+            this.btnAsignar.Location = new System.Drawing.Point(561, 12);
             this.btnAsignar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAsignar.Name = "btnAsignar";
-            this.btnAsignar.Size = new System.Drawing.Size(136, 47);
+            this.btnAsignar.Size = new System.Drawing.Size(81, 39);
             this.btnAsignar.TabIndex = 13;
             this.btnAsignar.Text = "&Asignar Vouchers por recibo";
             this.btnAsignar.UseVisualStyleBackColor = false;
+            this.btnAsignar.Visible = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // dtpFechaDepoFiltroHasta
             // 
             this.dtpFechaDepoFiltroHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDepoFiltroHasta.Location = new System.Drawing.Point(190, 405);
+            this.dtpFechaDepoFiltroHasta.Location = new System.Drawing.Point(219, 23);
             this.dtpFechaDepoFiltroHasta.Name = "dtpFechaDepoFiltroHasta";
-            this.dtpFechaDepoFiltroHasta.Size = new System.Drawing.Size(78, 20);
+            this.dtpFechaDepoFiltroHasta.Size = new System.Drawing.Size(109, 21);
             this.dtpFechaDepoFiltroHasta.TabIndex = 2;
             // 
             // label14
@@ -887,27 +769,227 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Navy;
-            this.label14.Location = new System.Drawing.Point(144, 409);
+            this.label14.Location = new System.Drawing.Point(173, 27);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 13);
             this.label14.TabIndex = 122;
             this.label14.Text = "Hasta";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.txtTotalVoucher);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.cboPrograma);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.btnGuardar);
+            this.groupBox2.Controls.Add(this.txtCantidadDocumentos);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.dtpFechaCobro);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btnVerIngresos);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.txtImporteEfectivo);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox2.Location = new System.Drawing.Point(8, 153);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(656, 114);
+            this.groupBox2.TabIndex = 124;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Búsqueda de pagos por fecha";
+            // 
+            // txtTotalVoucher
+            // 
+            this.txtTotalVoucher.BackColor = System.Drawing.Color.White;
+            this.txtTotalVoucher.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTotalVoucher.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalVoucher.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtTotalVoucher.Location = new System.Drawing.Point(528, 87);
+            this.txtTotalVoucher.Name = "txtTotalVoucher";
+            this.txtTotalVoucher.ReadOnly = true;
+            this.txtTotalVoucher.Size = new System.Drawing.Size(122, 21);
+            this.txtTotalVoucher.TabIndex = 128;
+            this.txtTotalVoucher.Text = "0.00";
+            this.txtTotalVoucher.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Navy;
+            this.label7.Location = new System.Drawing.Point(401, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 13);
+            this.label7.TabIndex = 127;
+            this.label7.Text = "Suma Total cambio :";
+            // 
+            // cboPrograma
+            // 
+            this.cboPrograma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPrograma.BackColor = System.Drawing.Color.White;
+            this.cboPrograma.DropDownHeight = 200;
+            this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrograma.DropDownWidth = 400;
+            this.cboPrograma.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPrograma.ForeColor = System.Drawing.Color.Black;
+            this.cboPrograma.FormattingEnabled = true;
+            this.cboPrograma.IntegralHeight = false;
+            this.cboPrograma.Items.AddRange(new object[] {
+            "[seleccione]"});
+            this.cboPrograma.Location = new System.Drawing.Point(315, 33);
+            this.cboPrograma.Name = "cboPrograma";
+            this.cboPrograma.Size = new System.Drawing.Size(324, 21);
+            this.cboPrograma.TabIndex = 126;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Navy;
+            this.label15.Location = new System.Drawing.Point(311, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 13);
+            this.label15.TabIndex = 125;
+            this.label15.Text = "Programa :";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Navy;
+            this.btnGuardar.Image = global::GUI_Tesoreria.Properties.Resources.guardarDoc;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(134, 60);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(107, 45);
+            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.Text = "&Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Navy;
+            this.button2.Image = global::GUI_Tesoreria.Properties.Resources.nuevodoc;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(249, 60);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(145, 45);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "&Nueva búsqueda";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnVerIngresos
+            // 
+            this.btnVerIngresos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnVerIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerIngresos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerIngresos.ForeColor = System.Drawing.Color.Navy;
+            this.btnVerIngresos.Image = global::GUI_Tesoreria.Properties.Resources.verdepositos;
+            this.btnVerIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerIngresos.Location = new System.Drawing.Point(9, 60);
+            this.btnVerIngresos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnVerIngresos.Name = "btnVerIngresos";
+            this.btnVerIngresos.Size = new System.Drawing.Size(117, 45);
+            this.btnVerIngresos.TabIndex = 13;
+            this.btnVerIngresos.Text = "&Ver Ingresos";
+            this.btnVerIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerIngresos.UseVisualStyleBackColor = false;
+            this.btnVerIngresos.Click += new System.EventHandler(this.btnVerIngresos_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.dgvDepositos);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox3.Location = new System.Drawing.Point(8, 273);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(656, 203);
+            this.groupBox3.TabIndex = 146;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Listado de modalidades de pago";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Navy;
+            this.btnSalir.Image = global::GUI_Tesoreria.Properties.Resources.salirDoc;
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(546, 18);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(102, 35);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = "&Cancelar";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Navy;
+            this.btnEliminar.Image = global::GUI_Tesoreria.Properties.Resources.eliminarV;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(435, 18);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(102, 35);
+            this.btnEliminar.TabIndex = 14;
+            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnEliminar);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.btnSalir);
+            this.groupBox4.Controls.Add(this.dtpFechaDepoFiltroHasta);
+            this.groupBox4.Controls.Add(this.btnBuscar);
+            this.groupBox4.Controls.Add(this.dtpFechaDepoFiltroDesde);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox4.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox4.Location = new System.Drawing.Point(8, 482);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(656, 60);
+            this.groupBox4.TabIndex = 147;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Filtro de vouchers por fecha de Documentos origen";
+            // 
             // frmIngresoVouchers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 522);
+            this.ClientSize = new System.Drawing.Size(673, 617);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dtpFechaDepoFiltroHasta);
-            this.Controls.Add(this.dtpFechaDepoFiltroDesde);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnAsignar);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.dgvDepositos);
             this.Controls.Add(this.GBPago);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -921,8 +1003,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepositos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -971,10 +1057,13 @@
         internal System.Windows.Forms.Button button1;
         internal System.Windows.Forms.Label label5;
         internal System.Windows.Forms.Button btnAsignar;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtpFechaDepoFiltroHasta;
+        internal System.Windows.Forms.Label label14;
+        internal System.Windows.Forms.GroupBox groupBox2;
+        internal System.Windows.Forms.ComboBox cboPrograma;
+        internal System.Windows.Forms.Label label15;
+        internal System.Windows.Forms.Button button2;
+        internal System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn idIngresosEfectivoDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn desc_mod_Pago;
@@ -989,9 +1078,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CantDocumentos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteEfectivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn asignado;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dtpFechaDepoFiltroHasta;
-        internal System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox4;
+        internal System.Windows.Forms.TextBox txtTotalVoucher;
+        internal System.Windows.Forms.Label label7;
     }
 }

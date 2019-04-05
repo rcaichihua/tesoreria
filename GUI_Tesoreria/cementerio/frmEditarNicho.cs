@@ -76,13 +76,13 @@ namespace GUI_Tesoreria.cementerio
                 if (cn.EjecutarSP("usp_actualizar_nicho", txtCodigoCuartel.Text, txtFila.Text, txtColumna.Text,
                     cboMaterial.SelectedValue, cboEstado.SelectedValue, txtObservacion.Text) > 0)
                 {
-                    MessageBox.Show("Actualizado correctamente.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error. Intente de nuevo.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error. Intente de nuevo.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }

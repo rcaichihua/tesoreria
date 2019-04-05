@@ -27,7 +27,7 @@ namespace GUI_Tesoreria.menus
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            result = MessageBox.Show(message, caption, buttons,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
+            result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -138,7 +138,7 @@ namespace GUI_Tesoreria.menus
             }
             else
             {
-                MessageBox.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
         private void M2_Click(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace GUI_Tesoreria.menus
             }
            else
             {
-                MessageBox.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -213,7 +213,7 @@ namespace GUI_Tesoreria.menus
             }
               else
             {
-                MessageBox.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -251,7 +251,7 @@ namespace GUI_Tesoreria.menus
             }
             else
             {
-                MessageBox.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene acceso", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -303,7 +303,7 @@ namespace GUI_Tesoreria.menus
 
         private void lblCuadroMando_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("En mantenimiento", VariablesMetodosEstaticos.encabezado,
+            DevComponents.DotNetBar.MessageBoxEx.Show("En mantenimiento", VariablesMetodosEstaticos.encabezado,
                 MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 

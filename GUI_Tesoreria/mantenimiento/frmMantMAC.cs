@@ -63,7 +63,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -80,7 +80,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -133,7 +133,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             else
             {
-                MessageBox.Show("No hay resultados para la consulta", VariablesMetodosEstaticos.encabezado
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay resultados para la consulta", VariablesMetodosEstaticos.encabezado
                     , MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mtbMacC.Focus();
             }
@@ -153,7 +153,7 @@ namespace GUI_Tesoreria.mantenimiento
                 if (ctrl != null)
                 {
                     int TamañoNombre = ctrl.Name.Length;
-                    MessageBox.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
                     ctrl.Focus();
                     return;
                 }
@@ -164,7 +164,7 @@ namespace GUI_Tesoreria.mantenimiento
 
                     if (Valor.ToString() == cboDocumentos.SelectedValue.ToString())
                     {
-                        MessageBox.Show("El tipo de documento ya se cuentra ingresado, verifique !!", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El tipo de documento ya se cuentra ingresado, verifique !!", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                 }
@@ -213,7 +213,7 @@ namespace GUI_Tesoreria.mantenimiento
                     {
                         cn.EjecutarSP("usp_elimina_mac_detalle_x_id", dgvMac["detalleMacId", dgvMac.CurrentRow.Index].Value);
 
-                        MessageBox.Show("Registro eliminado correctamente!.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Registro eliminado correctamente!.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     dgvMac.Rows.RemoveAt(dgvMac.CurrentRow.Index);
                     dgvMac.Update();
@@ -221,7 +221,7 @@ namespace GUI_Tesoreria.mantenimiento
                 }
                 else
                 {
-                    MessageBox.Show("No existe datos para eliminar, verifique !!", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No existe datos para eliminar, verifique !!", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception)
@@ -237,7 +237,7 @@ namespace GUI_Tesoreria.mantenimiento
             {
                 if (txtIdC.Text != string.Empty)
                 {
-                    if ((MessageBox.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         DataTable resultado = new DataTable();
@@ -251,7 +251,7 @@ namespace GUI_Tesoreria.mantenimiento
 
                         if (resultado.Rows[0][0].ToString() == "OK")
                         {
-                            MessageBox.Show("Eliminado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             button1_Click(sender, e);
                         }
                         else
@@ -260,11 +260,11 @@ namespace GUI_Tesoreria.mantenimiento
                             {
                                 varGlobales var = new varGlobales();
 
-                                MessageBox.Show(var.mensajeError(Convert.ToInt32(resultado.Rows[0][0])), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                DevComponents.DotNetBar.MessageBoxEx.Show(var.mensajeError(Convert.ToInt32(resultado.Rows[0][0])), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                             {
-                                MessageBox.Show("Error desconocido, contacto con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Error desconocido, contacto con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
@@ -302,7 +302,7 @@ namespace GUI_Tesoreria.mantenimiento
             {
                 if (cboSucursal.SelectedIndex==0)
                 {
-                    MessageBox.Show("Seleccione una sucursal.", VariablesMetodosEstaticos.encabezado
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una sucursal.", VariablesMetodosEstaticos.encabezado
                                 , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cboSucursal.Focus();
                     return;
@@ -313,7 +313,7 @@ namespace GUI_Tesoreria.mantenimiento
 
                     if (mtbMaC.Text.Trim() == "-  -  -  -  -" || txtDescripcionCompuC.Text == string.Empty)
                     {
-                        MessageBox.Show("Falta ingresa el codigo MAC o su descripción, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Falta ingresa el codigo MAC o su descripción, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -330,7 +330,7 @@ namespace GUI_Tesoreria.mantenimiento
 
                         if (resul > 1)
                         {
-                            MessageBox.Show("Ha ocurrido un error inesperado, contacte con sistemas.", VariablesMetodosEstaticos.encabezado
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error inesperado, contacte con sistemas.", VariablesMetodosEstaticos.encabezado
                                 , MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
@@ -343,7 +343,7 @@ namespace GUI_Tesoreria.mantenimiento
 
                         if (resul != 0)
                         {
-                            MessageBox.Show("Ha ocurrido un error inesperado, contacte con sistemas.", VariablesMetodosEstaticos.encabezado
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error inesperado, contacte con sistemas.", VariablesMetodosEstaticos.encabezado
                                 , MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
@@ -356,11 +356,11 @@ namespace GUI_Tesoreria.mantenimiento
 
                         if (resul > 0)
                         {
-                            MessageBox.Show("Cabecera actualizado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Cabecera actualizado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("No se actualizo, verifique o intente de nuevo.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No se actualizo, verifique o intente de nuevo.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                     }
@@ -375,7 +375,7 @@ namespace GUI_Tesoreria.mantenimiento
                             {
                                 cn.EjecutarSP("usp_i_mac_detalle", idMac, Row.Cells["Cod_TipoDocVenta"].Value, Row.Cells["nro_serie_ult"].Value, Row.Cells["nro_comprobante_ult"].Value);
                             }
-                            MessageBox.Show("Ingresado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             buscarMac(mtbMaC.Text.ToString().Replace("-", ""));
                         }
@@ -384,7 +384,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (SqlException ex)
             {
-                    MessageBox.Show("Error: " + varglo.mensajeError(Convert.ToInt32(ex.Errors[0].Number)), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Error: " + varglo.mensajeError(Convert.ToInt32(ex.Errors[0].Number)), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             
         }

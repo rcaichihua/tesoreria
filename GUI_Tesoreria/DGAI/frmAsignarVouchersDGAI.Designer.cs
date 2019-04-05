@@ -32,6 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAsigna = new System.Windows.Forms.DataGridView();
+            this.ReciboID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Recibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Solicitante_ReciboCabecera = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.grbSeleccionar = new System.Windows.Forms.GroupBox();
             this.rdbNinguno = new System.Windows.Forms.RadioButton();
@@ -39,11 +44,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.ReciboID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Recibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Solicitante_ReciboCabecera = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblNroRecibos = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -91,6 +91,51 @@
             this.dgvAsigna.TabIndex = 4;
             this.dgvAsigna.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsigna_CellValueChanged);
             this.dgvAsigna.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvAsigna_CurrentCellDirtyStateChanged);
+            // 
+            // ReciboID
+            // 
+            this.ReciboID.DataPropertyName = "ReciboID";
+            this.ReciboID.HeaderText = "ID";
+            this.ReciboID.Name = "ReciboID";
+            this.ReciboID.ReadOnly = true;
+            this.ReciboID.Visible = false;
+            // 
+            // Recibo
+            // 
+            this.Recibo.DataPropertyName = "Recibo";
+            this.Recibo.HeaderText = "Recibo";
+            this.Recibo.Name = "Recibo";
+            this.Recibo.ReadOnly = true;
+            // 
+            // Solicitante_ReciboCabecera
+            // 
+            this.Solicitante_ReciboCabecera.DataPropertyName = "Solicitante_ReciboCabecera";
+            this.Solicitante_ReciboCabecera.HeaderText = "Solicitante_ReciboCabecera";
+            this.Solicitante_ReciboCabecera.Name = "Solicitante_ReciboCabecera";
+            this.Solicitante_ReciboCabecera.ReadOnly = true;
+            this.Solicitante_ReciboCabecera.Width = 250;
+            // 
+            // Importe
+            // 
+            this.Importe.DataPropertyName = "Importe";
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            // 
+            // seleccion
+            // 
+            this.seleccion.DataPropertyName = "seleccion";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = false;
+            this.seleccion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.seleccion.FalseValue = "0";
+            this.seleccion.HeaderText = "Select";
+            this.seleccion.IndeterminateValue = "0";
+            this.seleccion.Name = "seleccion";
+            this.seleccion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccion.TrueValue = "1";
+            this.seleccion.Width = 60;
             // 
             // btnGuardar
             // 
@@ -189,51 +234,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Total a asignar";
             // 
-            // ReciboID
-            // 
-            this.ReciboID.DataPropertyName = "ReciboID";
-            this.ReciboID.HeaderText = "ID";
-            this.ReciboID.Name = "ReciboID";
-            this.ReciboID.ReadOnly = true;
-            this.ReciboID.Visible = false;
-            // 
-            // Recibo
-            // 
-            this.Recibo.DataPropertyName = "Recibo";
-            this.Recibo.HeaderText = "Recibo";
-            this.Recibo.Name = "Recibo";
-            this.Recibo.ReadOnly = true;
-            // 
-            // Solicitante_ReciboCabecera
-            // 
-            this.Solicitante_ReciboCabecera.DataPropertyName = "Solicitante_ReciboCabecera";
-            this.Solicitante_ReciboCabecera.HeaderText = "Solicitante_ReciboCabecera";
-            this.Solicitante_ReciboCabecera.Name = "Solicitante_ReciboCabecera";
-            this.Solicitante_ReciboCabecera.ReadOnly = true;
-            this.Solicitante_ReciboCabecera.Width = 250;
-            // 
-            // Importe
-            // 
-            this.Importe.DataPropertyName = "Importe";
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
-            // 
-            // seleccion
-            // 
-            this.seleccion.DataPropertyName = "seleccion";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = false;
-            this.seleccion.DefaultCellStyle = dataGridViewCellStyle2;
-            this.seleccion.FalseValue = "0";
-            this.seleccion.HeaderText = "Select";
-            this.seleccion.IndeterminateValue = "0";
-            this.seleccion.Name = "seleccion";
-            this.seleccion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.seleccion.TrueValue = "1";
-            this.seleccion.Width = 60;
-            // 
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -254,7 +254,7 @@
             // 
             this.lblNroRecibos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroRecibos.ForeColor = System.Drawing.Color.Navy;
-            this.lblNroRecibos.Location = new System.Drawing.Point(152, 18);
+            this.lblNroRecibos.Location = new System.Drawing.Point(188, 18);
             this.lblNroRecibos.Name = "lblNroRecibos";
             this.lblNroRecibos.Size = new System.Drawing.Size(67, 15);
             this.lblNroRecibos.TabIndex = 124;
@@ -267,12 +267,12 @@
             this.label7.ForeColor = System.Drawing.Color.Navy;
             this.label7.Location = new System.Drawing.Point(12, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 15);
+            this.label7.Size = new System.Drawing.Size(170, 15);
             this.label7.TabIndex = 123;
-            this.label7.Text = "Cantidad de recibos: ";
+            this.label7.Text = "Cantidad de Documentos: ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // frmAsignarVouchers
+            // frmAsignarVouchersDGAI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -287,7 +287,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "frmAsignarVouchers";
+            this.Name = "frmAsignarVouchersDGAI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAsignarVouchers";
             this.Load += new System.EventHandler(this.frmAsignarVouchers_Load);

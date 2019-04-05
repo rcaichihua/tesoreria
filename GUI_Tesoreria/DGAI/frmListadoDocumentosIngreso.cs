@@ -68,7 +68,7 @@ namespace GUI_Tesoreria.DGAI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }
         }
 
@@ -105,12 +105,12 @@ namespace GUI_Tesoreria.DGAI
 
             indice = dgvCabecera.CurrentRow.Index;
 
-            if ((MessageBox.Show("¿Esta seguro de anular el documento de ingreso Nº " + dgvCabecera.Rows[dgvCabecera.CurrentRow.Index].Cells[1].Value + "?", VariablesMetodosEstaticos.encabezado,
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de anular el documento de ingreso Nº " + dgvCabecera.Rows[dgvCabecera.CurrentRow.Index].Cells[1].Value + "?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
                 cn.EjecutarSP("usp_anular_documento_ingreso", dgvCabecera.Rows[indice].Cells[0].Value);
 
-                MessageBox.Show("Anulado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Anulado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 buscar();
             }

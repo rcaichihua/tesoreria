@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BL_Tesoreria;
+using GUI_Tesoreria.caja;
 
 namespace GUI_Tesoreria.DGAI
 {
@@ -42,16 +43,17 @@ namespace GUI_Tesoreria.DGAI
                 {
                     AsignaReteText();
 
-                    dtIngCajerosSGI = cn.TraerDataset("usp_obtiene_liquidacion_por_cajero_generado", dtpHasta.Value.ToShortDateString()).Tables[0];
+                    dtIngCajerosSGI = cn.TraerDataset("usp_obtiene_liquidacion_por_cajero_generado", dtpHasta.Value.ToString("yyyyMMdd")).Tables[0];
 
                     if (dtIngCajerosSGI.Rows.Count <= 0)
                     {
-                        MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dgvIngresosxCajero.DataSource = dtIngCajerosSGI;
                         btnAsignar.Enabled = false;
                         txtRetencion.ReadOnly = false;
                         btnGenerarDoscIngreso.Enabled = false;
                         lblNro.Text = "0000000";
+                        lblIdLiquidacion.Text = "0";
                         sumarColumnas(true);
                         return;
                     }
@@ -66,16 +68,18 @@ namespace GUI_Tesoreria.DGAI
                 else
                 {
                     txtRetencion.Text = "0.00";
-                    dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_POR_CAJERO", dtpFechaDesde.Value.ToShortDateString(), dtpHasta.Value.ToShortDateString()).Tables[0];
+                    dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_POR_CAJERO", dtpFechaDesde.Value.ToString("yyyyMMdd"), 
+                        dtpHasta.Value.ToString("yyyyMMdd")).Tables[0];
 
                     if (dtIngCajerosSGI.Rows.Count <= 0)
                     {
-                        MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dgvIngresosxCajero.DataSource = dtIngCajerosSGI;
                         btnAsignar.Enabled = false;
                         txtRetencion.ReadOnly = false;
                         btnGenerarDoscIngreso.Enabled = false;
                         lblNro.Text = "0000000";
+                        lblIdLiquidacion.Text = "0";
                         sumarColumnas(false);
                         return;
                     }
@@ -86,11 +90,12 @@ namespace GUI_Tesoreria.DGAI
                     txtRetencion.ReadOnly = false;
                     btnGenerarDoscIngreso.Enabled = false;
                     lblNro.Text = "0000000";
+                    lblIdLiquidacion.Text = "0";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }
         }
 
@@ -100,7 +105,7 @@ namespace GUI_Tesoreria.DGAI
             {
                 foreach (DataGridViewRow row in dgvIngresosxCajero.Rows)
                 { 
-                    //SON ASIGNAR
+                    //SIN ASIGNAR
                     if (Convert.ToInt32(row.Cells["IDLIQUIDACION"].Value) == 0)
                     {
                         row.DefaultCellStyle.BackColor = Color.Gainsboro;
@@ -132,7 +137,7 @@ namespace GUI_Tesoreria.DGAI
 
         private void AsignaReteText()
         {
-            txtRetencion.Text = obtieneRetencion(dtpHasta.Value).ToString("##,##0.00");
+            txtRetencion.Text = obtieneRetencion(dtpHasta.Value).ToString("###,###,##0.00");
         }
 
         private void sumarColumnas(bool liqui)
@@ -168,7 +173,7 @@ namespace GUI_Tesoreria.DGAI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }
         }
 
@@ -187,12 +192,13 @@ namespace GUI_Tesoreria.DGAI
             if (dgvIngresosxCajero.Rows.Count > 0)
             {
                 DGAI.frmIngresoVouchersDGAI win = new DGAI.frmIngresoVouchersDGAI();
+                //frmIngresoVouchers win = new frmIngresoVouchers();
                 win.cantDoc = Convert.ToInt32(dgvIngresosxCajero.Rows[dgvIngresosxCajero.CurrentRow.Index].Cells[7].Value);
                 win.fechaLiquidacionDGAI = Convert.ToDateTime(dgvIngresosxCajero.Rows[dgvIngresosxCajero.CurrentRow.Index].Cells[8].Value);
                 win.importe = Convert.ToDecimal(dgvIngresosxCajero.Rows[dgvIngresosxCajero.CurrentRow.Index].Cells[6].Value) - Convert.ToDecimal(dgvIngresosxCajero.Rows[dgvIngresosxCajero.CurrentRow.Index].Cells[9].Value);
                 win.idCobradorDGAI = Convert.ToInt32(dgvIngresosxCajero.Rows[dgvIngresosxCajero.CurrentRow.Index].Cells[0].Value);
                 win.idCajeroIngresoVouchers = VariablesMetodosEstaticos.idcajausuario;
-                win.idLiquidacion = Convert.ToInt32(cn.TraerDataset("usp_obtiene_Id_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0]);
+                win.idLiquidacion = Convert.ToInt32(lblIdLiquidacion.Text);//Convert.ToInt32(cn.TraerDataset("usp_obtiene_Id_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0]);
                 win.habilita = true;
                 win.ShowDialog();
                 BtnBuscar_Click(sender, e);
@@ -208,7 +214,7 @@ namespace GUI_Tesoreria.DGAI
         {
             if (Convert.ToDecimal(txtRetencion.Text) > Convert.ToDecimal(txtTotal.Text))
             {
-                MessageBox.Show("La retencion no puede ser mayor al total ingresado.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("La retencion no puede ser mayor al total ingresado.", VariablesMetodosEstaticos.encabezado,
                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRetencion.SelectAll();
                 return;
@@ -216,19 +222,19 @@ namespace GUI_Tesoreria.DGAI
 
             if (BuscarLiquidacion())
             {
-                MessageBox.Show("Ya se encuentra generado la liquidacion del día " + dtpHasta.Value.ToShortDateString() + ".", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ya se encuentra generado la liquidacion del día " + dtpHasta.Value.ToShortDateString() + ".", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (dgvIngresosxCajero.Rows.Count == 0)
             {
-                MessageBox.Show("No hay datos para procesar con fecha " + dtpHasta.Value.ToShortDateString() + ".", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para procesar con fecha " + dtpHasta.Value.ToShortDateString() + ".", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if ((MessageBox.Show("¿Esta seguro de generar la liquidación de DGAI del dia " + dtpHasta.Value.ToShortDateString() +
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de generar la liquidación de DGAI del dia " + dtpHasta.Value.ToShortDateString() +
                 "? . Una vez generado no se podra anular. Si desea anular contacte con Sistemas.", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
@@ -240,7 +246,7 @@ namespace GUI_Tesoreria.DGAI
 
                 if (!resuNum)
                 {
-                    MessageBox.Show("Ingrese un importe de pago válido");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe de pago válido");
                     txtRetencion.Focus();
                     return;
                 }
@@ -257,18 +263,18 @@ namespace GUI_Tesoreria.DGAI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
                 }
 
 
                 if (nro_liquidacion == "0000000")
                 {
-                    MessageBox.Show("Ocurrio un error al generar la liquidación. Intene de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error al generar la liquidación. Intene de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                MessageBox.Show("Se generó el nro de liquidación " + nro_liquidacion.ToString() + " correctamente.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Se generó el nro de liquidación " + nro_liquidacion.ToString() + " correctamente.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 lblNro.Text = nro_liquidacion;
@@ -285,10 +291,11 @@ namespace GUI_Tesoreria.DGAI
         bool BuscarLiquidacion()
         {
             dtBusqLiq = new DataTable();
-            dtBusqLiq = cn.TraerDataset("usp_buscar_liquidacion_dgai", dtpHasta.Value.ToShortDateString()).Tables[0];
+            dtBusqLiq = cn.TraerDataset("usp_buscar_liquidacion_dgai", dtpHasta.Value.ToString("yyyyMMdd")).Tables[0];
             if (dtBusqLiq.Rows.Count != 0)
             {
-                lblNro.Text = Convert.ToInt32(dtBusqLiq.Rows[0][0]).ToString("0000000");
+                lblNro.Text = Convert.ToInt32(dtBusqLiq.Rows[0][1]).ToString("0000000");
+                lblIdLiquidacion.Text = dtBusqLiq.Rows[0][0].ToString();
                 return true;
             }
             return false;
@@ -321,45 +328,45 @@ namespace GUI_Tesoreria.DGAI
                 if (filtro_ != "" && lblNro.Text != "0000000")
                 {
                     frmPosibleResumen win = new frmPosibleResumen();
-                    win.dtResultado = cn.TraerDataset("usp_obtiene_detraccion_liquidacion", Convert.ToInt32(cn.TraerDataset("usp_obtiene_Id_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0]), filtro_).Tables[0];
+                    win.dtResultado = cn.TraerDataset("usp_obtiene_detraccion_liquidacion", Convert.ToInt32(lblIdLiquidacion.Text)/*Convert.ToInt32(cn.TraerDataset("usp_obtiene_Id_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0])*/, filtro_).Tables[0];
                     win.ShowDialog();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }         
         }
 
         private void btnIngresosPorRubro_Click(object sender, EventArgs e)
         {
-            if (revisarIngresoDeposito())
-            {
-                MessageBox.Show("No se han asignado por completo los voucher o medios de pagos.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (lblNro.Text == "0000000")
-            {
-                MessageBox.Show("No se ha asignado un número de liquidación a la fecha seleccionada.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            saldoRecibo = (Convert.ToDecimal(txtTotal.Text) + Convert.ToDecimal(txtRetencion.Text) + Convert.ToDecimal(txtDifDep.Text)) - (Convert.ToDecimal(cn.TraerDataset("usp_obtiene_total_por_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0]));
+            //if (revisarIngresoDeposito())
+            //{
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("No se han asignado por completo los voucher o medios de pagos.", VariablesMetodosEstaticos.encabezado,
+            //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //if (lblNro.Text == "0000000")
+            //{
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("No se ha asignado un número de liquidación a la fecha seleccionada.", VariablesMetodosEstaticos.encabezado,
+            //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //saldoRecibo = (Convert.ToDecimal(txtTotal.Text) + Convert.ToDecimal(txtRetencion.Text) + Convert.ToDecimal(txtDifDep.Text)) - (Convert.ToDecimal(cn.TraerDataset("usp_obtiene_total_por_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0]));
             
-            if (saldoRecibo==0.00m)
-            {
-                MessageBox.Show("No se puede generar documento de ingreso debido a que ya no tiene saldo pendiente por asignar.", VariablesMetodosEstaticos.encabezado,
-                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (saldoRecibo==0.00m)
+            //{
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede generar documento de ingreso debido a que ya no tiene saldo pendiente por asignar.", VariablesMetodosEstaticos.encabezado,
+            //           MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
-            frmIngresoRubrosPorLiquidacion win = new frmIngresoRubrosPorLiquidacion();
-            win.saldoLiquidacion = (Convert.ToDecimal(txtTotal.Text) + Convert.ToDecimal(txtRetencion.Text) + Convert.ToDecimal(txtDifDep.Text)) - (Convert.ToDecimal(cn.TraerDataset("usp_obtiene_total_por_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0]));
-            win.TotalLiquidacion = Convert.ToDecimal(txtTotal.Text) + Convert.ToDecimal(txtRetencion.Text) + Convert.ToDecimal(txtDifDep.Text);
-            win.NroLiquidacion = Convert.ToInt32(lblNro.Text);
-            win.NroReciboLiquidacion = Convert.ToInt32(cn.TraerDataset("usp_obtieneNumeroIngresoDGAI").Tables[0].Rows[0][0]);
-            win.ShowDialog();
+            //frmIngresoRubrosPorLiquidacion win = new frmIngresoRubrosPorLiquidacion();
+            //win.saldoLiquidacion = (Convert.ToDecimal(txtTotal.Text) + Convert.ToDecimal(txtRetencion.Text) + Convert.ToDecimal(txtDifDep.Text)) - (Convert.ToDecimal(cn.TraerDataset("usp_obtiene_total_por_liquidacion_dgai", Convert.ToInt32(lblNro.Text)).Tables[0].Rows[0][0]));
+            //win.TotalLiquidacion = Convert.ToDecimal(txtTotal.Text) + Convert.ToDecimal(txtRetencion.Text) + Convert.ToDecimal(txtDifDep.Text);
+            //win.NroLiquidacion = Convert.ToInt32(lblNro.Text);
+            //win.NroReciboLiquidacion = Convert.ToInt32(cn.TraerDataset("usp_obtieneNumeroIngresoDGAI").Tables[0].Rows[0][0]);
+            //win.ShowDialog();
         }
 
         private bool revisarIngresoDeposito()
@@ -387,7 +394,7 @@ namespace GUI_Tesoreria.DGAI
 
             if (dtLiquidaciones.Rows.Count == 0)
             {
-                MessageBox.Show("No hay datos.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -401,16 +408,21 @@ namespace GUI_Tesoreria.DGAI
 
         private void btnListDoc_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(lblNro.Text) == 0)
-            {
-                MessageBox.Show("Seleccione un Numero de liquidación válido.", VariablesMetodosEstaticos.encabezado,
-                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (Convert.ToInt32(lblNro.Text) == 0)
+            //{
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Numero de liquidación válido.", VariablesMetodosEstaticos.encabezado,
+            //           MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
-            frmListadoDocumentosIngreso win = new frmListadoDocumentosIngreso();
-            win.nroliqui = Convert.ToInt32(lblNro.Text);
-            win.ShowDialog();
+            //frmListadoDocumentosIngreso win = new frmListadoDocumentosIngreso();
+            //win.nroliqui = Convert.ToInt32(lblNro.Text);
+            //win.ShowDialog();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

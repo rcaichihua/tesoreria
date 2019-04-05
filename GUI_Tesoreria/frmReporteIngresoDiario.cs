@@ -17,7 +17,8 @@ namespace GUI_Tesoreria
         private DataTable dtDatosReporte;
         private static frmReporteIngresoDiario frmInstance = null;
         private CNegocio cn = new CNegocio();
-        public int cajeroFiltro = 0;
+        public int programaId = 0;
+
         NumLetra Letras = new NumLetra();
 
         public frmReporteIngresoDiario()
@@ -36,9 +37,16 @@ namespace GUI_Tesoreria
 
         private void frmReporteProceso_Load(object sender, EventArgs e)
         {
-            if (cajeroFiltro == 0)
+            if (programaId == 0)
             {
-                cajeroFiltro = VariablesMetodosEstaticos.idcajausuario;
+                if (tipo_reporte == "R")
+                {
+                    programaId = VariablesMetodosEstaticos.idcajausuario;
+                }
+                else //if (tipo_reporte=="M")
+                {
+                    programaId = VariablesMetodosEstaticos.id_programa;
+                }
             }
         }
 
@@ -48,7 +56,7 @@ namespace GUI_Tesoreria
             {
                 if (dtpDesde.Value > dtpDesde.Value)
                 {
-                    MessageBox.Show("El ingreso del rango de fechas no es valida", VariablesMetodosEstaticos.encabezado
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El ingreso del rango de fechas no es valida", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
@@ -57,7 +65,7 @@ namespace GUI_Tesoreria
                 {
                     dtDatosReporte = new DataTable();
                     dtDatosReporte = cn.TraerDataset("usp_r_tb_recibocabecera", 1, 0, dtpDesde.Value.ToShortDateString()
-                                                    , dtpHasta.Value.ToShortDateString(), cajeroFiltro, 1).Tables[0];
+                                                    , dtpHasta.Value.ToShortDateString(), programaId, 1).Tables[0];
 
                     if (dtDatosReporte.Rows.Count > 0)
                     {
@@ -70,7 +78,7 @@ namespace GUI_Tesoreria
                     }
                     else
                     {
-                        MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
@@ -79,7 +87,7 @@ namespace GUI_Tesoreria
                 {
                     dtDatosReporte = new DataTable();
                     dtDatosReporte = cn.TraerDataset("usp_ingreso_diario_canevaro", dtpDesde.Value.ToShortDateString()
-                        ,dtpHasta.Value.ToShortDateString(),cajeroFiltro).Tables[0];
+                        ,dtpHasta.Value.ToShortDateString(), programaId).Tables[0];
 
                     if (dtDatosReporte.Rows.Count > 0)
                     {
@@ -95,7 +103,7 @@ namespace GUI_Tesoreria
 
                         dtDatosReporte = new DataTable();
                         dtDatosReporte = cn.TraerDataset("usp_reporte_resumen_ingresos_x_direccion", dtpDesde.Value.ToShortDateString()
-                            ,dtpHasta.Value.ToShortDateString(),cajeroFiltro).Tables[0];
+                            ,dtpHasta.Value.ToShortDateString(), programaId).Tables[0];
 
                         rptDetDiario.Subreports[0].Database.Tables[0].SetDataSource(dtDatosReporte);
                         rptDetDiario.SetParameterValue("@fechaingresoDesde", dtpDesde.Value.ToShortDateString());
@@ -109,7 +117,7 @@ namespace GUI_Tesoreria
                     }                    
                     else
                     {
-                        MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
@@ -118,7 +126,7 @@ namespace GUI_Tesoreria
                 {
                     dtDatosReporte = new DataTable();
                     dtDatosReporte = cn.TraerDataset("usp_ingresos_cementerio_x_grupo", dtpDesde.Value.ToShortDateString(),dtpHasta.Value.ToShortDateString(),
-                        cajeroFiltro).Tables[0];
+                        programaId).Tables[0];
                     if (dtDatosReporte.Rows.Count > 0)
                     {
                         caja.Reportes.rptLiquidacionxDiaCementerio rptLiq = new caja.Reportes.rptLiquidacionxDiaCementerio();
@@ -127,7 +135,7 @@ namespace GUI_Tesoreria
                     }
                     else
                     {
-                        MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
@@ -136,7 +144,7 @@ namespace GUI_Tesoreria
                 {
                     dtDatosReporte = new DataTable();
                     dtDatosReporte = cn.TraerDataset("usp_ingreso_detallado_comedores", dtpDesde.Value.ToShortDateString(), dtpHasta.Value.ToShortDateString(),
-                        cajeroFiltro).Tables[0];
+                        programaId).Tables[0];
                     if (dtDatosReporte.Rows.Count > 0)
                     {
                         caja.Reportes.rptIngresoComedor rptLiq = new caja.Reportes.rptIngresoComedor();
@@ -147,14 +155,14 @@ namespace GUI_Tesoreria
                     }
                     else
                     {
-                        MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }                
                 else
                 {
-                    MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
                    , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }

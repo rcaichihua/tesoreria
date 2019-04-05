@@ -49,7 +49,7 @@ namespace GUI_Tesoreria.Gerencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
 
@@ -66,7 +66,7 @@ namespace GUI_Tesoreria.Gerencia
         {
             if (cboPrograma.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione un programa.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un programa.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboPrograma.Focus();
                 return;
             }
@@ -326,11 +326,11 @@ namespace GUI_Tesoreria.Gerencia
 
                 ExportHelper.CreateXlsFromDataTable(dtExport, @"C:\tmp\ingresocementerio.xls");
 
-                MessageBox.Show("Documento exportado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Documento exportado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -340,7 +340,7 @@ namespace GUI_Tesoreria.Gerencia
 
             if (cboPrograma.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione un programa.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un programa.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboPrograma.Focus();
                 return dsDatos;
             }

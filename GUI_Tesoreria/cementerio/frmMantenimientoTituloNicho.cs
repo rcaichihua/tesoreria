@@ -62,7 +62,7 @@ namespace GUI_Tesoreria.cementerio
                 if (!e.IsValidInput || this.mtbFechaConcesion.MaskedTextProvider.AssignedEditPositionCount != 8)
                 {
                     e.Cancel = true;
-                    MessageBox.Show("Formato no valido");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Formato no valido");
                     mtbFechaConcesion.Focus();
                 }
             }
@@ -76,7 +76,7 @@ namespace GUI_Tesoreria.cementerio
                 if (!e.IsValidInput || this.mtbFechaInhumacion.MaskedTextProvider.AssignedEditPositionCount != 8)
                 {
                     e.Cancel = true;
-                    MessageBox.Show("Formato no valido");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Formato no valido");
                     mtbFechaInhumacion.Focus();
                 }
             }
@@ -145,7 +145,7 @@ namespace GUI_Tesoreria.cementerio
                 ContextMenuStrip my_menu = new ContextMenuStrip();
                 int posicion_xy_mouse_fila = dgvDifuntos.HitTest(e.X, e.Y).RowIndex;
 
-                //MessageBox.Show(posicion_xy_mouse_fila.ToString());
+                //DevComponents.DotNetBar.MessageBoxEx.Show(posicion_xy_mouse_fila.ToString());
                 if (posicion_xy_mouse_fila >= 0)
                 {
                     fila_difunto = posicion_xy_mouse_fila;
@@ -166,7 +166,7 @@ namespace GUI_Tesoreria.cementerio
                 case "btnEditar":
                     if (cboEsatado.SelectedIndex == 0)
                     {
-                        MessageBox.Show("Seleccione un estado");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un estado");
                         cboEsatado.Focus();
                         return;
                     }
@@ -213,7 +213,7 @@ namespace GUI_Tesoreria.cementerio
                 TituloNichoNegocio TiNiNe = new TituloNichoNegocio();
                 if (TiNiNe.ExisteTituloNichoPorNicho(txtCodCuartel.Text, txtLetra.Text, Convert.ToInt32(txtNumero.Text)))
                 {
-                    MessageBox.Show("Los datos ya fueron ingresados anteriormente.");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Los datos ya fueron ingresados anteriormente.");
                     //TituloNicho TiNi = new TituloNicho();
                     //TiNi.ESTADO = cboEsatado.Text;
                     //TiNi.NUMEROTITULO = txtNroTitulo.Text;
@@ -256,7 +256,7 @@ namespace GUI_Tesoreria.cementerio
                     }
                     else
                     {
-                        MessageBox.Show("El valor instroducido : (" + mtbFechaInhumacion.Text + ") no es valido. Favor instroducir un valor valido");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El valor instroducido : (" + mtbFechaInhumacion.Text + ") no es valido. Favor instroducir un valor valido");
                         mtbFechaInhumacion.Focus();
                         return;
                     }
@@ -275,7 +275,7 @@ namespace GUI_Tesoreria.cementerio
                     }
                     else
                     {
-                        MessageBox.Show("El valor instroducido : (" + mtbFechaConcesion.Text + ") no es valido. Favor instroducir un valor valido");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El valor instroducido : (" + mtbFechaConcesion.Text + ") no es valido. Favor instroducir un valor valido");
                         mtbFechaConcesion.Focus();
                         return;
                     }
@@ -293,17 +293,17 @@ namespace GUI_Tesoreria.cementerio
 
                 if (ds.Tables[0].Rows[0][0].ToString() == "1")
                 {
-                    MessageBox.Show("Ingresado correctamente");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente");
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error.");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error.");
                 }
             }
             catch (Exception EX)
             {
-                MessageBox.Show(EX.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(EX.Message);
             }
                  
         }
@@ -315,36 +315,36 @@ namespace GUI_Tesoreria.cementerio
         {
             if (cboEsatado.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione un estado");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un estado");
                 cboEsatado.Focus();
                 return false;
             }
             if (txtNroTitulo.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese el Nro de Titulo");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Nro de Titulo");
                 txtNroTitulo.Focus();
                 return false;
             }
             if (txtNroDocumento.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Nro de Documento");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Nro de Documento");
                 txtNroDocumento.Focus();
                 return false;
             }
             if (txtResponsable.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese al responsable");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese al responsable");
                 txtResponsable.Focus();
                 return false;
             }
             if (dgvDifuntos.RowCount <= 0)
             {
-                MessageBox.Show("No hay beneficiarios registrados");
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay beneficiarios registrados");
                 return false;
             }
             //if (mtbFechaConcesion.Text == "  /  /")
             //{
-            //    MessageBox.Show("Ingrese la fecha de concesión");
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese la fecha de concesión");
             //    mtbFechaConcesion.Focus();
             //    return false;
             //}
@@ -352,7 +352,7 @@ namespace GUI_Tesoreria.cementerio
             {
                 if(txtAniosTemporal.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("Ingrese los años para temporal.");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese los años para temporal.");
                     txtAniosTemporal.Focus();
                     return false;
                 }
@@ -362,14 +362,14 @@ namespace GUI_Tesoreria.cementerio
             {
                 if (dgvDifuntos.RowCount>1)
                 {
-                    MessageBox.Show("No se puede ingresar mas de dos difuntos cuando cuando se encuentra en estado RESERVADO EN VIDA");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede ingresar mas de dos difuntos cuando cuando se encuentra en estado RESERVADO EN VIDA");
                     return false;
                 }
                 foreach (DataGridViewRow row in dgvDifuntos.Rows)
                 {
                     if (row.Cells[3].Value.ToString()!="")
                     {
-                        MessageBox.Show("No se puede ingresar fecha de inhumacion cuando se encuentra en estado RESERVADO EN VIDA");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No se puede ingresar fecha de inhumacion cuando se encuentra en estado RESERVADO EN VIDA");
                         return false;
                     }
                 }
@@ -387,7 +387,7 @@ namespace GUI_Tesoreria.cementerio
 
             //if (FlagFecha == false && mtbFechaInhumacion.Text == "  /  /")
             //{
-            //    MessageBox.Show("Ingrese una fecha de Inhumacion valida.");
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese una fecha de Inhumacion valida.");
             //    return false;
             //}
             return true;

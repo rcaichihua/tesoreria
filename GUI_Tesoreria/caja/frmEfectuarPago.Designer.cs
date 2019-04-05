@@ -50,10 +50,10 @@
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtGlosa = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblModalidadPago = new System.Windows.Forms.Label();
+            this.lblTipoDocumento = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblTipoDocumento = new System.Windows.Forms.Label();
-            this.lblModalidadPago = new System.Windows.Forms.Label();
             this.GBPrimerDetalle.SuspendLayout();
             this.GbDetalle2.SuspendLayout();
             this.GBBotones.SuspendLayout();
@@ -79,22 +79,22 @@
             // TxtCodigoFox
             // 
             this.TxtCodigoFox.BackColor = System.Drawing.Color.White;
-            this.TxtCodigoFox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigoFox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigoFox.Location = new System.Drawing.Point(9, 32);
             this.TxtCodigoFox.Name = "TxtCodigoFox";
             this.TxtCodigoFox.ReadOnly = true;
-            this.TxtCodigoFox.Size = new System.Drawing.Size(91, 21);
+            this.TxtCodigoFox.Size = new System.Drawing.Size(91, 22);
             this.TxtCodigoFox.TabIndex = 300;
             this.TxtCodigoFox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSucursal
             // 
             this.txtSucursal.BackColor = System.Drawing.Color.White;
-            this.txtSucursal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSucursal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSucursal.Location = new System.Drawing.Point(9, 78);
             this.txtSucursal.Name = "txtSucursal";
             this.txtSucursal.ReadOnly = true;
-            this.txtSucursal.Size = new System.Drawing.Size(525, 21);
+            this.txtSucursal.Size = new System.Drawing.Size(525, 22);
             this.txtSucursal.TabIndex = 600;
             // 
             // LblTributo
@@ -111,11 +111,11 @@
             // TxtNombreCliente
             // 
             this.TxtNombreCliente.BackColor = System.Drawing.Color.White;
-            this.TxtNombreCliente.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNombreCliente.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreCliente.Location = new System.Drawing.Point(106, 32);
             this.TxtNombreCliente.Name = "TxtNombreCliente";
             this.TxtNombreCliente.ReadOnly = true;
-            this.TxtNombreCliente.Size = new System.Drawing.Size(428, 21);
+            this.TxtNombreCliente.Size = new System.Drawing.Size(428, 22);
             this.TxtNombreCliente.TabIndex = 500;
             // 
             // LblNombre
@@ -270,13 +270,15 @@
             this.BtnGrabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGrabar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGrabar.ForeColor = System.Drawing.Color.Navy;
-            this.BtnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGrabar.Image = global::GUI_Tesoreria.Properties.Resources.guardarDoc;
+            this.BtnGrabar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnGrabar.Location = new System.Drawing.Point(6, 11);
             this.BtnGrabar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnGrabar.Name = "BtnGrabar";
-            this.BtnGrabar.Size = new System.Drawing.Size(72, 39);
+            this.BtnGrabar.Size = new System.Drawing.Size(72, 60);
             this.BtnGrabar.TabIndex = 0;
             this.BtnGrabar.Text = "&Grabar";
+            this.BtnGrabar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnGrabar.UseVisualStyleBackColor = false;
             this.BtnGrabar.Click += new System.EventHandler(this.BtnGrabar_Click);
             // 
@@ -286,12 +288,14 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.ForeColor = System.Drawing.Color.Navy;
-            this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSalir.Location = new System.Drawing.Point(6, 393);
+            this.BtnSalir.Image = global::GUI_Tesoreria.Properties.Resources.salirDoc;
+            this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnSalir.Location = new System.Drawing.Point(6, 373);
             this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(72, 39);
+            this.BtnSalir.Size = new System.Drawing.Size(72, 60);
             this.BtnSalir.TabIndex = 1;
             this.BtnSalir.Text = "&Salir";
+            this.BtnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnSalir.UseVisualStyleBackColor = false;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
@@ -331,6 +335,26 @@
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
+            // lblModalidadPago
+            // 
+            this.lblModalidadPago.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModalidadPago.ForeColor = System.Drawing.Color.Red;
+            this.lblModalidadPago.Location = new System.Drawing.Point(227, 47);
+            this.lblModalidadPago.Name = "lblModalidadPago";
+            this.lblModalidadPago.Size = new System.Drawing.Size(326, 37);
+            this.lblModalidadPago.TabIndex = 14;
+            this.lblModalidadPago.Text = "Modalidad de pago";
+            // 
+            // lblTipoDocumento
+            // 
+            this.lblTipoDocumento.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDocumento.ForeColor = System.Drawing.Color.Red;
+            this.lblTipoDocumento.Location = new System.Drawing.Point(227, 11);
+            this.lblTipoDocumento.Name = "lblTipoDocumento";
+            this.lblTipoDocumento.Size = new System.Drawing.Size(326, 36);
+            this.lblTipoDocumento.TabIndex = 14;
+            this.lblTipoDocumento.Text = "Tipo Documento";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -352,26 +376,6 @@
             this.label5.Size = new System.Drawing.Size(175, 19);
             this.label5.TabIndex = 2;
             this.label5.Text = "Modalidad de Pago :";
-            // 
-            // lblTipoDocumento
-            // 
-            this.lblTipoDocumento.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoDocumento.ForeColor = System.Drawing.Color.Red;
-            this.lblTipoDocumento.Location = new System.Drawing.Point(227, 11);
-            this.lblTipoDocumento.Name = "lblTipoDocumento";
-            this.lblTipoDocumento.Size = new System.Drawing.Size(326, 36);
-            this.lblTipoDocumento.TabIndex = 14;
-            this.lblTipoDocumento.Text = "Tipo Documento";
-            // 
-            // lblModalidadPago
-            // 
-            this.lblModalidadPago.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModalidadPago.ForeColor = System.Drawing.Color.Red;
-            this.lblModalidadPago.Location = new System.Drawing.Point(227, 47);
-            this.lblModalidadPago.Name = "lblModalidadPago";
-            this.lblModalidadPago.Size = new System.Drawing.Size(326, 37);
-            this.lblModalidadPago.TabIndex = 14;
-            this.lblModalidadPago.Text = "Modalidad de pago";
             // 
             // frmEfectuarPago
             // 

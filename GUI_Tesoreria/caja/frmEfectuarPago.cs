@@ -17,8 +17,25 @@ namespace GUI_Tesoreria.caja
     {
         private varGlobales varglo = new varGlobales();
         public int tipoDocumento;
+
         public DataTable reciboCabecera = new DataTable();
         public DataTable reciboDetalle = new DataTable();
+        public DataTable modalidadPago = new DataTable();
+
+        public string cod_mod_pago { get; set; }
+        public string desc_mod_Pago { get; set; }
+        public string concep_cod { get; set; }
+        public DateTime FechaDeposito { get; set; }
+        public string cod_entidad_financ { get; set; }
+        public string nombre_entidad { get; set; }
+        public string cuenta_bancaria_id { get; set; }
+        public string numero_cuenta { get; set; }
+        public decimal importe_voucher_pago { get; set; }
+        public decimal TipoCambio { get; set; }
+        public decimal importe_cambio { get; set; }
+        public string NumeroDocumento_Voucher_cheque_pago { get; set; }
+        public string ObservacionPago { get; set; }
+
         CNegocio cn = new CNegocio();
         public new Form ParentForm;
         string recibo = "reciboCentral";
@@ -99,7 +116,7 @@ namespace GUI_Tesoreria.caja
 
                 if (dts.Tables[0].Rows.Count == 0)
                 {
-                    MessageBox.Show("Apertura de Caja no Realizado ... Usted No Puede Registrar", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Apertura de Caja no Realizado ... Usted No Puede Registrar", VariablesMetodosEstaticos.encabezado,
                   MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();
                     return;
@@ -108,7 +125,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (dts.Tables[0].Rows[0]["Observacion"].ToString() == "Cerrado")
                     {
-                        MessageBox.Show("La caja se encuentra cerrada... Usted No Puede Registrar", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("La caja se encuentra cerrada... Usted No Puede Registrar", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                         this.Close();
@@ -126,7 +143,7 @@ namespace GUI_Tesoreria.caja
 
                 if (NumeroRecibo!="0000000")
                 {
-                    if ((MessageBox.Show("Al parecer el documento ya ha sido registrado con numero de Doc " + NumeroRecibo + ", favor de verificar en [Consultas]->[Verificación de Documentos - Extorno]. Si desea guardar de todas maneras seleccione [SI].", VariablesMetodosEstaticos.encabezado
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("Al parecer el documento ya ha sido registrado con numero de Doc " + NumeroRecibo + ", favor de verificar en [Consultas]->[Verificación de Documentos - Extorno]. Si desea guardar de todas maneras seleccione [SI].", VariablesMetodosEstaticos.encabezado
                             , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                             == DialogResult.Yes))
                     {
@@ -140,7 +157,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message,VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -150,7 +167,35 @@ namespace GUI_Tesoreria.caja
             bool directoImpresora = true;
             bool estado = true;
 
-            resultado = cn.IngresaRecibo("usp_generea_ingresos", estado, reciboCabecera, reciboDetalle);
+            for (int i = modalidadPago.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = modalidadPago.Rows[i];
+                if (dr["cod_mod_pago"].ToString() == cod_mod_pago && dr["concep_cod"].ToString() == concep_cod && 
+                    Convert.ToDecimal(dr["importe_voucher_pago"]) == importe_voucher_pago && 
+                    Convert.ToDateTime(dr["FechaDeposito"]).ToShortDateString() == FechaDeposito.ToShortDateString())
+                    dr.Delete();
+            }
+            modalidadPago.AcceptChanges();
+
+            DataRow _filaAddNewModalidad = modalidadPago.NewRow();
+
+            _filaAddNewModalidad["cod_mod_pago"] = cod_mod_pago;
+            _filaAddNewModalidad["desc_mod_Pago"] = desc_mod_Pago;
+            _filaAddNewModalidad["concep_cod"] = concep_cod;
+            _filaAddNewModalidad["FechaDeposito"] = FechaDeposito;
+            _filaAddNewModalidad["cod_entidad_financ"] = cod_entidad_financ;
+            _filaAddNewModalidad["nombre_entidad"] = nombre_entidad;
+            _filaAddNewModalidad["cuenta_bancaria_id"] = cuenta_bancaria_id;
+            _filaAddNewModalidad["numero_cuenta"] = numero_cuenta;
+            _filaAddNewModalidad["importe_voucher_pago"] = importe_voucher_pago;
+            _filaAddNewModalidad["TipoCambio"] = TipoCambio;
+            _filaAddNewModalidad["importe_cambio"] = importe_cambio;
+            _filaAddNewModalidad["NumeroDocumento_Voucher_cheque_pago"] = NumeroDocumento_Voucher_cheque_pago;
+            _filaAddNewModalidad["ObservacionPago"] = ObservacionPago;
+
+            modalidadPago.Rows.Add(_filaAddNewModalidad);
+
+            resultado = cn.IngresaRecibo("usp_genera_ingresos", estado, reciboCabecera, reciboDetalle,modalidadPago);
 
             var frm = (frmPagoDiversos)this.ParentForm;
 
@@ -161,7 +206,7 @@ namespace GUI_Tesoreria.caja
             if (idReciboCabecera == 0)
             {
                 frm.GrabaRecibo = false;
-                MessageBox.Show("Ocurrio un error al guardar la información, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error al guardar la información, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else

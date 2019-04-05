@@ -12,6 +12,12 @@ namespace GUI_Tesoreria.caja
 {
     public partial class frmAgregarRubro : DevComponents.DotNetBar.Metro.MetroForm//Form
     {
+        public decimal SaldoDocumento { get; set; }
+        public decimal TotalDocumento { get; set; }
+        public bool liquidacion { get; set; }
+        public bool EsCentral { get; set; }
+        public int FuenteIngreso { get; set; }
+
         CNegocio cn = new CNegocio();
         bool save = false;
 
@@ -84,8 +90,16 @@ namespace GUI_Tesoreria.caja
         {
             try
             {
-                dgvTarifario.DataSource = cn.TraerDataset("usp_filtra_tarifa_rubros", txtBusqueda.Text.Trim(), txtRubro.Text.Trim(),VariablesMetodosEstaticos.id_programa).Tables[0];
-                dgvTarifario.Refresh();
+                if (!EsCentral)
+                {
+                    dgvTarifario.DataSource = cn.TraerDataset("usp_filtra_tarifa_rubros", txtBusqueda.Text.Trim(), txtRubro.Text.Trim(), VariablesMetodosEstaticos.id_programa).Tables[0];
+                    dgvTarifario.Refresh();
+                }
+                else
+                {
+                    dgvTarifario.DataSource = cn.TraerDataset("usp_filtra_tarifa_rubros_central", txtBusqueda.Text.Trim(), txtRubro.Text.Trim(), FuenteIngreso).Tables[0];
+                    dgvTarifario.Refresh();
+                }
             }
             catch (Exception)
             {
@@ -111,18 +125,26 @@ namespace GUI_Tesoreria.caja
             {
                 if (dgvTarifario.Rows[dgvTarifario.CurrentRow.Index].Cells["id_cuenta_contable"].Value.ToString() != "")
                 {
-                    MessageBox.Show("Ingrese un valor correcto para el precio", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor correcto para el precio", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtPrecio.Focus();
                     return;
                 }
             }
             if (Convert.ToInt32(txtCantidad.Text.Trim() == string.Empty ? 0 : Convert.ToInt32(txtCantidad.Text)) == 0)
             {
-                MessageBox.Show("Ingrese un valor correcto para la cantidad", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor correcto para la cantidad", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtCantidad.Focus();
                 return;
             }
-
+            if (liquidacion)
+            {
+                if ((Convert.ToInt32(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text) + TotalDocumento) > SaldoDocumento)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no puede ser mayor al saldo de la liquidación.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtPrecio.Focus();
+                    return;
+                }
+            }
             save = true;
             this.Close();
         }
@@ -171,6 +193,18 @@ namespace GUI_Tesoreria.caja
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void txtPrecio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+                SendKeys.Send("{TAB}");
+        }
+
+        private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+                SendKeys.Send("{TAB}");
         }
     }
 }

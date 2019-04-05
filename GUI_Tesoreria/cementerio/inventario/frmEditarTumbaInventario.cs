@@ -159,7 +159,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 , txtNumero.Text.Trim(), chkReja.Checked, chkLapida.Checked,
                 txtObservacion.Text.Trim(), "0", VariablesMetodosEstaticos.varNombreUser, destino);
 
-            MessageBox.Show("Actualizado correctamente");
+            DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente");
 
             this.Close();
         }
@@ -168,13 +168,13 @@ namespace GUI_Tesoreria.cementerio.inventario
         {
             if (txtJardin.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese el Jardin");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Jardin");
                 txtJardin.Focus();
                 return false;
             }
             if (txtNumero.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese el Numero");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Numero");
                 txtNumero.Focus();
                 return false;
             }
@@ -208,7 +208,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 {
                     if (string.IsNullOrEmpty(openFileDialog1.FileName))
                     {
-                        MessageBox.Show("No ha Seleccionado ninguna Imagen");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No ha Seleccionado ninguna Imagen");
 
                         //lblRuta.Text = "";
                         return;
@@ -217,7 +217,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
             }
         }
 

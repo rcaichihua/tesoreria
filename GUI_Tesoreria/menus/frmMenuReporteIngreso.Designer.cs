@@ -46,10 +46,14 @@
             this.m_1_2 = new System.Windows.Forms.ToolStripMenuItem();
             this.acumuladoPorCajeroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acumuladoPorDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_1_2_3 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_1_3 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_1_4 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_1_5 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_1_6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.verificaciónDeLiquidacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarInformaciónAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_2 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_2_1 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_2_2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +81,6 @@
             this.m_4 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_4_1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.m_1_2_3 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -193,10 +196,14 @@
             this.m_1_3,
             this.m_1_4,
             this.m_1_5,
-            this.m_1_6});
+            this.m_1_6,
+            this.toolStripMenuItem1,
+            this.verificaciónDeLiquidacionesToolStripMenuItem,
+            this.importarInformaciónAPIToolStripMenuItem});
             this.m_1.Name = "m_1";
             this.m_1.Size = new System.Drawing.Size(63, 20);
             this.m_1.Text = "Ingresos";
+            this.m_1.Click += new System.EventHandler(this.m_1_Click);
             // 
             // m_1_1
             // 
@@ -229,11 +236,19 @@
             this.acumuladoPorDiaToolStripMenuItem.Text = "&Acumulado por dia";
             this.acumuladoPorDiaToolStripMenuItem.Click += new System.EventHandler(this.acumuladoPorDiaToolStripMenuItem_Click);
             // 
+            // m_1_2_3
+            // 
+            this.m_1_2_3.Name = "m_1_2_3";
+            this.m_1_2_3.Size = new System.Drawing.Size(232, 22);
+            this.m_1_2_3.Text = "&Listado Recibos por Programa";
+            this.m_1_2_3.Click += new System.EventHandler(this.m_1_2_3_Click);
+            // 
             // m_1_3
             // 
             this.m_1_3.Name = "m_1_3";
             this.m_1_3.Size = new System.Drawing.Size(273, 22);
             this.m_1_3.Text = "&Detalle de Ingresos por fecha";
+            this.m_1_3.Visible = false;
             // 
             // m_1_4
             // 
@@ -247,6 +262,7 @@
             this.m_1_5.Name = "m_1_5";
             this.m_1_5.Size = new System.Drawing.Size(273, 22);
             this.m_1_5.Text = "&Voucher por ingreso fisico de dinero";
+            this.m_1_5.Visible = false;
             this.m_1_5.Click += new System.EventHandler(this.m_1_5_Click);
             // 
             // m_1_6
@@ -255,6 +271,25 @@
             this.m_1_6.Size = new System.Drawing.Size(273, 22);
             this.m_1_6.Text = "&Exportar ingresos a DBF";
             this.m_1_6.Click += new System.EventHandler(this.m_1_6_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(270, 6);
+            // 
+            // verificaciónDeLiquidacionesToolStripMenuItem
+            // 
+            this.verificaciónDeLiquidacionesToolStripMenuItem.Name = "verificaciónDeLiquidacionesToolStripMenuItem";
+            this.verificaciónDeLiquidacionesToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.verificaciónDeLiquidacionesToolStripMenuItem.Text = "Verificación de Liquidaciones";
+            this.verificaciónDeLiquidacionesToolStripMenuItem.Click += new System.EventHandler(this.verificaciónDeLiquidacionesToolStripMenuItem_Click);
+            // 
+            // importarInformaciónAPIToolStripMenuItem
+            // 
+            this.importarInformaciónAPIToolStripMenuItem.Name = "importarInformaciónAPIToolStripMenuItem";
+            this.importarInformaciónAPIToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.importarInformaciónAPIToolStripMenuItem.Text = "Importar Información API";
+            this.importarInformaciónAPIToolStripMenuItem.Click += new System.EventHandler(this.importarInformaciónAPIToolStripMenuItem_Click);
             // 
             // m_2
             // 
@@ -267,11 +302,12 @@
             this.m_2.Name = "m_2";
             this.m_2.Size = new System.Drawing.Size(87, 20);
             this.m_2.Text = "&Contabilidad";
+            this.m_2.Visible = false;
             // 
             // m_2_1
             // 
             this.m_2_1.Name = "m_2_1";
-            this.m_2_1.Size = new System.Drawing.Size(173, 22);
+            this.m_2_1.Size = new System.Drawing.Size(180, 22);
             this.m_2_1.Text = "&Recibos de Ingreso";
             this.m_2_1.Click += new System.EventHandler(this.m_2_1_Click);
             // 
@@ -281,7 +317,7 @@
             this.m_2_2_1,
             this.m_2_2_2});
             this.m_2_2.Name = "m_2_2";
-            this.m_2_2.Size = new System.Drawing.Size(173, 22);
+            this.m_2_2.Size = new System.Drawing.Size(180, 22);
             this.m_2_2.Text = "&Ingresos";
             // 
             // m_2_2_1
@@ -302,7 +338,7 @@
             this.m_2_3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_2_3_1});
             this.m_2_3.Name = "m_2_3";
-            this.m_2_3.Size = new System.Drawing.Size(173, 22);
+            this.m_2_3.Size = new System.Drawing.Size(180, 22);
             this.m_2_3.Text = "&Egresos";
             // 
             // m_2_3_1
@@ -314,7 +350,7 @@
             // m_2_4
             // 
             this.m_2_4.Name = "m_2_4";
-            this.m_2_4.Size = new System.Drawing.Size(173, 22);
+            this.m_2_4.Size = new System.Drawing.Size(180, 22);
             this.m_2_4.Text = "&Libros";
             // 
             // m_2_5
@@ -325,7 +361,7 @@
             this.m_2_5_3,
             this.m_2_5_4});
             this.m_2_5.Name = "m_2_5";
-            this.m_2_5.Size = new System.Drawing.Size(173, 22);
+            this.m_2_5.Size = new System.Drawing.Size(180, 22);
             this.m_2_5.Text = "&Diarios";
             // 
             // m_2_5_1
@@ -417,12 +453,14 @@
             this.m_3_3.Name = "m_3_3";
             this.m_3_3.Size = new System.Drawing.Size(336, 22);
             this.m_3_3.Text = "&Reporte por Tipo de pago y efectivo";
+            this.m_3_3.Visible = false;
             // 
             // m_3_4
             // 
             this.m_3_4.Name = "m_3_4";
             this.m_3_4.Size = new System.Drawing.Size(336, 22);
             this.m_3_4.Text = "Reporte por rubros";
+            this.m_3_4.Visible = false;
             // 
             // m_3_5
             // 
@@ -430,6 +468,7 @@
             this.m_3_5.Name = "m_3_5";
             this.m_3_5.Size = new System.Drawing.Size(336, 22);
             this.m_3_5.Text = "&Resumen del dia";
+            this.m_3_5.Visible = false;
             // 
             // m_3_6
             // 
@@ -460,13 +499,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(668, 25);
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // m_1_2_3
-            // 
-            this.m_1_2_3.Name = "m_1_2_3";
-            this.m_1_2_3.Size = new System.Drawing.Size(232, 22);
-            this.m_1_2_3.Text = "&Listado Recibos por Programa";
-            this.m_1_2_3.Click += new System.EventHandler(this.m_1_2_3_Click);
             // 
             // frmMenuReporteIngreso
             // 
@@ -546,5 +578,8 @@
         private System.Windows.Forms.ToolStripMenuItem acumuladoPorDiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem m_1_6;
         private System.Windows.Forms.ToolStripMenuItem m_1_2_3;
+        private System.Windows.Forms.ToolStripMenuItem verificaciónDeLiquidacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem importarInformaciónAPIToolStripMenuItem;
     }
 }

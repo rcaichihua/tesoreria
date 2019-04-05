@@ -15,13 +15,14 @@ namespace DAO_Tesoreria
         //{
         //    return conectar.conexionXml = @"Server=" + ser + ";Database=" + bd + ";Uid=" + usu + ";pwd=" + pas;
         //}
-        public string TraerServidor()
+        public string TraerServidor(string srv, string bd, string us, string pw)
         {
-            return conectar.conexionXml = ConfigurationManager.ConnectionStrings["BDTesoreria"].ConnectionString;//@"Server=" + ser + ";Database=" + bd + ";Uid=" + usu + ";pwd=" + pas;
+            //ConfigurationManager.ConnectionStrings["BDTesoreria"].ConnectionString;//
+            return conectar.conexionXml = @"Server=" + srv + ";Database=" + bd + ";Uid=" + us + ";pwd=" + pw;
         }
-        public string TraerServidorSGI()
+        public string TraerServidorSGI(string srv, string bd, string us, string pw)
         {
-            return conectar.conexionXmlSGI = ConfigurationManager.ConnectionStrings["BDSGI"].ConnectionString;//@"Server=" + ser + ";Database=" + bd + ";Uid=" + usu + ";pwd=" + pas;
+            return conectar.conexionXmlSGI = @"Server=" + srv + ";Database=" + bd + ";Uid=" + us + ";pwd=" + pw;
         }
 
         protected IDbCommand Comando(string ProcedimientoAlmacenado)
@@ -258,7 +259,7 @@ namespace DAO_Tesoreria
             }
         }
 
-        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, bool estado, DataTable dtCabecera, DataTable dtCabeceraDetalle)
+        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, bool estado, DataTable dtCabecera, DataTable dtCabeceraDetalle,DataTable modalidadPago)
         {
             using (var cn = new SqlConnection(conectar.conexionXml))
             {
@@ -272,6 +273,121 @@ namespace DAO_Tesoreria
 
                     SqlParameter tvpParam1 = mComando.Parameters.AddWithValue("@TablaCabeceraTmp", dtCabecera);
                     tvpParam1.SqlDbType = SqlDbType.Structured;
+
+                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@TablaCabeceraDetalleTmp", dtCabeceraDetalle);
+                    tvpParam3.SqlDbType = SqlDbType.Structured;
+
+                    SqlParameter tvpParam4 = mComando.Parameters.AddWithValue("@TablamodalidadPago", modalidadPago);
+                    tvpParam4.SqlDbType = SqlDbType.Structured;
+
+                    new SqlDataAdapter(mComando).Fill(mDataset);
+
+                    return mDataset;
+                    //return mComando.ExecuteNonQuery();
+                }
+            }
+        }
+        public DataSet IngresarLiquiApi(string ProcedimientoAlmacenado, int nroLiq, string usu, string pc, DataTable dtLiqui,int idLiq)
+        {
+            using (var cn = new SqlConnection(conectar.conexionXml))
+            {
+                using (var mComando = new SqlCommand(ProcedimientoAlmacenado, cn))
+                {
+                    var mDataset = new DataSet();
+                    cn.Open();
+                    mComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tvpParam1 = mComando.Parameters.AddWithValue("@NroLoquidacion", nroLiq);
+                    SqlParameter tvpParam2 = mComando.Parameters.AddWithValue("@usuing", usu == null ? "" : usu.ToString());
+                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@pcing", pc == null ? "" : pc.ToString());
+                    SqlParameter tvpParam4 = mComando.Parameters.AddWithValue("@IdLiq", idLiq);
+
+                    SqlParameter tvpParam5 = mComando.Parameters.AddWithValue("@TablaApii_con", dtLiqui);
+                    tvpParam5.SqlDbType = SqlDbType.Structured;
+
+                    new SqlDataAdapter(mComando).Fill(mDataset);
+
+                    return mDataset;
+                    //return mComando.ExecuteNonQuery();
+                }
+            }
+        }
+        
+        public DataSet ActualizaModalidadPago(string ProcedimientoAlmacenado, int ReciboId, int cod_mod_pago, int concep_cod, string FechaDeposito,
+            string cod_entidad_financ, string cuenta_bancaria_id, decimal importe_voucher_pago, decimal TipoCambio, decimal importe_cambio,
+            string NumeroDocumento_Voucher_cheque_pago, string ObservacionPago, string FechaCancelacion,
+            DataTable modalidadPag)
+        {
+            using (var cn = new SqlConnection(conectar.conexionXml))
+            {
+                using (var mComando = new SqlCommand(ProcedimientoAlmacenado, cn))
+                {
+                    var mDataset = new DataSet();
+                    cn.Open();
+                    mComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tvpParam1 = mComando.Parameters.AddWithValue("@ReciboId", ReciboId);
+                    SqlParameter tvpParam2 = mComando.Parameters.AddWithValue("@cod_mod_pago", cod_mod_pago);
+                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@concep_cod", concep_cod);
+                    SqlParameter tvpParam4 = mComando.Parameters.AddWithValue("@FechaDeposito", FechaDeposito);
+                    SqlParameter tvpParam5 = mComando.Parameters.AddWithValue("@cod_entidad_financ", cod_entidad_financ);
+                    SqlParameter tvpParam6 = mComando.Parameters.AddWithValue("@cuenta_bancaria_id", cuenta_bancaria_id);
+                    SqlParameter tvpParam7 = mComando.Parameters.AddWithValue("@importe_voucher_pago", importe_voucher_pago);
+                    SqlParameter tvpParam8 = mComando.Parameters.AddWithValue("@TipoCambio", TipoCambio);
+                    SqlParameter tvpParam9 = mComando.Parameters.AddWithValue("@importe_cambio", importe_cambio);
+                    SqlParameter tvpParam10 = mComando.Parameters.AddWithValue("@NumeroDocumento_Voucher_cheque_pago", NumeroDocumento_Voucher_cheque_pago);
+                    SqlParameter tvpParam11 = mComando.Parameters.AddWithValue("@ObservacionPago", ObservacionPago);
+                    SqlParameter tvpParam12 = mComando.Parameters.AddWithValue("@FechaCancelacion", FechaCancelacion);
+
+
+                    SqlParameter tvpParam13 = mComando.Parameters.AddWithValue("@TablamodalidadPago", modalidadPag);
+                    tvpParam13.SqlDbType = SqlDbType.Structured;
+
+                    new SqlDataAdapter(mComando).Fill(mDataset);
+
+                    return mDataset;
+                    //return mComando.ExecuteNonQuery();
+                }
+            }
+        }       
+
+        public DataSet IngresaReciboPrincipal(string ProcedimientoAlmacenado, DataTable dtCabecera, DataTable dtCabeceraDetalle)
+        {
+            using (var cn = new SqlConnection(conectar.conexionXml))
+            {
+                using (var mComando = new SqlCommand(ProcedimientoAlmacenado, cn))
+                {
+                    var mDataset = new DataSet();
+                    cn.Open();
+                    mComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tvpParam1 = mComando.Parameters.AddWithValue("@TablaCabeceraTmp", dtCabecera);
+                    tvpParam1.SqlDbType = SqlDbType.Structured;
+
+                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@TablaCabeceraDetalleTmp", dtCabeceraDetalle);
+                    tvpParam3.SqlDbType = SqlDbType.Structured;
+
+                    new SqlDataAdapter(mComando).Fill(mDataset);
+
+                    return mDataset;
+                    //return mComando.ExecuteNonQuery();
+                }
+            }
+        }
+        public DataSet ActualizaReciboPrincipal(string ProcedimientoAlmacenado,int IdRecibo, DataTable dtCabecera, DataTable dtCabeceraDetalle)
+        {
+            using (var cn = new SqlConnection(conectar.conexionXml))
+            {
+                using (var mComando = new SqlCommand(ProcedimientoAlmacenado, cn))
+                {
+                    var mDataset = new DataSet();
+                    cn.Open();
+                    mComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tvpParam1 = mComando.Parameters.AddWithValue("@TablaCabeceraTmp", dtCabecera);
+                    tvpParam1.SqlDbType = SqlDbType.Structured;
+
+                    SqlParameter tvpParam2 = mComando.Parameters.AddWithValue("@idRecibo", IdRecibo);
 
                     SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@TablaCabeceraDetalleTmp", dtCabeceraDetalle);
                     tvpParam3.SqlDbType = SqlDbType.Structured;

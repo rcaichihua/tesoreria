@@ -39,14 +39,14 @@ namespace GUI_Tesoreria.caja
             {
                 if (string.IsNullOrEmpty(txtUser.Text))
                 {
-                    MessageBox.Show("Ingrese su nombre de Usuario !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese su nombre de Usuario !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
                                                                                                             MessageBoxDefaultButton.Button1);
                     txtUser.Focus();
                     return;
                 }
                 if ((txtPwd1.Text).ToString().Length <= 0)
                 {
-                    MessageBox.Show("Ingrese su Contraseña !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese su Contraseña !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
                                                                                                         MessageBoxDefaultButton.Button1);
                     txtPwd1.Focus();
                     return;
@@ -67,13 +67,13 @@ namespace GUI_Tesoreria.caja
                     {
                         if (FLG_VIGENTE == false)
                         {
-                            MessageBox.Show("Usuario deshabilitado !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Information
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Usuario deshabilitado !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Information
                                                                                                             , MessageBoxDefaultButton.Button1);
                             txtPwd1.Focus();
                         }
                         else if (Convert.ToBoolean(dSet.Tables[0].Rows[0]["extornar"].ToString()==string.Empty ? false : Convert.ToBoolean(dSet.Tables[0].Rows[0]["extornar"])) == false)
                         {
-                            MessageBox.Show("El usuario Ingresado no tiene privilegios para Anular/Extornar el Recibo.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Information
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El usuario Ingresado no tiene privilegios para Anular/Extornar el Recibo.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Information
                                                                                                            , MessageBoxDefaultButton.Button1);
                             txtPwd1.Focus();
                         }
@@ -89,20 +89,20 @@ namespace GUI_Tesoreria.caja
                         intentos += 1;
                         if (intentos == 3)
                         {
-                            MessageBox.Show("Acceso Denegado !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Acceso Denegado !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                             System.Environment.Exit(0);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Usuario Incorrecto, verifique !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Usuario Incorrecto, verifique !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                     this.txtUser.SelectAll();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en el logueo: " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error en el logueo: " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
             }
         }
         private DataSet obtieneUsuario(string usp, string nomUsuario)
@@ -164,7 +164,7 @@ namespace GUI_Tesoreria.caja
             }
             catch
             {
-                MessageBox.Show("Usuario/Contraseña incorrecta !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Usuario/Contraseña incorrecta !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                 txtPwd1.Focus();
                 return null;
             }

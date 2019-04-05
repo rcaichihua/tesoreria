@@ -79,13 +79,13 @@ namespace GUI_Tesoreria.cementerio.inventario
                     , txtNombres.Text, txtApellidos.Text, dtpFecha.Enabled ? dtpFecha.Value.ToShortDateString() : null
                     , txtObservacion.Text,chkMasculino.Checked ? "M" : "F") > 0)
                     {
-                        MessageBox.Show("Los datos fueron guardados correctamente.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Los datos fueron guardados correctamente.", VariablesMetodosEstaticos.encabezado
                                , MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, intente de nuevo.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, intente de nuevo.", VariablesMetodosEstaticos.encabezado
                                , MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
@@ -95,13 +95,13 @@ namespace GUI_Tesoreria.cementerio.inventario
                     , txtNombres.Text, txtApellidos.Text, dtpFecha.Enabled ? dtpFecha.Value.ToShortDateString() : null,
                     txtObservacion.Text, chkMasculino.Checked ? "M" : "F") > 0)
                     {
-                        MessageBox.Show("Los datos fueron actualizados correctamente.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Los datos fueron actualizados correctamente.", VariablesMetodosEstaticos.encabezado
                                , MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, intente de nuevo.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, intente de nuevo.", VariablesMetodosEstaticos.encabezado
                                , MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         return;
                     }
@@ -115,13 +115,13 @@ namespace GUI_Tesoreria.cementerio.inventario
         {
             if (txtNombres.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese el nombre del difunto");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el nombre del difunto");
                 txtNombres.Focus();
                 return false;
             }
             if (txtApellidos.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese los apellidos del difunto");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese los apellidos del difunto");
                 txtApellidos.Focus();
                 return false;
             }

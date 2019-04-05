@@ -102,7 +102,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (Convert.ToDecimal(cellDscto.Value) != 0.00m)
                     {
-                        MessageBox.Show("Cuando se realice pagos a cuenta no se consideraran los descuentos.",
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Cuando se realice pagos a cuenta no se consideraran los descuentos.",
                                 VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     SumaTotales();
@@ -121,13 +121,13 @@ namespace GUI_Tesoreria.caja
 
                     if (Convert.ToDecimal(dgvCta.Rows[e.RowIndex].Cells["acuenta"].Value) >= Convert.ToDecimal(dgvCta.Rows[e.RowIndex].Cells["totalDeuda"].Value))
                     {
-                        MessageBox.Show("El Acuenta no puede mayor o igual a pago total",
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El Acuenta no puede mayor o igual a pago total",
                                 VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El Acuenta no puede estar vacio.",
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El Acuenta no puede estar vacio.",
                                 VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -146,7 +146,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (row.Cells["TotalDeuda"].ToString() == string.Empty)
                     {
-                        MessageBox.Show("Ingrese valores correctos en la columna Totales",
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese valores correctos en la columna Totales",
                             VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
@@ -156,7 +156,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (row.Cells["ACuenta"].Value.ToString() == string.Empty)
                     {
-                        MessageBox.Show("Ingrese valores correctos en la columna ACuenta",
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese valores correctos en la columna ACuenta",
                             VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
@@ -177,7 +177,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (row.Cells["TotalDeuda"].Value.ToString() == string.Empty)
                     {
-                        MessageBox.Show("Ingrese valores correctos en la celda de Totales",
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese valores correctos en la celda de Totales",
                             VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
@@ -189,7 +189,7 @@ namespace GUI_Tesoreria.caja
                     {
                         if (Convert.ToDecimal(row.Cells["ACuenta"].Value) == 0.00m || Convert.ToDecimal(row.Cells["ACuenta"].Value) >= Convert.ToDecimal(row.Cells["TotalDeuda"].Value))
                         {
-                            MessageBox.Show("Ingrese valores correctos en la columna ACuenta - No puede estar vacio o ser mayor o igual al pago total en el Mes de "
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese valores correctos en la columna ACuenta - No puede estar vacio o ser mayor o igual al pago total en el Mes de "
                                 + row.Cells["mesDeuda"].Value.ToString() + " del año " + row.Cells["aFiscal"].Value.ToString() + ".",
                                 VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
@@ -197,7 +197,7 @@ namespace GUI_Tesoreria.caja
                     }
                     else
                     {
-                        MessageBox.Show("Ingrese valores correctos en la columna ACuenta - No puede estar vacio o ser mayor o igual al pago total en el Mes de "
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese valores correctos en la columna ACuenta - No puede estar vacio o ser mayor o igual al pago total en el Mes de "
                                 + row.Cells["mesDeuda"].Value.ToString() + " del año " + row.Cells["aFiscal"].Value.ToString() + ".",
                                 VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -353,12 +353,12 @@ namespace GUI_Tesoreria.caja
                     }
                     else
                     {
-                        MessageBox.Show("No tiene deudas para el rango seleccionado", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No tiene deudas para el rango seleccionado", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Selecciones un rango de fechas válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Selecciones un rango de fechas válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception)
@@ -398,7 +398,7 @@ namespace GUI_Tesoreria.caja
                 }
                 else
                 {
-                    MessageBox.Show("No tiene deudas para el rango seleccionado", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No tiene deudas para el rango seleccionado", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception)

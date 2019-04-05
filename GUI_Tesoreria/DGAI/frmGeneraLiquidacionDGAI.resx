@@ -153,18 +153,4 @@
   <metadata name="IDLIQUIDACION.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnSalir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAFiSURBVFhH
-        5ZjBkcIwDEUpgRKYrYASOO2ZEraE3LlQAiVQwpZACZRACXRg/s/gjFBkozAEa2cPLxNs6+fbKHbsRUpp
-        4Ot7twVnkBz8yFihsQQbq+4Zww0EjveHeNlLIaGTO3Oy6mv0FwR2d4EpjMygbKXaHHSbGpYAuQCO1L7C
-        SouhbAO0lvl3WlDgoII7q6EHxFpmyNpqr6GATNhfq5EXxJfMXMHSipFQQAa5elAC8SUzhJ2uGnowoyun
-        Ao2aGXK04jKfNkOKOdnCDNla8S4zqOOrfHLgnb2Z0KP8fGoG5a9MiB5GCe0xw1GRIu/kYSppbYYMS0YE
-        M6RfMqKY6RM6ihlyiWSmf9jwQxshKP93IxMqZ8K8TWHmmckzcJy1iaCOo2Ot0pp5V+0pQGP+7xkv0PhT
-        X3r+b2DQfHcgk675vinUjrK017Ze3Qz34e/fa/OCgBinEPkGgTHOZzIQaHhylRY3TubyP+XBLZ4AAAAA
-        SUVORK5CYII=
-</value>
-  </data>
 </root>

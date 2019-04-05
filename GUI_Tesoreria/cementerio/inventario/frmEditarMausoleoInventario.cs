@@ -269,7 +269,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 cboPuerta.Enabled ? cboPuerta.Text : null, txtReferencia.Text
                 , cboEstado.SelectedValue, txtObservacion.Text, "0", VariablesMetodosEstaticos.varNombreUser,destino);
 
-                MessageBox.Show("Mausoleo fue actualizado correctamente.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Mausoleo fue actualizado correctamente.");
 
                 this.Close();
             }
@@ -283,43 +283,43 @@ namespace GUI_Tesoreria.cementerio.inventario
         {
             if (txtFamilia.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Familia.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Familia.");
                 txtFamilia.Focus();
                 return false;
             }
             if (txtJardin.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Jardin.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Jardin.");
                 txtJardin.Focus();
                 return false;
             }
             if (txtLote.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Lote.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Lote.");
                 txtLote.Focus();
                 return false;
             }
             if (txtLote.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Lote.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Lote.");
                 txtLote.Focus();
                 return false;
             }
             if (txtBobedas.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Bobedas.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Bobedas.");
                 txtBobedas.Focus();
                 return false;
             }
             if (cboPuerta.Enabled && cboPuerta.Text == string.Empty)
             {
-                MessageBox.Show("Seleccione una Puerta.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una Puerta.");
                 cboPuerta.Focus();
                 return false;
             }
             if (cboSector.Enabled && cboSector.Text == string.Empty)
             {
-                MessageBox.Show("Seleccione un Sector.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Sector.");
                 cboSector.Focus();
                 return false;
             }
@@ -358,7 +358,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 {
                     if (string.IsNullOrEmpty(openFileDialog1.FileName))
                     {
-                        MessageBox.Show("No ha Seleccionado ninguna Imagen");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No ha Seleccionado ninguna Imagen");
 
                         //lblRuta.Text = "";
                         return;
@@ -367,7 +367,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
             }
         }
 

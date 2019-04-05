@@ -50,21 +50,21 @@ namespace GUI_Tesoreria.mantenimiento
 
                 if (txtContrasena1.Text != txtContrasena2.Text)
                 {
-                    MessageBox.Show("Las contraseñas no coinciden, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Las contraseñas no coinciden, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 if (txtContrasena1.Text.Trim() == string.Empty && txtContrasena2.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("La contraseña no puede estar vacia, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("La contraseña no puede estar vacia, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 if (cn.EjecutarSP("usp_actualiza_contrasenia_usuario", VariablesMetodosEstaticos.id_user, varGlobales.Encrypt(varGlobales.llave_publica, pass)) > 0)
                 {
-                    MessageBox.Show("Contraseña actualizado correctamente!.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Contraseña actualizado correctamente!.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception)

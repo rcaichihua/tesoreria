@@ -103,19 +103,19 @@ namespace GUI_Tesoreria.cementerio.inventario
 
             //if (txtCodigoCuartel.Text==string.Empty)
             //{
-            //    MessageBox.Show("Seleccione un Cuartel");
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Cuartel");
             //    valor = false;
             //    return valor;
             //}
             //if(txtNombreCuartel.Text == string.Empty)
             //{
-            //    MessageBox.Show("Seleccione un Cuartel");
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Cuartel");
             //    valor = false;
             //    return valor;
             //}
             //if (txtFila.Text == string.Empty)
             //{
-            //    MessageBox.Show("Seleccione una fila");
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una fila");
             //    valor = false;
             //    return valor;
             //}

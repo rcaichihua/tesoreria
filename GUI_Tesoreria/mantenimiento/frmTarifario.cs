@@ -131,7 +131,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.ToString());
             }
         }
         private void primeraCarga()
@@ -162,7 +162,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -217,7 +217,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -232,7 +232,7 @@ namespace GUI_Tesoreria.mantenimiento
         //    }
         //    catch (Exception ex)
         //    {
-        //        MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+        //        DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
         //            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         //    }
         //}
@@ -273,7 +273,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -298,7 +298,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -314,7 +314,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -330,7 +330,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -367,7 +367,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -393,7 +393,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -409,7 +409,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -425,7 +425,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -441,7 +441,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -457,7 +457,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -473,7 +473,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -568,7 +568,7 @@ namespace GUI_Tesoreria.mantenimiento
                 {
                     if (accion == "D")
                     {
-                        if ((MessageBox.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
+                        if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                         {
                             if (index == 0)
@@ -594,12 +594,12 @@ namespace GUI_Tesoreria.mantenimiento
 
                             if (resultDelete == 3)
                             {
-                                MessageBox.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             }
                             else
                             {
-                                MessageBox.Show("No se elimino, verifíque o intente de nuevo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                DevComponents.DotNetBar.MessageBoxEx.Show("No se elimino, verifíque o intente de nuevo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                                 return;
                             }
@@ -613,12 +613,12 @@ namespace GUI_Tesoreria.mantenimiento
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("No Existen Datos para eliminar, verifíque", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No Existen Datos para eliminar, verifíque", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
             }
         }
@@ -635,7 +635,7 @@ namespace GUI_Tesoreria.mantenimiento
                 if (cont != null)
                 {
                     int TamañoNombre = cont.Name.Length;
-                    MessageBox.Show("Falta ingresar o seleccionar " +
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Falta ingresar o seleccionar " +
                         cont.Name.Substring(3, TamañoNombre - 3) + "");
                     cont.Focus();
                     return;
@@ -648,14 +648,14 @@ namespace GUI_Tesoreria.mantenimiento
 
                 if (VerificaDatoRubro() == false)
                 {
-                    MessageBox.Show("El codigo de rubro no corresponde a su descripción", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El codigo de rubro no corresponde a su descripción", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                   MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     return;
                 }
 
                 if (accion == "I")
                 {
-                    if ((MessageBox.Show("¿Seguro de ingresar la nueva tarifa ?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de ingresar la nueva tarifa ?", VariablesMetodosEstaticos.encabezado,
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         if (index == 0)
@@ -696,12 +696,12 @@ namespace GUI_Tesoreria.mantenimiento
                         }
                         if (resultadoINgreso == 1)
                         {
-                            MessageBox.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                         MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error en le ingreso. contacte con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error en le ingreso. contacte con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                         MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         }
                     }
@@ -748,12 +748,12 @@ namespace GUI_Tesoreria.mantenimiento
 
                     if (resultadoINgreso == 1)
                     {
-                        MessageBox.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error al actualizar. contacte con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error al actualizar. contacte con sistemas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     }
                 }
@@ -762,7 +762,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -921,7 +921,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             else
             {
-                MessageBox.Show("No Existen Datos para Modificar, verifique",
+                DevComponents.DotNetBar.MessageBoxEx.Show("No Existen Datos para Modificar, verifique",
                     VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }

@@ -68,7 +68,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -132,7 +132,7 @@ namespace GUI_Tesoreria.caja
 
             if (dgvRecibos.RowCount==0)
             {
-                MessageBox.Show("Error inesperado, contacte con sistemas..", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error inesperado, contacte con sistemas..", VariablesMetodosEstaticos.encabezado,
                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -168,7 +168,7 @@ namespace GUI_Tesoreria.caja
 
                 if (dgvRecibos.RowCount == 0)
                 {
-                    MessageBox.Show("Error inesperado, contacte con sistemas..", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Error inesperado, contacte con sistemas..", VariablesMetodosEstaticos.encabezado,
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -194,7 +194,7 @@ namespace GUI_Tesoreria.caja
 
                 if (dtsListadoContable.Tables[0].Rows.Count <= 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
                           MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -213,7 +213,7 @@ namespace GUI_Tesoreria.caja
         {
             if (dgvRecibos.RowCount == 0)
             {
-                MessageBox.Show("No hay datos seleccionados.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos seleccionados.", VariablesMetodosEstaticos.encabezado,
                   MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 return;
             }
@@ -222,7 +222,7 @@ namespace GUI_Tesoreria.caja
 
             if (dgvRecibos.Rows[index].Cells["Observacion_AperturaCierreCaja"].Value.ToString() != "Cerrado")
             {
-                MessageBox.Show("La caja seleccionada no ha sido cerrado.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("La caja seleccionada no ha sido cerrado.", VariablesMetodosEstaticos.encabezado,
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }            
@@ -246,7 +246,7 @@ namespace GUI_Tesoreria.caja
         {
             string resultadoCierre = "";
 
-            if ((MessageBox.Show("¿Desea Realizar el Cierre de Caja o recalculo del cierre?", VariablesMetodosEstaticos.encabezado,
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea Realizar el Cierre de Caja o recalculo del cierre?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
                 DataSet dts = new DataSet();
@@ -254,7 +254,7 @@ namespace GUI_Tesoreria.caja
 
                 //if (dgvRecibos.Rows[index].Cells["Observacion_AperturaCierreCaja"].Value.ToString() != "Cerrado")
                 //{
-                //    MessageBox.Show("La caja seleccionada no ha sido cerrado.", VariablesMetodosEstaticos.encabezado,
+                //    DevComponents.DotNetBar.MessageBoxEx.Show("La caja seleccionada no ha sido cerrado.", VariablesMetodosEstaticos.encabezado,
                 //           MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //    return;
                 //}    
@@ -284,19 +284,19 @@ namespace GUI_Tesoreria.caja
 
                     if (Convert.ToInt32(resultadoCierre) == -1)
                     {
-                        MessageBox.Show("Esta intentado cerrar una fecha que no conincide con la fecha de su ventana de cierre. Este intento sera registrado.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Esta intentado cerrar una fecha que no conincide con la fecha de su ventana de cierre. Este intento sera registrado.", VariablesMetodosEstaticos.encabezado,
                       MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         return;
                     }
                     else if (Convert.ToInt32(resultadoCierre) == -2)
                     {
-                        MessageBox.Show("Caja cerrado con exito.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Caja cerrado con exito.", VariablesMetodosEstaticos.encabezado,
                                 MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         buscar();
                     }
                     else if (Convert.ToInt32(resultadoCierre) == 0)
                     {
-                        MessageBox.Show("Error en la apertura, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Error en la apertura, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                       MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         return;
                     }              
@@ -312,14 +312,14 @@ namespace GUI_Tesoreria.caja
 
         private void BtnEliminarApertura_Click(object sender, EventArgs e)
         {
-            if ((MessageBox.Show("¿Seguro de eliminar el registro seleccionado?", VariablesMetodosEstaticos.encabezado,
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de eliminar el registro seleccionado?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
                 index = dgvRecibos.CurrentRow.Index;
                 cn.EjecutarSP("usp_eliminar_apertura_caja", Convert.ToInt32(dgvRecibos.Rows[index].Cells["Id_Caja_Usuario"].Value)
                     , Convert.ToInt32(dgvRecibos.Rows[index].Cells["Id_AperturaCierreCaja"].Value));
 
-                MessageBox.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buscar();
             }
         }

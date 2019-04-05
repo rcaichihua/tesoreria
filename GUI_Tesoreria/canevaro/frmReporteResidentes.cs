@@ -44,7 +44,7 @@ namespace GUI_Tesoreria.canevaro
             }
             else
             {
-                MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
                , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }

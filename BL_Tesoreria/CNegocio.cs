@@ -17,13 +17,17 @@ namespace BL_Tesoreria
         //{
         //    return objx.TraerServidor(ser, bd, usu, pas);
         //}
-        public string TraerServidor()
+        //public string TraerServidor()
+        //{
+        //    return objx.TraerServidor();
+        //}
+        public string TraerServidorSGI(string srv, string bd, string us, string pw)
         {
-            return objx.TraerServidor();
+            return objx.TraerServidorSGI(srv, bd, us, pw);
         }
-        public string TraerServidorSGI()
+        public string TraerServidorSisIngresos(string srv, string bd, string us, string pw)
         {
-            return objx.TraerServidorSGI();
+            return objx.TraerServidor(srv, bd, us, pw);
         }
         public DataSet TraerDataset(string ProcedimientoAlmacenado, params object[] Argumentos)
         {
@@ -147,14 +151,47 @@ namespace BL_Tesoreria
             catch (Exception) { throw; }
         }
 
-        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, bool estado, DataTable dtCabecera,DataTable dtCabeceraDetalle)
+        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, bool estado, DataTable dtCabecera,DataTable dtCabeceraDetalle,DataTable modalidadPago)
         {
             try
             {
-                return objx.IngresaRecibo(ProcedimientoAlmacenado, estado, dtCabecera, dtCabeceraDetalle);
+                return objx.IngresaRecibo(ProcedimientoAlmacenado, estado, dtCabecera, dtCabeceraDetalle, modalidadPago);
             }
             catch (Exception) { throw; }
         }
+
+        public DataSet ActualizaModalidadPago(string ProcedimientoAlmacenado,int ReciboId,int cod_mod_pago,int concep_cod,string FechaDeposito,
+            string cod_entidad_financ,string cuenta_bancaria_id,decimal importe_voucher_pago,decimal TipoCambio,decimal importe_cambio,
+            string NumeroDocumento_Voucher_cheque_pago,string ObservacionPago,string dtpFechaCancelacion,
+            DataTable modalidadPago)
+        {
+            try
+            {
+                return objx.ActualizaModalidadPago(ProcedimientoAlmacenado,ReciboId,cod_mod_pago, concep_cod, FechaDeposito,
+            cod_entidad_financ, cuenta_bancaria_id, importe_voucher_pago, TipoCambio, importe_cambio,
+            NumeroDocumento_Voucher_cheque_pago, ObservacionPago, dtpFechaCancelacion, modalidadPago);
+            }
+            catch (Exception) { throw; }
+        }
+
+        public DataSet IngresaReciboPrincipal(string ProcedimientoAlmacenado, DataTable dtCabecera, DataTable dtCabeceraDetalle)
+        {
+            try
+            {
+                return objx.IngresaReciboPrincipal(ProcedimientoAlmacenado, dtCabecera, dtCabeceraDetalle);
+            }
+            catch (Exception) { throw; }
+        }
+
+        public DataSet ActualizaReciboPrincipal(string ProcedimientoAlmacenado, int IdRecibo, DataTable dtCabecera, DataTable dtCabeceraDetalle)
+        {
+            try
+            {
+                return objx.ActualizaReciboPrincipal(ProcedimientoAlmacenado, IdRecibo, dtCabecera, dtCabeceraDetalle);
+            }
+            catch (Exception) { throw; }
+        }
+
         public DataSet IngresaTituloNicho(string ProcedimientoAlmacenado,string CodPabellon,string LetraFila, int NumeroCol,int Usuario,
             string EstadoTitulo, string NroTitutlo, string NroDocVenta,string NomResponsable, 
             DateTime? FechaInhumacion, DateTime? FechaConcesion, int? MotivoAnulacion, string Observacion,
@@ -169,6 +206,15 @@ namespace BL_Tesoreria
                 return objx.IngresaTituloNicho(ProcedimientoAlmacenado, CodPabellon, LetraFila, NumeroCol, Usuario,
             EstadoTitulo, NroTitutlo, NroDocVenta,NomResponsable, FechaInhumacion, FechaConcesion, MotivoAnulacion, Observacion,
             GeneroTitulo,RecogioTitulo,Cementerio,NombreCuartel,anios,perpetuo, dtDifuntos,Material);
+            }
+            catch (Exception) { throw; }
+        }
+
+        public DataSet IngresarLiquiApi(string ProcedimientoAlmacenado, int nroLiq,string usu ,string pc, DataTable dtLiqui,int idLiq)
+        {
+            try
+            {
+                return objx.IngresarLiquiApi(ProcedimientoAlmacenado, nroLiq,usu,pc,dtLiqui, idLiq);
             }
             catch (Exception) { throw; }
         }

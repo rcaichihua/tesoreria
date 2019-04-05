@@ -93,7 +93,7 @@ namespace GUI_Tesoreria.menus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.ToString());
             }
 
         }
@@ -121,7 +121,7 @@ namespace GUI_Tesoreria.menus
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -140,12 +140,12 @@ namespace GUI_Tesoreria.menus
 
         private void m_3_1_1_Click(object sender, EventArgs e)
         {
-            Gerencia.frmIngresoGeneral _frmIngresoGeneral = null;
-            _frmIngresoGeneral = Gerencia.frmIngresoGeneral.Instance();
-            _frmIngresoGeneral.MdiParent = this;
-            _frmIngresoGeneral.TipoReporte = "ResGen";
-            _frmIngresoGeneral.Tipo_Reporte_y = "R";
-            _frmIngresoGeneral.Show();
+            Gerencia.frmIngresoGeneral2 _frmIngresoGeneral2 = null;
+            _frmIngresoGeneral2 = Gerencia.frmIngresoGeneral2.Instance();
+            _frmIngresoGeneral2.MdiParent = this;
+            _frmIngresoGeneral2.TipoReporte = "ResGen";
+            _frmIngresoGeneral2.Tipo_Reporte_y = "R";
+            _frmIngresoGeneral2.Show();
         }
 
         private void m_3_1_2_Click(object sender, EventArgs e)
@@ -178,11 +178,11 @@ namespace GUI_Tesoreria.menus
 
         private void m_1_4_Click(object sender, EventArgs e)
         {
-            Gerencia.frmIngresoGeneral _frmIngresoGeneral = null;
-            _frmIngresoGeneral = Gerencia.frmIngresoGeneral.Instance();
-            _frmIngresoGeneral.MdiParent = this;
-            _frmIngresoGeneral.TipoReporte = "consulta";
-            _frmIngresoGeneral.Show();
+            Gerencia.frmIngresoGeneral2 _frmIngresoGeneral2 = null;
+            _frmIngresoGeneral2 = Gerencia.frmIngresoGeneral2.Instance();
+            _frmIngresoGeneral2.MdiParent = this;
+            _frmIngresoGeneral2.TipoReporte = "consulta";
+            _frmIngresoGeneral2.Show();
         }
 
         private void m_2_2_1_Click(object sender, EventArgs e)
@@ -269,7 +269,7 @@ namespace GUI_Tesoreria.menus
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
 
-                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -328,6 +328,25 @@ namespace GUI_Tesoreria.menus
             frmListadoRecibosPrograma _frmListadoRecibosPrograma = new frmListadoRecibosPrograma();
             _frmListadoRecibosPrograma.MdiParent = this;
             _frmListadoRecibosPrograma.Show();
+        }
+
+        private void m_1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verificaciónDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Liquidacion_cajas.frmVerificacionLiquidaciones _frmVerif = new caja.Liquidacion_cajas.frmVerificacionLiquidaciones();
+            _frmVerif.MdiParent = this;
+            _frmVerif.Show();
+        }
+        
+        private void importarInformaciónAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Liquidacion_cajas.frmImportarInformacionAPI _frmVerif = new caja.Liquidacion_cajas.frmImportarInformacionAPI();
+            _frmVerif.MdiParent = this;
+            _frmVerif.Show();
         }
     }
 }

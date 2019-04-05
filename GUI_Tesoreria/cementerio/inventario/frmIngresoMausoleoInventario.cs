@@ -64,7 +64,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 if (origen == "label1") origen = System.Windows.Forms.Application.StartupPath.ToString() + @"\FONDO\\sin imagen.jpg";
                 File.Copy(origen, destino);
 
-                MessageBox.Show("Mausoleo fue registrado correctamente.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Mausoleo fue registrado correctamente.");
                 LimpiarControles();
                 LlenarGrillaMausoleo(0);
                        
@@ -106,7 +106,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 }
                 else
                 {
-                    MessageBox.Show("No hay datos para mostrar");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para mostrar");
                 }
             }
             catch (Exception)
@@ -118,43 +118,43 @@ namespace GUI_Tesoreria.cementerio.inventario
         {
             if (txtFamilia.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Familia.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Familia.");
                 txtFamilia.Focus();
                 return false;
             }
             if (txtJardin.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Jardin.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Jardin.");
                 txtJardin.Focus();
                 return false;
             }
             if (txtLote.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Lote.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Lote.");
                 txtLote.Focus();
                 return false;
             }
             if (txtLote.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Lote.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Lote.");
                 txtLote.Focus();
                 return false;
             }
             if (txtBobedas.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Bobedas.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Bobedas.");
                 txtBobedas.Focus();
                 return false;
             }
             if (cboPuerta.Enabled && cboPuerta.Text==string.Empty)
             {
-                MessageBox.Show("Seleccione una Puerta.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una Puerta.");
                 cboPuerta.Focus();
                 return false;
             }
             if (cboSector.Enabled && cboSector.Text == string.Empty)
             {
-                MessageBox.Show("Seleccione un Sector.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Sector.");
                 cboSector.Focus();
                 return false;
             }
@@ -188,7 +188,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 ContextMenuStrip my_menu = new ContextMenuStrip();
                 int posicion_xy_mouse_fila = dgvMausoleo.HitTest(e.X, e.Y).RowIndex;
 
-                //MessageBox.Show(posicion_xy_mouse_fila.ToString());
+                //DevComponents.DotNetBar.MessageBoxEx.Show(posicion_xy_mouse_fila.ToString());
                 if (posicion_xy_mouse_fila >= 0)
                 {
                     fila_Mausoleo= posicion_xy_mouse_fila;
@@ -205,7 +205,7 @@ namespace GUI_Tesoreria.cementerio.inventario
 
         void my_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            //MessageBox.Show(e.ClickedItem.Name.ToString());
+            //DevComponents.DotNetBar.MessageBoxEx.Show(e.ClickedItem.Name.ToString());
             DataGridViewRow row = dgvMausoleo.Rows[fila_Mausoleo];
 
             switch (e.ClickedItem.Name.ToString())
@@ -214,7 +214,7 @@ namespace GUI_Tesoreria.cementerio.inventario
 
                     if (row.Cells[10].Value.ToString() == "1")
                     {
-                        MessageBox.Show("La tumba ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("La tumba ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
@@ -243,19 +243,19 @@ namespace GUI_Tesoreria.cementerio.inventario
                 case "btnEliminar":
                     if (row.Cells[13].Value.ToString() == "1")
                     {
-                        MessageBox.Show("El Mausoleo ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El Mausoleo ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
 
-                    if ((MessageBox.Show("¿Esta seguro de eliminar el Mausoleo?",
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar el Mausoleo?",
                         VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                         == DialogResult.Yes))
                     {
                         cn.EjecutarSP("usp_MAUSOLEOINVENTARIOEliminar", Convert.ToInt32(row.Cells[0].Value));
 
-                        MessageBox.Show("Se elimino el Mausoleo correctamente.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Se elimino el Mausoleo correctamente.", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         LlenarGrillaMausoleo(0);
@@ -299,7 +299,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(exc.Message);
             }
         }
 
@@ -317,7 +317,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 ContextMenuStrip my_menu_d = new ContextMenuStrip();
                 int posicion_xy_mouse_fila = dgvDifuntos.HitTest(e.X, e.Y).RowIndex;
 
-                //MessageBox.Show(posicion_xy_mouse_fila.ToString());
+                //DevComponents.DotNetBar.MessageBoxEx.Show(posicion_xy_mouse_fila.ToString());
                 if (posicion_xy_mouse_fila >= 0)
                 {
                     fila_difunto = posicion_xy_mouse_fila;
@@ -342,7 +342,7 @@ namespace GUI_Tesoreria.cementerio.inventario
 
                     if (row.Cells[5].Value.ToString() == "1")
                     {
-                        MessageBox.Show("EL difunto se encuentra asignado a un Mausoleo " + Environment.NewLine +
+                        DevComponents.DotNetBar.MessageBoxEx.Show("EL difunto se encuentra asignado a un Mausoleo " + Environment.NewLine +
                             "que ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
@@ -372,12 +372,12 @@ namespace GUI_Tesoreria.cementerio.inventario
                 case "btnEliminar":
                     if (row.Cells[5].Value.ToString() == "1")
                     {
-                        MessageBox.Show("El difunto ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El difunto ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
 
-                    if ((MessageBox.Show("¿Esta seguro de eliminar al difunto " + Environment.NewLine
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar al difunto " + Environment.NewLine
                         + "con nombres: " + row.Cells[2].Value.ToString() + " " 
                         + row.Cells[1].Value.ToString() + " ?", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
@@ -385,7 +385,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                     {
                         cn.EjecutarSP("usp_DIFUNTOMAUSOLEOINVENTARIOEliminar", Convert.ToInt32(row.Cells[0].Value));
 
-                        MessageBox.Show("El difunto se elimino correctamente.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El difunto se elimino correctamente.", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         //ListarTumbas(0);
@@ -581,7 +581,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 {
                     if (string.IsNullOrEmpty(openFileDialog1.FileName))
                     {
-                        MessageBox.Show("No ha Seleccionado ninguna Imagen");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No ha Seleccionado ninguna Imagen");
                         lblRuta.Text = "";
                         return;
                     }
@@ -589,7 +589,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
             }
         }
     }

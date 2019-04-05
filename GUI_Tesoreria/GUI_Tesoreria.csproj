@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.1.8\sistemagtp\</PublishUrl>
+    <PublishUrl>\\192.168.1.8\SIGEIN\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,17 +25,17 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ProductName>Sistema Tesoreria Ingresos</ProductName>
+    <UpdateUrl>\\192.168.1.8\SIGEIN\</UpdateUrl>
+    <ProductName>Sistema de Gestion de Ingresos</ProductName>
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>146</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -71,10 +71,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B3B5B3912FEE7F46CB52EC122F8271EAC532B178</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>CA6A7A2A73E522C043D4345738781ABE74C3BB58</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>GUI_Tesoreria_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>GUI_Tesoreria_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -124,6 +124,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="caja\Depositos\frmReporteBancoPorBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Depositos\frmReporteBancoPorBanco.Designer.cs">
+      <DependentUpon>frmReporteBancoPorBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="caja\Depositos\frmReporteBancoPorPrograma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptDepositos1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\Depositos\Reportes\rptDepositosPorRangoFDepositos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDepositosPorRangoFDepositos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\DocsElectronicos\rptBoletaArrendamiento.cs">
@@ -147,6 +159,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptFacturaArrendamiento.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\frmAgregarModalidadPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmAgregarModalidadPago.Designer.cs">
+      <DependentUpon>frmAgregarModalidadPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\frmAgregarPagoAdicional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmAgregarPagoAdicional.Designer.cs">
+      <DependentUpon>frmAgregarPagoAdicional.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\frmAgregarRubro.cs">
       <SubType>Form</SubType>
@@ -214,6 +238,12 @@
     <Compile Include="caja\frmExtornarRecibo.Designer.cs">
       <DependentUpon>frmExtornarRecibo.cs</DependentUpon>
     </Compile>
+    <Compile Include="caja\frmGeneraLiquidacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmGeneraLiquidacion.Designer.cs">
+      <DependentUpon>frmGeneraLiquidacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="caja\frmImpresionRecibos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +261,12 @@
     </Compile>
     <Compile Include="caja\frmMensaje.Designer.cs">
       <DependentUpon>frmMensaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\frmModificacionModalidadPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmModificacionModalidadPago.Designer.cs">
+      <DependentUpon>frmModificacionModalidadPago.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\frmPagoDiversos.cs">
       <SubType>Form</SubType>
@@ -255,6 +291,114 @@
     </Compile>
     <Compile Include="caja\GestionIngresos\frmFechaIngresosGestion.Designer.cs">
       <DependentUpon>frmFechaIngresosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmAsignaPliegoGlosa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmAsignaPliegoGlosa.Designer.cs">
+      <DependentUpon>frmAsignaPliegoGlosa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmEdicionLiquidacionInmobiliaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmEdicionLiquidacionInmobiliaria.Designer.cs">
+      <DependentUpon>frmEdicionLiquidacionInmobiliaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmEdicionVouchers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmEdicionVouchers.Designer.cs">
+      <DependentUpon>frmEdicionVouchers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmFiltroFechaIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmFiltroFechaIngresos.Designer.cs">
+      <DependentUpon>frmFiltroFechaIngresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmGeneraLiquidacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmGeneraLiquidacion.Designer.cs">
+      <DependentUpon>frmGeneraLiquidacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmImportarInformacionAPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmImportarInformacionAPI.Designer.cs">
+      <DependentUpon>frmImportarInformacionAPI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoDepositosLiquidacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoDepositosLiquidacion.Designer.cs">
+      <DependentUpon>frmListadoDepositosLiquidacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoLiquidacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoLiquidacion.Designer.cs">
+      <DependentUpon>frmListadoLiquidacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoRecibosCajaxPrograma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoRecibosCajaxPrograma.Designer.cs">
+      <DependentUpon>frmListadoRecibosCajaxPrograma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoRecibosTotal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListadoRecibosTotal.Designer.cs">
+      <DependentUpon>frmListadoRecibosTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListaLiquidacionesCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListaLiquidacionesCierre.Designer.cs">
+      <DependentUpon>frmListaLiquidacionesCierre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListaRubrosCajaCentral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmListaRubrosCajaCentral.Designer.cs">
+      <DependentUpon>frmListaRubrosCajaCentral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmModAgregaReciboIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmModAgregaReciboIngreso.Designer.cs">
+      <DependentUpon>frmModAgregaReciboIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmMotivoAnulacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmMotivoAnulacion.Designer.cs">
+      <DependentUpon>frmMotivoAnulacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmReciboCajaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmReciboCajaPrincipal.Designer.cs">
+      <DependentUpon>frmReciboCajaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmReciboCajaPrincipalModifica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmReciboCajaPrincipalModifica.Designer.cs">
+      <DependentUpon>frmReciboCajaPrincipalModifica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmVerificacionLiquidaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmVerificacionLiquidaciones.Designer.cs">
+      <DependentUpon>frmVerificacionLiquidaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Reportes\rptIngresoDiario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIngresoDiario.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\Reportes\ReporteReciboCajaFactura.cs">
       <AutoGen>True</AutoGen>
@@ -316,6 +460,12 @@
       <DependentUpon>rptPruebaImpreFactura.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="caja\Reportes\rptReciboCaja.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReciboCaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="caja\Reportes\rptReciboCajaCentral.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -334,10 +484,22 @@
       <DependentUpon>rptReciboCajaCementerio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="caja\Reportes\rptReciboEmitido.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReciboEmitido.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="caja\Reportes\rptRecibosIngreso.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptRecibosIngreso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\Reportes\rptReporteDepositos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReporteDepositos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\Reportes\rptReporteDiario.cs">
@@ -605,6 +767,7 @@
     <Compile Include="control\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabasePicker.cs" />
     <Compile Include="Databases.cs" />
     <Compile Include="DatabaseToDbf.cs" />
     <Compile Include="DGAI\frmAgregarRubrosDGAI.cs">
@@ -668,6 +831,12 @@
     <Compile Include="frmExportarIngresos.designer.cs">
       <DependentUpon>frmExportarIngresos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMuestraDatatable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMuestraDatatable.Designer.cs">
+      <DependentUpon>frmMuestraDatatable.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteIngresoDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -679,6 +848,12 @@
     </Compile>
     <Compile Include="frmReporte.Designer.cs">
       <DependentUpon>frmReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gerencia\frmIngresoGeneral2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerencia\frmIngresoGeneral2.Designer.cs">
+      <DependentUpon>frmIngresoGeneral2.cs</DependentUpon>
     </Compile>
     <Compile Include="Gerencia\frmIngresoPorCajeroDia.cs">
       <SubType>Form</SubType>
@@ -926,6 +1101,8 @@
     <Compile Include="menus\frmMenuReporteIngreso.Designer.cs">
       <DependentUpon>frmMenuReporteIngreso.cs</DependentUpon>
     </Compile>
+    <Compile Include="MetodosGlobales.cs" />
+    <Compile Include="MetodosGlobales2.cs" />
     <Compile Include="NumLetra.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -968,13 +1145,21 @@
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="varGlobales.cs" />
+    <Compile Include="VariablesGlobales.cs" />
     <Compile Include="VariablesMetodosEstaticos.cs" />
+    <EmbeddedResource Include="caja\Depositos\frmReporteBancoPorBanco.resx">
+      <DependentUpon>frmReporteBancoPorBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Depositos\frmReporteBancoPorPrograma.resx">
       <DependentUpon>frmReporteBancoPorPrograma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Depositos\Reportes\rptDepositos1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDepositos1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Depositos\Reportes\rptDepositosPorRangoFDepositos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDepositosPorRangoFDepositos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\DocsElectronicos\rptBoletaArrendamiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -983,6 +1168,12 @@
     <EmbeddedResource Include="caja\DocsElectronicos\rptFacturaArrendamiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptFacturaArrendamiento.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\frmAgregarModalidadPago.resx">
+      <DependentUpon>frmAgregarModalidadPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\frmAgregarPagoAdicional.resx">
+      <DependentUpon>frmAgregarPagoAdicional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\frmAgregarRubro.resx">
       <DependentUpon>frmAgregarRubro.cs</DependentUpon>
@@ -1030,6 +1221,9 @@
     <EmbeddedResource Include="caja\frmMensaje.resx">
       <DependentUpon>frmMensaje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\frmModificacionModalidadPago.resx">
+      <DependentUpon>frmModificacionModalidadPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\frmPagoDiversos.resx">
       <DependentUpon>frmPagoDiversos.cs</DependentUpon>
     </EmbeddedResource>
@@ -1042,6 +1236,61 @@
     </EmbeddedResource>
     <EmbeddedResource Include="caja\GestionIngresos\frmFechaIngresosGestion.resx">
       <DependentUpon>frmFechaIngresosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmAsignaPliegoGlosa.resx">
+      <DependentUpon>frmAsignaPliegoGlosa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmEdicionLiquidacionInmobiliaria.resx">
+      <DependentUpon>frmEdicionLiquidacionInmobiliaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmEdicionVouchers.resx">
+      <DependentUpon>frmEdicionVouchers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmFiltroFechaIngresos.resx">
+      <DependentUpon>frmFiltroFechaIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmGeneraLiquidacion.resx">
+      <DependentUpon>frmGeneraLiquidacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmImportarInformacionAPI.resx">
+      <DependentUpon>frmImportarInformacionAPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmListadoDepositosLiquidacion.resx">
+      <DependentUpon>frmListadoDepositosLiquidacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmListadoLiquidacion.resx">
+      <DependentUpon>frmListadoLiquidacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmListadoRecibosCajaxPrograma.resx">
+      <DependentUpon>frmListadoRecibosCajaxPrograma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmListadoRecibosTotal.resx">
+      <DependentUpon>frmListadoRecibosTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmListaLiquidacionesCierre.resx">
+      <DependentUpon>frmListaLiquidacionesCierre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmListaRubrosCajaCentral.resx">
+      <DependentUpon>frmListaRubrosCajaCentral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmModAgregaReciboIngreso.resx">
+      <DependentUpon>frmModAgregaReciboIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmMotivoAnulacion.resx">
+      <DependentUpon>frmMotivoAnulacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmReciboCajaPrincipal.resx">
+      <DependentUpon>frmReciboCajaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmReciboCajaPrincipalModifica.resx">
+      <DependentUpon>frmReciboCajaPrincipalModifica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmVerificacionLiquidaciones.resx">
+      <DependentUpon>frmVerificacionLiquidaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptIngresoDiario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIngresoDiario.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\ReporteReciboCajaFactura.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1083,6 +1332,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPruebaImpreFactura.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptReciboCaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReciboCaja.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReciboCajaCentral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReciboCajaCentral.cs</LastGenOutput>
@@ -1095,9 +1348,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReciboCajaCementerio.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptReciboEmitido.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReciboEmitido.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptRecibosIngreso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptRecibosIngreso.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptReporteDepositos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteDepositos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReporteDiario.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1271,11 +1532,17 @@
     <EmbeddedResource Include="frmExportarIngresos.resx">
       <DependentUpon>frmExportarIngresos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMuestraDatatable.resx">
+      <DependentUpon>frmMuestraDatatable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteIngresoDiario.resx">
       <DependentUpon>frmReporteIngresoDiario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporte.resx">
       <DependentUpon>frmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gerencia\frmIngresoGeneral2.resx">
+      <DependentUpon>frmIngresoGeneral2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gerencia\frmIngresoPorCajeroDia.resx">
       <DependentUpon>frmIngresoPorCajeroDia.cs</DependentUpon>
@@ -1396,12 +1663,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="menus\frmMenuCaja.resx">
       <DependentUpon>frmMenuCaja.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="menus\frmMenuConfiguracion.resx">
       <DependentUpon>frmMenuConfiguracion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="menus\frmMenuReporteIngreso.resx">
       <DependentUpon>frmMenuReporteIngreso.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1432,6 +1702,7 @@
     <EmbeddedResource Include="Utilitario\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="GUI_Tesoreria_1_TemporaryKey.pfx" />
     <None Include="GUI_Tesoreria_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -1555,6 +1826,30 @@
     <Content Include="FONDO\sin imagen.jpg" />
     <Content Include="FONDO\Sin título-1.png" />
     <Content Include="icons8_Workflow.ico" />
+    <Content Include="llave\DBSistemaIngresos.txt" />
+    <None Include="Resources\actualiza_32x32.png" />
+    <None Include="Resources\agregar_32x32.png" />
+    <None Include="Resources\asiganar_32x32.png" />
+    <None Include="Resources\modif_32x32.png" />
+    <None Include="Resources\ver_28x28.png" />
+    <None Include="Resources\salir_.png" />
+    <None Include="Resources\agregarModalidad.png" />
+    <None Include="Resources\agregarpago.png" />
+    <None Include="Resources\editarD.png" />
+    <None Include="Resources\imprimirD.png" />
+    <None Include="Resources\eliminarV.png" />
+    <None Include="Resources\compararV.png" />
+    <None Include="Resources\cancelardoc.png" />
+    <None Include="Resources\guardarDoc.png" />
+    <None Include="Resources\fonavi.png" />
+    <None Include="Resources\salirDoc.png" />
+    <None Include="Resources\nuevodoc.png" />
+    <None Include="Resources\guardar.png" />
+    <None Include="Resources\editarvoucher.png" />
+    <None Include="Resources\verdepositos.png" />
+    <None Include="Resources\reciboscaja.png" />
+    <None Include="Resources\generarliquidacion.png" />
+    <None Include="Resources\salir.png" />
     <None Include="Resources\reporte.png" />
     <None Include="Resources\exit.png" />
     <None Include="Resources\anular.png" />

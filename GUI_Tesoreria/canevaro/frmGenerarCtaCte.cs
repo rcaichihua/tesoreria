@@ -38,25 +38,25 @@ namespace GUI_Tesoreria.canevaro
                 {
                     if (Convert.ToDecimal(txtImporte.Text) == 0)
                     {
-                        MessageBox.Show("Ingrese un valor válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtImporte.Focus();
                         return;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese un valor válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtImporte.Focus();
                     return;
                 }
                 if (cboAnio.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Seleccione un año válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un año válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cboAnio.Focus();
                     return;
                 }
 
-                if ((MessageBox.Show("Se generara el estado de cuenta corriente del año  seleccionado. ¿Desea continuar?", VariablesMetodosEstaticos.encabezado,
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("Se generara el estado de cuenta corriente del año  seleccionado. ¿Desea continuar?", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
                     resultadoGenera = Convert.ToInt32(cn.TraerDataset("usp_genera_ctacte_residente", IdResidente,
@@ -67,12 +67,12 @@ namespace GUI_Tesoreria.canevaro
 
                     if (resultadoGenera == 13 || resultadoGenera == 7)
                     {
-                        MessageBox.Show("Cuenta corriente generada satisfactoriamente", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Cuenta corriente generada satisfactoriamente", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Cuenta corriente para este residente ya fue generada. "
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Cuenta corriente para este residente ya fue generada. "
                             , "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }

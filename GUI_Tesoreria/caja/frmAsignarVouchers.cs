@@ -135,7 +135,7 @@ namespace GUI_Tesoreria.caja
         {
             if (importe < Convert.ToDecimal(txtTotal.Text))
             {
-                MessageBox.Show("El monto del voucher no coincidi con el total de los recibos seleccionados.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("El monto del voucher no coincidi con el total de los recibos seleccionados.", VariablesMetodosEstaticos.encabezado,
                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 return;
             }
@@ -153,7 +153,7 @@ namespace GUI_Tesoreria.caja
                             , row.Cells["Recibo"].Value, row.Cells["Solicitante_ReciboCabecera"].Value, Convert.ToDecimal(row.Cells["Importe"].Value)
                             , VariablesMetodosEstaticos.varUsuario, VariablesMetodosEstaticos.host_user + " / " + VariablesMetodosEstaticos.ip_user) != 1)
                         {
-                            MessageBox.Show("Ocurrio un error interno al registrar los vouchers. Contacte con Sistemas.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error interno al registrar los vouchers. Contacte con Sistemas.", VariablesMetodosEstaticos.encabezado,
                                        MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                             //break;
                             return;
@@ -163,12 +163,12 @@ namespace GUI_Tesoreria.caja
 
                 if (contador == 0)
                 {
-                    MessageBox.Show("No ha seleccionado ningun recibo, antes de guardar, seleccione los recibos correspondientes.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No ha seleccionado ningun recibo, antes de guardar, seleccione los recibos correspondientes.", VariablesMetodosEstaticos.encabezado,
                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
-                    MessageBox.Show("Los recibos fueron asignados correctamente al voucher.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Los recibos fueron asignados correctamente al voucher.", VariablesMetodosEstaticos.encabezado,
                                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();
                 }

@@ -48,7 +48,7 @@ namespace GUI_Tesoreria.menus
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -98,7 +98,7 @@ namespace GUI_Tesoreria.menus
             }
             else
             {
-                MessageBox.Show("Su computador no se encuentra registrado para realizar caja. Si desea comuniquese con el administrador.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Su computador no se encuentra registrado para realizar caja. Si desea comuniquese con el administrador.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
                                                                                                         MessageBoxDefaultButton.Button1);
                 toolStripMenuItem5_Click(sender, e);
                 inhabilitaMenu();
@@ -112,7 +112,7 @@ namespace GUI_Tesoreria.menus
                 }
                 else
                 {
-                    MessageBox.Show("Este computador no puede realizar caja con el usuario Logueado, contacte con sistemas.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Este computador no puede realizar caja con el usuario Logueado, contacte con sistemas.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
                                                                                                             MessageBoxDefaultButton.Button1);
                     toolStripMenuItem5_Click(sender, e);
                     
@@ -139,7 +139,7 @@ namespace GUI_Tesoreria.menus
             }
             else
             {
-                MessageBox.Show("Su computador no se encuentra registrado para realizar caja. Si desea comuniquese con el administrador.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Su computador no se encuentra registrado para realizar caja. Si desea comuniquese con el administrador.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
                                                                                                        MessageBoxDefaultButton.Button1);
                 toolStripMenuItem5_Click(sender, e);
                 return;
@@ -162,7 +162,7 @@ namespace GUI_Tesoreria.menus
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
 
-                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -333,6 +333,142 @@ namespace GUI_Tesoreria.menus
         private void reporteIngresosPorRubroToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void m_1_9_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.varUsuario!="ESOTOMAYOR")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmGeneraLiquidacion _frmGeneraLiquidacion = null;
+            _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmGeneraLiquidacion.Instance();
+            _frmGeneraLiquidacion.MdiParent = this;
+            _frmGeneraLiquidacion.Show();
+        }
+
+        private void generaciónDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmGeneraLiquidacion _frmGeneraLiquidacion = null;
+            _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmGeneraLiquidacion.Instance();
+            _frmGeneraLiquidacion.MdiParent = this;
+            _frmGeneraLiquidacion.Show();
+        }
+
+        private void listadoDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmListadoLiquidacion _frmGeneraLiquidacion = null;
+            _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmListadoLiquidacion.Instance();
+            _frmGeneraLiquidacion.MdiParent = this;
+            _frmGeneraLiquidacion.Show();
+        }
+
+        private void listadoDeRecibosDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmListadoRecibosTotal _frmGeneraLiquidacion = null;
+            _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmListadoRecibosTotal.Instance();
+            _frmGeneraLiquidacion.MdiParent = this;
+            _frmGeneraLiquidacion.Show();
+        }
+
+        //private void ingresosDiariosToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+        //    {
+        //        DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+        //                                       MessageBoxIcon.Warning);
+        //        return;
+        //    }
+        //    caja.Liquidacion_cajas.frmFiltroFechaIngresos _frmGeneraLiquidacion = null;
+        //    _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmFiltroFechaIngresos.Instance();
+        //    _frmGeneraLiquidacion.MdiParent = this;
+        //    _frmGeneraLiquidacion.Tipo = "ID";
+        //    _frmGeneraLiquidacion.Show();
+        //}
+
+        //private void recibosEmitidosToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+        //    {
+        //        DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+        //                                       MessageBoxIcon.Warning);
+        //        return;
+        //    }
+        //    caja.Liquidacion_cajas.frmFiltroFechaIngresos _frmGeneraLiquidacion = null;
+        //    _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmFiltroFechaIngresos.Instance();
+        //    _frmGeneraLiquidacion.MdiParent = this;
+        //    _frmGeneraLiquidacion.Tipo = "RE";
+        //    _frmGeneraLiquidacion.Show();
+        //}
+
+        private void cierreDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmListaLiquidacionesCierre _frmListaLiquidacionesCierre = null;
+            _frmListaLiquidacionesCierre = caja.Liquidacion_cajas.frmListaLiquidacionesCierre.Instance();
+            _frmListaLiquidacionesCierre.MdiParent = this;
+            _frmListaLiquidacionesCierre.Show();
+        }
+
+        private void listaadoDeRubrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmListaRubrosCajaCentral _frmListaRubrosCajaCentral = null;
+            _frmListaRubrosCajaCentral = caja.Liquidacion_cajas.frmListaRubrosCajaCentral.Instance();
+            _frmListaRubrosCajaCentral.MdiParent = this;
+            _frmListaRubrosCajaCentral.Show();
+        }
+
+        private void reporteDeIngresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmFiltroFechaIngresos _frmGeneraLiquidacion = null;
+            _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmFiltroFechaIngresos.Instance();
+            _frmGeneraLiquidacion.MdiParent = this;
+            _frmGeneraLiquidacion.Show();
+        }
+
+        private void porBancosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Depositos.frmReporteBancoPorBanco _frmReporteBancoPorBanco = null;
+            _frmReporteBancoPorBanco = new caja.Depositos.frmReporteBancoPorBanco(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorBanco.MdiParent = this;
+            _frmReporteBancoPorBanco.Show();
         }
     }
 }

@@ -110,7 +110,7 @@ namespace GUI_Tesoreria.caja
                 }
                 else
                 {
-                    MessageBox.Show("No puede aperturar caja debido a que su usuario no tiene asignado una caja",
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No puede aperturar caja debido a que su usuario no tiene asignado una caja",
                   VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 }
                 
@@ -277,33 +277,33 @@ namespace GUI_Tesoreria.caja
 
                         if (intresultado == dtDetalle.Rows.Count)
                         {
-                            MessageBox.Show("Apertura de Caja Realizado", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Apertura de Caja Realizado", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Apertura no Registrada, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Apertura no Registrada, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             return;
                         }
                     }
                       else if ( intresultado == 0)
                     {
-                        MessageBox.Show("Error en la apertura, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Error en la apertura, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                       MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         return;
                     }
                     else if (intresultado == -1)
                     {
-                        MessageBox.Show("Esta intentado cerrar una fecha que no conincide con la fecha de su ventana de cierre. Este intento sera registrado.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Esta intentado cerrar una fecha que no conincide con la fecha de su ventana de cierre. Este intento sera registrado.", VariablesMetodosEstaticos.encabezado,
                       MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         return;
                     } 
                 }
                 else
                 {
-                    if ((MessageBox.Show("¿Desea Realizar el Cierre de Caja?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea Realizar el Cierre de Caja?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         DataSet dts = new DataSet();
@@ -331,19 +331,19 @@ namespace GUI_Tesoreria.caja
 
                         if (Convert.ToInt32(resultadoCierre) == -1)
                         {
-                            MessageBox.Show("Esta intentado cerrar una fecha que no conincide con la fecha de su ventana de cierre. Este intento sera registrado.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Esta intentado cerrar una fecha que no conincide con la fecha de su ventana de cierre. Este intento sera registrado.", VariablesMetodosEstaticos.encabezado,
                           MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                             return;
                         } 
                         else if (Convert.ToInt32(resultadoCierre) == -2)
                         {
-                            MessageBox.Show("Caja cerrado con exito.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Caja cerrado con exito.", VariablesMetodosEstaticos.encabezado,
                                     MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             this.Close();
                         }
                         else if (Convert.ToInt32(resultadoCierre) == 0)
                         {
-                            MessageBox.Show("Error en la apertura, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Error en la apertura, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                           MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             return;
                         }
@@ -353,7 +353,7 @@ namespace GUI_Tesoreria.caja
 
                         //if (dts.Tables[0].Rows.Count == 0)
                         //{
-                        //    MessageBox.Show("No se ha realizado ningun movimiento.", VariablesMetodosEstaticos.encabezado,
+                        //    DevComponents.DotNetBar.MessageBoxEx.Show("No se ha realizado ningun movimiento.", VariablesMetodosEstaticos.encabezado,
                         //     MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         //}
                         //else

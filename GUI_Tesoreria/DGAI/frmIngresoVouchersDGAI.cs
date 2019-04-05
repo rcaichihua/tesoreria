@@ -30,22 +30,22 @@ namespace GUI_Tesoreria.DGAI
 
         private void btnVerIngresos_Click(object sender, EventArgs e)
         {
-            dtResu = new DataTable();
-            dtResu = cn.TraerDataset("usp_obtiene_ingreso_por_tipo_pago", idCajeroIngresoVouchers
-                ,dtpFechaCobro.Value.ToShortDateString(),11).Tables[0];
-            //En la base de datos aparece en vez de 11 pongo 3 -> Depositos
+            //dtResu = new DataTable();
+            //dtResu = cn.TraerDataset("usp_obtiene_ingreso_por_tipo_pago", idCajeroIngresoVouchers
+            //    ,dtpFechaCobro.Value.ToShortDateString(),11).Tables[0];
+            ////En la base de datos aparece en vez de 11 pongo 3 -> Depositos
 
-            if (dtResu.Rows[0][0].ToString() != "0")
-            {
-                txtCantidadDocumentos.Text = dtResu.Rows[0][0].ToString();
-                txtImporteEfectivo.Text = Convert.ToDecimal(dtResu.Rows[0][1]).ToString("##,##0.00");
+            //if (dtResu.Rows[0][0].ToString() != "0")
+            //{
+            //    txtCantidadDocumentos.Text = dtResu.Rows[0][0].ToString();
+            //    txtImporteEfectivo.Text = Convert.ToDecimal(dtResu.Rows[0][1]).ToString("##,##0.00");
 
-            }
-            else
-            {
-                MessageBox.Show("No hay ingresos para la fecha seleccionada", VariablesMetodosEstaticos.encabezado
-                    , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            //}
+            //else
+            //{
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("No hay ingresos para la fecha seleccionada", VariablesMetodosEstaticos.encabezado
+            //        , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
         }
 
         private void frmIngresoVouchers_Load(object sender, EventArgs e)
@@ -55,7 +55,8 @@ namespace GUI_Tesoreria.DGAI
             cargarConcepto();
             cargarEntidadFinanciera();
             cargarCuentaBancaria();
-            cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()), Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()),idCobradorDGAI, idCajeroIngresoVouchers);
+            cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"),dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"),
+                idCobradorDGAI, idCajeroIngresoVouchers);
             habilitaBotones(habilita);
             AsignarVariables();
             txtImporteEfectivo.ReadOnly = true;
@@ -83,14 +84,14 @@ namespace GUI_Tesoreria.DGAI
             var dt = new DataTable();
             try
             {
-                dt = cn.TraerDataset("usp_select_modalidad_pago").Tables[0];
+                dt = cn.TraerDataset("usp_select_modalidad_pago_VOUCHERS").Tables[0];
                 cboModalidadPago.DataSource = dt;
                 cboModalidadPago.DisplayMember = "desc_mod_Pago";
                 cboModalidadPago.ValueMember = "cod_mod_pago";
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -107,7 +108,7 @@ namespace GUI_Tesoreria.DGAI
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -124,7 +125,7 @@ namespace GUI_Tesoreria.DGAI
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -138,24 +139,33 @@ namespace GUI_Tesoreria.DGAI
         {
             try
             {
+                if (Convert.ToInt32(cboEntidadFinanciera.SelectedValue) != 0)
+                {
+                    if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una modalidad de pago antes de continuar.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        cboEntidadFinanciera.SelectedValue = 0;
+                        cboModalidadPago.Select();
+                        return;
+                    }
+                }
+                else
+                {
+                    cboModalidadPago_SelectedIndexChanged(sender, e);
+                }
+
                 var dt = new DataTable();
-                try
-                {
-                    dt = cn.TraerDataset("usp_select_cuenta_bancaria", cboEntidadFinanciera.SelectedValue).Tables[0];
-                    cboCuenta.Refresh();
-                    cboCuenta.DataSource = dt;
-                    cboCuenta.DisplayMember = "numero_cuenta";
-                    cboCuenta.ValueMember = "cuenta_bancaria_id";
-                }
-                catch (Exception)
-                {
-                    //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
-                    //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                }
+                dt = cn.TraerDataset("usp_select_cuenta_bancaria", cboEntidadFinanciera.SelectedValue, cboModalidadPago.SelectedValue).Tables[0];
+                cboCuenta.Refresh();
+                cboCuenta.DataSource = dt;
+                cboCuenta.DisplayMember = "numero_cuenta";
+                cboCuenta.ValueMember = "cuenta_bancaria_id";
             }
             catch (Exception)
             {
-
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -224,8 +234,11 @@ namespace GUI_Tesoreria.DGAI
                 }
                 else
                 {
-                    lblTipoMoneda.Text = dsetMoneda.Tables[0].Rows[0][0].ToString();
-                    txtTipoCambio.Text = "1.000";
+                    if (lblTipoMoneda.Text == "???")
+                    {
+                        lblTipoMoneda.Text = dsetMoneda.Tables[0].Rows[0][0].ToString();
+                        txtTipoCambio.Text = "1.000";
+                    }
                 }
 
             }
@@ -246,38 +259,39 @@ namespace GUI_Tesoreria.DGAI
             {
                 return;
             }
-            if (verificaDuplicidad() > 0)                                                                                                                                         
+            if (verificaDuplicidad())                                                                                                                                         
             {
-                MessageBox.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return;
             }
             try
             {
-                if ((MessageBox.Show("¿Desea continuar con el registro del voucher?", VariablesMetodosEstaticos.encabezado,
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea continuar con el registro del voucher?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
                     resultadoVoucher = cn.TraerDataset("usp_ingresar_depositos_efectivo_dgai",idLiquidacion, Convert.ToInt32(cboModalidadPago.SelectedValue)
-                        , Convert.ToInt32(cboConcepto.SelectedValue), Convert.ToDateTime(dtpFechaDeposito.Value.ToShortDateString())
+                        , Convert.ToInt32(cboConcepto.SelectedValue), dtpFechaDeposito.Value.ToString("yyyyMMdd")
                         , Convert.ToInt32(cboEntidadFinanciera.SelectedValue), Convert.ToInt32(cboCuenta.SelectedValue)
                         , lblTipoMoneda.Text, Convert.ToDecimal(txtImportePago.Text), Convert.ToDecimal(txtTipoCambio.Text)
                         , Convert.ToDecimal(txtTotalCambio.Text), txtNumDocumento.Text.Trim(), txtObservacionesPago.Text
-                        , Convert.ToDateTime(dtpFechaCobro.Value.ToShortDateString()), Convert.ToInt32(txtCantidadDocumentos.Text)
+                        , dtpFechaCobro.Value.ToString("yyyyMMdd"), Convert.ToInt32(txtCantidadDocumentos.Text)
                         , Convert.ToDecimal(txtImporteEfectivo.Text), idCobradorDGAI, idCajeroIngresoVouchers,
                         VariablesMetodosEstaticos.varNombreUser).Tables[0].Rows[0][0].ToString();
 
                     if ( resultadoVoucher== "1")
                     {
-                        MessageBox.Show("Ingresado correctamente.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente.", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         Actualizar();
                         Limpiar();                        
-                        cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()), Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()),idCobradorDGAI, idCajeroIngresoVouchers);
+                        cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"), dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"),
+                            idCobradorDGAI, idCajeroIngresoVouchers);
                     }
                     else if (resultadoVoucher == "0")
                     {
-                        MessageBox.Show("Ocurrio un error, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
-                            MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         return;
                     }
                 }
@@ -291,42 +305,42 @@ namespace GUI_Tesoreria.DGAI
         {
             if (cboModalidadPago.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione Modalidad de pago", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione Modalidad de pago", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 cboModalidadPago.Focus();
                 return false;
             }
             if (cboConcepto.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione Concepto", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione Concepto", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 cboConcepto.Focus();
                 return false;
             }
             if (cboEntidadFinanciera.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione Entidad financiera", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione Entidad financiera", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 cboEntidadFinanciera.Focus();
                 return false;
             }
             if (cboCuenta.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione cuenta", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione cuenta", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 cboCuenta.Focus();
                 return false;
             }
             if (Convert.ToDecimal(txtImporteEfectivo.Text) <= 0.00M)
             {
-                MessageBox.Show("Ya excedio el monto permitido de asignación de vouchers por cobrador.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ya excedio el monto permitido de asignación de vouchers por cobrador.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 txtImporteEfectivo.Focus();
                 return false;
             }
             if (idLiquidacion == 0)
             {
-                MessageBox.Show("No se asigno un número de liquidacion válido. Intente de nuevo, si el problema persiste contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se asigno un número de liquidacion válido. Intente de nuevo, si el problema persiste contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 this.Close();
             }
@@ -339,7 +353,7 @@ namespace GUI_Tesoreria.DGAI
 
             if (!resuNum)
             {
-                MessageBox.Show("Ingrese un importe de pago válido", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe de pago válido", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 txtImportePago.Focus();
                 return false;
@@ -348,7 +362,7 @@ namespace GUI_Tesoreria.DGAI
             {
                 if (Convert.ToDecimal(txtImportePago.Text) == 0.00M)
                 {
-                    MessageBox.Show("Ingrese un importe mayor a 0.00", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe mayor a 0.00", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                     txtImportePago.Focus();
                     return false;
@@ -360,7 +374,7 @@ namespace GUI_Tesoreria.DGAI
 
             if (!resuNum)
             {
-                MessageBox.Show("Ingrese un importe de pago válido", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe de pago válido", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 txtTotalCambio.Focus();
                 return false;
@@ -369,7 +383,7 @@ namespace GUI_Tesoreria.DGAI
             {
                 if (Convert.ToDecimal(txtTotalCambio.Text) == 0.00M)
                 {
-                    MessageBox.Show("Ingrese un importe mayor a 0.00", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe mayor a 0.00", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                     txtTotalCambio.Focus();
                     return false;
@@ -378,35 +392,39 @@ namespace GUI_Tesoreria.DGAI
 
             if (txtNumDocumento.Text.Trim()==string.Empty)
             {
-                MessageBox.Show("Ingrese número de voucher.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese número de voucher.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 txtNumDocumento.Focus();
                 return false;
             }
             if (txtCantidadDocumentos.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 dtpFechaCobro.Focus();
                 return false;
             }
             if (txtImporteEfectivo.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 dtpFechaCobro.Focus();
                 return false;
             }
             return true;
         }
-                                        
-        int verificaDuplicidad()
+
+        bool verificaDuplicidad()
         {
-            return Convert.ToInt32(cn.TraerDataset("usp_verifica_duplicidad_voucher", dtpFechaDeposito.Value.ToShortDateString()
-                , txtImportePago.Text, txtNumDocumento.Text).Tables[0].Rows[0][0]);
+            DataTable dtTotalRepetido = new DataTable();
+            dtTotalRepetido = cn.TraerDataset("usp_verifica_duplicidad_voucher_dgai",
+                dtpFechaDeposito.Value.ToString("yyyyMMdd")
+                , txtNumDocumento.Text.Trim(), cboEntidadFinanciera.SelectedValue).Tables[0];
+
+            return (dtTotalRepetido.Rows.Count > 0);
         }
 
-        void cargarDepositos(DateTime fechaFiltroDesde, DateTime fechaFiltroHasta,int idCobradorDGAI_, int idCajeroIngresoVouchers_)
+        void cargarDepositos(string fechaFiltroDesde, string fechaFiltroHasta,int idCobradorDGAI_, int idCajeroIngresoVouchers_)
         {
             try
             {
@@ -419,7 +437,7 @@ namespace GUI_Tesoreria.DGAI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()),Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()),idCobradorDGAI, idCajeroIngresoVouchers);
+            cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"),dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"),idCobradorDGAI, idCajeroIngresoVouchers);
         }
 
         void Limpiar()
@@ -452,12 +470,12 @@ namespace GUI_Tesoreria.DGAI
                 {
                     if (Convert.ToInt32(cn.TraerDataset("usp_verifica_existencia_ingreso_dgai", idLiquidacion).Tables[0].Rows[0][0]) > 0)
                     {
-                        MessageBox.Show("No se puede eliminar el voucher porque ya se generaron Docs de ingreso.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No se puede eliminar el voucher porque ya se generaron Docs de ingreso.", VariablesMetodosEstaticos.encabezado,
                                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         return;
                     }
 
-                    if ((MessageBox.Show("¿Esta seguro de eliminar el deposito seleccionado.?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar el deposito seleccionado.?", VariablesMetodosEstaticos.encabezado,
                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         if (cn.EjecutarTransaccionDoble("usp_eliminar_depositos_efectivo_dgai", "usp_eliminar_ingreso_voucher_x_caja_dgai"
@@ -470,14 +488,15 @@ namespace GUI_Tesoreria.DGAI
                             , Convert.ToDecimal(dgvDepositos.CurrentRow.Cells[12].Value),VariablesMetodosEstaticos.varUsuario,
                             VariablesMetodosEstaticos.host_user + " / " + VariablesMetodosEstaticos.ip_user, idCobradorDGAI) == 1)
                         {
-                            MessageBox.Show("Eliminado correctamente.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
-                            cargarDepositos(Convert.ToDateTime(dtpFechaDepoFiltroDesde.Value.ToShortDateString()), Convert.ToDateTime(dtpFechaDepoFiltroHasta.Value.ToShortDateString()), idCobradorDGAI,idCajeroIngresoVouchers);
+                            cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"), 
+                                dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"), idCobradorDGAI,idCajeroIngresoVouchers);
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo eliminar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No se pudo eliminar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         }
                     }
@@ -485,7 +504,7 @@ namespace GUI_Tesoreria.DGAI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }            
         }
 
@@ -503,7 +522,7 @@ namespace GUI_Tesoreria.DGAI
         {
             if (dgvDepositos.Rows.Count <= 0)
             {
-                MessageBox.Show("No hay datos para la asignacion de vouchers.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para la asignacion de vouchers.", VariablesMetodosEstaticos.encabezado,
                                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 return;
             }
@@ -544,6 +563,56 @@ namespace GUI_Tesoreria.DGAI
         private void dgvDepositos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             marcarGrilla();
+        }
+
+        private void txtCantidadDocumentos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboModalidadPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 0)
+                {
+                    cboEntidadFinanciera.SelectedValue = 0;
+                }
+
+                DataSet dsetMonedaModPago = new DataSet();
+                int idModPago = Convert.ToInt32(cboModalidadPago.SelectedValue);
+                txtImportePago.Text = "0.00";
+                txtTipoCambio.Text = "1.00";
+                txtTotalCambio.Text = "0.00";
+                txtNumDocumento.Clear();
+                dsetMonedaModPago = cn.TraerDataset("usp_obtiene_abreviatura_moneda_modPago", idModPago);
+
+                if (Convert.ToInt32(dsetMonedaModPago.Tables[0].Rows[0][0]) == 2)
+                {
+                    DataSet dtsValorDolar = new DataSet();
+
+                    dtsValorDolar = cn.TraerDataset("usp_s_tb_tipoCambioDolar_valor");
+                    if (dtsValorDolar.Tables[0].Rows.Count > 0)
+                    {
+                        txtTipoCambio.Text = Convert.ToDecimal(dtsValorDolar.Tables[0].Rows[0][0]).ToString("##0.000");
+                        lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
+                    }
+                    else
+                    {
+                        lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
+                        txtTipoCambio.Text = "1.000";
+                    }
+                }
+                else
+                {
+                    lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
+                    txtTipoCambio.Text = "1.000";
+                }
+                cboEntidadFinanciera.SelectedValue = 0;
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

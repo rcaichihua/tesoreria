@@ -20,6 +20,7 @@ namespace GUI_Tesoreria.caja
         private CNegocio cn = new CNegocio();
         DataTable cabeceraRecibo;
         DataTable detalleRecibo;
+        DataTable modalidadesPago;
         public bool GrabaRecibo = false;
         public string nombreClienteOrbegoso = "";
         public string direccionClienteOrbegoso = "";
@@ -29,6 +30,10 @@ namespace GUI_Tesoreria.caja
         public frmPagoDiversos()
         {
             InitializeComponent();
+            this.ttMensaje.SetToolTip(this.btnAdd, "Agregar Item.");
+            this.ttMensaje.SetToolTip(this.btnDelete, "Eliminar Item.");
+            this.ttMensaje.SetToolTip(this.btnAgregarPago, "Agregar modalidad de pago adicional.");
+            this.ttMensaje.SetToolTip(this.BtnBuscarCliente, "Buscar albergado.");
         }
         public static frmPagoDiversos Instance()
         {
@@ -67,6 +72,44 @@ namespace GUI_Tesoreria.caja
             BtnGrabarC.Enabled = false;
             //canevaro
             HabilitarGroupBox();
+            cboConcepto.SelectedValue = 1;
+            crearTablaTemporal();
+            //if (VariablesMetodosEstaticos.id_programa == 4)
+            //{
+            //    dtpFechaCancelacion.Location = new Point(122, 57);
+            //    label18.Location = new Point(109, 13);
+
+            //    dtpFechaCancelacion.Visible = true;
+            //    label18.Visible = true;
+
+            //    //dtpFechaCancelacion.BringToFront();
+            //    //label18.BringToFront();
+
+            //    //GBGlosa.SendToBack();
+            //    this.Refresh();
+            //}
+            
+        }
+
+        private void crearTablaTemporal()
+        {
+            modalidadesPago = new DataTable();
+
+            //modalidadesPago.Clear();
+
+            modalidadesPago.Columns.Add("cod_mod_pago", typeof(string));
+            modalidadesPago.Columns.Add("desc_mod_Pago", typeof(string));
+            modalidadesPago.Columns.Add("concep_cod", typeof(string));
+            modalidadesPago.Columns.Add("FechaDeposito", typeof(DateTime));
+            modalidadesPago.Columns.Add("cod_entidad_financ", typeof(string));
+            modalidadesPago.Columns.Add("nombre_entidad", typeof(string));
+            modalidadesPago.Columns.Add("cuenta_bancaria_id", typeof(string));
+            modalidadesPago.Columns.Add("numero_cuenta", typeof(string));
+            modalidadesPago.Columns.Add("importe_voucher_pago", typeof(decimal));
+            modalidadesPago.Columns.Add("TipoCambio", typeof(decimal));
+            modalidadesPago.Columns.Add("importe_cambio", typeof(decimal));
+            modalidadesPago.Columns.Add("NumeroDocumento_Voucher_cheque_pago", typeof(string));
+            modalidadesPago.Columns.Add("ObservacionPago", typeof(string));
         }
 
         private void cargarDetraccion()
@@ -87,7 +130,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -104,7 +147,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -294,7 +337,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -343,7 +386,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -360,7 +403,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -376,7 +419,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }      
@@ -393,7 +436,7 @@ namespace GUI_Tesoreria.caja
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }     
@@ -404,17 +447,38 @@ namespace GUI_Tesoreria.caja
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            limpia();
-            varGlobales.habilitarCampos(this, false);
-            BtnNuevoC.Enabled = true;
-            BtnCancelarC.Enabled = false;
-            BtnGrabarC.Enabled = false;
-            chkFecha.Checked = true;
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de cancelar?", VariablesMetodosEstaticos.encabezado,
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+            {
+                limpia();
+                asignaNumeroADocumentos();
+                varGlobales.habilitarCampos(this, false);
+                BtnNuevoC.Enabled = true;
+                BtnCancelarC.Enabled = false;
+                BtnGrabarC.Enabled = false;
+                chkFecha.Checked = true;
+                LimpiarTablaModalidad();
+                //modalidadesPago = new DataTable();
+            }
+        }
+
+        private void LimpiarTablaModalidad()
+        {
+            if (modalidadesPago.Rows.Count>0)
+            {
+                for (int i = modalidadesPago.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataRow dr = modalidadesPago.Rows[i];
+                    dr.Delete();
+                }
+                modalidadesPago.AcceptChanges();
+            }
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            limpia();          
+            limpia();
+            asignaNumeroADocumentos();
             varGlobales.habilitarCampos(this, true);
             BtnNuevoC.Enabled = false;
             chkCta.Checked = true;
@@ -422,6 +486,16 @@ namespace GUI_Tesoreria.caja
             BtnGrabarC.Enabled = true;
             TxtNombre.Focus();
             HabilitarGroupBox();
+            LimpiarTablaModalidad();
+            //if (VariablesMetodosEstaticos.id_programa == 4)
+            //{
+            //    dtpFechaCancelacion.Location = new Point(122, 57);
+            //    label18.Location = new Point(109, 13);
+            //    BtnSalirC.Location = new Point(109, 13);
+
+            //    dtpFechaCancelacion.Visible = true;
+            //    label18.Visible = true;
+            //}
         }
 
         void resetearFechasCementerio()
@@ -458,6 +532,7 @@ namespace GUI_Tesoreria.caja
             }
             flagFonavi = false;
             acumulado();
+            cboConcepto.SelectedValue = 1;
         }
 
         private void habilitaCampoMontos(Boolean flag)
@@ -482,15 +557,58 @@ namespace GUI_Tesoreria.caja
             VariablesMetodosEstaticos.Numeros_KeyPress(sender, e);
         }
 
+        private bool ValidarTotales()
+        {
+            decimal total = 0.00m;
+
+            foreach (DataRow item in modalidadesPago.Rows)
+            {
+                total = total + Convert.ToDecimal(item["importe_cambio"].ToString() == "" ? "0": item["importe_cambio"].ToString());
+            }
+
+            total = total + Convert.ToDecimal(txtTotalCambioDolar.Text);
+
+            return (total >= Convert.ToDecimal(txtPrecioVentaC.Text));
+        }
+
         private void BtnGrabarC_Click(object sender, EventArgs e)
         {
-            try
+             try
             {
-                if (!ValidarCampos())
+                if (!ValidarCampos(false))
                 {
                     return;
                 }
+
+                if (!ValidarTotales())
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no coincide con la suma total de modalidades de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                    return;
+                }
+
                 else { errorProvider1.Clear(); }
+
+                decimal tot = 0.00m;
+
+                for (int i = 0; i < modalidadesPago.Rows.Count; i++)
+                {
+                    tot = tot + Convert.ToDecimal(modalidadesPago.Rows[i][10]);
+                }
+
+                if (tot + Convert.ToDecimal(txtTotalCambioDolar.Text) < Convert.ToDecimal(txtPrecioVentaC.Text))
+                {
+                    //if ((DevComponents.DotNetBar.MessageBoxEx.Show("La suma total de modalidades de pago es menor al total del documento."+
+                    //    Environment.NewLine +Environment.NewLine+" ¿Esta seguro de continuar?", VariablesMetodosEstaticos.encabezado,
+                    //    MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No))
+                    //{
+                    //    return;
+                    //}
+                    DevComponents.DotNetBar.MessageBoxEx.Show("La suma total de modalidades de pago es menor al total del documento." +
+                        Environment.NewLine + Environment.NewLine + "No se puede continuar.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 ArmarTablasCabeceraDetalle();
                 EfectuarPago();
@@ -505,6 +623,8 @@ namespace GUI_Tesoreria.caja
                     txtSerieRecibo.Text = dsNumero.Tables[0].Rows[0][0].ToString();
                     txtNumeroRecibo.Text = dsNumero.Tables[0].Rows[0][1].ToString();
 
+                    LimpiarTablaModalidad();
+
                     varGlobales.habilitarCampos(this, false);
                     BtnNuevoC.Enabled = true;
                     BtnGrabarC.Enabled = false;
@@ -513,11 +633,12 @@ namespace GUI_Tesoreria.caja
                     GrabaRecibo = false;
                     frmMensaje msg = new frmMensaje();
                     msg.ShowDialog();
+                    //modalidadesPago = new DataTable();                   
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }           
         }
 
@@ -530,7 +651,6 @@ namespace GUI_Tesoreria.caja
 
             cabeceraRecibo.Clear();
             detalleRecibo.Clear();
-
             cabeceraRecibo.Columns.Add("IdComprobante", typeof(int));
             cabeceraRecibo.Columns.Add("fechaComprobante", typeof(DateTime));
             cabeceraRecibo.Columns.Add("CodigoCliente", typeof(int));
@@ -579,6 +699,7 @@ namespace GUI_Tesoreria.caja
             //agrega detraccion - facturas en alta direccion.
             cabeceraRecibo.Columns.Add("CodigoDetraccion", typeof(string));
             cabeceraRecibo.Columns.Add("MontoDetraccion", typeof(decimal));
+            cabeceraRecibo.Columns.Add("FechaCancelacion", typeof(DateTime));
 
             //agrega columnas tabla detalle
             detalleRecibo.Columns.Add("idCuentaContable", typeof(int));
@@ -712,7 +833,7 @@ namespace GUI_Tesoreria.caja
             _filaCabecera["ReciboCementerio"] = VariablesMetodosEstaticos.id_programa == 4 ? cboCementerio.Text.ToUpper() : "";// cboCementerio.SelectedIndex == 0 ? null : cboCementerio.Text.ToUpper();//ReciboCementerio;
             _filaCabecera["CodigoDetraccion"] = cboTasaDetraccion.SelectedValue.ToString();
             _filaCabecera["MontoDetraccion"] = txtMontoDetraccion.Text.Trim()==string.Empty ? 0.00m: Convert.ToDecimal(txtMontoDetraccion.Text.Trim());
-
+            _filaCabecera["FechaCancelacion"] = Convert.ToInt32(cboComprobante.SelectedValue)==3 ? Convert.ToDateTime(txtFecha.Text) : dtpFechaCancelacion.Value.Date;
             cabeceraRecibo.Rows.Add(_filaCabecera);
             
             int y = 0;
@@ -889,22 +1010,36 @@ namespace GUI_Tesoreria.caja
                         winPago.ModalidadPago = cboModalidadPago.Text.ToString().ToUpper();
                         winPago.Documento = cboComprobante.Text.ToString().ToUpper();
                         winPago.tipoDocumento = Convert.ToInt32(cboComprobante.SelectedValue);
-                        //return;
+
+                        winPago.cod_mod_pago = (cboModalidadPago.SelectedValue).ToString();
+                        winPago.desc_mod_Pago = cboModalidadPago.Text;
+                        winPago.concep_cod = (cboConcepto.SelectedValue).ToString();
+                        winPago.FechaDeposito = dtpFechaPago.Value;
+                        winPago.cod_entidad_financ = cboEntidadFinanciera.SelectedValue.ToString()=="0" ? null: cboEntidadFinanciera.SelectedValue.ToString();
+                        winPago.nombre_entidad = cboEntidadFinanciera.Text== "[seleccione]"? null: cboEntidadFinanciera.Text;
+                        winPago.cuenta_bancaria_id = Convert.ToInt32(cboCuenta.SelectedValue)==0 ? null : cboCuenta.SelectedValue.ToString();
+                        winPago.numero_cuenta = cboCuenta.Text== "[seleccione]"? null: cboCuenta.Text;
+                        winPago.importe_voucher_pago = Convert.ToDecimal(txtImportePago.Text);
+                        winPago.TipoCambio = Convert.ToDecimal(txtTipoCambio.Text);
+                        winPago.importe_cambio = Convert.ToDecimal(txtTotalCambioDolar.Text);
+                        winPago.NumeroDocumento_Voucher_cheque_pago = txtNumDocumento.Text;
+                        winPago.ObservacionPago = txtObservacionesPago.Text.Trim();
+                        winPago.modalidadPago = modalidadesPago;
                         winPago.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Ingrese un Item como minimo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, 
-                            MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un Item como mÍnimo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, 
+                            MessageBoxIcon.Warning);
                     }
 	        }
-	        catch (Exception)
+	        catch (Exception ex)
 	            {
 
 	            }
         }
 
-        private bool ValidarCampos()
+        private bool ValidarCampos(bool agrega)
         {
             bool flag = true;
 
@@ -921,15 +1056,83 @@ namespace GUI_Tesoreria.caja
                     {
                         if (dts.Tables[0].Rows[0][0].ToString() == "0")
                         {
-                            MessageBox.Show("Este nicho se encuentra en proceso de inventario, cordine con el encargado antes de procesar la venta.");
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Este nicho se encuentra en proceso de inventario, cordine con el encargado antes de procesar la venta.");
                             return false;
                         }
                         else if (dts.Tables[0].Rows[0][0].ToString() == "1")
                         {
-                            MessageBox.Show("Este nicho ya fue procesado por gabinete.");
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Este nicho ya fue procesado por gabinete.");
                             flag = true;
                         }
                     }
+                }
+            }
+            if (VariablesMetodosEstaticos.id_programa != 1)
+            {
+                if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 19)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Su caja no puede generar documento PENDIENTES DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            else if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa == 4)
+            {
+                if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 19)//cobro pendiente
+                {
+                    if (Convert.ToInt32(this.cboComprobante.SelectedValue) > 0)//FACTURA BOLETA
+                    {
+                        if (cboConcepto.SelectedIndex == 0)
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un concepto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                            return false;
+                        }
+                        else
+                        {
+                            if (Convert.ToDateTime(dtpFechaCancelacion.Value.ToShortDateString()) <= Convert.ToDateTime(txtFecha.Text))
+                            {
+                                DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de cobro no puede ser menor o igual a la fecha de emisión debido a que se selecciono PENDIENTE DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                                dtpFechaCancelacion.Focus();
+                                return false;
+                            }
+                            else
+                            {
+                                if (cboCuenta.SelectedValue != null)
+                                {
+                                    if ((int)cboCuenta.SelectedValue != 0)
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("Ha seleccionado PENDIENTE DE COBRO y no puede seleccionar una cuenta bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                                        cboCuenta.Focus();
+                                        flag = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El documento seleccionado no puede ser PENDIENTE DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                        cboComprobante.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (Convert.ToInt32(this.cboComprobante.SelectedValue) != 3)//cobro al contado
+                    {
+                        if (Convert.ToDateTime(dtpFechaCancelacion.Value.ToShortDateString()) != Convert.ToDateTime(txtFechaSistemaC.Text))
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de cobro no puede ser DIFERENTE a la fecha de emisión.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                            dtpFechaCancelacion.Focus();
+                            return false;
+                        }
+                    }
+                    //AQUI
                 }
             }
 
@@ -952,6 +1155,259 @@ namespace GUI_Tesoreria.caja
                     errorProvider1.SetError(txtDniRuc, "Para el caso de DNI ingrese 8 dígitos y para RUC 11 dígitos.");
                     flag = false;
                 }
+                else
+                {
+                    DataTable dtGenerico = new DataTable();
+                    dtGenerico = cn.EjecutarSqlDTS("select descripcionTipo from tb_tipo_modalidad_pago where idTipo in (select idTipo from ta_modalidad_pago where cod_mod_Pago=" + cboModalidadPago.SelectedValue + ")").Tables[0];
+                    if (dtGenerico.Rows[0][0].ToString() == "EFECTIVO")
+                    {
+                        if ((int)cboEntidadFinanciera.SelectedValue != 0)
+                        {
+                            if ((int)cboEntidadFinanciera.SelectedValue != 0)
+                            {
+                                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago seleccionada no tiene relacion con la entidad bancaria seleccionada.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                                cboCuenta.Focus();
+                                flag = false;
+
+                            }
+                            else
+                            {
+                                if ((int)cboCuenta.SelectedValue != 0)
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ha seleccionado EFECTIVO y no puede seleccionar una cuenta bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                                    cboCuenta.Focus();
+                                    flag = false;
+                                }
+                                else
+                                {
+                                    if (Convert.ToDecimal(txtImportePago.Text) != 0)
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("Este importe de pago es para solo DEPOSITOS u otras modalidades de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                                        txtImportePago.Focus();
+                                        flag = false;
+                                    }
+                                    else
+                                    {
+                                        if (Convert.ToDecimal(txtTipoCambio.Text) != 1)
+                                        {
+                                            DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                                            txtImportePago.Focus();
+                                            flag = false;
+                                        }
+                                        else
+                                        {
+                                            if (Convert.ToDecimal(txtTotalCambioDolar.Text) != 0)
+                                            {
+                                                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                                                txtTotalCambioDolar.Focus();
+                                                flag = false;
+                                            }
+                                            else
+                                            {
+                                                if (txtNumDocumento.Text.Trim() != "")
+                                                {
+                                                    DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                    MessageBoxIcon.Warning);
+                                                    txtNumDocumento.Focus();
+                                                    flag = false;
+                                                }
+                                                else
+                                                {
+                                                    DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                    MessageBoxIcon.Warning);
+                                                    txtObservacionesPago.Focus();
+                                                    flag = false;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (lblTipoMoneda.Text != "S/.")
+                            {
+                                if (Convert.ToDecimal(txtTipoCambio.Text) <= 1)
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                      MessageBoxIcon.Warning);
+                                    txtTipoCambio.Focus();
+                                    flag = false;
+                                }
+                                else
+                                {
+                                    if (Convert.ToDecimal(txtImportePago.Text) <= 0)
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                      MessageBoxIcon.Warning);
+                                        txtImportePago.Focus();
+                                        flag = false;
+                                    }
+                                    else
+                                    {
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (modalidadesPago.Rows.Count == 0)
+                                {
+                                    txtImportePago.Text = txtPrecioVentaC.Text;
+                                }
+
+                                if (Convert.ToDecimal(txtImportePago.Text) <= 0)
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Debe ingresar el importe de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                                    txtImportePago.Focus();
+                                    flag = false;
+                                }
+                                else
+                                {
+                                    if (txtNumDocumento.Text.Trim() != "")
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("El numero de documento de pago no debe contener valores.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                      MessageBoxIcon.Warning);
+                                        txtNumDocumento.Focus();
+                                        flag = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (dtGenerico.Rows[0][0].ToString() == "DEPOSITO" || dtGenerico.Rows[0][0].ToString() == "ABONO EN CUENTA" || dtGenerico.Rows[0][0].ToString() == "TRANSFERENCIA" || dtGenerico.Rows[0][0].ToString() == "CHEQUE")
+                    {
+                        if ((int)cboEntidadFinanciera.SelectedValue != 0)
+                        {
+                            if ((int)cboEntidadFinanciera.SelectedValue != 0)
+                            {
+                                if ((int)cboCuenta.SelectedValue != 0)
+                                {
+                                    if (Convert.ToDecimal(txtImportePago.Text) != 0)
+                                    {
+                                        if (lblTipoMoneda.Text != "S/.")
+                                        {
+                                            if (Convert.ToDecimal(txtTipoCambio.Text) <= 1)
+                                            {
+                                                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Warning);
+                                                txtTipoCambio.Focus();
+                                                flag = false;
+                                            }
+                                            else
+                                            {
+                                                if (Convert.ToDecimal(txtTotalCambioDolar.Text) != 0)
+                                                {
+                                                    if (txtNumDocumento.Text.Trim() != "")
+                                                    {
+                                                    }
+                                                    else
+                                                    {
+                                                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Número de documento.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Warning);
+                                                        txtNumDocumento.Focus();
+                                                        flag = false;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    DevComponents.DotNetBar.MessageBoxEx.Show("El importe total de cambio es incorrecto, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Warning);
+                                                    txtTotalCambioDolar.SelectAll();
+                                                    flag = false;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (Convert.ToDecimal(txtTipoCambio.Text) != 1)
+                                            {
+                                                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Warning);
+                                                txtTipoCambio.Focus();
+                                                flag = false;
+                                            }
+                                            else
+                                            {
+                                                if (Convert.ToDecimal(txtTotalCambioDolar.Text) != 0)
+                                                {
+                                                    if (txtNumDocumento.Text.Trim() != "")
+                                                    {
+                                                    }
+                                                    else
+                                                    {
+                                                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Número de documento.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Warning);
+                                                        txtNumDocumento.Focus();
+                                                        flag = false;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    DevComponents.DotNetBar.MessageBoxEx.Show("El importe total de cambio es incorrecto, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Warning);
+                                                    txtTotalCambioDolar.Focus();
+                                                    flag = false;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el importe de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Warning);
+                                        txtImportePago.Focus();
+                                        flag = false;
+                                    }
+                                }
+                                else
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione el Nro de cuenta.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                             MessageBoxIcon.Warning);
+                                    cboCuenta.Focus();
+                                    flag = false;
+                                }
+
+                            }
+                            else
+                            {
+                                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                cboEntidadFinanciera.Focus();
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (dtGenerico.Rows[0][0].ToString() == "CHEQUE")
+                            {
+                                if (lblTipoMoneda.Text != "S/.")
+                                {
+                                    if (Convert.ToDecimal(txtTipoCambio.Text) <= 1)
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                          MessageBoxIcon.Warning);
+                                        txtTipoCambio.Focus();
+                                        flag = false;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una entidad bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                             MessageBoxIcon.Warning);
+                                cboEntidadFinanciera.Focus();
+                                flag = false;
+                            }
+                        }
+                    }
+                }
             }
             else if (TxtNombre.Text.Trim() == string.Empty)
             {
@@ -971,146 +1427,277 @@ namespace GUI_Tesoreria.caja
                 errorProvider1.SetError(cboConcepto, "Seleccione el tipo de concepto");
                 flag = false;
             }
-            else if (cboEntidadFinanciera.SelectedIndex != 0)
+            else if (cboModalidadPago.SelectedIndex != 0)
             {
-                //else if ((int)cboModalidadPago.SelectedValue != 3 || (int)cboModalidadPago.SelectedValue != 7)
-                //    {
-                //        errorProvider1.Clear();
-                //        errorProvider1.SetError(cboCuenta, "La modalidad de pago no es coherente con los elementos selecionados.");
-                //        flag = false;
-                //    }
-                if ((int)cboModalidadPago.SelectedValue != 3 && (int)cboModalidadPago.SelectedValue != 7 && (int)cboModalidadPago.SelectedValue != 11 && (int)cboModalidadPago.SelectedValue != 12)
+                DataTable dtGenerico = new DataTable();
+                dtGenerico = cn.EjecutarSqlDTS("select descripcionTipo from tb_tipo_modalidad_pago where idTipo in (select idTipo from ta_modalidad_pago where cod_mod_Pago=" + cboModalidadPago.SelectedValue + ")").Tables[0];
+                if (dtGenerico.Rows[0][0].ToString() == "EFECTIVO")
                 {
-                    MessageBox.Show("La modalidad de pago no es coherente con los elementos selecionados.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    cboModalidadPago.Focus();
-                    flag = false;
-                }
-                //else if ((int)cboModalidadPago.SelectedValue == 7)
-                //{
-                //    if (cboCuenta.SelectedIndex > 0)
-                //    {
-                //        MessageBox.Show("El pago con cheque no se asigna a ninguna cuenta bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                //        MessageBoxIcon.Warning);
-                //        cboCuenta.Focus();
-                //        flag = false;
-                //    }                   
-                //}
-                else if (cboModalidadPago.Text.Substring(0, 3) == "DEP")//"DEPOSITO BANCARIO"
-                {
-                    if (cboCuenta.SelectedIndex == 0)
+                    if ((int)cboEntidadFinanciera.SelectedValue != 0)
                     {
-                        errorProvider1.Clear();
-                        errorProvider1.SetError(cboCuenta, "Seleccione una cuenta bancaria");
-                        flag = false;
-                    }
-                    else if (txtNumDocumento.Text.Trim() == string.Empty)
-                    {
-                        MessageBox.Show("Ingrese el numero de voucher y/o nro cheque.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                        txtNumDocumento.Focus();
-                        flag = false;
-                    }
-                    else
-                    {
-                        if (txtImportePago.Text.Trim() == string.Empty)
+                        if ((int)cboEntidadFinanciera.SelectedValue != 0)
                         {
-                            errorProvider1.Clear();
-                            errorProvider1.SetError(txtImportePago, "Ingrese importe de pago");
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ha seleccionado EFECTIVO y no puede seleccionar una entidad bancaria", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                            cboCuenta.Focus();
                             flag = false;
+
                         }
                         else
                         {
-                            if (Convert.ToInt32(txtImportePago.Text.ToString().Replace(".", "")) == 0)
+                            if ((int)cboCuenta.SelectedValue != 0)
                             {
-                                errorProvider1.Clear();
-                                errorProvider1.SetError(txtImportePago, "Ingrese importe de pago");
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Ha seleccionado EFECTIVO y no puede seleccionar una cuenta bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                                cboCuenta.Focus();
                                 flag = false;
                             }
-                            else if (lblTipoMoneda.Text != "S/.")
+                            else
                             {
-                                if (txtTipoCambio.Text.Trim() == string.Empty)
+                                if (Convert.ToDecimal(txtImportePago.Text) != 0)
                                 {
-                                    errorProvider1.Clear();
-                                    errorProvider1.SetError(txtTipoCambio, "Ingrese el tipo de cambio");
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Este importe de pago es para solo DEPOSITOS u otras modalidades de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                                    txtImportePago.Focus();
                                     flag = false;
                                 }
                                 else
                                 {
-                                    if (Convert.ToInt32(txtTipoCambio.Text.ToString().Replace(".", "")) == 0)
+                                    if (Convert.ToDecimal(txtTipoCambio.Text) != 1)
                                     {
-                                        errorProvider1.Clear();
-                                        errorProvider1.SetError(txtTipoCambio, "Ingrese el tipo de cambio");
-                                        flag = false;
-                                    }
-                                    else if (Convert.ToInt32(txtTotalCambioDolar.Text.ToString().Replace(".", "")) == 0)
-                                    {
-                                        errorProvider1.Clear();
-                                        errorProvider1.SetError(txtTotalCambioDolar, "Ingrese el total de conversion dolares a soles");
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                                        txtImportePago.Focus();
                                         flag = false;
                                     }
                                     else
                                     {
-                                        errorProvider1.Clear();
+                                        if (Convert.ToDecimal(txtTotalCambioDolar.Text) != 0)
+                                        {
+                                            DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                                            txtTotalCambioDolar.Focus();
+                                            flag = false;
+                                        }
+                                        else
+                                        {
+                                            if (txtNumDocumento.Text.Trim() != "")
+                                            {
+                                                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                                                txtNumDocumento.Focus();
+                                                flag = false;
+                                            }
+                                            else
+                                            {
+                                                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                                                txtObservacionesPago.Focus();
+                                                flag = false;
+                                            }
+                                        }
                                     }
                                 }
                             }
+                        }
+                    }
+                    else
+                    {
+                        if (lblTipoMoneda.Text != "S/.")
+                        {
+                            if (Convert.ToDecimal(txtTipoCambio.Text) <= 1)
+                            {
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                                txtTipoCambio.Focus();
+                                flag = false;
+                            }
                             else
                             {
-                                errorProvider1.Clear();
+                                if (Convert.ToDecimal(txtImportePago.Text) <= 0)
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un importe correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                                    txtImportePago.Focus();
+                                    flag = false;
+                                }
+                                else
+                                {
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (Convert.ToDecimal(txtImportePago.Text) <= 0)
+                            {
+                                if (modalidadesPago.Rows.Count == 0)
+                                {
+                                    txtImportePago.Text = txtPrecioVentaC.Text;
+                                }
+
+                            }
+                            else
+                            {
+                                if (txtNumDocumento.Text.Trim() != "")
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("El numero de documento de pago no debe contener valores.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                                    txtNumDocumento.Focus();
+                                    flag = false;
+                                }
                             }
                         }
                     }
                 }
-                //else if (cboModalidadPago.Text.Substring(0, 3) != "DEP" || cboModalidadPago.Text.Substring(0, 3) != "CHE")
-                //{
-                //    errorProvider1.Clear();
-                //    errorProvider1.SetError(cboModalidadPago, "Verifique la modalidad de pago, existen incongruencias.");
-                //    flag = false;
-                //}
+                else if (dtGenerico.Rows[0][0].ToString() == "DEPOSITO" || dtGenerico.Rows[0][0].ToString() == "ABONO EN CUENTA" || dtGenerico.Rows[0][0].ToString() == "TRANSFERENCIA" || dtGenerico.Rows[0][0].ToString() == "CHEQUE")
+                {
+                    if ((int)cboEntidadFinanciera.SelectedValue != 0)
+                    {
+                        if ((int)cboEntidadFinanciera.SelectedValue != 0)
+                        {
+                            if ((int)cboCuenta.SelectedValue != 0)
+                            {
+                                if (Convert.ToDecimal(txtImportePago.Text) != 0)
+                                {
+                                    if (lblTipoMoneda.Text != "S/.")
+                                    {
+                                        if (Convert.ToDecimal(txtTipoCambio.Text) <= 1)
+                                        {
+                                            DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                            txtTipoCambio.Focus();
+                                            flag = false;
+                                        }
+                                        else
+                                        {
+                                            if (Convert.ToDecimal(txtTotalCambioDolar.Text) != 0)
+                                            {
+                                                if (txtNumDocumento.Text.Trim() != "")
+                                                {
+
+                                                }
+                                                else
+                                                {
+                                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Número de documento.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                                    txtNumDocumento.Focus();
+                                                    flag = false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                DevComponents.DotNetBar.MessageBoxEx.Show("El importe total de cambio es incorrecto, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                                txtTotalCambioDolar.SelectAll();
+                                                flag = false;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (Convert.ToDecimal(txtTipoCambio.Text) != 1)
+                                        {
+                                            DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                            txtTipoCambio.Focus();
+                                            flag = false;
+                                        }
+                                        else
+                                        {
+                                            if (Convert.ToDecimal(txtTotalCambioDolar.Text) != 0)
+                                            {
+                                                if (txtNumDocumento.Text.Trim() != "")
+                                                {
+                                                }
+                                                else
+                                                {
+                                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Número de documento.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                                    txtNumDocumento.Focus();
+                                                    flag = false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                DevComponents.DotNetBar.MessageBoxEx.Show("El importe total de cambio es incorrecto, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                                txtTotalCambioDolar.Focus();
+                                                flag = false;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el importe de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                              MessageBoxIcon.Warning);
+                                    txtImportePago.Focus();
+                                    flag = false;
+                                }
+                            }
+                            else
+                            {
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione el Nro de cuenta.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                         MessageBoxIcon.Warning);
+                                cboCuenta.Focus();
+                                flag = false;
+                            }
+
+                        }
+                        else
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago no es coherente con los datos del pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                          MessageBoxIcon.Warning);
+                            cboEntidadFinanciera.Focus();
+                            flag = false;
+                        }
+                    }
+                    else
+                    {
+                        if (dtGenerico.Rows[0][0].ToString() == "CHEQUE")
+                        {
+                            if (lblTipoMoneda.Text != "S/.")
+                            {
+                                if (Convert.ToDecimal(txtTipoCambio.Text) <= 1)
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el tipo de cambio de dolar correcto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                      MessageBoxIcon.Warning);
+                                    txtTipoCambio.Focus();
+                                    flag = false;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una entidad bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                         MessageBoxIcon.Warning);
+                            cboEntidadFinanciera.Focus();
+                            flag = false;
+                        }
+                    }
+                }
             }
-            else if (cboDireccion.SelectedIndex == 0 && VariablesMetodosEstaticos.id_programa == 2)
+            else errorProvider1.Clear();
+
+            if (cboDireccion.SelectedIndex == 0 && VariablesMetodosEstaticos.id_programa == 2)
             {
+                if (Convert.ToDecimal(txtImportePago.Text) <= 0)
+                {
+                    if (modalidadesPago.Rows.Count == 0)
+                    {
+                        txtImportePago.Text = txtPrecioVentaC.Text;
+                    }
+                }
                 errorProvider1.Clear();
                 errorProvider1.SetError(cboDireccion, "Seleccione una Dirección.");
                 flag = false;
             }
-            else if (cboModalidadPago.Text.Substring(0, 3) == "DEP" || cboModalidadPago.Text.Substring(0, 3) == "CHE")
-            {
-                if (cboEntidadFinanciera.SelectedIndex == 0)
-                {
-                    errorProvider1.Clear();
-                    errorProvider1.SetError(cboEntidadFinanciera, "Seleccione una entidad financiera.");
-                    flag = false;
-                }
-                else if (cboCuenta.SelectedIndex == 0)
-                {
-                    errorProvider1.Clear();
-                    errorProvider1.SetError(cboCuenta, "Seleccione una cuenta bancaria válida.");
-                    flag = false;
-                }
-            }
-            else if (cboModalidadPago.Text.Substring(0, 3) != "DEP" && cboModalidadPago.Text.Substring(0, 3) != "CHE")
-            {
-                if (cboEntidadFinanciera.SelectedIndex != 0)
-                {
-                    errorProvider1.Clear();
-                    errorProvider1.SetError(cboEntidadFinanciera, "No debe seleccionar una entidad financiera.");
-                    flag = false;
-                }
-                else if (cboCuenta.SelectedIndex != 0)
-                {
-                    errorProvider1.Clear();
-                    errorProvider1.SetError(cboCuenta, "No debe seleccionar una cuenta bancaria.");
-                    flag = false;               
-                }
-            }          
-            else errorProvider1.Clear();
 
             if (cboCementerio.SelectedIndex == 0 && VariablesMetodosEstaticos.id_programa == 4)
             {
-                errorProvider1.Clear();
-                errorProvider1.SetError(cboCementerio, "Seleccione un cementerio.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una cementerio.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                         MessageBoxIcon.Warning);
+                cboCementerio.Focus();
                 flag = false;
             }
 
@@ -1121,6 +1708,33 @@ namespace GUI_Tesoreria.caja
                     errorProvider1.Clear();
                     errorProvider1.SetError(txtMontoDetraccion, "Tiene que ser como minimo 0.00 aún asi no tenga detracción.");
                     flag = false;
+                }
+            }
+
+            if (Convert.ToDecimal(txtImportePago.Text) <= 0)
+            {
+                if (modalidadesPago.Rows.Count == 0)
+                {
+                    txtImportePago.Text = txtPrecioVentaC.Text;
+                }
+            }
+
+            if (cboModalidadPago.SelectedIndex == 0)
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(cboModalidadPago, "Seleccione modalidad de pago");
+                flag = false;
+            }
+
+            else
+            { 
+                if (errorProvider1.GetError(txtDniRuc) != "")
+                {
+
+                }
+                else
+                {
+                    errorProvider1.Clear();
                 }
             }
 
@@ -1200,7 +1814,7 @@ namespace GUI_Tesoreria.caja
         {
             if (dgvCtaCte.RowCount > 0)
             {
-                if ((MessageBox.Show("Se procedera a eliminar los registros ingresados en el detalle. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("Se procedera a eliminar los registros ingresados en el detalle. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
                           MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
                     limpiarGrillaCta();
@@ -1214,7 +1828,7 @@ namespace GUI_Tesoreria.caja
             {
                 if (flagFonavi)
                 {
-                    if ((MessageBox.Show("Se procedera a eliminar los registros ingresados en el detalle. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("Se procedera a eliminar los registros ingresados en el detalle. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         DGVRubros.Rows.Clear();
@@ -1231,7 +1845,7 @@ namespace GUI_Tesoreria.caja
 
             if (cboComprobante.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione un Tipo de comprobante.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Tipo de comprobante.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 cboComprobante.Focus();
                 return;
             }
@@ -1254,7 +1868,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (txtCodigo.Text.Trim() == string.Empty)
                     {
-                        MessageBox.Show("Debe seleccionar un residente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Debe seleccionar un residente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         BtnBuscarCliente.Focus();
                         return;
                     }
@@ -1276,6 +1890,7 @@ namespace GUI_Tesoreria.caja
             else
             {
                 frmAgregarRubro winAddRub = new frmAgregarRubro();
+                winAddRub.liquidacion = false;
                 dtsRubros = winAddRub.traerFormulario();
                 llamaDetalle(dtsRubros, impuesto);
             }
@@ -1320,7 +1935,7 @@ namespace GUI_Tesoreria.caja
                     {
                         if (row.Cells[2].Value.ToString() == CodRubro)
                         {
-                            MessageBox.Show("El item que desea ingresar ya ha sido ingresado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El item que desea ingresar ya ha sido ingresado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;// break;
                         }
                     }                
@@ -1329,7 +1944,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (Convert.ToInt32(row.Cells[1].Value) == idGenerico)
                     {
-                        MessageBox.Show("El item que desea ingresar ya ha sido ingresado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El item que desea ingresar ya ha sido ingresado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;// break;
                     }
                     if (ParamCementerio != string.Empty)
@@ -1337,7 +1952,7 @@ namespace GUI_Tesoreria.caja
                         if (row.Cells[9].Value.ToString() != string.Empty)
                         if (row.Cells[9].Value.ToString() != ParamCementerio)
                         {
-                            MessageBox.Show("El item que desea ingresar Pertenece a otro cementerio diferente a los items ya ingresados.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El item que desea ingresar Pertenece a otro cementerio diferente a los items ya ingresados.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;// break;
                         }
                     }
@@ -1407,7 +2022,7 @@ namespace GUI_Tesoreria.caja
                 {
                     if (flagFonavi)
                     {
-                        if ((MessageBox.Show("Por se detalle de pagos de Fonavi se eliminaran los registros. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
+                        if ((DevComponents.DotNetBar.MessageBoxEx.Show("Por se detalle de pagos de Fonavi se eliminaran los registros. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
                           MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                         {
                             DGVRubros.Rows.Clear();
@@ -1433,7 +2048,7 @@ namespace GUI_Tesoreria.caja
                 }
                 else
                 {
-                    MessageBox.Show("No existe datos para eliminar",VariablesMetodosEstaticos.encabezado,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No existe datos para eliminar",VariablesMetodosEstaticos.encabezado,MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
                 dgvCtaCte.Refresh();
             }
@@ -1448,6 +2063,39 @@ namespace GUI_Tesoreria.caja
             {
                 int id=0;
                 id = Convert.ToInt32(cboComprobante.SelectedValue);
+                if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa==4)
+                {
+                    if (id == 3)
+                    {
+                        dtpFechaCancelacion.Value = DateTime.Now;
+                        dtpFechaCancelacion.Enabled = true;
+                        cboTasaDetraccion.SelectedIndex = 0;
+                        cboTasaDetraccion.Enabled = false;
+                        txtMontoDetraccion.Clear();
+                        txtMontoDetraccion.Text = "0.00";
+                        txtMontoDetraccion.Enabled = false;
+                    }
+                    else if (id == 1)
+                    {
+                        dtpFechaCancelacion.Value = DateTime.Now;
+                        dtpFechaCancelacion.Enabled = true;
+                        cboTasaDetraccion.SelectedIndex = 0;
+                        cboTasaDetraccion.Enabled = false;
+                        txtMontoDetraccion.Clear();
+                        txtMontoDetraccion.Text = "0.00";
+                        txtMontoDetraccion.Enabled = false;
+                    }
+                    else if (id == 2)
+                    {
+                        dtpFechaCancelacion.Value = DateTime.Now;
+                        dtpFechaCancelacion.Enabled = true;
+                        cboTasaDetraccion.SelectedIndex = 0;
+                        cboTasaDetraccion.Enabled = true;
+                        txtMontoDetraccion.Clear();
+                        txtMontoDetraccion.Text = "0.00";
+                        txtMontoDetraccion.Enabled = true;
+                    }
+                }
             }
             catch (Exception)
             {
@@ -1481,8 +2129,11 @@ namespace GUI_Tesoreria.caja
                 }
                 else
                 {
-                    lblTipoMoneda.Text = dsetMoneda.Tables[0].Rows[0][0].ToString();
-                    txtTipoCambio.Text = "1.000";
+                    if (lblTipoMoneda.Text == "???")
+                    {
+                        lblTipoMoneda.Text = dsetMoneda.Tables[0].Rows[0][0].ToString();
+                        txtTipoCambio.Text = "1.000";
+                    }
                 }
                 
             }
@@ -1493,13 +2144,27 @@ namespace GUI_Tesoreria.caja
         }
 
         private void cboEntidadFinanciera_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {           
             try
-            {
-                var dt = new DataTable();
-                try
                 {
-                    dt = cn.TraerDataset("usp_select_cuenta_bancaria",cboEntidadFinanciera.SelectedValue).Tables[0];
+                if (Convert.ToInt32(cboEntidadFinanciera.SelectedValue) != 0)
+                {
+                    if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione una modalidad de pago antes de continuar.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        cboEntidadFinanciera.SelectedValue = 0;
+                        cboModalidadPago.Select();
+                        return;
+                    }
+                }
+                else
+                {
+                    cboModalidadPago_SelectedIndexChanged(sender, e);
+                }
+
+                var dt = new DataTable();
+                    dt = cn.TraerDataset("usp_select_cuenta_bancaria",cboEntidadFinanciera.SelectedValue,cboModalidadPago.SelectedValue).Tables[0];
                     cboCuenta.Refresh();
                     cboCuenta.DataSource = dt;
                     cboCuenta.DisplayMember = "numero_cuenta";
@@ -1507,23 +2172,27 @@ namespace GUI_Tesoreria.caja
                 }
                 catch (Exception)
                 {
-                    //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                    //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
-            }
-            catch (Exception)
-            {
-                
-            }
+
         }
 
         private void cboModalidadPago_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {        
             try
             {
+                if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 0)
+                {
+                    cboEntidadFinanciera.SelectedValue = 0;
+                }
+
                 DataSet dsetMonedaModPago = new DataSet();
                 int idModPago = Convert.ToInt32(cboModalidadPago.SelectedValue);
-
+                txtImportePago.Text = "0.00";
+                txtTipoCambio.Text = "1.00";
+                txtTotalCambioDolar.Text = "0.00";
+                txtNumDocumento.Clear();
                 dsetMonedaModPago = cn.TraerDataset("usp_obtiene_abreviatura_moneda_modPago", idModPago);
 
                 if (Convert.ToInt32(dsetMonedaModPago.Tables[0].Rows[0][0]) == 2)
@@ -1546,7 +2215,8 @@ namespace GUI_Tesoreria.caja
                 {
                     lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
                     txtTipoCambio.Text = "1.000";
-                }             
+                }
+                cboEntidadFinanciera.SelectedValue = 0;
             }
             catch (Exception)
             {
@@ -1595,7 +2265,7 @@ namespace GUI_Tesoreria.caja
             {
                 if (DGVRubros.Rows.Count > 0)
                 {
-                    MessageBox.Show("No se puede cambiar a pago de cuentas si se tiene lleno el detalle de otros rubros", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede cambiar a pago de cuentas si se tiene lleno el detalle de otros rubros", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     checkBox.Checked = false;
                     return;
                 }
@@ -1606,7 +2276,7 @@ namespace GUI_Tesoreria.caja
             {
                 if (dgvCtaCte.Rows.Count > 0)
                 {
-                    MessageBox.Show("No se puede cambiar a pago de cuentas si se tiene lleno el detalle de otros rubros", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede cambiar a pago de cuentas si se tiene lleno el detalle de otros rubros", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     checkBox.Checked = true;
                     return;
                 }
@@ -1651,7 +2321,7 @@ namespace GUI_Tesoreria.caja
                     }
                     else
                     {
-                        MessageBox.Show("No hay datos con el filtro proporcionado.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos con el filtro proporcionado.", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                 }
@@ -1675,7 +2345,7 @@ namespace GUI_Tesoreria.caja
             {
                 if (DGVRubros.RowCount > 0)
                 {
-                    if ((MessageBox.Show("Se eliminara los registros ya ingresados. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("Se eliminara los registros ya ingresados. ¿Desea continuar.?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         DGVRubros.Rows.Clear();
@@ -1809,6 +2479,32 @@ namespace GUI_Tesoreria.caja
         private void txtMontoDetraccion_KeyPress(object sender, KeyPressEventArgs e)
         {
             VariablesMetodosEstaticos.Decimales_KeyPress(sender, e);
+        }
+
+        private void btnAgregarPago_Click(object sender, EventArgs e)
+        {   
+            if (!ValidarCampos(true))
+            {
+                return;
+            }
+            else { errorProvider1.Clear(); }
+
+            frmAgregarModalidadPago win = new frmAgregarModalidadPago();
+            win.dtModalidadPago = modalidadesPago;
+            win.ImportePago = Convert.ToDecimal(txtImportePago.Text);
+            win.ImporteDocumento = Convert.ToDecimal(txtPrecioVentaC.Text);
+            modalidadesPago = win.dtModalidadPago;
+            win.ShowDialog();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaCancelacion_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

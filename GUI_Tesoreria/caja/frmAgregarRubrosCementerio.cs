@@ -134,12 +134,12 @@ namespace GUI_Tesoreria.caja
             //if (Convert.ToDecimal(txtPrecio.Text.Trim() == string.Empty ? 0.00m : Convert.ToDecimal(txtPrecio.Text)) == 0.00m)
             if(txtPrecio.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese un valor correcto para el precio", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor correcto para el precio", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (Convert.ToInt32(txtCantidad.Text.Trim() == string.Empty ? 0 : Convert.ToInt32(txtCantidad.Text)) == 0)
             {
-                MessageBox.Show("Ingrese un valor correcto para la cantidad", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor correcto para la cantidad", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             save = true;

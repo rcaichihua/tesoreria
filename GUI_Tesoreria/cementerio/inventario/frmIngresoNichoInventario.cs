@@ -117,7 +117,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 }
                 else
                 {
-                    MessageBox.Show("No hay nichos a mostrar.");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay nichos a mostrar.");
                     dgvNichos.DataSource = dtR;
                     ListarDIfuntos(0);
                 }
@@ -149,12 +149,12 @@ namespace GUI_Tesoreria.cementerio.inventario
                 }
                 else
                 {
-                    MessageBox.Show("No hay nichos a mostrar.");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay nichos a mostrar.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }
         }
 
@@ -168,24 +168,24 @@ namespace GUI_Tesoreria.cementerio.inventario
             {
                 destinoImagen = @ruta_imagen;
                 string destino = destinoImagen + txtCodigoCuartel.Text + txtFila.Text.Trim() + txtColumna.Text.Trim() + ".jpg";
-                //MessageBox.Show("1");
+                //DevComponents.DotNetBar.MessageBoxEx.Show("1");
                 string origen = lblRuta.Text;
                 if (origen == "label1") origen = System.Windows.Forms.Application.StartupPath.ToString() + @"\FONDO\\sin imagen.jpg";
-                //MessageBox.Show("2");
+                //DevComponents.DotNetBar.MessageBoxEx.Show("2");
                 if (File.Exists(destino))
                 {
                     File.Delete(destino);
                 }
-                //MessageBox.Show("3");
+                //DevComponents.DotNetBar.MessageBoxEx.Show("3");
                 File.Copy(origen, destino);
-                //MessageBox.Show("4");
+                //DevComponents.DotNetBar.MessageBoxEx.Show("4");
                 if (cn.EjecutarSP("usp_NICHOINVENTARIOInsertar", cboCementerio.SelectedValue, cboEstado.SelectedValue
                 , chkTapa.Checked, txtFila.Text, txtColumna.Text, txtCodigoCuartel.Text
                 , cboEstadoFisico.SelectedValue, cboMaterial.SelectedValue, chkLapida.Checked
                 , chkReja.Checked, txtObservacion.Text, "0", VariablesMetodosEstaticos.varNombreUser
                 , destino) > 0)
                 {
-                    MessageBox.Show("El Nicho fue registrado correctamente.", VariablesMetodosEstaticos.encabezado
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El Nicho fue registrado correctamente.", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
                     buscarNichos(txtCodigoCuartel.Text);
                     limpiar();
@@ -194,13 +194,13 @@ namespace GUI_Tesoreria.cementerio.inventario
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error. Intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error. Intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }
         }
 
@@ -208,19 +208,19 @@ namespace GUI_Tesoreria.cementerio.inventario
         {
             if (txtCodigoCuartel.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("No se ha seleccionado ningun cuartel.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado ningun cuartel.");
                 txtNombreCuartel.Focus();
                 return false;
             }
             if (txtFila.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese la FILA");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese la FILA");
                 txtFila.Focus();
                 return false;
             }
             if (txtColumna.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese la COLUMNA");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese la COLUMNA");
                 txtColumna.Focus();
                 return false;
             }
@@ -228,7 +228,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 + txtCodigoCuartel.Text + "' and LETRAFILANICHO= '" + txtFila.Text.Trim() + "' and NUMEROCOLNICHO="
                 + txtColumna.Text.Trim() + "").Tables[0].Rows[0][0].ToString() != "0")
             {
-                MessageBox.Show("La fila y/o columna ya fue registrado.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("La fila y/o columna ya fue registrado.");
                 txtFila.Focus();
                 return false;
             }
@@ -236,7 +236,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 + txtCodigoCuartel.Text + "' and LETRAFILANICHO= '" + txtFila.Text.Trim() + "' and NUMEROCOLNICHO="
                 + txtColumna.Text.Trim() + "").Tables[0].Rows[0][0].ToString() == "0")
             {
-                MessageBox.Show("La Fila y/o columna no existe.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("La Fila y/o columna no existe.");
                 txtFila.Focus();
                 return false;
             }
@@ -278,7 +278,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 ContextMenuStrip my_menu = new ContextMenuStrip();
                 int posicion_xy_mouse_fila = dgvNichos.HitTest(e.X, e.Y).RowIndex;
 
-                //MessageBox.Show(posicion_xy_mouse_fila.ToString());
+                //DevComponents.DotNetBar.MessageBoxEx.Show(posicion_xy_mouse_fila.ToString());
                 if (posicion_xy_mouse_fila >= 0)
                 {
                     fila_nicho = posicion_xy_mouse_fila;
@@ -309,7 +309,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 ContextMenuStrip my_menu_d = new ContextMenuStrip();
                 int posicion_xy_mouse_fila = dgvDifuntos.HitTest(e.X, e.Y).RowIndex;
 
-                //MessageBox.Show(posicion_xy_mouse_fila.ToString());
+                //DevComponents.DotNetBar.MessageBoxEx.Show(posicion_xy_mouse_fila.ToString());
                 if (posicion_xy_mouse_fila >= 0)
                 {
                     fila_difunto = posicion_xy_mouse_fila;
@@ -337,7 +337,7 @@ namespace GUI_Tesoreria.cementerio.inventario
 
                         if (row.Cells[12].Value.ToString() == "1")
                         {
-                            MessageBox.Show("El nicho ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El nicho ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
                            , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             break;
                         }
@@ -364,12 +364,12 @@ namespace GUI_Tesoreria.cementerio.inventario
                     case "btnEliminar":
                         if (row.Cells[12].Value.ToString() == "1")
                         {
-                            MessageBox.Show("El nicho ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El nicho ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
                            , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             break;
                         }
 
-                        if ((MessageBox.Show("¿Esta seguro de eliminar el nicho " + Environment.NewLine
+                        if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar el nicho " + Environment.NewLine
                             + "ubicado en la fila " + row.Cells[4].Value.ToString() + " y columna "
                             + row.Cells[5].Value.ToString() + " ?", VariablesMetodosEstaticos.encabezado
                             , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
@@ -377,7 +377,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                         {
                             cn.EjecutarSP("usp_NICHOINVENTARIOEliminar", Convert.ToInt32(row.Cells[0].Value));
 
-                            MessageBox.Show("El Nicho fue eliminado correctamente.", VariablesMetodosEstaticos.encabezado
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El Nicho fue eliminado correctamente.", VariablesMetodosEstaticos.encabezado
                             , MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             buscarNichos(row.Cells[6].Value.ToString());
@@ -387,14 +387,14 @@ namespace GUI_Tesoreria.cementerio.inventario
                     case "btnAgregarOcupante":
                         if (row.Cells[12].Value.ToString() == "1")
                         {
-                            MessageBox.Show("El nicho ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El nicho ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
                            , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             break;
                         }
 
                         if ((row.Cells[2].Value).ToString() == "LIBRE")
                         {
-                            MessageBox.Show("No se puede asignar ocupantes a un nicho LIBRE.", VariablesMetodosEstaticos.encabezado
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No se puede asignar ocupantes a un nicho LIBRE.", VariablesMetodosEstaticos.encabezado
                            , MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             break;
                         }
@@ -418,7 +418,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                                     {
                                         if (rowDifunto.Cells[5].Value.ToString() == "")
                                         {
-                                            MessageBox.Show("Debe ingresar la fecha de fallecimiento de todos los difuntos.");
+                                            DevComponents.DotNetBar.MessageBoxEx.Show("Debe ingresar la fecha de fallecimiento de todos los difuntos.");
                                             return;
                                         }
                                     }
@@ -429,7 +429,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                                     {
                                         if (rowDifunto.Cells[5].Value.ToString() != "")
                                         {
-                                            MessageBox.Show("Los benficiarios asignados para la reserva en vida no deben tener fecha de fallecimiento.");
+                                            DevComponents.DotNetBar.MessageBoxEx.Show("Los benficiarios asignados para la reserva en vida no deben tener fecha de fallecimiento.");
                                             return;
                                         }
                                     }
@@ -437,7 +437,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                             }
                             else
                             {
-                                MessageBox.Show("Ingrese difunto o beneficiario.");
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese difunto o beneficiario.");
                                 return;
                             }
                         }
@@ -446,11 +446,11 @@ namespace GUI_Tesoreria.cementerio.inventario
                             + "' and LETRAFILANICHO='" + row.Cells[4].Value.ToString() + "' AND NUMEROCOLNICHO=" + Convert.ToInt32(row.Cells[5].Value.ToString())
                             + " AND ANULADO='0' AND IDMOTIVO is null").Tables[0].Rows[0][0].ToString()) > 0)
                         {
-                            MessageBox.Show("El titulo ya fue registrado anteriormente.");
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El titulo ya fue registrado anteriormente.");
                             return;
                         }
 
-                        if ((MessageBox.Show("¿Esta seguro de pasar la informacion a conforme y validado? " + Environment.NewLine
+                        if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de pasar la informacion a conforme y validado? " + Environment.NewLine
                             + "Una vez que usted ACEPTE los datos del inventario ya no podran ser modificados.", VariablesMetodosEstaticos.encabezado
                             , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                             == DialogResult.Yes))
@@ -462,7 +462,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                                 cn.TraerDataset("USP_VALIDACION_DATOS_NICHO_1", row.Cells[6].Value.ToString(), row.Cells[4].Value.ToString(),
                                 Convert.ToInt32(row.Cells[5].Value)).Tables[0].Rows[0][0].ToString();
 
-                                MessageBox.Show("Se actualizo el estado del nicho a LIBRE");
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Se actualizo el estado del nicho a LIBRE");
                                 buscarNichos(row.Cells[6].Value.ToString());
                                 Contabilizar();
                                 FiltrarFilaAfectada(id);
@@ -497,7 +497,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                         }
                         break;
                     case "btnAnular":
-                        if ((MessageBox.Show("¿Esta seguro de anular lo ingresado por gabinete? " + Environment.NewLine
+                        if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de anular lo ingresado por gabinete? " + Environment.NewLine
                             + "Una vez anulado se perdera la informacion procesada.", VariablesMetodosEstaticos.encabezado
                             , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                             == DialogResult.Yes))
@@ -507,7 +507,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                                 cn.EjecutarUD("UPDATE cementerio.NICHOINVENTARIO SET FECHAMODIFICA=GETDATE(), USUARIOMODIFICA='" + VariablesMetodosEstaticos.varNombreUser + "', FLAGGABINETE=0 WHERE CODPABELLON='" + row.Cells[6].Value.ToString() 
                                     + "' AND NUMEROCOLNICHO="+ Convert.ToInt32(row.Cells[5].Value.ToString()) + " AND LETRAFILANICHO='"
                                     + row.Cells[4].Value.ToString() + "' AND FLAGGABINETE='1'");
-                                MessageBox.Show("Anulado correctamente");
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Anulado correctamente");
                                 buscarNichos(row.Cells[6].Value.ToString());
                                 Contabilizar();
                                 FiltrarFilaAfectada(id);
@@ -519,13 +519,13 @@ namespace GUI_Tesoreria.cementerio.inventario
                                 "' and LETRAFILANICHO='" + row.Cells[4].Value.ToString() + "' AND NUMEROCOLNICHO="
                                 + Convert.ToInt32(row.Cells[5].Value.ToString() + "") + " AND ANULADO='0' AND IDMOTIVO IS NULL").Tables[0].Rows[0][0].ToString()) == 0)
                             {
-                                MessageBox.Show("No se puede anular porque ya fue anulado anteriormente o porque no se ha generado aún el título para este nicho.");
+                                DevComponents.DotNetBar.MessageBoxEx.Show("No se puede anular porque ya fue anulado anteriormente o porque no se ha generado aún el título para este nicho.");
                                 return;
                             }
                             //if (TiNiNe.AnularTituloNicho(Convert.ToInt32(row.Cells[0].Value), VariablesMetodosEstaticos.id_user)==1)
                             if (cn.TraerDataset("usp_AnulaIngresoGabinete", Convert.ToInt32(row.Cells[0].Value), VariablesMetodosEstaticos.id_user).Tables[0].Rows[0][0].ToString() == "1")
                             {
-                                MessageBox.Show("Anulación ejecutada correctamente.");
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Anulación ejecutada correctamente.");
                                 //id = Convert.ToInt32(row.Cells[0].Value);
                                 buscarNichos(row.Cells[6].Value.ToString());
                                 Contabilizar();
@@ -534,7 +534,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                             }
                             else
                             {
-                                MessageBox.Show("Ocurrio un error en la anulación. Intente de nuevo o contacte con sistemas");
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error en la anulación. Intente de nuevo o contacte con sistemas");
                             }
                         }
                         break;
@@ -543,7 +543,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }
 
         }
@@ -569,7 +569,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(exc.Message);
             }
         }
 
@@ -584,7 +584,7 @@ namespace GUI_Tesoreria.cementerio.inventario
 
                     if (row.Cells[7].Value.ToString() == "1")
                     {
-                        MessageBox.Show("EL difunto se encunetra asignado a un nicho que ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("EL difunto se encunetra asignado a un nicho que ya fue procesado por GABINETE y ya no se puede editar.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
@@ -614,12 +614,12 @@ namespace GUI_Tesoreria.cementerio.inventario
                 case "btnEliminar":
                     if (row.Cells[7].Value.ToString() == "1")
                     {
-                        MessageBox.Show("El difunto ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El difunto ya fue procesado por GABINETE y ya no se puede eliminar.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
 
-                    if ((MessageBox.Show("¿Esta seguro de eliminar al difunto " + Environment.NewLine
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar al difunto " + Environment.NewLine
                         + "con nombres: " + row.Cells[4].Value.ToString()
                         + row.Cells[3].Value.ToString() + " ?", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
@@ -627,7 +627,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                     {
                         cn.EjecutarSP("usp_DIFUNTONICHOINVENTARIOEliminar", Convert.ToInt32(row.Cells[0].Value));
 
-                        MessageBox.Show("El difunto fue eliminado correctamente.", VariablesMetodosEstaticos.encabezado
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El difunto fue eliminado correctamente.", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         ListarDIfuntos(Convert.ToInt32(row.Cells[1].Value)); break;
@@ -766,7 +766,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 {
                     if (win.Codigo == 0)
                     {
-                        MessageBox.Show("En el caso de nichos filtre el cuartel para desplegar todos los nichos.");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("En el caso de nichos filtre el cuartel para desplegar todos los nichos.");
                         txtNombreCuartel.Focus();
                     }
                     else
@@ -813,7 +813,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 {
                     if (string.IsNullOrEmpty(openFileDialog1.FileName))
                     {
-                        MessageBox.Show("No ha Seleccionado ninguna Imagen");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No ha Seleccionado ninguna Imagen");
                         lblRuta.Text = "";
                         return;
                     }
@@ -821,7 +821,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
             }
         }
 

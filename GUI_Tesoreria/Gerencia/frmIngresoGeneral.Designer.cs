@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresoGeneral));
             this.GBSolicitante = new System.Windows.Forms.GroupBox();
-            this.cboUsuariosCaja = new System.Windows.Forms.ComboBox();
+            this.cboPrograma = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.TxtDireccion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             // GBSolicitante
             // 
             this.GBSolicitante.BackColor = System.Drawing.Color.Transparent;
-            this.GBSolicitante.Controls.Add(this.cboUsuariosCaja);
+            this.GBSolicitante.Controls.Add(this.cboPrograma);
             this.GBSolicitante.Controls.Add(this.BtnSalir);
             this.GBSolicitante.Controls.Add(this.TxtDireccion);
             this.GBSolicitante.Controls.Add(this.label1);
@@ -53,25 +53,25 @@
             this.GBSolicitante.Size = new System.Drawing.Size(569, 109);
             this.GBSolicitante.TabIndex = 2;
             this.GBSolicitante.TabStop = false;
-            this.GBSolicitante.Text = "Filtro por Cajero";
+            this.GBSolicitante.Text = "Filtro por programa";
             // 
-            // cboUsuariosCaja
+            // cboPrograma
             // 
-            this.cboUsuariosCaja.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboUsuariosCaja.BackColor = System.Drawing.Color.White;
-            this.cboUsuariosCaja.DropDownHeight = 200;
-            this.cboUsuariosCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboUsuariosCaja.DropDownWidth = 400;
-            this.cboUsuariosCaja.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboUsuariosCaja.ForeColor = System.Drawing.Color.Black;
-            this.cboUsuariosCaja.FormattingEnabled = true;
-            this.cboUsuariosCaja.IntegralHeight = false;
-            this.cboUsuariosCaja.Items.AddRange(new object[] {
+            this.cboPrograma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPrograma.BackColor = System.Drawing.Color.White;
+            this.cboPrograma.DropDownHeight = 200;
+            this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrograma.DropDownWidth = 400;
+            this.cboPrograma.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPrograma.ForeColor = System.Drawing.Color.Black;
+            this.cboPrograma.FormattingEnabled = true;
+            this.cboPrograma.IntegralHeight = false;
+            this.cboPrograma.Items.AddRange(new object[] {
             "[seleccione]"});
-            this.cboUsuariosCaja.Location = new System.Drawing.Point(95, 28);
-            this.cboUsuariosCaja.Name = "cboUsuariosCaja";
-            this.cboUsuariosCaja.Size = new System.Drawing.Size(313, 21);
-            this.cboUsuariosCaja.TabIndex = 26;
+            this.cboPrograma.Location = new System.Drawing.Point(95, 28);
+            this.cboPrograma.Name = "cboPrograma";
+            this.cboPrograma.Size = new System.Drawing.Size(313, 21);
+            this.cboPrograma.TabIndex = 26;
             // 
             // BtnSalir
             // 
@@ -109,11 +109,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(39, 31);
+            this.label1.Location = new System.Drawing.Point(20, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 25;
-            this.label1.Text = "Cajero :";
+            this.label1.Text = "Programa :";
             // 
             // BtnBuscar
             // 
@@ -152,7 +152,7 @@
         internal System.Windows.Forms.Button BtnSalir;
         internal System.Windows.Forms.TextBox TxtDireccion;
         internal System.Windows.Forms.Button BtnBuscar;
-        internal System.Windows.Forms.ComboBox cboUsuariosCaja;
+        internal System.Windows.Forms.ComboBox cboPrograma;
         internal System.Windows.Forms.Label label1;
     }
 }

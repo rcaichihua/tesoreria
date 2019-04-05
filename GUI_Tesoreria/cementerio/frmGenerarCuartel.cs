@@ -66,7 +66,7 @@ namespace GUI_Tesoreria.cementerio
 
                 if (dtResultado.Rows[0][0].ToString() != "0")
                 {
-                    MessageBox.Show("Los nichos han sido correctamente Generados." + Environment.NewLine +
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Los nichos han sido correctamente Generados." + Environment.NewLine +
                     "Numero de Nichos creados = " + dtResultado.Rows[0][0].ToString() + "." + Environment.NewLine
                     + "Si desea generar mas nichos ingrese los " + Environment.NewLine 
                     + "nuevos parametros y pulse el boton GENERAR.", VariablesMetodosEstaticos.encabezado
@@ -75,7 +75,7 @@ namespace GUI_Tesoreria.cementerio
                     return;
                 }
 
-                MessageBox.Show("Ocurrio un error, intente de nuevo o contacte con sistemas", VariablesMetodosEstaticos.encabezado
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, intente de nuevo o contacte con sistemas", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)

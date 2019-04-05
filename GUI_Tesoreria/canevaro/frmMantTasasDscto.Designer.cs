@@ -63,7 +63,7 @@
             this.cboTipoTasa.BackColor = System.Drawing.Color.White;
             this.cboTipoTasa.DropDownHeight = 200;
             this.cboTipoTasa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoTasa.DropDownWidth = 200;
+            this.cboTipoTasa.DropDownWidth = 400;
             this.cboTipoTasa.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTipoTasa.ForeColor = System.Drawing.Color.Black;
             this.cboTipoTasa.FormattingEnabled = true;
@@ -187,7 +187,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMantTasasDscto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "...:::Mantenimiento de Tasas:::...";
+            this.Text = "...:::Mantenimiento datos:::...";
             this.Load += new System.EventHandler(this.frmMantTasasDscto_Load);
             this.GBSolicitante.ResumeLayout(false);
             this.GBSolicitante.PerformLayout();

@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmComparaVouchersPagoEfectivo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.GBDatosRubros = new System.Windows.Forms.GroupBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCompara = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.FechaRegistroCaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadRecibos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,19 +48,9 @@
             this.TotalCobroEfectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Diferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GBDatosRubros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompara)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // GBDatosRubros
-            // 
-            this.GBDatosRubros.BackColor = System.Drawing.Color.Transparent;
-            this.GBDatosRubros.Controls.Add(this.dgvCompara);
-            this.GBDatosRubros.Location = new System.Drawing.Point(12, 12);
-            this.GBDatosRubros.Name = "GBDatosRubros";
-            this.GBDatosRubros.Size = new System.Drawing.Size(593, 312);
-            this.GBDatosRubros.TabIndex = 116;
-            this.GBDatosRubros.TabStop = false;
             // 
             // dgvCompara
             // 
@@ -69,14 +59,14 @@
             this.dgvCompara.AllowUserToResizeColumns = false;
             this.dgvCompara.AllowUserToResizeRows = false;
             this.dgvCompara.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCompara.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCompara.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCompara.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompara.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FechaRegistroCaja,
@@ -86,22 +76,22 @@
             this.TotalCobroEfectivo,
             this.TotalDeposito,
             this.Diferencia});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCompara.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCompara.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvCompara.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCompara.Location = new System.Drawing.Point(3, 16);
+            this.dgvCompara.Location = new System.Drawing.Point(3, 17);
             this.dgvCompara.Name = "dgvCompara";
             this.dgvCompara.ReadOnly = true;
             this.dgvCompara.RowHeadersVisible = false;
             this.dgvCompara.RowHeadersWidth = 10;
             this.dgvCompara.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCompara.Size = new System.Drawing.Size(587, 293);
+            this.dgvCompara.Size = new System.Drawing.Size(565, 429);
             this.dgvCompara.TabIndex = 4;
             // 
             // btnSalir
@@ -110,7 +100,7 @@
             this.btnSalir.ForeColor = System.Drawing.Color.Navy;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalir.Location = new System.Drawing.Point(533, 327);
+            this.btnSalir.Location = new System.Drawing.Point(511, 464);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(72, 58);
             this.btnSalir.TabIndex = 117;
@@ -119,31 +109,43 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.dgvCompara);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox3.Location = new System.Drawing.Point(12, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(571, 449);
+            this.groupBox3.TabIndex = 147;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Listado de ingreso de efectivo vs Deposito relacionados";
+            // 
             // FechaRegistroCaja
             // 
             this.FechaRegistroCaja.DataPropertyName = "FechaRegistroCaja";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.FechaRegistroCaja.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.FechaRegistroCaja.DefaultCellStyle = dataGridViewCellStyle11;
             this.FechaRegistroCaja.HeaderText = "FECHA REG CAJA";
             this.FechaRegistroCaja.Name = "FechaRegistroCaja";
             this.FechaRegistroCaja.ReadOnly = true;
-            this.FechaRegistroCaja.Width = 80;
             // 
             // FechaDeposito
             // 
             this.FechaDeposito.DataPropertyName = "FechaDeposito";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.FechaDeposito.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.FechaDeposito.DefaultCellStyle = dataGridViewCellStyle12;
             this.FechaDeposito.HeaderText = "FECHA DEPOSITO";
             this.FechaDeposito.Name = "FechaDeposito";
             this.FechaDeposito.ReadOnly = true;
-            this.FechaDeposito.Width = 80;
+            this.FechaDeposito.Visible = false;
             // 
             // CantidadRecibos
             // 
             this.CantidadRecibos.DataPropertyName = "CantidadRecibos";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CantidadRecibos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CantidadRecibos.DefaultCellStyle = dataGridViewCellStyle13;
             this.CantidadRecibos.HeaderText = "CANT. DOC";
             this.CantidadRecibos.Name = "CantidadRecibos";
             this.CantidadRecibos.ReadOnly = true;
@@ -152,8 +154,8 @@
             // CantidadVouchers
             // 
             this.CantidadVouchers.DataPropertyName = "CantidadVouchers";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CantidadVouchers.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CantidadVouchers.DefaultCellStyle = dataGridViewCellStyle14;
             this.CantidadVouchers.HeaderText = "CANT. VOUCH.";
             this.CantidadVouchers.Name = "CantidadVouchers";
             this.CantidadVouchers.ReadOnly = true;
@@ -162,59 +164,54 @@
             // TotalCobroEfectivo
             // 
             this.TotalCobroEfectivo.DataPropertyName = "TotalCobroEfectivo";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.TotalCobroEfectivo.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.TotalCobroEfectivo.DefaultCellStyle = dataGridViewCellStyle15;
             this.TotalCobroEfectivo.HeaderText = "TOTAL EFECTIVO";
             this.TotalCobroEfectivo.Name = "TotalCobroEfectivo";
             this.TotalCobroEfectivo.ReadOnly = true;
-            this.TotalCobroEfectivo.Width = 90;
             // 
             // TotalDeposito
             // 
             this.TotalDeposito.DataPropertyName = "TotalDeposito";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.TotalDeposito.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            this.TotalDeposito.DefaultCellStyle = dataGridViewCellStyle16;
             this.TotalDeposito.HeaderText = "TOTAL DEPOSITO";
             this.TotalDeposito.Name = "TotalDeposito";
             this.TotalDeposito.ReadOnly = true;
-            this.TotalDeposito.Width = 90;
             // 
             // Diferencia
             // 
             this.Diferencia.DataPropertyName = "Diferencia";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle8.Format = "N2";
-            this.Diferencia.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N2";
+            this.Diferencia.DefaultCellStyle = dataGridViewCellStyle17;
             this.Diferencia.HeaderText = "DIFERENCIA";
             this.Diferencia.Name = "Diferencia";
             this.Diferencia.ReadOnly = true;
-            this.Diferencia.Width = 70;
             // 
             // frmComparaVouchersPagoEfectivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 392);
+            this.ClientSize = new System.Drawing.Size(592, 534);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.GBDatosRubros);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmComparaVouchersPagoEfectivo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmComparaVouchersPagoEfectivo";
+            this.Text = "...:::Listado:::...";
             this.Load += new System.EventHandler(this.frmComparaVouchersPagoEfectivo_Load);
-            this.GBDatosRubros.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompara)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        internal System.Windows.Forms.GroupBox GBDatosRubros;
         internal System.Windows.Forms.DataGridView dgvCompara;
         protected System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistroCaja;
@@ -224,5 +221,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCobroEfectivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Diferencia;
+        internal System.Windows.Forms.GroupBox groupBox3;
     }
 }

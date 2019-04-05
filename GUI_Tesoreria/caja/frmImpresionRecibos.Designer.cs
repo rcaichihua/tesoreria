@@ -30,6 +30,8 @@
         {
             this.crvReportes = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtServidorDestino = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // crvReportes
@@ -57,17 +59,37 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "IP Servidor Destino";
+            // 
+            // txtServidorDestino
+            // 
+            this.txtServidorDestino.Location = new System.Drawing.Point(242, 6);
+            this.txtServidorDestino.Name = "txtServidorDestino";
+            this.txtServidorDestino.Size = new System.Drawing.Size(141, 20);
+            this.txtServidorDestino.TabIndex = 4;
+            // 
             // frmImpresionRecibos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 582);
+            this.Controls.Add(this.txtServidorDestino);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.crvReportes);
             this.DoubleBuffered = true;
             this.Name = "frmImpresionRecibos";
             this.Text = "frmImpresionRecibos";
+            this.Load += new System.EventHandler(this.frmImpresionRecibos_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -75,5 +97,7 @@
 
         internal CrystalDecisions.Windows.Forms.CrystalReportViewer crvReportes;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtServidorDestino;
     }
 }

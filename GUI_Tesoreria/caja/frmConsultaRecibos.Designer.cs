@@ -80,6 +80,7 @@
             this.GBOpciones = new System.Windows.Forms.GroupBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
+            this.btnModificaModalidadPago = new System.Windows.Forms.Button();
             this.BtnVer = new System.Windows.Forms.Button();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
@@ -602,6 +603,7 @@
             this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
             this.GBOpciones.Controls.Add(this.BtnSalir);
             this.GBOpciones.Controls.Add(this.BtnEliminar);
+            this.GBOpciones.Controls.Add(this.btnModificaModalidadPago);
             this.GBOpciones.Controls.Add(this.BtnVer);
             this.GBOpciones.Controls.Add(this.BtnImprimir);
             this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -641,12 +643,29 @@
             this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BtnEliminar.Size = new System.Drawing.Size(59, 39);
+            this.BtnEliminar.Size = new System.Drawing.Size(68, 39);
             this.BtnEliminar.TabIndex = 59;
             this.BtnEliminar.Text = "&Extornar";
             this.BtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnEliminar.UseVisualStyleBackColor = false;
             this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            // 
+            // btnModificaModalidadPago
+            // 
+            this.btnModificaModalidadPago.BackColor = System.Drawing.Color.White;
+            this.btnModificaModalidadPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificaModalidadPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificaModalidadPago.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificaModalidadPago.ForeColor = System.Drawing.Color.Navy;
+            this.btnModificaModalidadPago.Image = global::GUI_Tesoreria.Properties.Resources.editarD;
+            this.btnModificaModalidadPago.Location = new System.Drawing.Point(6, 136);
+            this.btnModificaModalidadPago.Name = "btnModificaModalidadPago";
+            this.btnModificaModalidadPago.Size = new System.Drawing.Size(68, 102);
+            this.btnModificaModalidadPago.TabIndex = 60;
+            this.btnModificaModalidadPago.Text = "&Modificar Modalidad de Pago FA - BV\r\n";
+            this.btnModificaModalidadPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnModificaModalidadPago.UseVisualStyleBackColor = false;
+            this.btnModificaModalidadPago.Click += new System.EventHandler(this.btnModificaModalidadPago_Click);
             // 
             // BtnVer
             // 
@@ -658,7 +677,7 @@
             this.BtnVer.Image = ((System.Drawing.Image)(resources.GetObject("BtnVer.Image")));
             this.BtnVer.Location = new System.Drawing.Point(6, 91);
             this.BtnVer.Name = "BtnVer";
-            this.BtnVer.Size = new System.Drawing.Size(59, 39);
+            this.BtnVer.Size = new System.Drawing.Size(68, 39);
             this.BtnVer.TabIndex = 60;
             this.BtnVer.Text = "&Detalle";
             this.BtnVer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -676,7 +695,7 @@
             this.BtnImprimir.Location = new System.Drawing.Point(6, 11);
             this.BtnImprimir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(59, 39);
+            this.BtnImprimir.Size = new System.Drawing.Size(68, 39);
             this.BtnImprimir.TabIndex = 93;
             this.BtnImprimir.Text = "&Previo";
             this.BtnImprimir.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -781,5 +800,6 @@
         internal System.Windows.Forms.Label lblNroRecibos;
         internal System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
+        internal System.Windows.Forms.Button btnModificaModalidadPago;
     }
 }

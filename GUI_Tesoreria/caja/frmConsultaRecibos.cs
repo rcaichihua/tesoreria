@@ -19,7 +19,8 @@ namespace GUI_Tesoreria.caja
         private varGlobales varglo = new varGlobales();
         private static frmConsultaRecibos frmInstance = null;
         public Boolean autoziza = false;
-        public int cajeroIngreso = 0;
+        public int cajeroIngreso { get; set; }
+        //public int cajeroIngreso = 0;
 
         public frmConsultaRecibos()
         {
@@ -89,7 +90,6 @@ namespace GUI_Tesoreria.caja
                     txtTotal.Text = total.ToString("##,##0.00");
 
                     lblNroRecibos.Text = dsDatos.Tables[0].Rows.Count.ToString();
-
 	        }
 	        catch (Exception)
 	        {
@@ -308,14 +308,14 @@ namespace GUI_Tesoreria.caja
 
                     if (dtsExterno.Tables[0].Rows[0]["Observacion"].ToString() != "Aperturado")
                     {
-                        MessageBox.Show("La caja ya fue cerrada ... Usted No Puede Extornar.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("La caja ya fue cerrada ... Usted No Puede Extornar.", VariablesMetodosEstaticos.encabezado,
                       MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         return;
                     }
 
                     if (dgvRecibos.Rows[index].Cells["Estado"].Value.ToString() == "EXTORNADO")
                     {
-                        MessageBox.Show("El documento ya se encuentra Extornado", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El documento ya se encuentra Extornado", VariablesMetodosEstaticos.encabezado,
                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return; 
                     }
@@ -327,7 +327,7 @@ namespace GUI_Tesoreria.caja
 
                         if (fechaActual == 0)
                         {
-                            MessageBox.Show("No se puede extornar un recibo que no se haya girado el dia de hoy."
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No se puede extornar un recibo que no se haya girado el dia de hoy."
                                 , VariablesMetodosEstaticos.encabezado,
                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return; 
@@ -364,6 +364,37 @@ namespace GUI_Tesoreria.caja
         private void dgvRecibos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             marcarGrilla();
+        }
+
+        private void btnModificaModalidadPago_Click(object sender, EventArgs e)
+        {
+            if (dgvRecibos.Rows.Count>0)
+            {
+                int index = dgvRecibos.CurrentRow.Index;
+
+                if (dgvRecibos.Rows[index].Cells[5].Value.ToString().Substring(0,1)!="F")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede hacer la modificacion de modalidad de pago para el documento seleccionado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    return;
+                }
+                if (cn.EjecutarSqlDTS("select cod_mod_Pago from tb_ReciboCabecera where ReciboID = "+ Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0].Rows[0][0].ToString() != "19")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede editar documentos que no sean PENDIENTES DE PAGO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    return;
+                }
+                frmModificacionModalidadPago win = new frmModificacionModalidadPago();
+                win.Vventa_doc = Convert.ToDecimal(dgvRecibos.Rows[index].Cells[10].Value);
+                win.Igv_doc = Convert.ToDecimal(dgvRecibos.Rows[index].Cells[11].Value);
+                win.Total_doc = Convert.ToDecimal(dgvRecibos.Rows[index].Cells[12].Value);
+                win.Serie_doc = dgvRecibos.Rows[index].Cells[5].Value.ToString();
+                win.Numero_doc = dgvRecibos.Rows[index].Cells[6].Value.ToString();
+                win.ReciboId = Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value);
+                //win.ModPago2= cn.TraerDataset("usp_consulta_modalidad_pago2", Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value)).Tables[0];
+                //win.ModPago = cn.TraerDataset("usp_consulta_modalidad_pago", Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value)).Tables[0];
+                win.ShowDialog();
+            }
         }
     }
 }

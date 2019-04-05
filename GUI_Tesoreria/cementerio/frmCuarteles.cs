@@ -102,7 +102,7 @@ namespace GUI_Tesoreria.cementerio
                 ContextMenuStrip my_menu = new ContextMenuStrip();
                 int posicion_xy_mouse_fila = dgvCuarteles.HitTest(e.X, e.Y).RowIndex;
 
-                //MessageBox.Show(posicion_xy_mouse_fila.ToString());
+                //DevComponents.DotNetBar.MessageBoxEx.Show(posicion_xy_mouse_fila.ToString());
                 if (posicion_xy_mouse_fila >= 0)
                 {
                     fila = posicion_xy_mouse_fila;
@@ -118,7 +118,7 @@ namespace GUI_Tesoreria.cementerio
 
         void my_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            //MessageBox.Show(e.ClickedItem.Name.ToString());
+            //DevComponents.DotNetBar.MessageBoxEx.Show(e.ClickedItem.Name.ToString());
             switch(e.ClickedItem.Name.ToString())
             {
                 case "btnModificar":
@@ -222,14 +222,14 @@ namespace GUI_Tesoreria.cementerio
                     if (dtResultado.Rows[0][0].ToString() != "BAD")
                     {
                         txtCodigo.Text = dtResultado.Rows[0][0].ToString();
-                        MessageBox.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnCancelar_Click(sender, e);
                         buscarNichos("0000");
                         //buscarNichos(txtCodigo.Text);
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error verifique", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error verifique", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
@@ -243,13 +243,13 @@ namespace GUI_Tesoreria.cementerio
                         , cboCementerio.SelectedValue, cboPuerta.Text, txtObservacion.Text, 1, VariablesMetodosEstaticos.varNombreUser, accion, CuartelId).Tables[0];
                     if (dtResultado.Rows[0][0].ToString() != "BAD")
                     {
-                        MessageBox.Show("Actualziado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Actualziado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnCancelar_Click(sender, e);
                         buscarNichos(txtCodigo.Text);
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error verifique", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error verifique", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -261,13 +261,13 @@ namespace GUI_Tesoreria.cementerio
                         , "", txtNombreCuartel.Text, 0, 0, "", "", "", 0, VariablesMetodosEstaticos.varNombreUser, accion).Tables[0];
                     if (dtResultado.Rows[0][0].ToString() != "BAD")
                     {
-                        MessageBox.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnCancelar_Click(sender, e);
                         buscarNichos("0000");
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error verifique", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error verifique", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -330,7 +330,7 @@ namespace GUI_Tesoreria.cementerio
         {
             if (txtCodigo.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Seleccione un cuartel de la lista de cuarteles.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un cuartel de la lista de cuarteles.");
                 txtNombreCuartel.Focus();
                 return false;
             }
@@ -339,7 +339,7 @@ namespace GUI_Tesoreria.cementerio
 
             if (dts.Tables[0].Rows.Count == 0)
             {
-                MessageBox.Show("El codigo ingresado no existe, verifique o seleccione otro cuartel.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("El codigo ingresado no existe, verifique o seleccione otro cuartel.");
                 txtNombreCuartel.Focus();
                 return false;
             }
@@ -347,7 +347,7 @@ namespace GUI_Tesoreria.cementerio
             {
                 if (dts.Tables[0].Rows[0][0].ToString() != txtNombreCuartel.Text)
                 {
-                    MessageBox.Show("El nombre ingresado ha sido modificado, verifique que sea identico al seleccionado de la lista de cuarteles.");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El nombre ingresado ha sido modificado, verifique que sea identico al seleccionado de la lista de cuarteles.");
                     txtNombreCuartel.Focus();
                     return false;
                 }
@@ -355,28 +355,28 @@ namespace GUI_Tesoreria.cementerio
 
             if (txtNombreCuartel.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese el nombre del cuartel");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el nombre del cuartel");
                 txtNombreCuartel.Focus();
                 return false;
             }
             if (nuFila.Value <= 0 || nuColumnas.Value <= 0)
             {
-                MessageBox.Show("Ingrese el Nro de Fila o columna correstamente");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el Nro de Fila o columna correstamente");
                 return false;
             }
             if (cboMaterial.Text=="")
             {
-                MessageBox.Show("Seleccione un Tipo de Material.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Tipo de Material.");
                 return false;
             }
             if (cboPuerta.Text == "" && cboCementerio.SelectedValue.ToString()=="02")
             {
-                MessageBox.Show("Seleccione Puerta.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione Puerta.");
                 return false;
             }
             //if (CuartelId == 0)
             //{
-            //    MessageBox.Show("Debe seleccionar el nombre y datos del cuartel de la Lista mostrada. Cancele y vuelva a intentar");
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Debe seleccionar el nombre y datos del cuartel de la Lista mostrada. Cancele y vuelva a intentar");
             //    return false;
             //}
             return true;
@@ -477,19 +477,19 @@ namespace GUI_Tesoreria.cementerio
         {
             if (cn.EjecutarSqlDTS("select * from cementerio.CUARTEL WHERE CODCUARTEL = '"+txtCodigo.Text+"' and estado=1").Tables[0].Rows.Count==0)
             {
-                MessageBox.Show("El codigo que desea eliminar no esxiste", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevComponents.DotNetBar.MessageBoxEx.Show("El codigo que desea eliminar no esxiste", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if ((MessageBox.Show("¿Esta seguro de eliminar el cuartel " + txtNombreCuartel.Text + " con codigo " + txtCodigo.Text + "?", VariablesMetodosEstaticos.encabezado,
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar el cuartel " + txtNombreCuartel.Text + " con codigo " + txtCodigo.Text + "?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
                 if ((cn.EjecutarSqlDTS("select count(*) from cementerio.NICHO where CODCUARTEL= '" + txtCodigo.Text + "'").Tables[0].Rows[0][0].ToString() != "0"))
                 {
-                    if ((MessageBox.Show("El cuartel que desea eliminar tiene nichos generados. ¿Esta seguro de continuar?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("El cuartel que desea eliminar tiene nichos generados. ¿Esta seguro de continuar?", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
-                        MessageBox.Show("No se puede eliminar debido a que el cuartel tiene nichos ingresados. Contacte con el administrador \n del sistema.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No se puede eliminar debido a que el cuartel tiene nichos ingresados. Contacte con el administrador \n del sistema.", VariablesMetodosEstaticos.encabezado,
                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         //accion = "D";
                         //btnGuardar_Click(sender, e);
@@ -536,13 +536,13 @@ namespace GUI_Tesoreria.cementerio
         {
             if (cn.EjecutarSqlDTS("select CODCUARTEL from cementerio.CUARTEL WHERE CODCUARTEL = '" + txtCodigo.Text + "' and estado=1").Tables[0].Rows.Count == 0)
             {
-                MessageBox.Show("El cuartel al que desea generar los nichos no se encuentra registrado, verifique y vuelva a intentarlo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevComponents.DotNetBar.MessageBoxEx.Show("El cuartel al que desea generar los nichos no se encuentra registrado, verifique y vuelva a intentarlo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (txtCodigo.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("No se puede generar, seleccione un cuartel.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se puede generar, seleccione un cuartel.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return false;
             }
             return true;

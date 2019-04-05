@@ -44,7 +44,7 @@ namespace GUI_Tesoreria.canevaro
         private void CalcularDeuda()
         {
             dtDatosReporte = new DataTable();
-            dtDatosReporte = cn.TraerDataset("usp_calculo_morosos", "2006", "2018"/*,dtpFechaCalculo.Value.ToShortDateString()*/).Tables[0];
+            dtDatosReporte = cn.TraerDataset("usp_calculo_morosos", "2006", "2019"/*,dtpFechaCalculo.Value.ToShortDateString()*/).Tables[0];
 
             if (dtDatosReporte.Rows.Count > 0)
             {
@@ -58,7 +58,7 @@ namespace GUI_Tesoreria.canevaro
             }
             else
             {
-                MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
                , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }

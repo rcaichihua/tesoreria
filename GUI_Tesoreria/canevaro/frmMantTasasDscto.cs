@@ -83,13 +83,13 @@ namespace GUI_Tesoreria.canevaro
                 {
                     if (dtControl.Rows[0][0].ToString() == "1")
                     {
-                        MessageBox.Show("Actualizado correctamente.",
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente.",
                        VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information
                        , MessageBoxDefaultButton.Button1);
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, intente de nuevo o contacte con sistemas.",
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, intente de nuevo o contacte con sistemas.",
                    VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error
                    , MessageBoxDefaultButton.Button1);
                     }

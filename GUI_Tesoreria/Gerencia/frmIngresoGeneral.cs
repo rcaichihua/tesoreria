@@ -34,9 +34,9 @@ namespace GUI_Tesoreria.Gerencia
 
         private void frmIngresoGeneral_Load(object sender, EventArgs e)
         {
-            cboUsuariosCaja.DataSource = cn.TraerDataset("usp_select_usuarios_caja_reporte").Tables[0];
-            cboUsuariosCaja.ValueMember = "Id_Caja_Usuario";
-            cboUsuariosCaja.DisplayMember = "cajero";
+            cboPrograma.DataSource = cn.TraerDataset("usp_ListaProgramas").Tables[0];
+            cboPrograma.ValueMember = "intProId";
+            cboPrograma.DisplayMember = "varProDescripcion";
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -44,20 +44,20 @@ namespace GUI_Tesoreria.Gerencia
             if (TipoReporte != "PagxResCan" && TipoReporte != "consulta" && TipoReporte != "RegVouchers" && TipoReporte != "RepSR" && TipoReporte != "RepST")
             {
                 frmReporteIngresoDiario win = new frmReporteIngresoDiario();
-                win.cajeroFiltro = Convert.ToInt16(cboUsuariosCaja.SelectedValue.ToString());
+                win.programaId = Convert.ToInt16(cboPrograma.SelectedValue.ToString());
                 win.tipo_reporte = Tipo_Reporte_y;
                 win.ShowDialog();
             }
             if (TipoReporte == "consulta")
             {
                 caja.frmConsultaRecibos win = new caja.frmConsultaRecibos();
-                win.cajeroIngreso = Convert.ToInt16(cboUsuariosCaja.SelectedValue.ToString());
+                win.cajeroIngreso = Convert.ToInt16(cboPrograma.SelectedValue.ToString());
                 win.ShowDialog();
             }
             if (TipoReporte == "RegVouchers")
             {
                 caja.frmIngresoVouchers _frmIngresoVouchers = new caja.frmIngresoVouchers();
-                _frmIngresoVouchers.idCajeroIngresoVouchers = Convert.ToInt32(cboUsuariosCaja.SelectedValue);
+                _frmIngresoVouchers.idCajeroIngresoVouchers = Convert.ToInt32(cboPrograma.SelectedValue);
                 _frmIngresoVouchers.habilita = 0;
                 _frmIngresoVouchers.ShowDialog();
             }
@@ -65,14 +65,14 @@ namespace GUI_Tesoreria.Gerencia
             {
                 frmReporteIngresoDiario _frmReporteProceso = new frmReporteIngresoDiario();
                 _frmReporteProceso.tipo_reporte = "RepSR";
-                _frmReporteProceso.cajeroFiltro = Convert.ToInt32(cboUsuariosCaja.SelectedValue);
+                _frmReporteProceso.programaId = Convert.ToInt32(cboPrograma.SelectedValue);
                 _frmReporteProceso.ShowDialog();
             }
             if (TipoReporte == "RepST")
             {
                 frmReporteIngresoDiario _frmReporteProceso = new frmReporteIngresoDiario();
                 _frmReporteProceso.tipo_reporte = "RepST";
-                _frmReporteProceso.cajeroFiltro = Convert.ToInt32(cboUsuariosCaja.SelectedValue);
+                _frmReporteProceso.programaId = Convert.ToInt32(cboPrograma.SelectedValue);
                 _frmReporteProceso.ShowDialog();
             }
             else

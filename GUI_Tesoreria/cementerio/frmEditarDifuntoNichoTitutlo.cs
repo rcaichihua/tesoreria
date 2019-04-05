@@ -60,7 +60,7 @@ namespace GUI_Tesoreria.cementerio
             //if (!e.IsValidInput || this.mtbFechaInhumacion.MaskedTextProvider.AssignedEditPositionCount != 8)
             //{
             //    e.Cancel = true;
-            //    MessageBox.Show("Formato no valido");
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Formato no valido");
             //    mtbFechaInhumacion.Focus();
             //}
 
@@ -69,7 +69,7 @@ namespace GUI_Tesoreria.cementerio
                 if (!e.IsValidInput || this.mtbFechaInhumacion.MaskedTextProvider.AssignedEditPositionCount != 8)
                 {
                     e.Cancel = true;
-                    MessageBox.Show("Formato no valido");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Formato no valido");
                     mtbFechaInhumacion.Focus();
                 }
             }
@@ -83,7 +83,7 @@ namespace GUI_Tesoreria.cementerio
             {
                 if (mtbFechaInhumacion.Text == "  /  /")
                 {
-                    MessageBox.Show("Ingrese la fecha de Inhumacion");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese la fecha de Inhumacion");
                     mtbFechaInhumacion.Focus();
                     return;
                 }
@@ -92,7 +92,7 @@ namespace GUI_Tesoreria.cementerio
             {
                 if (mtbFechaInhumacion.Text != "  /  /")
                 {
-                    MessageBox.Show("No se puede asignar una fecha de inhumacion cuando se encuentra en estado RESERVADO EN VIDA");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede asignar una fecha de inhumacion cuando se encuentra en estado RESERVADO EN VIDA");
                     mtbFechaInhumacion.Focus();
                     return;
                 }

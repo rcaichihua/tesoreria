@@ -4,6 +4,14 @@
 
     public partial class TablasReporte
     {
+        partial class ReporteDepositosDataTable
+        {
+        }
+
+        partial class RECIBOCAJAPRINCIPALDataTable
+        {
+        }
+
         partial class DETALLETITULODataTable
         {
         }

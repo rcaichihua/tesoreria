@@ -50,7 +50,7 @@ namespace GUI_Tesoreria.usuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -67,7 +67,7 @@ namespace GUI_Tesoreria.usuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -97,7 +97,7 @@ namespace GUI_Tesoreria.usuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar: -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error al cargar: -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -113,7 +113,7 @@ namespace GUI_Tesoreria.usuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.ToString());
             }
         }
 
@@ -153,7 +153,7 @@ namespace GUI_Tesoreria.usuario
             int lstrCodPerfil;
             if ((cboPerfil.Text == ""))
             {
-                MessageBox.Show("Seleccione un Perfil", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Perfil", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 return;
             }
             lstrCodPerfil = Convert.ToInt32(cboPerfil.SelectedValue);
@@ -312,7 +312,7 @@ namespace GUI_Tesoreria.usuario
                        , lstrHabilitado, VariablesMetodosEstaticos.varNombreUser);
                 }
             }
-            MessageBox.Show("Cambios guardados satisfactoriamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DevComponents.DotNetBar.MessageBoxEx.Show("Cambios guardados satisfactoriamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

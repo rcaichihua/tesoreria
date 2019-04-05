@@ -121,46 +121,46 @@ namespace GUI_Tesoreria.canevaro
 
             if (txtId.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese ID o seleccione un residente");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese ID o seleccione un residente");
                 txtId.Focus();
                 return;
             }
             if (txtNombres.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese nombre o seleccione un residente");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese nombre o seleccione un residente");
                 txtNombres.Focus();
                 return;
             }
             if (txtMovi.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese movimiento");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese movimiento");
                 txtMovi.Focus();
                 return;
             }
 
             if (txtAfect.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese afectacion");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese afectacion");
                 txtAfect.Focus();
                 return;
             }
 
             if (txtNroRecibo.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese Recibo");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Recibo");
                 txtNroRecibo.Focus();
                 return;
             }
             if (txtFecha.Text.Trim() == "  /  /    ")
             {
-                MessageBox.Show("Ingrese Fecha");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Fecha");
                 txtFecha.Focus();
                 return;
             }
 
             if (txtMonto.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese afectacion");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese afectacion");
                 txtMonto.Focus();
                 return;
             }
@@ -168,7 +168,7 @@ namespace GUI_Tesoreria.canevaro
             {
                 if (Convert.ToDouble(txtMonto.Text.Trim()) == 0.00D)
                 {
-                    MessageBox.Show("Monto mayor a cero");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Monto mayor a cero");
                     txtMonto.Focus();
                     return;
                 }
@@ -192,7 +192,7 @@ namespace GUI_Tesoreria.canevaro
 
                 if (searchMov == true)
                 {
-                    MessageBox.Show("El valor de movimiento solo puede ser \"C\" o \"E\"");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El valor de movimiento solo puede ser \"C\" o \"E\"");
                     txtMovi.Focus();
                     return;
                 }
@@ -208,7 +208,7 @@ namespace GUI_Tesoreria.canevaro
 
                 if (searchAfec == true)
                 {
-                    MessageBox.Show("La afectacion solo puede ser \"MO\" - \"DS\" - \"PE\"");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("La afectacion solo puede ser \"MO\" - \"DS\" - \"PE\"");
                     txtAfect.Focus();
                     return;
                 }
@@ -218,7 +218,7 @@ namespace GUI_Tesoreria.canevaro
 
                 if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("Este Ingreso ya fue registrador, verifique!");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Este Ingreso ya fue registrador, verifique!");
                     return;
                 }
 
@@ -227,7 +227,7 @@ namespace GUI_Tesoreria.canevaro
 
                 if (resultado >= 1)
                 {
-                    MessageBox.Show("Ingresado correctamente!");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente!");
                     cargarMovimientos();
                     //txtFiltro.Clear();
                     txtId.Clear();
@@ -244,12 +244,12 @@ namespace GUI_Tesoreria.canevaro
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error!");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error!");
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un error!, verifique los datos ingresados .. ex.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error!, verifique los datos ingresados .. ex.");
             }
 
         }
@@ -273,13 +273,13 @@ namespace GUI_Tesoreria.canevaro
                 }
                 if (resultadox > 0)
                 {
-                    if ((MessageBox.Show("¿Desea poner en estado pendiente el mes " + dgvIngresos.Rows[filax].Cells[2].Value +
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea poner en estado pendiente el mes " + dgvIngresos.Rows[filax].Cells[2].Value +
                         " del año " + dgvIngresos.Rows[filax].Cells[1].Value + "?",VariablesMetodosEstaticos.encabezado, 
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         resultadox = cn.EjecutarUD(" UPDATE tb_ctacte_residente set EstadoCtaCteResidente='P' where ctacteResidenteId= " + dgvIngresos.Rows[filax].Cells[10].Value + "");
                     }
-                    MessageBox.Show("Anulado correctamente el ID " + dgvIngresos.Rows[filax].Cells[0].Value);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Anulado correctamente el ID " + dgvIngresos.Rows[filax].Cells[0].Value);
                     cargarMovimientos();
                 }
             }
@@ -295,7 +295,7 @@ namespace GUI_Tesoreria.canevaro
             {
                 if (txtMes.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("Ingrese el mes.");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el mes.");
                     txtMes.Focus();
                     return;
                 }
@@ -306,7 +306,7 @@ namespace GUI_Tesoreria.canevaro
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un error, verifique los datos como ID residente, año y mes.");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, verifique los datos como ID residente, año y mes.");
             }
         }
 

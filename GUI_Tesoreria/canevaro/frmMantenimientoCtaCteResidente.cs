@@ -137,14 +137,14 @@ namespace GUI_Tesoreria.canevaro
         {
             if (txtCodigo.Text == string.Empty)
             {
-                MessageBox.Show("Seleccione un residente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un residente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 txtNombre.Focus();
                 return;
             }
             else if (cboAnio.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione un año.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un año.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 cboAnio.Focus();
                 return;
@@ -234,14 +234,14 @@ namespace GUI_Tesoreria.canevaro
                         }
                         else
                         {
-                            MessageBox.Show("El mes de" + row.Cells["MesCta"].Value + " del año " + row.Cells["AnioCta"].Value 
+                            DevComponents.DotNetBar.MessageBoxEx.Show("El mes de" + row.Cells["MesCta"].Value + " del año " + row.Cells["AnioCta"].Value 
                                 + " no sera actualizado por estar ANULADO", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, 
                                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         }
 
                         if (resultadiActCta == 0)
                         {
-                            MessageBox.Show("Ocurrio un error en la actualizacion del ID de cuenta : " + row.Cells["IdCta"].Value,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error en la actualizacion del ID de cuenta : " + row.Cells["IdCta"].Value,
                                VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error
                                , MessageBoxDefaultButton.Button1);
                         }
@@ -249,14 +249,14 @@ namespace GUI_Tesoreria.canevaro
                 }
                 if (marca != false)
                 {
-                    MessageBox.Show("Actualizado correctamente.",
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente.",
            VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information
            , MessageBoxDefaultButton.Button1);
                     BtnCta_Click(sender, e);
                 }
                 else
                 {
-                    MessageBox.Show("No se modifico ningun registro",
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se modifico ningun registro",
           VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information
           , MessageBoxDefaultButton.Button1);
                     BtnCta_Click(sender, e);
@@ -271,7 +271,7 @@ namespace GUI_Tesoreria.canevaro
         {
             if (dgvCtaCte.RowCount == 0)
             {
-                MessageBox.Show("No hay datos para el recalculo.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el recalculo.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 return;
             }
@@ -282,12 +282,12 @@ namespace GUI_Tesoreria.canevaro
 
             if (estadoRegistro == "A")
             {
-                MessageBox.Show("No se puede realizar el recalculo debido a que el año y mes seleccionado esta Anulado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se puede realizar el recalculo debido a que el año y mes seleccionado esta Anulado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                    MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 return;
             }
 
-            DialogResult dialogResult = MessageBox.Show("¿Seguro de realizar el recalculo del mes de " +
+            DialogResult dialogResult = DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de realizar el recalculo del mes de " +
                 dgvCtaCte.Rows[fila].Cells["MesCta"].Value + " del año " + dgvCtaCte.Rows[fila].Cells["AnioCta"].Value + " ?", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -305,7 +305,7 @@ namespace GUI_Tesoreria.canevaro
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo obtener los datos. Intente de nuevo.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se pudo obtener los datos. Intente de nuevo.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                    MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                     return;
                 }
@@ -313,7 +313,7 @@ namespace GUI_Tesoreria.canevaro
 
                 if (resultado > 0)
                 {
-                    MessageBox.Show("Actualizado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     BtnCta_Click(sender, e);
                 }

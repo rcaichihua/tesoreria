@@ -39,7 +39,7 @@ namespace GUI_Tesoreria.DGAI
                 return;
             }
 
-            if ((MessageBox.Show("¿Esta seguro de anular la liquidacion Nº " + dgvDGAI.Rows[dgvDGAI.CurrentRow.Index].Cells[1].Value + "?", VariablesMetodosEstaticos.encabezado,
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de anular la liquidacion Nº " + dgvDGAI.Rows[dgvDGAI.CurrentRow.Index].Cells[1].Value + "?", VariablesMetodosEstaticos.encabezado,
                              MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
                 try
@@ -48,7 +48,7 @@ namespace GUI_Tesoreria.DGAI
 
                     cn.EjecutarSP("usp_anula_liquidacion_dgai", dgvDGAI.Rows[indice].Cells[0].Value);
 
-                    MessageBox.Show("Liquidación Nº." + dgvDGAI.Rows[dgvDGAI.CurrentRow.Index].Cells[1].Value 
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Liquidación Nº." + dgvDGAI.Rows[dgvDGAI.CurrentRow.Index].Cells[1].Value 
                         + " fue anulado correctamente", VariablesMetodosEstaticos.encabezado,
                            MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();

@@ -112,7 +112,7 @@
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(38, 33);
-            this.btnDelete.TabIndex = 5;
+            this.btnDelete.TabIndex = 1;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -211,7 +211,7 @@
             this.txtTipoCambio.Location = new System.Drawing.Point(407, 33);
             this.txtTipoCambio.Name = "txtTipoCambio";
             this.txtTipoCambio.Size = new System.Drawing.Size(83, 21);
-            this.txtTipoCambio.TabIndex = 126;
+            this.txtTipoCambio.TabIndex = 2;
             this.txtTipoCambio.Text = "1.000";
             this.txtTipoCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTipoCambio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTipoCambio_KeyPress);
@@ -226,7 +226,7 @@
             this.txtTotalCambioDolar.Name = "txtTotalCambioDolar";
             this.txtTotalCambioDolar.ReadOnly = true;
             this.txtTotalCambioDolar.Size = new System.Drawing.Size(77, 21);
-            this.txtTotalCambioDolar.TabIndex = 127;
+            this.txtTotalCambioDolar.TabIndex = 3;
             this.txtTotalCambioDolar.Text = "0.00";
             this.txtTotalCambioDolar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTotalCambioDolar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalCambioDolar_KeyPress);
@@ -240,7 +240,7 @@
             this.txtImportePago.Location = new System.Drawing.Point(315, 33);
             this.txtImportePago.Name = "txtImportePago";
             this.txtImportePago.Size = new System.Drawing.Size(77, 21);
-            this.txtImportePago.TabIndex = 125;
+            this.txtImportePago.TabIndex = 1;
             this.txtImportePago.Text = "0.00";
             this.txtImportePago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImportePago.TextChanged += new System.EventHandler(this.txtImportePago_TextChanged);
@@ -339,7 +339,7 @@
             this.TxtNombreC.Name = "TxtNombreC";
             this.TxtNombreC.ReadOnly = true;
             this.TxtNombreC.Size = new System.Drawing.Size(252, 21);
-            this.TxtNombreC.TabIndex = 126;
+            this.TxtNombreC.TabIndex = 0;
             this.TxtNombreC.Text = "D.G.A.I";
             // 
             // groupBox1
@@ -357,7 +357,7 @@
             this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(653, 79);
-            this.groupBox1.TabIndex = 130;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // lblNro
@@ -417,7 +417,7 @@
             this.txtGlosa.Name = "txtGlosa";
             this.txtGlosa.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtGlosa.Size = new System.Drawing.Size(433, 51);
-            this.txtGlosa.TabIndex = 0;
+            this.txtGlosa.TabIndex = 1;
             // 
             // BtnNuevoC
             // 

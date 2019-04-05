@@ -35,12 +35,12 @@ namespace GUI_Tesoreria.canevaro
         {
             if (txtCodigo.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Seleccione un Residente");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Residente");
                     return;
             }
             if (txtNombre.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Seleccione un Residente");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Residente");
                     return;
             }
 

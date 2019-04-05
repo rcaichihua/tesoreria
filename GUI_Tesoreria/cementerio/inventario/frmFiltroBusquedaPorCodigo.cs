@@ -35,7 +35,7 @@ namespace GUI_Tesoreria.cementerio.inventario
 
             if (txtCodigo.Text.Trim() == "")
             {
-                MessageBox.Show("Ingrese el codigo para la Busqueda");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el codigo para la Busqueda");
                 txtCodigo.Focus();
                 return;
             }

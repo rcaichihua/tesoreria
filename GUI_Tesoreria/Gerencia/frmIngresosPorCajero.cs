@@ -65,7 +65,7 @@ namespace GUI_Tesoreria.Gerencia
                     }
                     if (dtUnion.Rows.Count <= 0)
                     {
-                        MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                     Gerencia.frmIngresosPorPrograma_2Mov_cobradoDelDia winResIngCajero = new Gerencia.frmIngresosPorPrograma_2Mov_cobradoDelDia();

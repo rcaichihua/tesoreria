@@ -54,7 +54,7 @@ namespace GUI_Tesoreria.DGAI
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -182,44 +182,40 @@ namespace GUI_Tesoreria.DGAI
 
         private void BtnGrabarC_Click(object sender, EventArgs e)
         {
-            if (validacion())
-            {
-                return;
-            }
-            if ((MessageBox.Show("¿Esta seguro de registrar el ingreso de DGAI con numero de liquidacion "+" " + lblNro.Text + " y " + "Nº de registro "+ txtNumeroRecibo.Text, VariablesMetodosEstaticos.encabezado,
-                          MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
-            {
-                ArmarTablasCabeceraDetalle();
+            //if (validacion())
+            //{
+            //    return;
+            //}
+            //if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de registrar el ingreso de DGAI con numero de liquidacion "+" " + lblNro.Text + " y " + "Nº de registro "+ txtNumeroRecibo.Text, VariablesMetodosEstaticos.encabezado,
+            //              MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+            //{
+            //    ArmarTablasCabeceraDetalle();
 
-                DataSet resultado = new DataSet();
-                bool estado = true;
+            //    DataSet resultado = new DataSet();
+            //    bool estado = true;
 
-                resultado = cn.IngresaRecibo("usp_generea_ingresos_dgai", estado, cabeceraRecibo, detalleRecibo);
+            //    resultado = cn.IngresaRecibo("usp_generea_ingresos_dgai", estado, cabeceraRecibo, detalleRecibo,modalidadPago);
 
-                int idReciboCabecera = 0;
+            //    int idReciboCabecera = 0;
 
-                idReciboCabecera = Convert.ToInt32(resultado.Tables[0].Rows[0][0]);
+            //    idReciboCabecera = Convert.ToInt32(resultado.Tables[0].Rows[0][0]);
 
-                if (idReciboCabecera == 0)
-                {
-                    MessageBox.Show("Ocurrio un error al guardar la información, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Recibo Ingresado correctamente.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            //    if (idReciboCabecera == 0)
+            //    {
+            //        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error al guardar la información, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+            //            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        DevComponents.DotNetBar.MessageBoxEx.Show("Recibo Ingresado correctamente.", VariablesMetodosEstaticos.encabezado,
+            //            MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
-                    txtNumeroRecibo.Text = Convert.ToInt32(cn.TraerDataset("usp_obtieneNumeroIngresoDGAI").Tables[0].Rows[0][0]).ToString("0000000");
-                    calcularSaldo();
-                    BtnCancelarC_Click(sender,e);
-                    //varGlobales.habilitarCampos(this, false);
-                    //BtnNuevoC.Enabled = true;
-                    //BtnGrabarC.Enabled = false;
-                    //BtnCancelarC.Enabled = false;
-                }               
-            }
+            //        txtNumeroRecibo.Text = Convert.ToInt32(cn.TraerDataset("usp_obtieneNumeroIngresoDGAI").Tables[0].Rows[0][0]).ToString("0000000");
+            //        calcularSaldo();
+            //        BtnCancelarC_Click(sender,e);
+            //    }               
+            //}
           
         }
 
@@ -236,42 +232,42 @@ namespace GUI_Tesoreria.DGAI
         {
             if (cboModalidadPago.SelectedIndex == 0)
             {
-                MessageBox.Show("Seleccione modalidad de pago.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione modalidad de pago.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboModalidadPago.Focus();
                 return true;
             }
             if (Convert.ToDecimal(txtImportePago.Text) <= 0.00M)
             {
-                MessageBox.Show("Ingrese un valor mayor a 0.00 en importe cambio.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor mayor a 0.00 en importe cambio.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtImportePago.Focus();
                 return true;
             }
             if (Convert.ToDecimal(txtTotalCambioDolar.Text) <= 0.00M)
             {
-                MessageBox.Show("Seleccione modalidad de pago.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione modalidad de pago.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTotalCambioDolar.Focus();
                 return true;
             }
             if (dgvDGAI.Rows.Count <= 0)
             {
-                MessageBox.Show("Debe ingresar al menos un item en el detalle de ingreso.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Debe ingresar al menos un item en el detalle de ingreso.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 btnAdd.Focus();
                 return true;
             }
             if (Convert.ToDecimal(txtSaldoC.Text) == 0.00m)
             {
-                MessageBox.Show("Ya no queda saldo disponible para generar recibo.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ya no queda saldo disponible para generar recibo.", VariablesMetodosEstaticos.encabezado,
                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSaldoC.Focus();
                 return true;
             }
             if (Convert.ToDecimal(txtTotalDocumentoC.Text) != Convert.ToDecimal(txtTotalCambioDolar.Text))
             {
-                MessageBox.Show("El monto total del documento debe ser igual al monto total cambio.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("El monto total del documento debe ser igual al monto total cambio.", VariablesMetodosEstaticos.encabezado,
                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtImportePago.Focus();
                 return true;
@@ -388,7 +384,7 @@ namespace GUI_Tesoreria.DGAI
             {
                 if (Convert.ToInt32(row.Cells[0].Value) == intRuId)
                 {
-                    MessageBox.Show("El item que desea ingresar ya ha sido ingresado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El item que desea ingresar ya ha sido ingresado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;// break;
                 }
             }
@@ -452,7 +448,7 @@ namespace GUI_Tesoreria.DGAI
                 }
                 else
                 {
-                    MessageBox.Show("No existe datos para eliminar", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No existe datos para eliminar", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 dgvDGAI.Refresh();
             }

@@ -15,7 +15,8 @@ namespace GUI_Tesoreria.caja
     {
         public DataTable dtbFonavi;
         private CNegocio cn = new CNegocio();
-        string cadena = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\sblmdgai\Tesoreria\Fonavi\DBFS\ ; Extended Properties = dBase IV; user ID=;Password=";
+        //string cadena = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\sblmdgai\Tesoreria\Fonavi\DBFS\ ; Extended Properties = dBase IV; user ID=;Password=";
+        string cadena = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\192.168.1.192\Archivos_Maliciosos\teso\Fonavi\DBFS\ ; Extended Properties = dBase IV; user ID=;Password=";
         DataSet ds = new DataSet();
         public new Form ParentForm;
         private string cliOrbegoso;
@@ -52,7 +53,7 @@ namespace GUI_Tesoreria.caja
             {
                 if (txtSuministro.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("Ingrese el suministro", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese el suministro", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 filtroNombre();
@@ -98,7 +99,7 @@ namespace GUI_Tesoreria.caja
                 dgvFonavi.DataSource = ds.Tables[0];
                 if (ds.Tables[0].Rows.Count == 0)
                 {
-                    MessageBox.Show("No se verifica cobros con fecha de hoy " + DateTime.Now.ToShortDateString() + ", verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se verifica cobros con fecha de hoy " + DateTime.Now.ToShortDateString() + ", verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK);
                 }
             }
             catch (Exception)

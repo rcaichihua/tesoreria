@@ -39,7 +39,7 @@ namespace GUI_Tesoreria.caja
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            if ((MessageBox.Show("¿Seguro de extornar el documento?", VariablesMetodosEstaticos.encabezado,
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de extornar el documento?", VariablesMetodosEstaticos.encabezado,
                            MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
                 int resultado = 0;
@@ -52,13 +52,13 @@ namespace GUI_Tesoreria.caja
 
                 if (resultado == 1)
                 {
-                    MessageBox.Show("Extornado correctamente!!.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Extornado correctamente!!.", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else if (resultado == 0)
                 {
-                    MessageBox.Show("Ocurrio un error al Extornar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error al Extornar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }

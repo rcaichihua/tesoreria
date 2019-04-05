@@ -60,7 +60,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -83,18 +83,18 @@ namespace GUI_Tesoreria.mantenimiento
                 {
                     if (accion == "D")
                     {
-                        if ((MessageBox.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
+                        if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                         {
                             if (cn.EjecutarSP("usp_mantenimiento_rubro", dgvRubros.Rows[indice].Cells[0].Value, "",
                                 "", "", "", 0, 0, VariablesMetodosEstaticos.varNombreUser, accion,0) > 0)
                             {
-                                MessageBox.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             }
                             else
                             {
-                                MessageBox.Show("No se elimino, verifíque o intente de nuevo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                DevComponents.DotNetBar.MessageBoxEx.Show("No se elimino, verifíque o intente de nuevo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                                 return;
                             }
@@ -108,12 +108,12 @@ namespace GUI_Tesoreria.mantenimiento
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("No Existen Datos a Modificar, verifíque", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No Existen Datos a Modificar, verifíque", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
             }
         }
@@ -133,7 +133,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             else
             {
-                MessageBox.Show("No Existen Datos a Modificar, verifique",
+                DevComponents.DotNetBar.MessageBoxEx.Show("No Existen Datos a Modificar, verifique",
                     VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
@@ -165,7 +165,7 @@ namespace GUI_Tesoreria.mantenimiento
                 if (ctrl != null)
                 {
                         int TamañoNombre = ctrl.Name.Length;
-                        MessageBox.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
                         ctrl.Focus();
                         return;                   
                 }
@@ -176,20 +176,20 @@ namespace GUI_Tesoreria.mantenimiento
                 {
                     if (cn.TraerDataset("usp_verifica_rubro",txtCodigoRubro.Text.Trim(), txtDescripcion.Text.Trim()).Tables[0].Rows.Count > 0)
                     {
-                        MessageBox.Show("Codigo o nombre de rubro ya existe, elija otro", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Codigo o nombre de rubro ya existe, elija otro", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         txtCodigoRubro.Focus();
                         return;
                     }
 
-                    if ((MessageBox.Show("¿Seguro de ingresar el rubro?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de ingresar el rubro?", VariablesMetodosEstaticos.encabezado,
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         cn.EjecutarSP("usp_mantenimiento_rubro", txtCodigoRubro.Text.Trim(), txtDescripcion.Text.Trim(), chkExonerado.Checked ? null : cboCtaContable.Text,"",
                             txtClasificador.Text.Trim(),chkActivo.Checked,cboPrograma.SelectedValue,VariablesMetodosEstaticos.varNombreUser, accion,
                             chkExonerado.Checked ? DBNull.Value : cboCtaContable.SelectedValue);
 
-                        MessageBox.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                     else
@@ -203,14 +203,14 @@ namespace GUI_Tesoreria.mantenimiento
                             txtClasificador.Text.Trim(), chkActivo.Checked, cboPrograma.SelectedValue, VariablesMetodosEstaticos.varNombreUser, accion
                             , chkExonerado.Checked ? DBNull.Value : cboCtaContable.SelectedValue);
 
-                    MessageBox.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 btnCancelar_Click(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -229,7 +229,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -343,7 +343,7 @@ namespace GUI_Tesoreria.mantenimiento
                     }
                     else
                     {
-                        MessageBox.Show("No hay datos con el filtro proporcionado.", VariablesMetodosEstaticos.encabezado,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos con el filtro proporcionado.", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                 }

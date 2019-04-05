@@ -77,7 +77,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }
             
         }
@@ -191,19 +191,19 @@ namespace GUI_Tesoreria.cementerio.inventario
                 , cboEstadoFisico.SelectedValue, cboMaterial.SelectedValue, chkLapida.Checked
                 , chkReja.Checked, txtObservacion.Text, "0", VariablesMetodosEstaticos.varNombreUser,destino) > 0)
                 {
-                    MessageBox.Show("El Nicho fue actualizado correctamente.", VariablesMetodosEstaticos.encabezado
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El Nicho fue actualizado correctamente.", VariablesMetodosEstaticos.encabezado
                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error. Intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error. Intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
                        , MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-            MessageBox.Show(ex.Message);
+            DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
             }     
         }
 
@@ -211,13 +211,13 @@ namespace GUI_Tesoreria.cementerio.inventario
         {
             if (txtFila.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese la FILA");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese la FILA");
                 txtFila.Focus();
                 return false;
             }
             if (txtColumna.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Ingrese la COLUMNA");
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese la COLUMNA");
                 txtColumna.Focus();
                 return false;
             }
@@ -256,7 +256,7 @@ namespace GUI_Tesoreria.cementerio.inventario
                 {
                     if (string.IsNullOrEmpty(openFileDialog1.FileName))
                     {
-                        MessageBox.Show("No ha Seleccionado ninguna Imagen");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No ha Seleccionado ninguna Imagen");
 
                         //lblRuta.Text = "";
                         return;
@@ -265,7 +265,7 @@ namespace GUI_Tesoreria.cementerio.inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message + " :" + "El archivo seleccionado no es un tipo de imagen válido");
             }
         }
 

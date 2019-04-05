@@ -34,7 +34,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un error al cargar los rubros, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error al cargar los rubros, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
                     , MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
@@ -49,7 +49,7 @@ namespace GUI_Tesoreria.mantenimiento
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un error al buscar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error al buscar, intente de nuevo o contacte con sistemas.", VariablesMetodosEstaticos.encabezado
                     , MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
            

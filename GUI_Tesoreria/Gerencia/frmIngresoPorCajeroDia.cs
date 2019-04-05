@@ -75,11 +75,11 @@ namespace GUI_Tesoreria.Gerencia
             dtIngCajerosSGI = new DataTable();
             dtUnion = new DataTable();
 
-            if (cboPrograma.Text != "DGAI")
+            if (cboPrograma.Text != cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
                 dtIngCajeros = cn.TraerDataset("usp_select_ingreso_x_cajero", dtpDesde.Value.ToShortDateString(), dtpHasta.Value.ToShortDateString(), true ? "S" : "N", cboPrograma.SelectedValue).Tables[0];
             }
-            if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == "DGAI")
+            if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
                 dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_POR_CAJERO_POR_DIA",dtpDesde.Value.ToShortDateString(),dtpHasta.Value.ToShortDateString()).Tables[0];
             }
@@ -87,12 +87,12 @@ namespace GUI_Tesoreria.Gerencia
             {
                 if (dtIngCajerosSGI.Rows.Count == 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 if (Union(dtIngCajerosSGI, dtIngCajeros).Rows.Count <= 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 dtUnion = Union(dtIngCajerosSGI, dtIngCajeros);
                 DataRow[] foundRows = dtUnion.Select("","FECHA DESC, NOMBRES ASC");
@@ -103,7 +103,7 @@ namespace GUI_Tesoreria.Gerencia
             {
                 if (Union(dtIngCajeros, dtIngCajerosSGI).Rows.Count <= 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 dtUnion=Union(dtIngCajeros, dtIngCajerosSGI);
@@ -130,7 +130,7 @@ namespace GUI_Tesoreria.Gerencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }

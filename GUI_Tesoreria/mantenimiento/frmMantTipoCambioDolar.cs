@@ -76,13 +76,13 @@ namespace GUI_Tesoreria.mantenimiento
         {
             try
             {
-                if (MessageBox.Show("¿Esta seguro de ingresar? una vez ingresado no se podra modificar."
+                if (DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de ingresar? una vez ingresado no se podra modificar."
                 , VariablesMetodosEstaticos.encabezado, MessageBoxButtons.YesNo
                 , MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     if (txtValor.Text.Trim() == string.Empty)
                     {
-                        MessageBox.Show("Ingrese un valor Válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor Válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         txtValor.Focus();
                         return;
                     }
@@ -90,7 +90,7 @@ namespace GUI_Tesoreria.mantenimiento
                     {
                         if (Convert.ToInt32(txtValor.Text.ToString().Replace(".", "")) == 0)
                         {
-                            MessageBox.Show("Ingrese un valor Válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese un valor Válido", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             txtValor.Focus();
                             return;
                         }
@@ -100,13 +100,13 @@ namespace GUI_Tesoreria.mantenimiento
                                 , VariablesMetodosEstaticos.varNombreUser
                                 , VariablesMetodosEstaticos.ip_user + ' ' + VariablesMetodosEstaticos.host_user) > 0)
                             {
-                                MessageBox.Show("Registro ingresado correctamente", VariablesMetodosEstaticos.encabezado
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Registro ingresado correctamente", VariablesMetodosEstaticos.encabezado
                                     , MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 cargarCambioDolar();
                             }
                             else
                             {
-                                MessageBox.Show("Registro no ingresado, intente de nuevo.", VariablesMetodosEstaticos.encabezado
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Registro no ingresado, intente de nuevo.", VariablesMetodosEstaticos.encabezado
                                     , MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }

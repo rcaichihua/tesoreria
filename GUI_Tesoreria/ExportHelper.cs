@@ -50,7 +50,7 @@ namespace GUI_Tesoreria
                             }
                         }
                         //else
-                        //    MessageBox.Show(string.Format("Table {0} not exists", tableToDelete));
+                        //    DevComponents.DotNetBar.MessageBoxEx.Show(string.Format("Table {0} not exists", tableToDelete));
                     }
                     else
                         return;

@@ -14,9 +14,9 @@ namespace GUI_Tesoreria.caja
     {
         CNegocio cn = new CNegocio();
 
-        public DateTime desde { get; set; }
-        public DateTime hasta { get; set; }
-        public int idCajero { get; set; }
+        public string desde { get; set; }
+        public string hasta { get; set; }
+        public int idPrograma { get; set; }
         public int modPago { get; set; }
 
         public frmComparaVouchersPagoEfectivo()
@@ -29,7 +29,7 @@ namespace GUI_Tesoreria.caja
             DataTable dtComp = new DataTable();
             try
             {
-                dtComp = cn.TraerDataset("usp_verificacion_vouchers_deposito",desde,hasta,idCajero,modPago).Tables[0];
+                dtComp = cn.TraerDataset("usp_verificacion_vouchers_deposito",desde,hasta,idPrograma,modPago).Tables[0];
 
                 if (dtComp.Rows.Count > 0)
                 {
@@ -37,12 +37,12 @@ namespace GUI_Tesoreria.caja
                 }
                 else
                 {
-                    MessageBox.Show("No hay datos para moestrar", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para moestrar", VariablesMetodosEstaticos.encabezado,
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
             }

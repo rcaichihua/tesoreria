@@ -62,7 +62,7 @@ namespace GUI_Tesoreria.Contabilidad
             else
             {
                 habilitarBotones(false);
-                MessageBox.Show("No hay datos.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }  
         }

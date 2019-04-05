@@ -50,7 +50,7 @@ namespace GUI_Tesoreria.Gerencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -60,11 +60,11 @@ namespace GUI_Tesoreria.Gerencia
             dtIngCajeros = new DataTable();
             dtIngCajerosSGI = new DataTable();
             
-            if (cboPrograma.Text != "DGAI")
+            if (cboPrograma.Text != cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
                 dtIngCajeros = cn.TraerDataset("usp_select_ingreso_x_cajero", Convert.ToDateTime(txtFechaSistemaDesdeC.Text), Convert.ToDateTime(txtFechaSistemaHastaC.Text), porDia ? "S" : "N", cboPrograma.SelectedValue).Tables[0];
             }
-            if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == "DGAI")
+            if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
                 dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_POR_CAJERO_REPORTE",Convert.ToDateTime(txtFechaSistemaDesdeC.Text),Convert.ToDateTime(txtFechaSistemaHastaC.Text)).Tables[0];
             }
@@ -72,7 +72,7 @@ namespace GUI_Tesoreria.Gerencia
             {
                 if (Union(dtIngCajerosSGI,dtIngCajeros).Rows.Count <= 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                     return false;
                 }
@@ -83,7 +83,7 @@ namespace GUI_Tesoreria.Gerencia
             {
                 if (Union(dtIngCajeros, dtIngCajerosSGI).Rows.Count <= 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                     return false;
                 }
@@ -162,13 +162,13 @@ namespace GUI_Tesoreria.Gerencia
             //dtIngCajeros = cn.TraerDataset("usp_select_cantidad_pagos_por_tipo", Convert.ToDateTime(txtFechaSistemaDesdeC.Text),Convert.ToDateTime(txtFechaSistemaHastaC.Text)).Tables[0];
 
             //
-            if (cboPrograma.Text != "DGAI")
+            if (cboPrograma.Text != cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
                 dtIngCajeros = cn.TraerDataset("usp_select_cantidad_pagos_por_tipo", Convert.ToDateTime(txtFechaSistemaDesdeC.Text), Convert.ToDateTime(txtFechaSistemaHastaC.Text),cboPrograma.SelectedValue).Tables[0];
             }
-            if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == "DGAI")
+            if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
-                dtIngCajerosSGI = cn.EjecutarSqlDTSSGI("select comprobant0_.IDTIPOPAGO as cod_mod_pago,tipopago10_.TIP_PAGO as desc_mod_pago,COUNT(DISTINCT(comprobant0_.NROCOMPROBANTE)) AS cantidad, " +
+                dtIngCajerosSGI = cn.EjecutarSqlDTSSGI("select comprobant0_.IDTIPOPAGO as cod_mod_pago,UPPER(tipopago10_.TIP_PAGO) as desc_mod_pago,COUNT(DISTINCT(comprobant0_.NROCOMPROBANTE)) AS cantidad, " +
                                                         " SUM(comprobant0_.SUBTOTALSOLES+0.00+comprobant0_.IGVSOLES) AS TotalIngreso_Documento ,0.00 as total_dep_vau_che " +
                                                         " from sisinmueble.dbo.COMPROBANTEPAGO comprobant0_  LEFT " +
                                                         " join sisinmueble.dbo.DETALLECARTERA detallecar1_ on comprobant0_.IDDETALLECARTERA=detallecar1_.IDDETALLECARTERA  " +
@@ -193,7 +193,7 @@ namespace GUI_Tesoreria.Gerencia
             {
                 if (Union(dtIngCajerosSGI, dtIngCajeros).Rows.Count <= 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 dtUnion = Union(dtIngCajerosSGI, dtIngCajeros);
@@ -202,7 +202,7 @@ namespace GUI_Tesoreria.Gerencia
             {
                 if (Union(dtIngCajeros, dtIngCajerosSGI).Rows.Count <= 0)
                 {
-                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 dtUnion = Union(dtIngCajeros, dtIngCajerosSGI);
             }

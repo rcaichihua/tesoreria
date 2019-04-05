@@ -1,0 +1,784 @@
+﻿namespace GUI_Tesoreria.caja.Liquidacion_cajas
+{
+    partial class frmVerificacionLiquidaciones
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.GBPago = new System.Windows.Forms.GroupBox();
+            this.cboPrograma = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.dtpFechaLiq = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnReciboIngreso = new System.Windows.Forms.Button();
+            this.btnListadoContable = new System.Windows.Forms.Button();
+            this.btnVer = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvLiquidaciones = new System.Windows.Forms.DataGridView();
+            this.docIngresoDetalleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_TipoDocVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codrubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnSalir = new System.Windows.Forms.Button();
+            this.btnAgregarLiq = new System.Windows.Forms.Button();
+            this.btnModificarLiq = new System.Windows.Forms.Button();
+            this.btnAsignarPliego = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cod_inmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_contr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tip_Docu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nro_codu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fch_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tip_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tip_movi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tip_pago1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fdepo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.donume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GBPago.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLiquidaciones)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // GBPago
+            // 
+            this.GBPago.BackColor = System.Drawing.Color.Transparent;
+            this.GBPago.Controls.Add(this.cboPrograma);
+            this.GBPago.Controls.Add(this.label23);
+            this.GBPago.Controls.Add(this.dtpFechaLiq);
+            this.GBPago.Controls.Add(this.label1);
+            this.GBPago.Controls.Add(this.btnReciboIngreso);
+            this.GBPago.Controls.Add(this.btnListadoContable);
+            this.GBPago.Controls.Add(this.btnVer);
+            this.GBPago.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBPago.ForeColor = System.Drawing.Color.Maroon;
+            this.GBPago.Location = new System.Drawing.Point(12, 12);
+            this.GBPago.Name = "GBPago";
+            this.GBPago.Size = new System.Drawing.Size(737, 70);
+            this.GBPago.TabIndex = 149;
+            this.GBPago.TabStop = false;
+            this.GBPago.Text = "Filtro de liquidaciones";
+            // 
+            // cboPrograma
+            // 
+            this.cboPrograma.BackColor = System.Drawing.Color.White;
+            this.cboPrograma.DropDownHeight = 200;
+            this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrograma.DropDownWidth = 400;
+            this.cboPrograma.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPrograma.ForeColor = System.Drawing.Color.Black;
+            this.cboPrograma.FormattingEnabled = true;
+            this.cboPrograma.IntegralHeight = false;
+            this.cboPrograma.Location = new System.Drawing.Point(277, 22);
+            this.cboPrograma.Name = "cboPrograma";
+            this.cboPrograma.Size = new System.Drawing.Size(180, 21);
+            this.cboPrograma.TabIndex = 149;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Navy;
+            this.label23.Location = new System.Drawing.Point(208, 25);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(63, 13);
+            this.label23.TabIndex = 150;
+            this.label23.Text = "Programa";
+            // 
+            // dtpFechaLiq
+            // 
+            this.dtpFechaLiq.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaLiq.Location = new System.Drawing.Point(75, 22);
+            this.dtpFechaLiq.Name = "dtpFechaLiq";
+            this.dtpFechaLiq.Size = new System.Drawing.Size(117, 21);
+            this.dtpFechaLiq.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(23, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Fecha :";
+            // 
+            // btnReciboIngreso
+            // 
+            this.btnReciboIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReciboIngreso.Image = global::GUI_Tesoreria.Properties.Resources.ver_28x28;
+            this.btnReciboIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReciboIngreso.Location = new System.Drawing.Point(633, 11);
+            this.btnReciboIngreso.Name = "btnReciboIngreso";
+            this.btnReciboIngreso.Size = new System.Drawing.Size(90, 46);
+            this.btnReciboIngreso.TabIndex = 147;
+            this.btnReciboIngreso.Text = "&Recibo de Ingreso";
+            this.btnReciboIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReciboIngreso.UseVisualStyleBackColor = true;
+            this.btnReciboIngreso.Click += new System.EventHandler(this.btnReciboIngreso_Click);
+            // 
+            // btnListadoContable
+            // 
+            this.btnListadoContable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListadoContable.Image = global::GUI_Tesoreria.Properties.Resources.ver_28x28;
+            this.btnListadoContable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListadoContable.Location = new System.Drawing.Point(537, 11);
+            this.btnListadoContable.Name = "btnListadoContable";
+            this.btnListadoContable.Size = new System.Drawing.Size(90, 46);
+            this.btnListadoContable.TabIndex = 147;
+            this.btnListadoContable.Text = "&Listado Contable";
+            this.btnListadoContable.UseVisualStyleBackColor = true;
+            this.btnListadoContable.Click += new System.EventHandler(this.btnListadoContable_Click);
+            // 
+            // btnVer
+            // 
+            this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVer.Image = global::GUI_Tesoreria.Properties.Resources.ver_28x28;
+            this.btnVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVer.Location = new System.Drawing.Point(463, 11);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(68, 46);
+            this.btnVer.TabIndex = 147;
+            this.btnVer.Text = "&Ver";
+            this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.dgvLiquidaciones);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox1.Location = new System.Drawing.Point(12, 88);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(737, 470);
+            this.groupBox1.TabIndex = 164;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Listado";
+            // 
+            // dgvLiquidaciones
+            // 
+            this.dgvLiquidaciones.AllowUserToAddRows = false;
+            this.dgvLiquidaciones.AllowUserToDeleteRows = false;
+            this.dgvLiquidaciones.AllowUserToResizeColumns = false;
+            this.dgvLiquidaciones.AllowUserToResizeRows = false;
+            this.dgvLiquidaciones.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLiquidaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLiquidaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLiquidaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.docIngresoDetalleID,
+            this.cod_TipoDocVenta,
+            this.nroDocumento,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.codigoCuenta,
+            this.codigoInmueble,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.codrubro,
+            this.idLiquidacion});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLiquidaciones.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvLiquidaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLiquidaciones.Location = new System.Drawing.Point(3, 17);
+            this.dgvLiquidaciones.Name = "dgvLiquidaciones";
+            this.dgvLiquidaciones.ReadOnly = true;
+            this.dgvLiquidaciones.RowHeadersVisible = false;
+            this.dgvLiquidaciones.RowHeadersWidth = 10;
+            this.dgvLiquidaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLiquidaciones.Size = new System.Drawing.Size(731, 450);
+            this.dgvLiquidaciones.TabIndex = 0;
+            // 
+            // docIngresoDetalleID
+            // 
+            this.docIngresoDetalleID.DataPropertyName = "docIngresoDetalleID";
+            this.docIngresoDetalleID.HeaderText = "docIngresoDetalleID";
+            this.docIngresoDetalleID.Name = "docIngresoDetalleID";
+            this.docIngresoDetalleID.ReadOnly = true;
+            this.docIngresoDetalleID.Visible = false;
+            // 
+            // cod_TipoDocVenta
+            // 
+            this.cod_TipoDocVenta.DataPropertyName = "cod_TipoDocVenta";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cod_TipoDocVenta.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cod_TipoDocVenta.HeaderText = "Tipo Doc";
+            this.cod_TipoDocVenta.Name = "cod_TipoDocVenta";
+            this.cod_TipoDocVenta.ReadOnly = true;
+            this.cod_TipoDocVenta.Width = 60;
+            // 
+            // nroDocumento
+            // 
+            this.nroDocumento.DataPropertyName = "nroDocumento";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nroDocumento.DefaultCellStyle = dataGridViewCellStyle3;
+            this.nroDocumento.HeaderText = "Nro Doc";
+            this.nroDocumento.Name = "nroDocumento";
+            this.nroDocumento.ReadOnly = true;
+            this.nroDocumento.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "monto";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "n2";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Monto";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_cta_contable";
+            this.dataGridViewTextBoxColumn2.HeaderText = "id_cta_contable";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // codigoCuenta
+            // 
+            this.codigoCuenta.DataPropertyName = "codigoCuenta";
+            this.codigoCuenta.HeaderText = "Cta Ctable";
+            this.codigoCuenta.Name = "codigoCuenta";
+            this.codigoCuenta.ReadOnly = true;
+            this.codigoCuenta.Width = 150;
+            // 
+            // codigoInmueble
+            // 
+            this.codigoInmueble.DataPropertyName = "codigoInmueble";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.codigoInmueble.DefaultCellStyle = dataGridViewCellStyle5;
+            this.codigoInmueble.HeaderText = "Cod Inmueble";
+            this.codigoInmueble.Name = "codigoInmueble";
+            this.codigoInmueble.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "anioPago";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Anio Pago";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "mesPago";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Mes pago";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 70;
+            // 
+            // codrubro
+            // 
+            this.codrubro.DataPropertyName = "codrubro";
+            this.codrubro.HeaderText = "Cod Rubro";
+            this.codrubro.Name = "codrubro";
+            this.codrubro.ReadOnly = true;
+            this.codrubro.Width = 70;
+            // 
+            // idLiquidacion
+            // 
+            this.idLiquidacion.DataPropertyName = "idLiquidacion";
+            this.idLiquidacion.HeaderText = "idLiquidacion";
+            this.idLiquidacion.Name = "idLiquidacion";
+            this.idLiquidacion.ReadOnly = true;
+            this.idLiquidacion.Visible = false;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.BackColor = System.Drawing.Color.White;
+            this.txtTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTotal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.Maroon;
+            this.txtTotal.Location = new System.Drawing.Point(87, 564);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(151, 21);
+            this.txtTotal.TabIndex = 166;
+            this.txtTotal.Text = "0.00";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(45, 567);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 165;
+            this.label2.Text = "Total";
+            // 
+            // BtnSalir
+            // 
+            this.BtnSalir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSalir.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.ForeColor = System.Drawing.Color.Navy;
+            this.BtnSalir.Image = global::GUI_Tesoreria.Properties.Resources.cancelardoc;
+            this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnSalir.Location = new System.Drawing.Point(675, 564);
+            this.BtnSalir.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(74, 56);
+            this.BtnSalir.TabIndex = 163;
+            this.BtnSalir.Text = "&Salir";
+            this.BtnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnSalir.UseVisualStyleBackColor = false;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // btnAgregarLiq
+            // 
+            this.btnAgregarLiq.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAgregarLiq.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarLiq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarLiq.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarLiq.ForeColor = System.Drawing.Color.Navy;
+            this.btnAgregarLiq.Image = global::GUI_Tesoreria.Properties.Resources.agregar_32x32;
+            this.btnAgregarLiq.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAgregarLiq.Location = new System.Drawing.Point(510, 564);
+            this.btnAgregarLiq.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAgregarLiq.Name = "btnAgregarLiq";
+            this.btnAgregarLiq.Size = new System.Drawing.Size(74, 56);
+            this.btnAgregarLiq.TabIndex = 161;
+            this.btnAgregarLiq.Text = "&Agregar";
+            this.btnAgregarLiq.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAgregarLiq.UseVisualStyleBackColor = false;
+            this.btnAgregarLiq.Click += new System.EventHandler(this.btnAgregarLiq_Click);
+            // 
+            // btnModificarLiq
+            // 
+            this.btnModificarLiq.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnModificarLiq.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificarLiq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarLiq.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarLiq.ForeColor = System.Drawing.Color.Navy;
+            this.btnModificarLiq.Image = global::GUI_Tesoreria.Properties.Resources.modif_32x32;
+            this.btnModificarLiq.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnModificarLiq.Location = new System.Drawing.Point(428, 564);
+            this.btnModificarLiq.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnModificarLiq.Name = "btnModificarLiq";
+            this.btnModificarLiq.Size = new System.Drawing.Size(74, 56);
+            this.btnModificarLiq.TabIndex = 161;
+            this.btnModificarLiq.Text = "&Modificar";
+            this.btnModificarLiq.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnModificarLiq.UseVisualStyleBackColor = false;
+            this.btnModificarLiq.Click += new System.EventHandler(this.btnModificarLiq_Click);
+            // 
+            // btnAsignarPliego
+            // 
+            this.btnAsignarPliego.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAsignarPliego.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAsignarPliego.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarPliego.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarPliego.ForeColor = System.Drawing.Color.Navy;
+            this.btnAsignarPliego.Image = global::GUI_Tesoreria.Properties.Resources.asiganar_32x32;
+            this.btnAsignarPliego.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAsignarPliego.Location = new System.Drawing.Point(254, 564);
+            this.btnAsignarPliego.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAsignarPliego.Name = "btnAsignarPliego";
+            this.btnAsignarPliego.Size = new System.Drawing.Size(166, 56);
+            this.btnAsignarPliego.TabIndex = 161;
+            this.btnAsignarPliego.Text = "&Asignar Nro Pliego y Glosa";
+            this.btnAsignarPliego.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAsignarPliego.UseVisualStyleBackColor = false;
+            this.btnAsignarPliego.Click += new System.EventHandler(this.btnAsignarPliego_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Navy;
+            this.btnEliminar.Image = global::GUI_Tesoreria.Properties.Resources.eliminarV;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEliminar.Location = new System.Drawing.Point(592, 564);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(74, 56);
+            this.btnEliminar.TabIndex = 167;
+            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox2.Location = new System.Drawing.Point(936, 268);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(76, 70);
+            this.groupBox2.TabIndex = 168;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Listado";
+            this.groupBox2.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cod_inmb,
+            this.num_contr,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.tip_Docu,
+            this.nro_codu,
+            this.fch_pago,
+            this.tip_pago,
+            this.tip_movi,
+            this.tip_pago1,
+            this.dataGridViewTextBoxColumn7,
+            this.codigo,
+            this.codigor,
+            this.dataGridViewTextBoxColumn8,
+            this.fdepo,
+            this.flag,
+            this.donume});
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 10;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(70, 50);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // cod_inmb
+            // 
+            this.cod_inmb.DataPropertyName = "cod_inmb";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cod_inmb.DefaultCellStyle = dataGridViewCellStyle10;
+            this.cod_inmb.HeaderText = "Cod Inmueble";
+            this.cod_inmb.Name = "cod_inmb";
+            this.cod_inmb.ReadOnly = true;
+            // 
+            // num_contr
+            // 
+            this.num_contr.DataPropertyName = "num_contr";
+            this.num_contr.HeaderText = "num_contr";
+            this.num_contr.Name = "num_contr";
+            this.num_contr.ReadOnly = true;
+            this.num_contr.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "aa";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Año Pago";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "mm";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Mes pago";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 50;
+            // 
+            // tip_Docu
+            // 
+            this.tip_Docu.DataPropertyName = "tip_Docu";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.tip_Docu.DefaultCellStyle = dataGridViewCellStyle13;
+            this.tip_Docu.HeaderText = "Tipo Doc";
+            this.tip_Docu.Name = "tip_Docu";
+            this.tip_Docu.ReadOnly = true;
+            this.tip_Docu.Width = 60;
+            // 
+            // nro_codu
+            // 
+            this.nro_codu.DataPropertyName = "nro_docu";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nro_codu.DefaultCellStyle = dataGridViewCellStyle14;
+            this.nro_codu.HeaderText = "Nro Doc";
+            this.nro_codu.Name = "nro_codu";
+            this.nro_codu.ReadOnly = true;
+            // 
+            // fch_pago
+            // 
+            this.fch_pago.DataPropertyName = "fch_pago";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fch_pago.DefaultCellStyle = dataGridViewCellStyle15;
+            this.fch_pago.HeaderText = "Fecha Pago";
+            this.fch_pago.Name = "fch_pago";
+            this.fch_pago.ReadOnly = true;
+            this.fch_pago.Width = 80;
+            // 
+            // tip_pago
+            // 
+            this.tip_pago.DataPropertyName = "tip_pago";
+            this.tip_pago.HeaderText = "tip_pago";
+            this.tip_pago.Name = "tip_pago";
+            this.tip_pago.ReadOnly = true;
+            this.tip_pago.Visible = false;
+            // 
+            // tip_movi
+            // 
+            this.tip_movi.DataPropertyName = "tip_movi";
+            this.tip_movi.HeaderText = "tip_movi";
+            this.tip_movi.Name = "tip_movi";
+            this.tip_movi.ReadOnly = true;
+            this.tip_movi.Visible = false;
+            // 
+            // tip_pago1
+            // 
+            this.tip_pago1.DataPropertyName = "tip_pago1";
+            this.tip_pago1.HeaderText = "tip_pago1";
+            this.tip_pago1.Name = "tip_pago1";
+            this.tip_pago1.ReadOnly = true;
+            this.tip_pago1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "id_cta_contable";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Id Cta";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 50;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "codigo";
+            this.codigo.HeaderText = "Cta Ctable";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 150;
+            // 
+            // codigor
+            // 
+            this.codigor.DataPropertyName = "codigor";
+            this.codigor.HeaderText = "codigor";
+            this.codigor.Name = "codigor";
+            this.codigor.ReadOnly = true;
+            this.codigor.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "monto";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "n2";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Monto";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // fdepo
+            // 
+            this.fdepo.DataPropertyName = "fdepo";
+            this.fdepo.HeaderText = "fdepo";
+            this.fdepo.Name = "fdepo";
+            this.fdepo.ReadOnly = true;
+            this.fdepo.Visible = false;
+            // 
+            // flag
+            // 
+            this.flag.DataPropertyName = "flag";
+            this.flag.HeaderText = "flag";
+            this.flag.Name = "flag";
+            this.flag.ReadOnly = true;
+            this.flag.Visible = false;
+            // 
+            // donume
+            // 
+            this.donume.DataPropertyName = "donume";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.donume.DefaultCellStyle = dataGridViewCellStyle17;
+            this.donume.HeaderText = "Nro Pliego";
+            this.donume.Name = "donume";
+            this.donume.ReadOnly = true;
+            // 
+            // frmVerificacionLiquidaciones
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(764, 625);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.BtnSalir);
+            this.Controls.Add(this.btnAgregarLiq);
+            this.Controls.Add(this.btnModificarLiq);
+            this.Controls.Add(this.btnAsignarPliego);
+            this.Controls.Add(this.GBPago);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "frmVerificacionLiquidaciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "...:::Verificación de Liquidaciones:::...";
+            this.Load += new System.EventHandler(this.frmVerificacionLiquidaciones_Load);
+            this.GBPago.ResumeLayout(false);
+            this.GBPago.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLiquidaciones)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        internal System.Windows.Forms.GroupBox GBPago;
+        private System.Windows.Forms.DateTimePicker dtpFechaLiq;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVer;
+        internal System.Windows.Forms.ComboBox cboPrograma;
+        internal System.Windows.Forms.Label label23;
+        internal System.Windows.Forms.Button BtnSalir;
+        internal System.Windows.Forms.GroupBox groupBox1;
+        internal System.Windows.Forms.DataGridView dgvLiquidaciones;
+        internal System.Windows.Forms.Button btnAsignarPliego;
+        internal System.Windows.Forms.Button btnModificarLiq;
+        internal System.Windows.Forms.Button btnAgregarLiq;
+        internal System.Windows.Forms.TextBox txtTotal;
+        internal System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docIngresoDetalleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_TipoDocVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoInmueble;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codrubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idLiquidacion;
+        private System.Windows.Forms.Button btnReciboIngreso;
+        private System.Windows.Forms.Button btnListadoContable;
+        internal System.Windows.Forms.Button btnEliminar;
+        internal System.Windows.Forms.GroupBox groupBox2;
+        internal System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_inmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num_contr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tip_Docu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nro_codu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fch_pago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tip_pago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tip_movi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tip_pago1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fdepo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn donume;
+    }
+}

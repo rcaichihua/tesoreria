@@ -26,9 +26,19 @@ namespace GUI_Tesoreria.caja.Depositos
         {
             CNegocio cn = new CNegocio();
 
+            DataTable dtResu = new DataTable();
+            dtResu = cn.TraerDataset("USP_DEPOSITO_CONSULTAS_2", chkMismoMes.Checked ? 2 : 0, dtpFecha.Value.ToString("yyyyMMdd"), "1").Tables[0];
+
+            if (dtResu.Rows.Count <= 0)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para mostrar.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             frmReporte winReport = new frmReporte();
             Reportes.rptDepositos1 rptRecibo = new Reportes.rptDepositos1();
-            rptRecibo.SetDataSource(cn.TraerDataset("USP_DEPOSITO_CONSULTAS_2",chkMismoMes.Checked ? 0 : 2,dtpFecha.Value.ToShortDateString(),"1").Tables[0]);
+            rptRecibo.SetDataSource(dtResu);
             winReport.crvReportes.ReportSource = rptRecibo;
             winReport.WindowState = FormWindowState.Maximized;
             winReport.ShowDialog();

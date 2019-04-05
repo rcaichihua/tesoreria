@@ -47,7 +47,7 @@ namespace GUI_Tesoreria.menus
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -146,7 +146,7 @@ namespace GUI_Tesoreria.menus
             }
             catch (Exception ex )
             {
-                MessageBox.Show(ex.ToString());
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.ToString());
             }
             
         }
@@ -169,7 +169,7 @@ namespace GUI_Tesoreria.menus
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
 
-                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {

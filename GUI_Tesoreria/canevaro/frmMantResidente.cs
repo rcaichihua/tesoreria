@@ -146,7 +146,7 @@ namespace GUI_Tesoreria.canevaro
             //    {
             //        if (accion == "D")
             //        {
-            //            if ((MessageBox.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
+            //            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de eliminar el Registro?", VariablesMetodosEstaticos.encabezado,
             //                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             //            {
             //                if (Convert.ToInt32(cn.TraerDataset("usp_mantenimiento_residente", dgvResidente.Rows[indice].Cells[0].Value, txtDni.Text.Trim()
@@ -159,12 +159,12 @@ namespace GUI_Tesoreria.canevaro
             //                    VariablesMetodosEstaticos.varUsuario, System.Net.Dns.GetHostName().ToUpper(), MyID.Name.ToUpper()
             //                    , VariablesMetodosEstaticos.ip_user).Tables[0].Rows[0][0]) > 0)
             //                {
-            //                    MessageBox.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+            //                    DevComponents.DotNetBar.MessageBoxEx.Show("Eliminado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
             //                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             //                }
             //                else
             //                {
-            //                    MessageBox.Show("No se elimino, verifíque o intente de nuevo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+            //                    DevComponents.DotNetBar.MessageBoxEx.Show("No se elimino, verifíque o intente de nuevo", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
             //                        MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
             //                    return;
             //                }
@@ -178,12 +178,12 @@ namespace GUI_Tesoreria.canevaro
             //    }
             //    catch (Exception ex)
             //    {
-            //        MessageBox.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        DevComponents.DotNetBar.MessageBoxEx.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    }
             //}
             //else
             //{
-            //    MessageBox.Show("No Existen Datos a Modificar, verifíque", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("No Existen Datos a Modificar, verifíque", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
             //                        MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
             //}
         }
@@ -208,7 +208,7 @@ namespace GUI_Tesoreria.canevaro
             }
             else
             {
-                MessageBox.Show("No Existen Datos a Modificar, verifique",
+                DevComponents.DotNetBar.MessageBoxEx.Show("No Existen Datos a Modificar, verifique",
                     VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
@@ -245,7 +245,7 @@ namespace GUI_Tesoreria.canevaro
                 if (ctrl != null)
                 {
                     int TamañoNombre = ctrl.Name.Length;
-                    MessageBox.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese " + ctrl.Name.Substring(3, TamañoNombre - 3) + "");
                     ctrl.Focus();
                     return;
                 }
@@ -254,13 +254,13 @@ namespace GUI_Tesoreria.canevaro
                 {
                     if (rdbEgreso.Checked == true && txtFechaBaja.Text=="  /  /")
                     {
-                        MessageBox.Show("Ingese la fecha de egreso");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingese la fecha de egreso");
                         txtFechaBaja.Focus();
                         return;
                     }
                     else if (rdbFallecio.Checked == true && txtFechaBaja.Text == "  /  /")
                     {
-                        MessageBox.Show("Ingese la fecha de fallecimiento");
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingese la fecha de fallecimiento");
                         txtFechaBaja.Focus();
                         return;
                     }
@@ -277,7 +277,7 @@ namespace GUI_Tesoreria.canevaro
                         tipoBaja = "F";
                     }
                     
-                    //MessageBox.Show("Ingrese Fecha de baja");
+                    //DevComponents.DotNetBar.MessageBoxEx.Show("Ingrese Fecha de baja");
                     //txtFechaBaja.Focus();
                     //return;
                 }
@@ -306,7 +306,7 @@ namespace GUI_Tesoreria.canevaro
 
                 if (accion == "I")
                 {
-                    if ((MessageBox.Show("¿Seguro de ingresar residente?", VariablesMetodosEstaticos.encabezado,
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Seguro de ingresar residente?", VariablesMetodosEstaticos.encabezado,
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         cn.EjecutarSP("usp_mantenimiento_residente", 0, txtDni.Text.Trim()
@@ -322,7 +322,7 @@ namespace GUI_Tesoreria.canevaro
                                 , VariablesMetodosEstaticos.ip_user,
                                 chkEstado.Checked, (chkEstado.Checked == false ? fechaBaja : null), tipoBaja);
 
-                        MessageBox.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                     else
@@ -345,14 +345,14 @@ namespace GUI_Tesoreria.canevaro
                                  , MyID.Name.ToUpper(), VariablesMetodosEstaticos.ip_user,
                                  chkEstado.Checked, (chkEstado.Checked == false ? fechaBaja : null), tipoBaja);
 
-                    MessageBox.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 btnCancelar_Click(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DevComponents.DotNetBar.MessageBoxEx.Show("Contacte con sistema, error" + ex.Message + "", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -363,14 +363,14 @@ namespace GUI_Tesoreria.canevaro
             {
                 if (cboNroPabellon.Text == "[seleccione]" && cboDireccion.Text == "CANEVARO" && cboPabellon.Text != "PABELLON CENTRAL")
                 {
-                    MessageBox.Show("Seleccione un Nro de Pabellon.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Nro de Pabellon.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     resultado = false;
                 }
             }
             if (cboPabellon.Text == "PABELLON CENTRAL" && cboNroPabellon.SelectedIndex > 0)
             {
-                MessageBox.Show("El PABELLON CENTRAL no debe tener asignado un nro de pabellon. Verifíque.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("El PABELLON CENTRAL no debe tener asignado un nro de pabellon. Verifíque.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                   MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 resultado = false;
             }
@@ -378,7 +378,7 @@ namespace GUI_Tesoreria.canevaro
             {
                 if (cboCentroGerontologico.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Seleccione un C. Gerentologico.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un C. Gerentologico.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     resultado = false;
                 }
@@ -387,7 +387,7 @@ namespace GUI_Tesoreria.canevaro
             {
                 if (cboPabellon.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Seleccione un Pabellon.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un Pabellon.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     resultado = false;
                 }
@@ -396,7 +396,7 @@ namespace GUI_Tesoreria.canevaro
             {
                 if (cboPabellon.SelectedIndex != 0)
                 {
-                    MessageBox.Show("La direccion seleccionada no contiene estos pabellones, no seleccione ninguno", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("La direccion seleccionada no contiene estos pabellones, no seleccione ninguno", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     resultado = false;
                 }
@@ -521,7 +521,7 @@ namespace GUI_Tesoreria.canevaro
         {
             if (chkEstado.Checked == false)
             {
-                MessageBox.Show("El residente esta de baja, no se puede generar las cuentas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("El residente esta de baja, no se puede generar las cuentas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return;
             }
