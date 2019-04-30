@@ -72,7 +72,13 @@ namespace GUI_Tesoreria {
         
         private ReportePorRangoFDepositosDataTable tableReportePorRangoFDepositos;
         
+        private DIARIO_CABDataTable tableDIARIO_CAB;
+        
+        private DIARIO_DETDataTable tableDIARIO_DET;
+        
         private global::System.Data.DataRelation _relation_Table_1__Table;
+        
+        private global::System.Data.DataRelation relationDIARIO_CAB_DIARIO_DET;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -173,6 +179,12 @@ namespace GUI_Tesoreria {
                 }
                 if ((ds.Tables["ReportePorRangoFDepositos"] != null)) {
                     base.Tables.Add(new ReportePorRangoFDepositosDataTable(ds.Tables["ReportePorRangoFDepositos"]));
+                }
+                if ((ds.Tables["DIARIO_CAB"] != null)) {
+                    base.Tables.Add(new DIARIO_CABDataTable(ds.Tables["DIARIO_CAB"]));
+                }
+                if ((ds.Tables["DIARIO_DET"] != null)) {
+                    base.Tables.Add(new DIARIO_DETDataTable(ds.Tables["DIARIO_DET"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -434,6 +446,26 @@ namespace GUI_Tesoreria {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DIARIO_CABDataTable DIARIO_CAB {
+            get {
+                return this.tableDIARIO_CAB;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DIARIO_DETDataTable DIARIO_DET {
+            get {
+                return this.tableDIARIO_DET;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -570,6 +602,12 @@ namespace GUI_Tesoreria {
                 }
                 if ((ds.Tables["ReportePorRangoFDepositos"] != null)) {
                     base.Tables.Add(new ReportePorRangoFDepositosDataTable(ds.Tables["ReportePorRangoFDepositos"]));
+                }
+                if ((ds.Tables["DIARIO_CAB"] != null)) {
+                    base.Tables.Add(new DIARIO_CABDataTable(ds.Tables["DIARIO_CAB"]));
+                }
+                if ((ds.Tables["DIARIO_DET"] != null)) {
+                    base.Tables.Add(new DIARIO_DETDataTable(ds.Tables["DIARIO_DET"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -748,7 +786,20 @@ namespace GUI_Tesoreria {
                     this.tableReportePorRangoFDepositos.InitVars();
                 }
             }
+            this.tableDIARIO_CAB = ((DIARIO_CABDataTable)(base.Tables["DIARIO_CAB"]));
+            if ((initTable == true)) {
+                if ((this.tableDIARIO_CAB != null)) {
+                    this.tableDIARIO_CAB.InitVars();
+                }
+            }
+            this.tableDIARIO_DET = ((DIARIO_DETDataTable)(base.Tables["DIARIO_DET"]));
+            if ((initTable == true)) {
+                if ((this.tableDIARIO_DET != null)) {
+                    this.tableDIARIO_DET.InitVars();
+                }
+            }
             this._relation_Table_1__Table = this.Relations["[Table 1]_Table"];
+            this.relationDIARIO_CAB_DIARIO_DET = this.Relations["DIARIO_CAB_DIARIO_DET"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -807,10 +858,18 @@ namespace GUI_Tesoreria {
             base.Tables.Add(this.tableReporteDepositos);
             this.tableReportePorRangoFDepositos = new ReportePorRangoFDepositosDataTable();
             base.Tables.Add(this.tableReportePorRangoFDepositos);
+            this.tableDIARIO_CAB = new DIARIO_CABDataTable();
+            base.Tables.Add(this.tableDIARIO_CAB);
+            this.tableDIARIO_DET = new DIARIO_DETDataTable();
+            base.Tables.Add(this.tableDIARIO_DET);
             this._relation_Table_1__Table = new global::System.Data.DataRelation("[Table 1]_Table", new global::System.Data.DataColumn[] {
                         this.tableCABECERATITULO.CODCUARTELColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLETITULO.CODCUARTELColumn}, false);
             this.Relations.Add(this._relation_Table_1__Table);
+            this.relationDIARIO_CAB_DIARIO_DET = new global::System.Data.DataRelation("DIARIO_CAB_DIARIO_DET", new global::System.Data.DataColumn[] {
+                        this.tableDIARIO_CAB.DIARIO_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDIARIO_DET.DIARIO_IDColumn}, false);
+            this.Relations.Add(this.relationDIARIO_CAB_DIARIO_DET);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -959,6 +1018,18 @@ namespace GUI_Tesoreria {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeDIARIO_CAB() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeDIARIO_DET() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1083,6 +1154,12 @@ namespace GUI_Tesoreria {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void ReportePorRangoFDepositosRowChangeEventHandler(object sender, ReportePorRangoFDepositosRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void DIARIO_CABRowChangeEventHandler(object sender, DIARIO_CABRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void DIARIO_DETRowChangeEventHandler(object sender, DIARIO_DETRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -11015,6 +11092,671 @@ namespace GUI_Tesoreria {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DIARIO_CABDataTable : global::System.Data.TypedTableBase<DIARIO_CABRow> {
+            
+            private global::System.Data.DataColumn columnDONUME;
+            
+            private global::System.Data.DataColumn columnDOFECH;
+            
+            private global::System.Data.DataColumn columnGLOSA;
+            
+            private global::System.Data.DataColumn columnFEC_LIQ;
+            
+            private global::System.Data.DataColumn columnDOCODI;
+            
+            private global::System.Data.DataColumn columnDONOCO;
+            
+            private global::System.Data.DataColumn columnDIARIO_ID;
+            
+            private global::System.Data.DataColumn columnPROGRAMA;
+            
+            private global::System.Data.DataColumn columnfechaCaja;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_CABDataTable() {
+                this.TableName = "DIARIO_CAB";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DIARIO_CABDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected DIARIO_CABDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DONUMEColumn {
+                get {
+                    return this.columnDONUME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DOFECHColumn {
+                get {
+                    return this.columnDOFECH;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GLOSAColumn {
+                get {
+                    return this.columnGLOSA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FEC_LIQColumn {
+                get {
+                    return this.columnFEC_LIQ;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DOCODIColumn {
+                get {
+                    return this.columnDOCODI;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DONOCOColumn {
+                get {
+                    return this.columnDONOCO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DIARIO_IDColumn {
+                get {
+                    return this.columnDIARIO_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PROGRAMAColumn {
+                get {
+                    return this.columnPROGRAMA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn fechaCajaColumn {
+                get {
+                    return this.columnfechaCaja;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_CABRow this[int index] {
+                get {
+                    return ((DIARIO_CABRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_CABRowChangeEventHandler DIARIO_CABRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_CABRowChangeEventHandler DIARIO_CABRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_CABRowChangeEventHandler DIARIO_CABRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_CABRowChangeEventHandler DIARIO_CABRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddDIARIO_CABRow(DIARIO_CABRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_CABRow AddDIARIO_CABRow(string DONUME, string DOFECH, string GLOSA, string FEC_LIQ, string DOCODI, string DONOCO, int DIARIO_ID, string PROGRAMA, string fechaCaja) {
+                DIARIO_CABRow rowDIARIO_CABRow = ((DIARIO_CABRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        DONUME,
+                        DOFECH,
+                        GLOSA,
+                        FEC_LIQ,
+                        DOCODI,
+                        DONOCO,
+                        DIARIO_ID,
+                        PROGRAMA,
+                        fechaCaja};
+                rowDIARIO_CABRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDIARIO_CABRow);
+                return rowDIARIO_CABRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DIARIO_CABDataTable cln = ((DIARIO_CABDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DIARIO_CABDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnDONUME = base.Columns["DONUME"];
+                this.columnDOFECH = base.Columns["DOFECH"];
+                this.columnGLOSA = base.Columns["GLOSA"];
+                this.columnFEC_LIQ = base.Columns["FEC_LIQ"];
+                this.columnDOCODI = base.Columns["DOCODI"];
+                this.columnDONOCO = base.Columns["DONOCO"];
+                this.columnDIARIO_ID = base.Columns["DIARIO_ID"];
+                this.columnPROGRAMA = base.Columns["PROGRAMA"];
+                this.columnfechaCaja = base.Columns["fechaCaja"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnDONUME = new global::System.Data.DataColumn("DONUME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDONUME);
+                this.columnDOFECH = new global::System.Data.DataColumn("DOFECH", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOFECH);
+                this.columnGLOSA = new global::System.Data.DataColumn("GLOSA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGLOSA);
+                this.columnFEC_LIQ = new global::System.Data.DataColumn("FEC_LIQ", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFEC_LIQ);
+                this.columnDOCODI = new global::System.Data.DataColumn("DOCODI", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDOCODI);
+                this.columnDONOCO = new global::System.Data.DataColumn("DONOCO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDONOCO);
+                this.columnDIARIO_ID = new global::System.Data.DataColumn("DIARIO_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIARIO_ID);
+                this.columnPROGRAMA = new global::System.Data.DataColumn("PROGRAMA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPROGRAMA);
+                this.columnfechaCaja = new global::System.Data.DataColumn("fechaCaja", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaCaja);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_CABRow NewDIARIO_CABRow() {
+                return ((DIARIO_CABRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DIARIO_CABRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DIARIO_CABRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DIARIO_CABRowChanged != null)) {
+                    this.DIARIO_CABRowChanged(this, new DIARIO_CABRowChangeEvent(((DIARIO_CABRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DIARIO_CABRowChanging != null)) {
+                    this.DIARIO_CABRowChanging(this, new DIARIO_CABRowChangeEvent(((DIARIO_CABRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DIARIO_CABRowDeleted != null)) {
+                    this.DIARIO_CABRowDeleted(this, new DIARIO_CABRowChangeEvent(((DIARIO_CABRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DIARIO_CABRowDeleting != null)) {
+                    this.DIARIO_CABRowDeleting(this, new DIARIO_CABRowChangeEvent(((DIARIO_CABRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveDIARIO_CABRow(DIARIO_CABRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                TablasReporte ds = new TablasReporte();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DIARIO_CABDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DIARIO_DETDataTable : global::System.Data.TypedTableBase<DIARIO_DETRow> {
+            
+            private global::System.Data.DataColumn columnDIARIO_ID;
+            
+            private global::System.Data.DataColumn columnPLCODI;
+            
+            private global::System.Data.DataColumn columnDEBE;
+            
+            private global::System.Data.DataColumn columnHABER;
+            
+            private global::System.Data.DataColumn columnGLOSA;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_DETDataTable() {
+                this.TableName = "DIARIO_DET";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DIARIO_DETDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected DIARIO_DETDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DIARIO_IDColumn {
+                get {
+                    return this.columnDIARIO_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PLCODIColumn {
+                get {
+                    return this.columnPLCODI;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DEBEColumn {
+                get {
+                    return this.columnDEBE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HABERColumn {
+                get {
+                    return this.columnHABER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GLOSAColumn {
+                get {
+                    return this.columnGLOSA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_DETRow this[int index] {
+                get {
+                    return ((DIARIO_DETRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_DETRowChangeEventHandler DIARIO_DETRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_DETRowChangeEventHandler DIARIO_DETRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_DETRowChangeEventHandler DIARIO_DETRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event DIARIO_DETRowChangeEventHandler DIARIO_DETRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddDIARIO_DETRow(DIARIO_DETRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_DETRow AddDIARIO_DETRow(DIARIO_CABRow parentDIARIO_CABRowByDIARIO_CAB_DIARIO_DET, string PLCODI, decimal DEBE, decimal HABER, string GLOSA) {
+                DIARIO_DETRow rowDIARIO_DETRow = ((DIARIO_DETRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        PLCODI,
+                        DEBE,
+                        HABER,
+                        GLOSA};
+                if ((parentDIARIO_CABRowByDIARIO_CAB_DIARIO_DET != null)) {
+                    columnValuesArray[0] = parentDIARIO_CABRowByDIARIO_CAB_DIARIO_DET[6];
+                }
+                rowDIARIO_DETRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDIARIO_DETRow);
+                return rowDIARIO_DETRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DIARIO_DETDataTable cln = ((DIARIO_DETDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DIARIO_DETDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnDIARIO_ID = base.Columns["DIARIO_ID"];
+                this.columnPLCODI = base.Columns["PLCODI"];
+                this.columnDEBE = base.Columns["DEBE"];
+                this.columnHABER = base.Columns["HABER"];
+                this.columnGLOSA = base.Columns["GLOSA"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnDIARIO_ID = new global::System.Data.DataColumn("DIARIO_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIARIO_ID);
+                this.columnPLCODI = new global::System.Data.DataColumn("PLCODI", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPLCODI);
+                this.columnDEBE = new global::System.Data.DataColumn("DEBE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDEBE);
+                this.columnHABER = new global::System.Data.DataColumn("HABER", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHABER);
+                this.columnGLOSA = new global::System.Data.DataColumn("GLOSA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGLOSA);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_DETRow NewDIARIO_DETRow() {
+                return ((DIARIO_DETRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DIARIO_DETRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DIARIO_DETRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DIARIO_DETRowChanged != null)) {
+                    this.DIARIO_DETRowChanged(this, new DIARIO_DETRowChangeEvent(((DIARIO_DETRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DIARIO_DETRowChanging != null)) {
+                    this.DIARIO_DETRowChanging(this, new DIARIO_DETRowChangeEvent(((DIARIO_DETRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DIARIO_DETRowDeleted != null)) {
+                    this.DIARIO_DETRowDeleted(this, new DIARIO_DETRowChangeEvent(((DIARIO_DETRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DIARIO_DETRowDeleting != null)) {
+                    this.DIARIO_DETRowDeleting(this, new DIARIO_DETRowChangeEvent(((DIARIO_DETRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveDIARIO_DETRow(DIARIO_DETRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                TablasReporte ds = new TablasReporte();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DIARIO_DETDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class reporte_pagosRow : global::System.Data.DataRow {
@@ -19891,6 +20633,450 @@ namespace GUI_Tesoreria {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DIARIO_CABRow : global::System.Data.DataRow {
+            
+            private DIARIO_CABDataTable tableDIARIO_CAB;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DIARIO_CABRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDIARIO_CAB = ((DIARIO_CABDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DONUME {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.DONUMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DONUME\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.DONUMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DOFECH {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.DOFECHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DOFECH\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.DOFECHColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string GLOSA {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.GLOSAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GLOSA\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.GLOSAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string FEC_LIQ {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.FEC_LIQColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FEC_LIQ\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.FEC_LIQColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DOCODI {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.DOCODIColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DOCODI\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.DOCODIColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DONOCO {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.DONOCOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DONOCO\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.DONOCOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int DIARIO_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDIARIO_CAB.DIARIO_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIARIO_ID\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.DIARIO_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string PROGRAMA {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.PROGRAMAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PROGRAMA\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.PROGRAMAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string fechaCaja {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_CAB.fechaCajaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fechaCaja\' in table \'DIARIO_CAB\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_CAB.fechaCajaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDONUMENull() {
+                return this.IsNull(this.tableDIARIO_CAB.DONUMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDONUMENull() {
+                this[this.tableDIARIO_CAB.DONUMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDOFECHNull() {
+                return this.IsNull(this.tableDIARIO_CAB.DOFECHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDOFECHNull() {
+                this[this.tableDIARIO_CAB.DOFECHColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsGLOSANull() {
+                return this.IsNull(this.tableDIARIO_CAB.GLOSAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetGLOSANull() {
+                this[this.tableDIARIO_CAB.GLOSAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFEC_LIQNull() {
+                return this.IsNull(this.tableDIARIO_CAB.FEC_LIQColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFEC_LIQNull() {
+                this[this.tableDIARIO_CAB.FEC_LIQColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDOCODINull() {
+                return this.IsNull(this.tableDIARIO_CAB.DOCODIColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDOCODINull() {
+                this[this.tableDIARIO_CAB.DOCODIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDONOCONull() {
+                return this.IsNull(this.tableDIARIO_CAB.DONOCOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDONOCONull() {
+                this[this.tableDIARIO_CAB.DONOCOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDIARIO_IDNull() {
+                return this.IsNull(this.tableDIARIO_CAB.DIARIO_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDIARIO_IDNull() {
+                this[this.tableDIARIO_CAB.DIARIO_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPROGRAMANull() {
+                return this.IsNull(this.tableDIARIO_CAB.PROGRAMAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPROGRAMANull() {
+                this[this.tableDIARIO_CAB.PROGRAMAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsfechaCajaNull() {
+                return this.IsNull(this.tableDIARIO_CAB.fechaCajaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetfechaCajaNull() {
+                this[this.tableDIARIO_CAB.fechaCajaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_DETRow[] GetDIARIO_DETRows() {
+                if ((this.Table.ChildRelations["DIARIO_CAB_DIARIO_DET"] == null)) {
+                    return new DIARIO_DETRow[0];
+                }
+                else {
+                    return ((DIARIO_DETRow[])(base.GetChildRows(this.Table.ChildRelations["DIARIO_CAB_DIARIO_DET"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DIARIO_DETRow : global::System.Data.DataRow {
+            
+            private DIARIO_DETDataTable tableDIARIO_DET;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal DIARIO_DETRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDIARIO_DET = ((DIARIO_DETDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int DIARIO_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableDIARIO_DET.DIARIO_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIARIO_ID\' in table \'DIARIO_DET\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_DET.DIARIO_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string PLCODI {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_DET.PLCODIColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PLCODI\' in table \'DIARIO_DET\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_DET.PLCODIColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal DEBE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDIARIO_DET.DEBEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DEBE\' in table \'DIARIO_DET\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_DET.DEBEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal HABER {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDIARIO_DET.HABERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HABER\' in table \'DIARIO_DET\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_DET.HABERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string GLOSA {
+                get {
+                    try {
+                        return ((string)(this[this.tableDIARIO_DET.GLOSAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GLOSA\' in table \'DIARIO_DET\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDIARIO_DET.GLOSAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_CABRow DIARIO_CABRow {
+                get {
+                    return ((DIARIO_CABRow)(this.GetParentRow(this.Table.ParentRelations["DIARIO_CAB_DIARIO_DET"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["DIARIO_CAB_DIARIO_DET"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDIARIO_IDNull() {
+                return this.IsNull(this.tableDIARIO_DET.DIARIO_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDIARIO_IDNull() {
+                this[this.tableDIARIO_DET.DIARIO_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPLCODINull() {
+                return this.IsNull(this.tableDIARIO_DET.PLCODIColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPLCODINull() {
+                this[this.tableDIARIO_DET.PLCODIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDEBENull() {
+                return this.IsNull(this.tableDIARIO_DET.DEBEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDEBENull() {
+                this[this.tableDIARIO_DET.DEBEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHABERNull() {
+                return this.IsNull(this.tableDIARIO_DET.HABERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHABERNull() {
+                this[this.tableDIARIO_DET.HABERColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsGLOSANull() {
+                return this.IsNull(this.tableDIARIO_DET.GLOSAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetGLOSANull() {
+                this[this.tableDIARIO_DET.GLOSAColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -20692,6 +21878,74 @@ namespace GUI_Tesoreria {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ReportePorRangoFDepositosRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class DIARIO_CABRowChangeEvent : global::System.EventArgs {
+            
+            private DIARIO_CABRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_CABRowChangeEvent(DIARIO_CABRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_CABRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class DIARIO_DETRowChangeEvent : global::System.EventArgs {
+            
+            private DIARIO_DETRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_DETRowChangeEvent(DIARIO_DETRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DIARIO_DETRow Row {
                 get {
                     return this.eventRow;
                 }

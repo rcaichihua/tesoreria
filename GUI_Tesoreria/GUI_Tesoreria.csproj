@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -770,6 +770,48 @@
     <Compile Include="DatabasePicker.cs" />
     <Compile Include="Databases.cs" />
     <Compile Include="DatabaseToDbf.cs" />
+    <Compile Include="Deposito\frmBorrarComprobanteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmBorrarComprobanteDiario.Designer.cs">
+      <DependentUpon>frmBorrarComprobanteDiario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\frmEdicionCompDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmEdicionCompDiario.Designer.cs">
+      <DependentUpon>frmEdicionCompDiario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\frmEditarDiarioDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmEditarDiarioDetalle.Designer.cs">
+      <DependentUpon>frmEditarDiarioDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\frmListadoDepositosGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmListadoDepositosGeneral.Designer.cs">
+      <DependentUpon>frmListadoDepositosGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\frmListarComprobanteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmListarComprobanteDiario.Designer.cs">
+      <DependentUpon>frmListarComprobanteDiario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\frmPreparaComprobanteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmPreparaComprobanteDiario.Designer.cs">
+      <DependentUpon>frmPreparaComprobanteDiario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\Reportes\rptListadoDiario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptListadoDiario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DGAI\frmAgregarRubrosDGAI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1501,6 +1543,28 @@
     <EmbeddedResource Include="control\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmBorrarComprobanteDiario.resx">
+      <DependentUpon>frmBorrarComprobanteDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmEdicionCompDiario.resx">
+      <DependentUpon>frmEdicionCompDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmEditarDiarioDetalle.resx">
+      <DependentUpon>frmEditarDiarioDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmListadoDepositosGeneral.resx">
+      <DependentUpon>frmListadoDepositosGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmListarComprobanteDiario.resx">
+      <DependentUpon>frmListarComprobanteDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmPreparaComprobanteDiario.resx">
+      <DependentUpon>frmPreparaComprobanteDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\Reportes\rptListadoDiario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptListadoDiario.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DGAI\frmAgregarRubrosDGAI.resx">
       <DependentUpon>frmAgregarRubrosDGAI.cs</DependentUpon>
     </EmbeddedResource>
@@ -1827,6 +1891,8 @@
     <Content Include="FONDO\Sin título-1.png" />
     <Content Include="icons8_Workflow.ico" />
     <Content Include="llave\DBSistemaIngresos.txt" />
+    <None Include="Resources\modificar.png" />
+    <None Include="Resources\editar.png" />
     <None Include="Resources\actualiza_32x32.png" />
     <None Include="Resources\agregar_32x32.png" />
     <None Include="Resources\asiganar_32x32.png" />

@@ -306,13 +306,13 @@ namespace GUI_Tesoreria.caja
                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return;
             }
-            if (verificaModalidadPago())
-            {
-                DevComponents.DotNetBar.MessageBoxEx.Show("Ya se llego al limite de depositos - cheque por ingreso de efectivo - cheque, verifique.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            //if (verificaModalidadPago())
+            //{
+            //    DevComponents.DotNetBar.MessageBoxEx.Show("Ya se llego al limite de depositos - cheque por ingreso de efectivo - cheque, verifique.", VariablesMetodosEstaticos.encabezado,
+            //            MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
-                return;
-            }
+            //    return;
+            //}
             try
             {
                 if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea continuar con el registro del voucher?", VariablesMetodosEstaticos.encabezado,
@@ -324,7 +324,7 @@ namespace GUI_Tesoreria.caja
                         , Convert.ToInt32(cboEntidadFinanciera.SelectedValue), Convert.ToInt32(cboCuenta.SelectedValue)
                         , lblTipoMoneda.Text, Convert.ToDecimal(txtImportePago.Text), Convert.ToDecimal(txtTipoCambio.Text)
                         , Convert.ToDecimal(txtTotalCambio.Text), txtNumDocumento.Text.Trim(), txtObservacionesPago.Text
-                        , Convert.ToDateTime(dtpFechaCobro.Value.ToShortDateString()), Convert.ToInt32(txtCantidadDocumentos.Text)
+                        , Convert.ToDateTime(dtpFechaCobro.Value.ToShortDateString()), Convert.ToInt32(txtCantidadDocumentos.Text == string.Empty ? "0": txtCantidadDocumentos.Text)
                         , Convert.ToDecimal(txtImporteEfectivo.Text), VariablesMetodosEstaticos.idcajausuario,
                         VariablesMetodosEstaticos.varNombreUser,cboPrograma.SelectedValue) > 0)
                     {
@@ -338,6 +338,7 @@ namespace GUI_Tesoreria.caja
                         SumaTotalDeposito();
                     }
                 }
+                btnBuscar_Click(sender, e);
             }
             catch (Exception)
             {
@@ -352,7 +353,7 @@ namespace GUI_Tesoreria.caja
             dtResu = cn.TraerDataset("usp_obtiene_ingreso_por_tipo_pago_programa", cboPrograma.SelectedValue
                 , dtpFechaCobro.Value.ToString("yyyyMMdd"), 11).Tables[0];
 
-            if (Convert.ToDecimal(dtResu.Rows[0][1].ToString())<= 0)
+            if (Convert.ToDecimal(dtResu.Rows[0][1].ToString()==String.Empty? "0.00": dtResu.Rows[0][1].ToString()) <= 0)
             {
                 return true;
             }
@@ -443,7 +444,7 @@ namespace GUI_Tesoreria.caja
                 txtNumDocumento.Focus();
                 return false;
             }
-            if (txtCantidadDocumentos.Text.Trim() == string.Empty)
+            if (txtCantidadDocumentos.Text.Trim() == string.Empty && Convert.ToInt32(cboPrograma.SelectedValue)!=7)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
@@ -693,6 +694,29 @@ namespace GUI_Tesoreria.caja
             HabilitaControlBusqueda(true);
             Limpiar();
             dtpFechaCobro.Value = DateTime.Now;
+        }
+
+        private void cboPrograma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToDecimal(cboPrograma.SelectedValue) == 7)
+                {
+                    button2.Enabled = false;
+                    btnVerIngresos.Enabled = false;
+                }
+                else
+                {
+                    button2.Enabled = true;
+                    btnVerIngresos.Enabled = true;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            
+            
         }
     }
 }

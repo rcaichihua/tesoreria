@@ -348,5 +348,47 @@ namespace GUI_Tesoreria.menus
             _frmVerif.MdiParent = this;
             _frmVerif.Show();
         }
+
+        private void ingresoVouchersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.frmIngresoVouchers _frmReporteResidentes = null;
+            _frmReporteResidentes = caja.frmIngresoVouchers.Instance();
+            _frmReporteResidentes.idCajeroIngresoVouchers = VariablesMetodosEstaticos.idcajausuario;
+            _frmReporteResidentes.habilita = 1;
+            _frmReporteResidentes.MdiParent = this;
+            _frmReporteResidentes.Show();
+        }
+
+        private void listadoVouchersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito.frmListadoDepositosGeneral _frmListadoDepositosGeneral = null;
+            _frmListadoDepositosGeneral = Deposito.frmListadoDepositosGeneral.Instance();
+            _frmListadoDepositosGeneral.MdiParent = this;
+            _frmListadoDepositosGeneral.Show();
+        }
+
+        private void prepararComprobanteDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito.frmPreparaComprobanteDiario _frmfrmPreparaComprobanteDiario = null;
+            _frmfrmPreparaComprobanteDiario = Deposito.frmPreparaComprobanteDiario.Instance();
+            _frmfrmPreparaComprobanteDiario.MdiParent = this;
+            _frmfrmPreparaComprobanteDiario.Show();
+        }
+
+        private void listarComprobanteDeDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito.frmListarComprobanteDiario _frmListarComprobanteDiario = null;
+            _frmListarComprobanteDiario = Deposito.frmListarComprobanteDiario.Instance();
+            _frmListarComprobanteDiario.MdiParent = this;
+            _frmListarComprobanteDiario.Show();
+        }
+
+        private void editarComprobanteDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito.frmEdicionCompDiario _frmEdicionCompDiario = null;
+            _frmEdicionCompDiario = Deposito.frmEdicionCompDiario.Instance();
+            _frmEdicionCompDiario.MdiParent = this;
+            _frmEdicionCompDiario.Show();
+        }
     }
 }

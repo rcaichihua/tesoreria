@@ -244,6 +244,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             winAddRub.FuenteIngreso = FuenteIngreso;
             winAddRub.SaldoDocumento = SaldoLiquidacion;
             winAddRub.TotalDocumento = Convert.ToDecimal(txtTotalDocumentoC.Text);
+            winAddRub.Modifica = false;
             dtsRubros = winAddRub.traerFormulario();
             llamaDetalle(dtsRubros, impuesto);
 

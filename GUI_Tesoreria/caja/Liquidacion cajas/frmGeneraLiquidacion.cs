@@ -360,19 +360,23 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
                         if (dtResultadoBusqueda.Rows.Count>0)
                         {
-                        frmListadoDepositosLiquidacion frmDetalle = new frmListadoDepositosLiquidacion
-                        {
-                            dtListadoVouchers = dtResultadoBusqueda,
-                            TipoCaja = caja
+                            frmListadoDepositosLiquidacion frmDetalle = new frmListadoDepositosLiquidacion
+                            {
+                                dtListadoVouchers = dtResultadoBusqueda,
+                                TipoCaja = caja
                             };
-                        frmDetalle.Existe = Convert.ToBoolean(cn.TraerDataset("usp_BuscaLiquidacion", Convert.ToInt32(lblNro.Text),
+                            //verifica si el voucher seleccionado ya se encuentra en una liquidación para que
+                            //no se pueda modificar.
+                            frmDetalle.Existe = Convert.ToBoolean(cn.TraerDataset("usp_BuscaLiquidacion", Convert.ToInt32(lblNro.Text),
                             cboFuenteIngreso.SelectedValue, Convert.ToDateTime(mtbFechaLiquidacion.Text).ToString("yyyyMMdd"),
                             Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd")).Tables[0].Rows[0][0]);
-                                frmDetalle.ShowDialog();
-                                if (frmDetalle.Save__==true)
-                                {
-                                    btnVerIngresos_Click(sender, e);
-                                }
+
+                            frmDetalle.ShowDialog();
+
+                            if (frmDetalle.Save__==true)
+                            {
+                                btnVerIngresos_Click(sender, e);
+                            }
                         }                   
                 }
             }

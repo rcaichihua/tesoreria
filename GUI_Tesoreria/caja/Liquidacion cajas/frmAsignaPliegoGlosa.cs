@@ -36,6 +36,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             dt = cn.TraerDataset("usp_consulta_recibo_ingreso_por_programa",ProgramaId,FechaLiq.Substring(6,4)+ 
                 FechaLiq.Substring(3, 2)+ FechaLiq.Substring(0, 2)).Tables[0];
 
+            txtGlosa.Text = "PARA CONTABILIZAR LOS INGRESOS SEGUN:";
             if (dt.Rows.Count>0)
             {
                 txtNroPliego.Text = dt.Rows[0][1].ToString();

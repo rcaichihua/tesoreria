@@ -16,6 +16,7 @@ namespace GUI_Tesoreria
 
         public string Fecha { get; set; }
         public DataTable dtR { get; set; }
+        public DataSet dsDiario { get; set; }
         private CNegocio cn = new CNegocio();
 
         public frmReporte()
@@ -29,6 +30,7 @@ namespace GUI_Tesoreria
             {
                 caja.Reportes.rptIngresoDiario rptrptRecibosIngreso = new caja.Reportes.rptIngresoDiario();
                 rptrptRecibosIngreso.SetDataSource(dtR);
+                //rptrptRecibosIngreso.SetDataSource()
                 //rptrptRecibosIngreso.SetParameterValue("@fecha", Fecha);
                 crvReportes.ReportSource = rptrptRecibosIngreso;
             }
@@ -42,6 +44,12 @@ namespace GUI_Tesoreria
             {
                 caja.Reportes.rptReporteDepositos rpt = new caja.Reportes.rptReporteDepositos();
                 rpt.SetDataSource(dtR);
+                crvReportes.ReportSource = rpt;
+            }
+            else if (TipoReporteLiquidacion == "DEPOABANCO")
+            {
+                Deposito.Reportes.rptListadoDiario rpt = new Deposito.Reportes.rptListadoDiario();
+                rpt.SetDataSource(dsDiario);
                 crvReportes.ReportSource = rpt;
             }
         }

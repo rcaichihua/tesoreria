@@ -163,6 +163,16 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap editar {
+            get {
+                object obj = ResourceManager.GetObject("editar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editarD {
             get {
                 object obj = ResourceManager.GetObject("editarD", resourceCulture);
@@ -286,6 +296,16 @@ namespace GUI_Tesoreria.Properties {
         internal static System.Drawing.Bitmap modif_32x32 {
             get {
                 object obj = ResourceManager.GetObject("modif_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap modificar {
+            get {
+                object obj = ResourceManager.GetObject("modificar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -17,6 +17,7 @@ namespace GUI_Tesoreria.caja
         public bool liquidacion { get; set; }
         public bool EsCentral { get; set; }
         public int FuenteIngreso { get; set; }
+        public bool Modifica { get; set; }
 
         CNegocio cn = new CNegocio();
         bool save = false;

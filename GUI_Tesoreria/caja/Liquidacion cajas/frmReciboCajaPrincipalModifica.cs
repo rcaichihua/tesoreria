@@ -93,6 +93,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    Close();
             //}
+
         }
 
         private void cboModalidadPago_SelectedIndexChanged(object sender, EventArgs e)
@@ -375,10 +376,29 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
             frmAgregarRubro winAddRub = new frmAgregarRubro();
             winAddRub.liquidacion = true;
+            winAddRub.EsCentral = true;//
+            winAddRub.FuenteIngreso = FuenteIngreso;//
             winAddRub.SaldoDocumento = SaldoLiquidacion;
             winAddRub.TotalDocumento = Convert.ToDecimal(txtTotalDocumentoC.Text);
+            winAddRub.Modifica = true;
             dtsRubros = winAddRub.traerFormulario();
+
             llamaDetalle(dtsRubros, impuesto);
+
+            //bool impuesto = false;
+
+            //impuesto = Convert.ToBoolean(cn.TraerDataset("usp_s_obtiene_flag_impuesto", 3).Tables[0].Rows[0][0]);
+
+            //DataSet dtsRubros;
+
+            //frmAgregarRubro winAddRub = new frmAgregarRubro();
+            //winAddRub.liquidacion = true;
+            //winAddRub.EsCentral = true;
+            //winAddRub.FuenteIngreso = FuenteIngreso;
+            //winAddRub.SaldoDocumento = SaldoLiquidacion;
+            //winAddRub.TotalDocumento = Convert.ToDecimal(txtTotalDocumentoC.Text);
+            //dtsRubros = winAddRub.traerFormulario();
+            //llamaDetalle(dtsRubros, impuesto);
         }
 
         private void llamaDetalle(DataSet dtsRubros, bool imp)
@@ -461,10 +481,29 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             DGVRubros.Rows[fila].Cells[7].Value = cantidad;
             DGVRubros.Rows[fila].Cells[8].Value = (subTotal + _igv) * cantidad;
             DGVRubros.Rows[fila].Cells[9].Value = ParamCementerio;
-            acumulado();
+            acumulado2();
         }
 
-        private void acumulado()
+        private void acumulado2()
+        {
+            try
+            {
+                decimal tot = 0.00m;
+
+                for (int i = 0; i < DGVRubros.RowCount; i++)
+                {
+                    tot = tot + Convert.ToDecimal(DGVRubros.Rows[i].Cells[4].Value);
+                }
+                SaldoLiquidacion = SaldoLiquidacion==0 ? 0.00m: SaldoLiquidacion - tot;
+                txtTotalDocumentoC.Text = tot.ToString("##,##0.00");
+                //txtImportePago.Text = tot.ToString("##,##0.00");
+                txtSaldoC.Text = SaldoLiquidacion.ToString("###,###,##0.00");//(SaldoLiquidacion==0 ? 0: SaldoLiquidacion - tot).ToString("###,##0.00");
+            }
+            catch (Exception)
+            {
+            }
+        }
+        private void acumulado(decimal tot2)
         {
             try
             {
@@ -477,7 +516,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
                 txtTotalDocumentoC.Text = tot.ToString("##,##0.00");
                 //txtImportePago.Text = tot.ToString("##,##0.00");
-                txtSaldoC.Text = (SaldoLiquidacion==0 ? 0: SaldoLiquidacion - tot).ToString("###,##0.00");
+                SaldoLiquidacion = SaldoLiquidacion + tot2;
+                txtSaldoC.Text = (SaldoLiquidacion).ToString("###,###,##0.00");//(SaldoLiquidacion == 0 ? 0 : SaldoLiquidacion - tot).ToString("###,##0.00");
             }
             catch (Exception)
             {
@@ -488,10 +528,20 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             try
             {
+
+                int index = DGVRubros.CurrentRow.Index;
+
+                decimal tot = 0.00m;
+
+                for (int i = 0; i < DGVRubros.RowCount; i++)
+                {
+                    tot = tot + Convert.ToDecimal(DGVRubros.Rows[index].Cells[4].Value);
+                }
+
                 if (DGVRubros.RowCount > 0)
                 {
-                    DGVRubros.Rows.RemoveAt(DGVRubros.CurrentRow.Index);
-                    acumulado();
+                    DGVRubros.Rows.RemoveAt(index);
+                    acumulado(tot);
                 }
                 else
                 {

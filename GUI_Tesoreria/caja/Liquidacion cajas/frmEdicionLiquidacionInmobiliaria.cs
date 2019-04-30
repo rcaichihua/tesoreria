@@ -135,7 +135,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                                                     {
                                                         if (decimal.TryParse(txtMontoSoles.Text, out importe))
                                                         {
-                                                            if (txtCodInm.Text.Length > 2)
+                                                            if (txtCodInm.Text.Length >= 2)
                                                             {
                                                                 if (cn.EjecutarSqlDTS("select * from tconverInmobiliaria where tip_inmb='"+txtCodInm.Text.Substring(0,2)+"'").Tables[0].Rows.Count > 0)
                                                                 {

@@ -141,36 +141,63 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            DataTable dtresu = new DataTable();
             if (!Validar())
             {
                 return;
             }
+            if (Tabla.Length < 5)
+            {
+                
+                //if (Existe_ == true)
+                //{
+                //    DevComponents.DotNetBar.MessageBoxEx.Show("Este voucher ya se encuentra generado dentro de una liquidación y no se puede modificar.", VariablesMetodosEstaticos.encabezado,
+                //                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
+                dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, cboConcepto.SelectedValue,
+                cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
+                Convert.ToDecimal(txtTipoCambio.Text), txtNumDocumento.Text.Trim(),
+                txtObservacionesPago.Text, VariablesMetodosEstaticos.varNombreUser,
+                VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user, caja, dtpFechaPago.Value.ToString("yyyyMMdd")).Tables[0];
 
-            DataTable dtresu = new DataTable();
-            if (Existe_==true)
-            {
-                DevComponents.DotNetBar.MessageBoxEx.Show("Este voucher ya se encuentra generado dentro de una liquidación y no se puede modificar.", VariablesMetodosEstaticos.encabezado,
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, cboConcepto.SelectedValue,
-            cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
-            Convert.ToDecimal(txtTipoCambio.Text), txtNumDocumento.Text.Trim(),
-            txtObservacionesPago.Text, VariablesMetodosEstaticos.varNombreUser, 
-            VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user,caja,dtpFechaPago.Value.ToString("yyyyMMdd")).Tables[0];
-            if (dtresu.Rows[0][0].ToString().Substring(0, 2) == "VO" || dtresu.Rows[0][0].ToString().Substring(0, 2) == "RE")
-            {
-                DevComponents.DotNetBar.MessageBoxEx.Show(dtresu.Rows[0][0].ToString(), VariablesMetodosEstaticos.encabezado,
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Save_ = true;
-                this.Close();
+                if (dtresu.Rows[0][0].ToString().Substring(0, 2) == "VO" || dtresu.Rows[0][0].ToString().Substring(0, 2) == "RE")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show(dtresu.Rows[0][0].ToString(), VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Save_ = true;
+                    this.Close();
+                }
+                else
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error: " + dtresu.Rows[0][0].ToString(), VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Save_ = true;
+                    //this.Close();
+                }
             }
             else
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error: " + dtresu.Rows[0][0].ToString(), VariablesMetodosEstaticos.encabezado,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Save_ = true;
-                this.Close();
+                dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, cboConcepto.SelectedValue,
+                cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
+                Convert.ToDecimal(txtTipoCambio.Text), txtNumDocumento.Text.Trim(),
+                txtObservacionesPago.Text, VariablesMetodosEstaticos.varNombreUser,
+                VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user, caja, dtpFechaPago.Value.ToString("yyyyMMdd")).Tables[0];
+
+                if (dtresu.Rows[0][0].ToString().Substring(0, 2) == "VO" || dtresu.Rows[0][0].ToString().Substring(0, 2) == "RE")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show(dtresu.Rows[0][0].ToString(), VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Save_ = true;
+                    this.Close();
+                }
+                else
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error: " + dtresu.Rows[0][0].ToString(), VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Save_ = true;
+                    //this.Close();
+                }
             }
         }
 

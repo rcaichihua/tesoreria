@@ -112,8 +112,25 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void filtroCuenta()
         {
-            //string fechaFiltro = "#" + dtpFechaLiquidacion.Value.ToString("yyyy-MM-dd") + "#";
-            string consultaFactura = @"exec USP_IMPORTA_LIQUIDACION '"+dtpFechaLiquidacion.Value.ToString("yyyyMMdd")+"','"+VariablesGlobales.NombreUsuario+"','"+VariablesGlobales.UserHostIp+"'";
+            DataTable dt = new DataTable();
+            int id_Liq, num_Liq;
+            id_Liq = 0;
+            num_Liq = 0;
+
+            dt = cn.EjecutarSqlDTS("select numeroLiquidacion,idLiquidacion from liquidacionCajaPrincipalCabecera where convert(varchar(8),fechaLiquidacion,112)='" +
+               dtpFechaLiquidacion.Value.ToString("yyyyMMdd") + "' and fechaCajaOrigen='" +
+               dtpFechaCaja.Value.ToString("yyyyMMdd") + "' and estado=1 and intProId=3").Tables[0];
+
+            if (dt.Rows.Count <= 0)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay información de la liquidación segun la fecha de caja y fecha de liquidacoón.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                         MessageBoxIcon.Warning);
+                return;
+            }
+            num_Liq = Convert.ToInt32(dt.Rows[0][0]);//numero de liquidacion
+            id_Liq = Convert.ToInt32(dt.Rows[0][1]);//id de liquidacion
+
+            string consultaFactura = @"exec USP_IMPORTA_LIQUIDACION '"+dtpFechaLiquidacion.Value.ToString("yyyyMMdd")+"',"+num_Liq+","+id_Liq+",'"+ VariablesMetodosEstaticos.varUsuario+"','"+ VariablesMetodosEstaticos.ip_user+"/"+ VariablesMetodosEstaticos.host_user + "'";
 
             filtroGenericoConsulta(consultaFactura);
         }
@@ -444,6 +461,50 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             dgvListado.DataSource = cn.TraerDataset("USP_LLENA_LIQUIDACION_INMOBILIARIA", 
                 dtpFechaLiquidacion.Value.ToString("yyyyMMdd")).Tables[0];
+            if (dgvListado.Rows.Count>0)
+            {
+                decimal renta, igv, mora, montosoles;
+                renta = 0.00m;
+                igv = 0.00m;
+                mora = 0.00m;
+                montosoles = 0.00m;
+                foreach (DataGridViewRow item in dgvListado.Rows)
+                {
+                    renta = renta + Convert.ToDecimal(item.Cells[17].Value);
+                    igv = igv + Convert.ToDecimal(item.Cells[18].Value);
+                    mora = mora + Convert.ToDecimal(item.Cells[19].Value);
+                    montosoles = montosoles + Convert.ToDecimal(item.Cells[16].Value);
+                }
+                txtMora.Text = mora.ToString("###,###,###,##0.00");
+                txtRenta.Text = renta.ToString("###,###,###,##0.00");
+                txtIgv.Text = igv.ToString("###,###,###,##0.00");
+                txtMontoSoles.Text = montosoles.ToString("###,###,###,##0.00");
+            }          
+        }
+
+        private void btnGeneraCodigoContable_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cn.TraerDataset("USP_CTA_CONTABLE_SGI", dtpFechaLiquidacion.Value.ToString("yyyyMMdd"),
+                    dtpFechaCaja.Value.ToString("yyyyMMdd"));
+
+                if (cn.TraerDataset("USP_CTA_CONTABLE_SGI",dtpFechaLiquidacion.Value.ToString("yyyyMMdd"),
+                    dtpFechaCaja.Value.ToString("yyyyMMdd")).Tables[0].Rows[0][0].ToString()=="0")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Se asigo las cuentas contables correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information);
+                    LlenarDatos();
+                }
+                else
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Hay importe sin cuentas contables válidas.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                     MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }
