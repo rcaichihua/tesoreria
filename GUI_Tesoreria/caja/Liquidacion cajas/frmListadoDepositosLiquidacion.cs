@@ -16,6 +16,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         public bool Save__ { get; set; }
         public string TipoCaja { get; set; }
         public DataTable dtListadoVouchers { get; set; }
+        public string _Anio { get; set; }
+        public string _Mes { get; set; }
+        public DateTime _FechaLiq { get; set; }
+        public string _Fuente { get; set; }
+
         CNegocio cn = new CNegocio();
 
         public frmListadoDepositosLiquidacion()
@@ -111,7 +116,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         Total = Convert.ToDecimal(dgvListadoVouchers.Rows[index].Cells[13].Value),
                         NroVoucher = dgvListadoVouchers.Rows[index].Cells[10].Value.ToString(),
                         Observaciones = dgvListadoVouchers.Rows[index].Cells[15].Value.ToString(),
-                        caja= TipoCaja
+                        caja= TipoCaja,
+                        _FechaLiq=_FechaLiq
 
                     };
                     winfrmEdicionVouchers.Existe_ = Existe;
@@ -132,6 +138,65 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             win.TipoReporteLiquidacion = "VO";
             win.dtR = dtListadoVouchers;
             win.Show();
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            string idTipo;
+            string PROG_COD;
+            PROG_COD = "";
+            idTipo = "";
+
+            if (Convert.ToInt16(_Fuente)<1 && Convert.ToInt16(_Fuente) >4)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se puede migrar estos vouchers", VariablesGlobales.NombreMensajes,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            try
+            {
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de exportar la información al sistem de vouchers "+ (_Fuente == "03" ? "INMOBILIARIA" : (_Fuente == "04" ? "CEMENTERIO" : (_Fuente == "01" ?
+                          "ALTA DIRECCION" : (_Fuente == "02" ? "ALBERGUE" : "-")))) + "?" +
+                Environment.NewLine + "Si la información existe en el sistema de voushers se eliminara.",
+                VariablesMetodosEstaticos.encabezado,
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+                {
+                    cn.EjecutarUD("delete from [192.168.1.7].DBERP.DBO.deposito where CONVERT(varchar(10),FEC_LIQ,103)='" + _FechaLiq.ToString("dd/MM/yyyy") + "' AND PROG_COD='"+ _Fuente + "'");
+                    foreach (DataGridViewRow item in dgvListadoVouchers.Rows)
+                    {
+                        idTipo = cn.EjecutarSqlDTS("select idTipo from ta_modalidad_pago where cod_mod_Pago='"+ item.Cells["cod_mod_Pago"].Value + "'").Tables[0].Rows[0][0].ToString();
+
+                        if (Convert.ToInt32(idTipo)>3)
+                        {
+                            idTipo = "3";
+                        }
+                        cn.EjecutarUD("INSERT INTO [192.168.1.7].DBERP.DBO.DEPOSITO " +
+                        "(ANO, MES, PROG_COD, BANCO_COD, CUENTA_NUM, CONCEP_COD, " +
+                            " FEC_LIQ, FEC_DEPO, MODAL_COD, IMPORTE, MONE_COD, CAMBIO, " +
+                            " IMPORTE_ME, VOUCHER, CHEQUE, GLOSA, USUARIO, FEC_CREA, FEC_MODI, USUARIO2, TIPO_REG) " +
+                         " VALUES " +
+                         " (" + _Anio + ", '" + Convert.ToInt32(_Mes).ToString("00") + "' , '"+ _Fuente + "', '" + Convert.ToInt32(item.Cells["cod_entidad_financ"].Value).ToString("00")
+                         + "', '" + item.Cells["numero_cuenta"].Value + "', '" + (Convert.ToInt32(item.Cells["concep_cod"].Value).ToString("00") == "06" ? "05" : (Convert.ToInt32(item.Cells["concep_cod"].Value).ToString("00"))) + "'," +
+                          " '" + _FechaLiq.ToString("dd/MM/yyyy") + "', '" + item.Cells["FechaDeposito"].Value + "', '" +
+                          (idTipo.ToString() == "1" ? "1" : (idTipo.ToString() == "2" ? "2" : (idTipo.ToString() == "3" ? "1" : "3"))) +
+                          "', " + Convert.ToDecimal(item.Cells["importe_cambio"].Value) + ", '" + (Convert.ToDecimal(item.Cells["TipoCambio"].Value) != 1.00m ? "2" : "1") +
+                          "', " + (Convert.ToDecimal(item.Cells["TipoCambio"].Value) == 1.00m ? 0.00m : Convert.ToDecimal(item.Cells["TipoCambio"].Value)) + ", " +
+                          " " + (Convert.ToDecimal(item.Cells["TipoCambio"].Value) == 1.00m ? 0.00m : Convert.ToDecimal(item.Cells["importe_voucher_pago"].Value)) + ", '" +
+                          (item.Cells["cod_mod_Pago"].Value.ToString() != "2" ? (item.Cells["NumeroDocumento_Voucher_cheque_pago"].Value) : ("")) + "', '" +
+                          (item.Cells["cod_mod_Pago"].Value.ToString() == "2" ? (item.Cells["NumeroDocumento_Voucher_cheque_pago"].Value) : ("")) + "', '" +
+                          (_Fuente == "03" ? "ARRENDT":(_Fuente=="04" ? "CEMENT" : (_Fuente =="01" ? 
+                          "ALT DIRE":(_Fuente=="02" ? "ALBERGUE":"")))) + "', '" + 
+                          VariablesGlobales.NombreUsuario + "', GETDATE(), NULL, NULL, '1')");
+                    }
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Se exporto los vouchers correctamente.", "",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesGlobales.NombreMensajes,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }              
         }
     }
 }

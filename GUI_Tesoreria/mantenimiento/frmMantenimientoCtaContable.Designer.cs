@@ -43,6 +43,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCta)).BeginInit();
             this.SuspendLayout();
@@ -183,6 +184,7 @@
             this.btnModificar.TabIndex = 52;
             this.btnModificar.Text = "&Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnImprimir
             // 
@@ -215,11 +217,28 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefrescar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.ForeColor = System.Drawing.Color.Navy;
+            this.btnRefrescar.Location = new System.Drawing.Point(433, 468);
+            this.btnRefrescar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(74, 39);
+            this.btnRefrescar.TabIndex = 54;
+            this.btnRefrescar.Text = "&Refrescar";
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
             // frmMantenimientoCtaContable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 519);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.BtnNuevo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -254,5 +273,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodGestion;
         private System.Windows.Forms.DataGridViewTextBoxColumn movimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn presupuesto;
+        internal System.Windows.Forms.Button btnRefrescar;
     }
 }

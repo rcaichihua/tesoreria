@@ -34,8 +34,27 @@ namespace GUI_Tesoreria.canevaro
         private void frmReporteProceso_Load(object sender, EventArgs e)
         {
             cboAFiscal.Text = DateTime.Now.Year.ToString();
+            CargarAnio();
             cargarResidentes();
             //buscarIngresosDiarios();
+        }
+        private void CargarAnio()
+        {           
+            try
+            {
+                DataTable dt = new DataTable();
+
+                dt = cn.EjecutarSqlDTS("select intAFID,intAFDescripcionAnno from annoFiscal WHERE intAFID<>8 order by intAFDescripcionAnno ASC").Tables[0];
+                DataRow row = dt.NewRow();
+
+                cboAFiscal.DataSource = dt;
+                cboAFiscal.DisplayMember = "intAFDescripcionAnno";
+                cboAFiscal.ValueMember = "intAFID";
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void cargarResidentes()

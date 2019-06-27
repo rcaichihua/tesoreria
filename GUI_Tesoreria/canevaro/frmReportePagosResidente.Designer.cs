@@ -91,7 +91,7 @@
             this.cboAFiscal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAFiscal.FormattingEnabled = true;
             this.cboAFiscal.Items.AddRange(new object[] {
-            "2010",
+            "2006",
             "2011",
             "2012",
             "2013",

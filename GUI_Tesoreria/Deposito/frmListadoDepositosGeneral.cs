@@ -13,6 +13,9 @@ namespace GUI_Tesoreria.Deposito
 {
     public partial class frmListadoDepositosGeneral : DevComponents.DotNetBar.Metro.MetroForm
     {
+        public string TipoCaja { get; set; }
+        public DateTime _FechaLiq { get; set; }
+
         private static frmListadoDepositosGeneral frmInstance = null;
 
         public frmListadoDepositosGeneral()
@@ -126,7 +129,9 @@ namespace GUI_Tesoreria.Deposito
                         Total = Convert.ToDecimal(dgvListadoVouchers.Rows[index].Cells[14].Value),
                         NroVoucher = dgvListadoVouchers.Rows[index].Cells[11].Value.ToString(),
                         Observaciones = dgvListadoVouchers.Rows[index].Cells[16].Value.ToString(),
-                        caja = dgvListadoVouchers.Rows[index].Cells[15].Value.ToString()
+                        caja = dgvListadoVouchers.Rows[index].Cells[15].Value.ToString() == "INMOBILIARIA" ? "02":"01",
+                        //caja = TipoCaja,
+                        _FechaLiq = Convert.ToDateTime(dtpFechaLiquidación.Value)
 
                     };
                     //winfrmEdicionVouchers.Existe_ = Existe;

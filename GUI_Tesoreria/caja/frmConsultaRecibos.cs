@@ -237,6 +237,13 @@ namespace GUI_Tesoreria.caja
                             rptRecibo.SetParameterValue("@descripMonto", Letras.Convertir(dtsRecibo.Tables[0].Rows[0]["PrecioVenta_reciboCabecera"].ToString(), true) + " " + cn.TraerDataset("usp_obtener_descripcion_moneda", 1).Tables[0].Rows[0][0].ToString());
                             winReport.crvReportes.ReportSource = rptRecibo;
                         }
+                        else if (programaRecibo == 1 || programaRecibo == 5 || programaRecibo == 6)
+                        {
+                            Reportes.rptReciboCajaCentral rptRecibo = new Reportes.rptReciboCajaCentral();
+                            rptRecibo.SetDataSource(dtsRecibo.Tables[0]);
+                            rptRecibo.SetParameterValue("@Total", Letras.Convertir(dtsRecibo.Tables[0].Rows[0]["PrecioVenta_reciboCabecera"].ToString(), true) + " " + cn.TraerDataset("usp_obtener_descripcion_moneda", 1).Tables[0].Rows[0][0].ToString());
+                            winReport.crvReportes.ReportSource = rptRecibo;
+                        }
                         break;
                     case 3:
                         if (programaRecibo == 2)
@@ -378,7 +385,11 @@ namespace GUI_Tesoreria.caja
                                         MessageBoxIcon.Warning);
                     return;
                 }
-                if (cn.EjecutarSqlDTS("select cod_mod_Pago from tb_ReciboCabecera where ReciboID = "+ Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0].Rows[0][0].ToString() != "19")
+                DataTable dtResuConsulta = new DataTable();
+                dtResuConsulta = cn.EjecutarSqlDTS("select FechaRecibo_ReciboCabecera,FechaCancelacion,cod_mod_Pago " + 
+                    "from tb_ReciboCabecera where ReciboID = " + Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0];
+
+                if (dtResuConsulta.Rows[0][2].ToString() != "19")
                 {
                     DevComponents.DotNetBar.MessageBoxEx.Show("No se puede editar documentos que no sean PENDIENTES DE PAGO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
@@ -391,9 +402,12 @@ namespace GUI_Tesoreria.caja
                 win.Serie_doc = dgvRecibos.Rows[index].Cells[5].Value.ToString();
                 win.Numero_doc = dgvRecibos.Rows[index].Cells[6].Value.ToString();
                 win.ReciboId = Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value);
+                win._FechaCancelacion = Convert.ToDateTime(dtResuConsulta.Rows[0][1].ToString());
+                win._FechaEmision = Convert.ToDateTime(dtResuConsulta.Rows[0][0].ToString());
                 //win.ModPago2= cn.TraerDataset("usp_consulta_modalidad_pago2", Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value)).Tables[0];
                 //win.ModPago = cn.TraerDataset("usp_consulta_modalidad_pago", Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value)).Tables[0];
                 win.ShowDialog();
+                BtnBuscarContribuyente_Click(sender, e);
             }
         }
     }

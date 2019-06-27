@@ -193,12 +193,12 @@ namespace GUI_Tesoreria.control
                 NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
                 foreach (NetworkInterface adapter in nics)
                 {
-                    VariablesMetodosEstaticos.mac_pc=adapter.GetPhysicalAddress().ToString();
+                    VariablesMetodosEstaticos.mac_pc = adapter.GetPhysicalAddress().ToString();
                     if (con_are.ToLower() == adapter.Name.ToString().ToLower() || adapter.Name.ToString().ToLower() == "sblmlan1")
                     {
                         VariablesMetodosEstaticos.tiene_mac = true;
                         break;
-                    } 
+                    }
                 }
 
                 if (VariablesMetodosEstaticos.tiene_mac == false)
@@ -207,6 +207,8 @@ namespace GUI_Tesoreria.control
                                                                                                        MessageBoxDefaultButton.Button1);
                     Application.Exit();
                 }
+                //davy
+                VariablesMetodosEstaticos.tiene_mac = true;
                 //quitar luego
                 //cementerio
                 //VariablesMetodosEstaticos.mac_pc = "6045CB6EFCAA";

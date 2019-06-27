@@ -56,14 +56,14 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             txtTotalCambioDolar.Text=importeCambio.ToString("###,###,##0.00");
             txtGlosa.Text = glosa;
             this.DGVRubros.AutoGenerateColumns = false;
-            BuscaSaldoLiquidacion();
+            //BuscaSaldoLiquidacion();
 
             bool impuesto = false;
 
             impuesto = Convert.ToBoolean(cn.TraerDataset("usp_s_obtiene_flag_impuesto", 3).Tables[0].Rows[0][0]);
 
             llamaDetalle(DetalleRecibo, impuesto);
-
+            BuscaSaldoLiquidacion();
             //DGVRubros.DataSource = DetalleRecibo;
         }
         private void cargarModalidadPago()

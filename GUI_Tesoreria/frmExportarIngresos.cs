@@ -29,9 +29,15 @@ namespace GUI_Tesoreria
             else
                 sql_exec = "usp_exportar_data_ingresos_dbf_EC_CANEV";
 
+            DevComponents.DotNetBar.MessageBoxEx.Show("EXEC " + sql_exec + " '" + 
+                ObtieneFecha() + "'," + (cboPrograma.Text == "CEMENTERIO" ? 4 : 2) + ""+ 
+                dateTimePicker1.Value.Day.ToString("00") +
+                dateTimePicker1.Value.Month.ToString("00"), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             if (Databases.Sql2Dbf(conectar.conexionXml,
                 "EXEC " + sql_exec + " '"+ ObtieneFecha()+"',"+(cboPrograma.Text == "CEMENTERIO" ? 4 : 2)+"", 
-                (cboPrograma.Text=="CEMENTERIO" ? "CEC":"AEC")+dateTimePicker1.Value.Day.ToString("00")+dateTimePicker1.Value.Month.ToString("00"),"EC")==false)
+                (cboPrograma.Text=="CEMENTERIO" ? "CEC":"AEC")+dateTimePicker1.Value.Day.ToString("00")+
+                dateTimePicker1.Value.Month.ToString("00"),"EC")==false)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No se genero el archivo EC, intente nuevamente.","",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
@@ -47,9 +53,11 @@ namespace GUI_Tesoreria
             //if (Databases.Sql2Dbf("Data Source=192.168.1.14;Initial Catalog=bdtesoreria;User ID=usuario_teso;Password=t6s0r6r14",
             if (Databases.Sql2Dbf(conectar.conexionXml,
                 "EXEC "+sql_exec+" '" + ObtieneFecha() + "'," + (cboPrograma.Text == "CEMENTERIO" ? 4 : 2) + "",
-                (cboPrograma.Text == "CEMENTERIO" ? "CEP" : "AEP") + dateTimePicker1.Value.Day.ToString("00") + dateTimePicker1.Value.Month.ToString("00"),"EP")==false)
+                (cboPrograma.Text == "CEMENTERIO" ? "CEP" : "AEP") + dateTimePicker1.Value.Day.ToString("00") + 
+                dateTimePicker1.Value.Month.ToString("00"),"EP")==false)
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show("No se genero el archivo EP, intente nuevamente.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se genero el archivo EP, intente nuevamente.", "", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

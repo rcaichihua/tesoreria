@@ -53,48 +53,56 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!Validar()) return;
+            try
+            {
+                if (!Validar()) return;
 
-            if (TipoMan == "E")
-            {
-                if(cn.EjecutarUD("update dbo.LiquidacionInmobiliaria set COD_INMB='"+txtCodInm.Text+
-                    "',INQUILINO='"+txtInqui.Text+"',TIP_DOCU='"+txtTipDoc.Text+"',NRO_DOCU='"+txtNroDoc.Text+
-                    "',AA='"+txtAnio.Text+"',MM='"+txtMes.Text+"',FCH_PAGO='"+FechaLiquidacion+
-                    "',TIP_MOVI='01',TIP_PAGO='01',MONTOSOLES="+txtMontoSoles.Text+
-                    ",RENTA="+txtRenta.Text+",IGV="+txtIgv.Text+",MORA="+txtMora.Text+
-                    ",USUING=USUING+'*',PCING='"+VariablesGlobales.NombreUsuario+
-                    "',FECHAING=GETDATE() where id="+Id+"")>0)
+                if (TipoMan == "E")
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Registro actualizado correctamente.", VariablesMetodosEstaticos.encabezado,
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    if (cn.EjecutarUD("update dbo.LiquidacionInmobiliaria set COD_INMB='" + txtCodInm.Text +
+                        "',INQUILINO='" + txtInqui.Text + "',TIP_DOCU='" + txtTipDoc.Text + "',NRO_DOCU='" + txtNroDoc.Text +
+                        "',AA='" + txtAnio.Text + "',MM='" + txtMes.Text + "',FCH_PAGO='" + FechaLiquidacion +
+                        "',TIP_MOVI='01',TIP_PAGO='01',MONTOSOLES=" + Convert.ToDecimal(txtMontoSoles.Text) +
+                        ",RENTA=" + Convert.ToDecimal(txtRenta.Text) + ",IGV=" + Convert.ToDecimal(txtIgv.Text) + ",MORA=" + Convert.ToDecimal(txtMora.Text) +
+                        ",USUING=USUING+'*',PCING='" + VariablesGlobales.NombreUsuario +
+                        "',FECHAING=GETDATE() where id=" + Id + "") > 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Registro actualizado correctamente.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, Intente de nuevo.", VariablesMetodosEstaticos.encabezado,
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, Intente de nuevo.", VariablesMetodosEstaticos.encabezado,
-                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (cn.EjecutarUD("insert into LiquidacionInmobiliaria(COD_INMB,INQUILINO,TIP_DOCU,NRO_DOCU,AA,MM," +
+                        "FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE) " + "values('" + txtCodInm.Text +
+                        "', '" + txtInqui.Text + "', '" + txtTipDoc.Text + "'" +
+                        ", '" + txtNroDoc.Text + "', '" + txtAnio.Text + "', '" + txtMes.Text + "', '" + FechaLiquidacion + "', '01', '01', " +
+                        txtMontoSoles.Text + ", " + txtRenta.Text + ", " + txtIgv.Text + ", " + txtMora.Text + ", '" +
+                        VariablesGlobales.NombreUsuario +
+                        "', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0)") > 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Registro insertado correctamente.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, Intente de nuevo.", VariablesMetodosEstaticos.encabezado,
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                if (cn.EjecutarUD("insert into LiquidacionInmobiliaria(COD_INMB,INQUILINO,TIP_DOCU,NRO_DOCU,AA,MM," +
-                    "FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE) " + "values('"+txtCodInm.Text+
-                    "', '"+txtInqui.Text+"', '"+txtTipDoc.Text+"'"+
-                    ", '"+txtNroDoc.Text+"', '"+txtAnio.Text+"', '"+txtMes.Text+"', '"+FechaLiquidacion+"', '01', '01', "+
-                    txtMontoSoles.Text+", "+txtRenta.Text+", "+txtIgv.Text+", "+txtMora.Text+", '"+
-                    VariablesGlobales.NombreUsuario+
-                    "', '"+VariablesGlobales.UserHostIp+"', GETDATE(),0)") > 0)
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Registro insertado correctamente.", VariablesMetodosEstaticos.encabezado,
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                }
-                else
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, Intente de nuevo.", VariablesMetodosEstaticos.encabezado,
-                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado,
+                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }           
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -139,7 +147,29 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                                                             {
                                                                 if (cn.EjecutarSqlDTS("select * from tconverInmobiliaria where tip_inmb='"+txtCodInm.Text.Substring(0,2)+"'").Tables[0].Rows.Count > 0)
                                                                 {
-                                                                    rspta = true;
+                                                                    if ((Convert.ToDecimal(txtRenta.Text) + Convert.ToDecimal(txtIgv.Text)) !=
+                                                                        Convert.ToDecimal(txtMontoSoles.Text))
+                                                                    {
+                                                                        DevComponents.DotNetBar.MessageBoxEx.Show("El total no coninside con la suma de la RENTA E IGV.", VariablesMetodosEstaticos.encabezado,
+                                                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                                        txtMontoSoles.Focus();
+                                                                        rspta = false;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if (cn.EjecutarSqlDTS("select * from sisinmueble.dbo.TIPODOCU where IDTIPODOCU='"+ txtTipDoc.Text.Trim() + "'").Tables[0].Rows.Count>0)
+                                                                        {
+                                                                            rspta = true;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            DevComponents.DotNetBar.MessageBoxEx.Show("Código de tipo de documento no existe.", VariablesMetodosEstaticos.encabezado,
+                                                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                                            txtTipDoc.Focus();
+                                                                            rspta = false;
+                                                                        }
+                                                                    }
+                                                                    
                                                                 }
                                                                 else
                                                                 {

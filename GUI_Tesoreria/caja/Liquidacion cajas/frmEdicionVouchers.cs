@@ -28,6 +28,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         public string Observaciones { get; set; }
         public bool Save_ { get; set; }
         public string caja { get; set; }
+        public DateTime _FechaLiq { get; set; }
 
         public frmEdicionVouchers()
         {
@@ -36,6 +37,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void frmEdicionVouchers_Load(object sender, EventArgs e)
         {
+            txtNeto.Visible = false;
+            txtImpuesto.Visible = false;
+            BtnBuscarDoc.Visible = false;
+            label2.Visible = false;
+            label1.Visible = false;
             cargarModalidadPago();
             cargarConcepto();
             cargarEntidadFinanciera();
@@ -47,7 +53,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             cboEntidadFinanciera.SelectedValue = EntidadFinancieraId;
             cboCuenta.SelectedValue = CuentaBancariaId;
             txtImportePago.Text = Monto.ToString("###,###,##0.00");
-            txtTipoCambio.Text = TipoCambio.ToString("###,###,##0.00");
+            txtTipoCambio.Text = TipoCambio.ToString("###,###,##0.000");
             txtTotalCambioDolar.Text = Total.ToString("###,###,##0.00");
             txtNumDocumento.Text = NroVoucher;
             txtObservacionesPago.Text = Observaciones;
@@ -146,6 +152,9 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
                 return;
             }
+            //AQUI NO ES NECESARIO TENER VALOR EN LA VARIABLE Tabla DEBIDO A QUE CON LA FECHA DE LIQUIDACION Y FUENTEORIGEN
+            //ES SUFICIENTE SABER A QUE TABLA DE DEPOSITO VA AFECTAR YA SEA A LA TABLA DE INMOBILIARIA O DE TESORERIA
+            //PROGRAMAS.
             if (Tabla.Length < 5)
             {
                 
@@ -159,7 +168,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
                 Convert.ToDecimal(txtTipoCambio.Text), txtNumDocumento.Text.Trim(),
                 txtObservacionesPago.Text, VariablesMetodosEstaticos.varNombreUser,
-                VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user, caja, dtpFechaPago.Value.ToString("yyyyMMdd")).Tables[0];
+                VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user, caja, 
+                dtpFechaPago.Value.ToString("yyyyMMdd"), Convert.ToDecimal(txtTotalCambioDolar.Text)).Tables[0];
 
                 if (dtresu.Rows[0][0].ToString().Substring(0, 2) == "VO" || dtresu.Rows[0][0].ToString().Substring(0, 2) == "RE")
                 {
@@ -178,11 +188,14 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             }
             else
             {
-                dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, cboConcepto.SelectedValue,
+                //AQUI ENTRA PORQUE LA VARIABLE TABLA ESTA LLENA Y CON ESA TABLA SE PUEDE SABER A QUE TABLA SE VA A MODIFICAR.
+                dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, 
+                    cboConcepto.SelectedValue,
                 cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
                 Convert.ToDecimal(txtTipoCambio.Text), txtNumDocumento.Text.Trim(),
                 txtObservacionesPago.Text, VariablesMetodosEstaticos.varNombreUser,
-                VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user, caja, dtpFechaPago.Value.ToString("yyyyMMdd")).Tables[0];
+                VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user, caja, 
+                dtpFechaPago.Value.ToString("yyyyMMdd"), Convert.ToDecimal(txtTotalCambioDolar.Text)).Tables[0];
 
                 if (dtresu.Rows[0][0].ToString().Substring(0, 2) == "VO" || dtresu.Rows[0][0].ToString().Substring(0, 2) == "RE")
                 {
@@ -382,6 +395,54 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             catch (Exception)
             {
 
+            }
+        }
+
+        private void BtnBuscarDoc_Click(object sender, EventArgs e)
+        {
+            string id_liq;
+            id_liq = "";
+            DataTable dt = new DataTable();
+            dt = cn.TraerDataset("USP_LISTA_DOC_LIQUIDACION",
+                Convert.ToInt32(id_liq), null).Tables[0];
+
+            if (dt.Rows.Count <= 0)
+            {
+                MessageBox.Show("No hay datos para el reporte.", "Aplicacion",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            frmListadoDocumentosLiqInmo win = new frmListadoDocumentosLiqInmo();
+            win.Lista = dt;
+            win.IdLiq = Convert.ToInt32(id_liq);
+            win.ShowDialog();
+        }
+
+        private void cboConcepto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboConcepto.SelectedValue.ToString() == "2")
+                {
+                    txtNeto.Visible = true;
+                    txtImpuesto.Visible = true;
+                    BtnBuscarDoc.Visible = true;
+                    label2.Visible = true;
+                    label1.Visible = true;
+                }
+                else
+                {
+                    txtNeto.Visible = false;
+                    txtImpuesto.Visible = false;
+                    BtnBuscarDoc.Visible = false;
+                    label2.Visible = false;
+                    label1.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

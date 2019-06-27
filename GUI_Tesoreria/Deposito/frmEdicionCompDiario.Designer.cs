@@ -66,6 +66,8 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txthaber = new System.Windows.Forms.TextBox();
+            this.txtdebe = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiarioCabecera)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -436,6 +438,7 @@
             this.button3.Text = "&Modificar";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnEditar
             // 
@@ -488,11 +491,37 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
+            // txthaber
+            // 
+            this.txthaber.BackColor = System.Drawing.Color.White;
+            this.txthaber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txthaber.Enabled = false;
+            this.txthaber.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txthaber.ForeColor = System.Drawing.Color.Maroon;
+            this.txthaber.Location = new System.Drawing.Point(270, 542);
+            this.txthaber.Name = "txthaber";
+            this.txthaber.Size = new System.Drawing.Size(124, 22);
+            this.txthaber.TabIndex = 174;
+            // 
+            // txtdebe
+            // 
+            this.txtdebe.BackColor = System.Drawing.Color.White;
+            this.txtdebe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtdebe.Enabled = false;
+            this.txtdebe.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdebe.ForeColor = System.Drawing.Color.Maroon;
+            this.txtdebe.Location = new System.Drawing.Point(147, 542);
+            this.txtdebe.Name = "txtdebe";
+            this.txtdebe.Size = new System.Drawing.Size(117, 22);
+            this.txtdebe.TabIndex = 175;
+            // 
             // frmEdicionCompDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 584);
+            this.ClientSize = new System.Drawing.Size(691, 584);
+            this.Controls.Add(this.txthaber);
+            this.Controls.Add(this.txtdebe);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
@@ -556,5 +585,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DONOCO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIARIO_ID;
         internal System.Windows.Forms.Button btnCancelar;
+        internal System.Windows.Forms.TextBox txthaber;
+        internal System.Windows.Forms.TextBox txtdebe;
     }
 }

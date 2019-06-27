@@ -52,6 +52,11 @@
             this.label30 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtImpuesto = new System.Windows.Forms.TextBox();
+            this.txtNeto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnBuscarDoc = new System.Windows.Forms.Button();
             this.GBPago.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,6 +116,7 @@
             this.cboConcepto.Name = "cboConcepto";
             this.cboConcepto.Size = new System.Drawing.Size(160, 21);
             this.cboConcepto.TabIndex = 1;
+            this.cboConcepto.SelectedIndexChanged += new System.EventHandler(this.cboConcepto_SelectedIndexChanged);
             // 
             // label26
             // 
@@ -386,11 +392,80 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // txtImpuesto
+            // 
+            this.txtImpuesto.BackColor = System.Drawing.Color.White;
+            this.txtImpuesto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtImpuesto.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImpuesto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtImpuesto.Location = new System.Drawing.Point(12, 212);
+            this.txtImpuesto.Name = "txtImpuesto";
+            this.txtImpuesto.Size = new System.Drawing.Size(83, 21);
+            this.txtImpuesto.TabIndex = 153;
+            this.txtImpuesto.Text = "0.00";
+            this.txtImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtNeto
+            // 
+            this.txtNeto.BackColor = System.Drawing.Color.White;
+            this.txtNeto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNeto.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNeto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNeto.Location = new System.Drawing.Point(12, 174);
+            this.txtNeto.Name = "txtNeto";
+            this.txtNeto.Size = new System.Drawing.Size(83, 21);
+            this.txtNeto.TabIndex = 152;
+            this.txtNeto.Text = "0.00";
+            this.txtNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(9, 196);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 150;
+            this.label1.Text = "IMPUESTO";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(9, 158);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 151;
+            this.label2.Text = "NETO";
+            // 
+            // BtnBuscarDoc
+            // 
+            this.BtnBuscarDoc.BackColor = System.Drawing.Color.White;
+            this.BtnBuscarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscarDoc.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscarDoc.ForeColor = System.Drawing.Color.Navy;
+            this.BtnBuscarDoc.Image = global::GUI_Tesoreria.Properties.Resources.buscar;
+            this.BtnBuscarDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBuscarDoc.Location = new System.Drawing.Point(101, 162);
+            this.BtnBuscarDoc.Name = "BtnBuscarDoc";
+            this.BtnBuscarDoc.Size = new System.Drawing.Size(121, 46);
+            this.BtnBuscarDoc.TabIndex = 155;
+            this.BtnBuscarDoc.Text = "&Buscar documento";
+            this.BtnBuscarDoc.UseVisualStyleBackColor = false;
+            this.BtnBuscarDoc.Click += new System.EventHandler(this.BtnBuscarDoc_Click);
+            // 
             // frmEdicionVouchers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 239);
+            this.Controls.Add(this.BtnBuscarDoc);
+            this.Controls.Add(this.txtImpuesto);
+            this.Controls.Add(this.txtNeto);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.GBPago);
@@ -405,6 +480,7 @@
             this.GBPago.ResumeLayout(false);
             this.GBPago.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -434,5 +510,10 @@
         internal System.Windows.Forms.Label label30;
         internal System.Windows.Forms.Button btnGuardar;
         internal System.Windows.Forms.Button btnSalir;
+        internal System.Windows.Forms.TextBox txtImpuesto;
+        internal System.Windows.Forms.TextBox txtNeto;
+        internal System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Label label2;
+        internal System.Windows.Forms.Button BtnBuscarDoc;
     }
 }

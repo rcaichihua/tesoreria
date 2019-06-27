@@ -12,6 +12,8 @@ namespace GUI_Tesoreria.caja
 {
     public partial class frmModificacionModalidadPago : DevComponents.DotNetBar.Metro.MetroForm//Form
     {
+        public DateTime _FechaEmision { get; set; }
+        public DateTime _FechaCancelacion { get; set; }
         public decimal Vventa_doc { get; set; }
         public decimal Igv_doc { get; set; }
         public decimal Total_doc { get; set; }
@@ -376,6 +378,8 @@ namespace GUI_Tesoreria.caja
 
         private void frmModificacionModalidadPago_Load(object sender, EventArgs e)
         {
+            dtpFechaCancelacion.Value = _FechaCancelacion;
+            dtpFechaEmision.Value = _FechaEmision;
             cargarModalidadPago();
             cargarConcepto();
             cargarEntidadFinanciera();
@@ -608,6 +612,24 @@ namespace GUI_Tesoreria.caja
 
         private void BtnGrabarC_Click(object sender, EventArgs e)
         {
+            if (cboModalidadPago.SelectedIndex==0)
+            {
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de modificar la fecha de CANCELACION.", VariablesMetodosEstaticos.encabezado,
+                             MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+                {
+                    cn.EjecutarUD("update tb_ReciboCabecera set fechaCancelacion='" +
+                    dtpFechaCancelacion.Value.ToString("dd/MM/yyyy") + "' where ReciboID =" + ReciboId + "");
+
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Se modifico la fecha de cancelación correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
             if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de guardar? Una vez guardado no podra modificarlo.", VariablesMetodosEstaticos.encabezado,
                              MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {

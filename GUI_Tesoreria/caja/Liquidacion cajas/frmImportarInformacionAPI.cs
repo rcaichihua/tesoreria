@@ -88,25 +88,6 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void EjecutaBusqueda()
         {
-            //tbapi = new DataTable();
-
-            //tbapi.Columns.Add("cod_inmb", typeof(string));
-            //tbapi.Columns.Add("num_contr", typeof(string));
-            //tbapi.Columns.Add("aa", typeof(string));
-            //tbapi.Columns.Add("mm", typeof(string));
-            //tbapi.Columns.Add("tip_docu", typeof(string));
-            //tbapi.Columns.Add("nro_docu", typeof(string));
-            //tbapi.Columns.Add("fch_pago", typeof(string));
-            //tbapi.Columns.Add("tip_movi", typeof(string));
-            //tbapi.Columns.Add("tip_pago", typeof(string));
-            //tbapi.Columns.Add("id_cta", typeof(int));
-            //tbapi.Columns.Add("codigo", typeof(string));
-            //tbapi.Columns.Add("codigor", typeof(string));
-            //tbapi.Columns.Add("monto", typeof(string));
-            //tbapi.Columns.Add("fdepo", typeof(string));
-            //tbapi.Columns.Add("flag", typeof(string));
-            //tbapi.Columns.Add("donume", typeof(string));
-
             filtroCuenta();
         }
 
@@ -369,6 +350,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                                 "' and estado = 1 and intProId = 3)");
 
                     EjecutaBusqueda();
+                    SumaTotales();
                 }
                 else
                 {
@@ -461,7 +443,12 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             dgvListado.DataSource = cn.TraerDataset("USP_LLENA_LIQUIDACION_INMOBILIARIA", 
                 dtpFechaLiquidacion.Value.ToString("yyyyMMdd")).Tables[0];
-            if (dgvListado.Rows.Count>0)
+            SumaTotales();
+        }
+
+        private void SumaTotales()
+        {
+            if (dgvListado.Rows.Count > 0)
             {
                 decimal renta, igv, mora, montosoles;
                 renta = 0.00m;
@@ -478,8 +465,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 txtMora.Text = mora.ToString("###,###,###,##0.00");
                 txtRenta.Text = renta.ToString("###,###,###,##0.00");
                 txtIgv.Text = igv.ToString("###,###,###,##0.00");
-                txtMontoSoles.Text = montosoles.ToString("###,###,###,##0.00");
-            }          
+                txtMontoSoles.Text = (montosoles+ mora).ToString("###,###,###,##0.00");
+            }
         }
 
         private void btnGeneraCodigoContable_Click(object sender, EventArgs e)

@@ -195,7 +195,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnReciboIngreso_Click(object sender, EventArgs e)
         {
-            int indiceRecibo = 0;
+            //int indiceRecibo = 0;
 
             DataSet dtsRecibo = new DataSet();
             frmReporte winReport = new frmReporte();

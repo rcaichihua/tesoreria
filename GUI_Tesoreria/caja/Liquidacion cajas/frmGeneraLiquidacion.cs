@@ -363,7 +363,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                             frmListadoDepositosLiquidacion frmDetalle = new frmListadoDepositosLiquidacion
                             {
                                 dtListadoVouchers = dtResultadoBusqueda,
-                                TipoCaja = caja
+                                TipoCaja = caja,
+                                _Anio = mtbFechaLiquidacion.Text.Substring(6, 4),
+                                _Mes = mtbFechaLiquidacion.Text.Substring(3, 2),
+                                _FechaLiq = Convert.ToDateTime(mtbFechaLiquidacion.Text),
+                                _Fuente = Convert.ToInt16(cboFuenteIngreso.SelectedValue).ToString("00")
                             };
                             //verifica si el voucher seleccionado ya se encuentra en una liquidación para que
                             //no se pueda modificar.
@@ -550,7 +554,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         frmListadoDepositosLiquidacion frmDetalle = new frmListadoDepositosLiquidacion
                         {
                             dtListadoVouchers = dtResultadoBusqueda,
-                            TipoCaja = caja
+                            TipoCaja = caja,
+                            _Anio = mtbFechaLiquidacion.Text.Substring(6, 4),
+                            _Mes = mtbFechaLiquidacion.Text.Substring(3, 2),
+                            _FechaLiq = Convert.ToDateTime(mtbFechaLiquidacion.Text),
+                            _Fuente = Convert.ToInt16(cboFuenteIngreso.SelectedValue).ToString("00")
                         };
                         frmDetalle.Existe = Convert.ToBoolean(cn.TraerDataset("usp_BuscaLiquidacion", Convert.ToInt32(lblNro.Text),
                             cboFuenteIngreso.SelectedValue, Convert.ToDateTime(mtbFechaLiquidacion.Text).ToString("yyyyMMdd"),

@@ -69,6 +69,19 @@ namespace GUI_Tesoreria.Deposito
 
                     this.dgvDiarioCabeceraDet.DataSource = cn.TraerDataset("usp_paDiario_Det_Edit",
                     this.dgvDiarioCabecera.Rows[index].Cells[6].Value).Tables[0];
+
+                    decimal debe, haber;
+                    debe = 0.00m;
+                    haber = 0.00m;
+
+                    foreach (DataGridViewRow item in dgvDiarioCabeceraDet.Rows)
+                    {
+                        debe = debe + Convert.ToDecimal(item.Cells["DEBE"].Value);
+                        haber = haber + Convert.ToDecimal(item.Cells["HABER"].Value);
+                    }
+
+                    txtdebe.Text = debe.ToString("###,###,##0.00");
+                    txthaber.Text = haber.ToString("###,###,##0.00");
                 }
                 else
                 {
@@ -77,8 +90,10 @@ namespace GUI_Tesoreria.Deposito
                     dtpFechaComprobante.Value = DateTime.Now;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado,
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -139,6 +154,28 @@ namespace GUI_Tesoreria.Deposito
             dtpFechaComprobante.Enabled = bo;
             dgvDiarioCabecera.Enabled = !bo;
             btnVer.Enabled = !bo;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int index;
+            index = 0;
+            if (dgvDiarioCabeceraDet.CurrentRow!=null)
+            {
+                index = this.dgvDiarioCabeceraDet.CurrentRow.Index;
+
+                Deposito.frmEditarDiarioDetalle win = new Deposito.frmEditarDiarioDetalle();
+                win.IdDetDiario = Convert.ToInt32(dgvDiarioCabeceraDet.Rows[index].Cells["REG_ID_"].Value);
+                win.Debe_= Convert.ToDecimal(dgvDiarioCabeceraDet.Rows[index].Cells["DEBE"].Value);
+                win.Haber_ = Convert.ToDecimal(dgvDiarioCabeceraDet.Rows[index].Cells["HABER"].Value);
+                win.Glosa_ = dgvDiarioCabeceraDet.Rows[index].Cells["GLOSA_"].Value.ToString();
+                win.Cuenta_ = dgvDiarioCabeceraDet.Rows[index].Cells["PLCODI"].Value.ToString();
+                win.ShowDialog();
+                if (win._Save)
+                {
+                    DiarioDetalle();
+                }
+            }
         }
     }
 }
