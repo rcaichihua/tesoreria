@@ -199,6 +199,23 @@ namespace GUI_Tesoreria.mantenimiento
                 }
                 else if (accion == "U")
                 {
+                    //if (cn.EjecutarSqlDTS("select id_cuenta_contable from rubro where chaRuCodigo="+ 
+                    //    dgvRubros.Rows[indice].Cells[0].Value + "").Tables[0].Rows[0][0].ToString()!= cboCtaContable.SelectedValue.ToString())
+                    //{
+                    //    DevComponents.DotNetBar.MessageBoxEx.Show("Se ha detectado que usted esta cambiando de cuenta contable al rubro "+ 
+                    //        dgvRubros.Rows[indice].Cells[0].Value + "." +Environment.NewLine+ "Desea actualizar esta nueva cuenta contable a los recibos emitos " +Environment.NewLine+ 
+                    //        "con fecha anterior a la de hoy o desde hoy hacia delante.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    //    if ((DevComponents.DotNetBar.MessageBoxEx.Show("Se ha detectado que usted esta cambiando de cuenta contable al rubro " +
+                    //        dgvRubros.Rows[indice].Cells[0].Value + "." + Environment.NewLine + "Desea actualizar esta nueva cuenta contable a todos los recibos emitos [SI]" + Environment.NewLine +
+                    //        "o a los recibos emitidos a partir de hoy hacia delante[NO].", VariablesMetodosEstaticos.encabezado,
+                    //          MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) ==
+                    //          DialogResult.Yes))
+                    //    {
+                    //        cn.EjecutarSqlDTS("update tb_ReciboDetalle set idCuentaContanble="+ cboCtaContable.SelectedValue + 
+                    //            " where idRubro="+ dgvRubros.Rows[indice].Cells[0].Value + "");
+                    //    }
+                    //}
                     cn.EjecutarSP("usp_mantenimiento_rubro", dgvRubros.Rows[indice].Cells[0].Value, txtDescripcion.Text.Trim(), chkExonerado.Checked ? null : cboCtaContable.Text, "",
                             txtClasificador.Text.Trim(), chkActivo.Checked, cboPrograma.SelectedValue, VariablesMetodosEstaticos.varNombreUser, accion
                             , chkExonerado.Checked ? DBNull.Value : cboCtaContable.SelectedValue);

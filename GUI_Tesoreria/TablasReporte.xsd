@@ -482,6 +482,19 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="reporteingresos" msprop:Generator_TableClassName="reporteingresosDataTable" msprop:Generator_TableVarName="tablereporteingresos" msprop:Generator_RowChangedName="reporteingresosRowChanged" msprop:Generator_TablePropName="reporteingresos" msprop:Generator_RowDeletingName="reporteingresosRowDeleting" msprop:Generator_RowChangingName="reporteingresosRowChanging" msprop:Generator_RowEvHandlerName="reporteingresosRowChangeEventHandler" msprop:Generator_RowDeletedName="reporteingresosRowDeleted" msprop:Generator_RowClassName="reporteingresosRow" msprop:Generator_UserTableName="reporteingresos" msprop:Generator_RowEvArgName="reporteingresosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Doc" msprop:Generator_ColumnVarNameInTable="columnDoc" msprop:Generator_ColumnPropNameInRow="Doc" msprop:Generator_ColumnPropNameInTable="DocColumn" msprop:Generator_UserColumnName="Doc" type="xs:string" minOccurs="0" />
+              <xs:element name="NumDoc" msprop:Generator_ColumnVarNameInTable="columnNumDoc" msprop:Generator_ColumnPropNameInRow="NumDoc" msprop:Generator_ColumnPropNameInTable="NumDocColumn" msprop:Generator_UserColumnName="NumDoc" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha_cancelacion" msprop:Generator_ColumnVarNameInTable="columnFecha_cancelacion" msprop:Generator_ColumnPropNameInRow="Fecha_cancelacion" msprop:Generator_ColumnPropNameInTable="Fecha_cancelacionColumn" msprop:Generator_UserColumnName="Fecha_cancelacion" type="xs:string" minOccurs="0" />
+              <xs:element name="idRubro" msprop:Generator_ColumnVarNameInTable="columnidRubro" msprop:Generator_ColumnPropNameInRow="idRubro" msprop:Generator_ColumnPropNameInTable="idRubroColumn" msprop:Generator_UserColumnName="idRubro" type="xs:short" minOccurs="0" />
+              <xs:element name="Desc_Rubro" msprop:Generator_ColumnVarNameInTable="columnDesc_Rubro" msprop:Generator_ColumnPropNameInRow="Desc_Rubro" msprop:Generator_ColumnPropNameInTable="Desc_RubroColumn" msprop:Generator_UserColumnName="Desc_Rubro" type="xs:string" minOccurs="0" />
+              <xs:element name="CodigoCuenta" msprop:Generator_ColumnVarNameInTable="columnCodigoCuenta" msprop:Generator_ColumnPropNameInRow="CodigoCuenta" msprop:Generator_ColumnPropNameInTable="CodigoCuentaColumn" msprop:Generator_UserColumnName="CodigoCuenta" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

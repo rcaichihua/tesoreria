@@ -94,6 +94,13 @@ namespace GUI_Tesoreria.caja
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(cboModalidadPago.SelectedValue)==1 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 11 ||
+                Convert.ToInt32(cboModalidadPago.SelectedValue) == 19 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 20)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago ingresa no esta permitida.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                return;
+            }
             if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de agregar una nueva modalidad de pago?", VariablesMetodosEstaticos.encabezado,
                              MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {

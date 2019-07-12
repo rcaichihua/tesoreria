@@ -90,6 +90,12 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             cargarModalidadPago();
             BuscaSaldoLiquidacion();
             txtGlosa.Text = Glosa;
+            if (Convert.ToDecimal(txtSaldoC.Text)==Convert.ToDecimal(cn.TraerDataset("usp_obtiene_importe_garantia", FechaLiquidacion).Tables[0].Rows[0][0].ToString()))
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Ya no se pueden generar mas recibos de caja, el saldo pendiente fue ya ingresa por garantia.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+            }
             //varGlobales.habilitarCampos(this, false);
         }
 

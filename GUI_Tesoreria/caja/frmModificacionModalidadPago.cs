@@ -612,6 +612,20 @@ namespace GUI_Tesoreria.caja
 
         private void BtnGrabarC_Click(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 1 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 11 ||
+                Convert.ToInt32(cboModalidadPago.SelectedValue) == 19 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 20)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago ingresa no esta permitida.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ValidarCampos(true))
+            {
+                return;
+            }
+            else { errorProvider1.Clear(); }
+
             if (cboModalidadPago.SelectedIndex==0)
             {
                 if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de modificar la fecha de CANCELACION.", VariablesMetodosEstaticos.encabezado,
@@ -657,7 +671,8 @@ namespace GUI_Tesoreria.caja
                 for (int i = modalidadesPago.Rows.Count - 1; i >= 0; i--)
                 {
                     DataRow dr = modalidadesPago.Rows[i];
-                    if (dr["cod_mod_pago"].ToString() == (cboModalidadPago.SelectedValue).ToString() && dr["concep_cod"].ToString() == (cboConcepto.SelectedValue).ToString() &&
+                    if (dr["cod_mod_pago"].ToString() == (cboModalidadPago.SelectedValue).ToString() && 
+                        dr["concep_cod"].ToString() == (cboConcepto.SelectedValue).ToString() &&
                         Convert.ToDecimal(dr["importe_voucher_pago"]) == Convert.ToDecimal(txtImportePago.Text) &&
                         Convert.ToDateTime(dr["FechaDeposito"]).ToShortDateString() == dtpFechaPago.Value.ToShortDateString())
                         dr.Delete();

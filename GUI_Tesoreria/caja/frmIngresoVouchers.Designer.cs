@@ -62,20 +62,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDepositos = new System.Windows.Forms.DataGridView();
-            this.idIngresosEfectivoDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc_mod_Pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_entidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero_cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importe_voucher_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importe_cambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroDocumento_Voucher_cheque_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRecibo_ReciboCabecera = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantDocumentos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteEfectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asignado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpFechaDepoFiltroDesde = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -100,6 +86,20 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.idIngresosEfectivoDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc_mod_Pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_entidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero_cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe_voucher_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe_cambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroDocumento_Voucher_cheque_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRecibo_ReciboCabecera = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantDocumentos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteEfectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asignado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GBPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepositos)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -505,128 +505,6 @@
             this.dgvDepositos.TabIndex = 1;
             this.dgvDepositos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDepositos_CellFormatting);
             // 
-            // idIngresosEfectivoDeposito
-            // 
-            this.idIngresosEfectivoDeposito.DataPropertyName = "idIngresosEfectivoDeposito";
-            this.idIngresosEfectivoDeposito.HeaderText = "ID";
-            this.idIngresosEfectivoDeposito.Name = "idIngresosEfectivoDeposito";
-            this.idIngresosEfectivoDeposito.ReadOnly = true;
-            this.idIngresosEfectivoDeposito.Visible = false;
-            // 
-            // FechaDeposito
-            // 
-            this.FechaDeposito.DataPropertyName = "FechaDeposito";
-            this.FechaDeposito.HeaderText = "Fecha Deposito";
-            this.FechaDeposito.Name = "FechaDeposito";
-            this.FechaDeposito.ReadOnly = true;
-            this.FechaDeposito.Width = 80;
-            // 
-            // desc_mod_Pago
-            // 
-            this.desc_mod_Pago.DataPropertyName = "desc_mod_Pago";
-            this.desc_mod_Pago.HeaderText = "Mod Pago";
-            this.desc_mod_Pago.Name = "desc_mod_Pago";
-            this.desc_mod_Pago.ReadOnly = true;
-            // 
-            // nombre_entidad
-            // 
-            this.nombre_entidad.DataPropertyName = "nombre_entidad";
-            this.nombre_entidad.HeaderText = "Banco";
-            this.nombre_entidad.Name = "nombre_entidad";
-            this.nombre_entidad.ReadOnly = true;
-            this.nombre_entidad.Width = 90;
-            // 
-            // numero_cuenta
-            // 
-            this.numero_cuenta.DataPropertyName = "numero_cuenta";
-            this.numero_cuenta.HeaderText = "Nro Cuenta";
-            this.numero_cuenta.Name = "numero_cuenta";
-            this.numero_cuenta.ReadOnly = true;
-            // 
-            // moneda
-            // 
-            this.moneda.DataPropertyName = "moneda";
-            this.moneda.HeaderText = "Mon";
-            this.moneda.Name = "moneda";
-            this.moneda.ReadOnly = true;
-            this.moneda.Width = 40;
-            // 
-            // importe_voucher_pago
-            // 
-            this.importe_voucher_pago.DataPropertyName = "importe_voucher_pago";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.importe_voucher_pago.DefaultCellStyle = dataGridViewCellStyle1;
-            this.importe_voucher_pago.HeaderText = "Imp. Vouch. Dep.";
-            this.importe_voucher_pago.Name = "importe_voucher_pago";
-            this.importe_voucher_pago.ReadOnly = true;
-            this.importe_voucher_pago.Width = 70;
-            // 
-            // TipoCambio
-            // 
-            this.TipoCambio.DataPropertyName = "TipoCambio";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.TipoCambio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.TipoCambio.HeaderText = "T. Cambio";
-            this.TipoCambio.Name = "TipoCambio";
-            this.TipoCambio.ReadOnly = true;
-            this.TipoCambio.Width = 60;
-            // 
-            // importe_cambio
-            // 
-            this.importe_cambio.DataPropertyName = "importe_cambio";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.importe_cambio.DefaultCellStyle = dataGridViewCellStyle3;
-            this.importe_cambio.HeaderText = "Total Cambio";
-            this.importe_cambio.Name = "importe_cambio";
-            this.importe_cambio.ReadOnly = true;
-            this.importe_cambio.Width = 70;
-            // 
-            // NumeroDocumento_Voucher_cheque_pago
-            // 
-            this.NumeroDocumento_Voucher_cheque_pago.DataPropertyName = "NumeroDocumento_Voucher_cheque_pago";
-            this.NumeroDocumento_Voucher_cheque_pago.HeaderText = "Nro Voucher / Cheque";
-            this.NumeroDocumento_Voucher_cheque_pago.Name = "NumeroDocumento_Voucher_cheque_pago";
-            this.NumeroDocumento_Voucher_cheque_pago.ReadOnly = true;
-            // 
-            // FechaRecibo_ReciboCabecera
-            // 
-            this.FechaRecibo_ReciboCabecera.DataPropertyName = "FechaRecibo_ReciboCabecera";
-            this.FechaRecibo_ReciboCabecera.HeaderText = "Fecha Documento";
-            this.FechaRecibo_ReciboCabecera.Name = "FechaRecibo_ReciboCabecera";
-            this.FechaRecibo_ReciboCabecera.ReadOnly = true;
-            this.FechaRecibo_ReciboCabecera.Width = 80;
-            // 
-            // CantDocumentos
-            // 
-            this.CantDocumentos.DataPropertyName = "CantDocumentos";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CantDocumentos.DefaultCellStyle = dataGridViewCellStyle4;
-            this.CantDocumentos.HeaderText = "Cant. Doc.";
-            this.CantDocumentos.Name = "CantDocumentos";
-            this.CantDocumentos.ReadOnly = true;
-            this.CantDocumentos.Width = 40;
-            // 
-            // ImporteEfectivo
-            // 
-            this.ImporteEfectivo.DataPropertyName = "ImporteEfectivo";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.ImporteEfectivo.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ImporteEfectivo.HeaderText = "Monto Cobrado";
-            this.ImporteEfectivo.Name = "ImporteEfectivo";
-            this.ImporteEfectivo.ReadOnly = true;
-            this.ImporteEfectivo.Width = 70;
-            // 
-            // asignado
-            // 
-            this.asignado.DataPropertyName = "asignado";
-            this.asignado.HeaderText = "asignado";
-            this.asignado.Name = "asignado";
-            this.asignado.ReadOnly = true;
-            // 
             // dtpFechaDepoFiltroDesde
             // 
             this.dtpFechaDepoFiltroDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -982,6 +860,128 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Filtro de vouchers por fecha de Documentos origen";
             // 
+            // idIngresosEfectivoDeposito
+            // 
+            this.idIngresosEfectivoDeposito.DataPropertyName = "idIngresosEfectivoDeposito";
+            this.idIngresosEfectivoDeposito.HeaderText = "ID";
+            this.idIngresosEfectivoDeposito.Name = "idIngresosEfectivoDeposito";
+            this.idIngresosEfectivoDeposito.ReadOnly = true;
+            this.idIngresosEfectivoDeposito.Visible = false;
+            // 
+            // FechaDeposito
+            // 
+            this.FechaDeposito.DataPropertyName = "FechaDeposito";
+            this.FechaDeposito.HeaderText = "Fecha Deposito";
+            this.FechaDeposito.Name = "FechaDeposito";
+            this.FechaDeposito.ReadOnly = true;
+            this.FechaDeposito.Width = 80;
+            // 
+            // desc_mod_Pago
+            // 
+            this.desc_mod_Pago.DataPropertyName = "desc_mod_Pago";
+            this.desc_mod_Pago.HeaderText = "Mod Pago";
+            this.desc_mod_Pago.Name = "desc_mod_Pago";
+            this.desc_mod_Pago.ReadOnly = true;
+            // 
+            // nombre_entidad
+            // 
+            this.nombre_entidad.DataPropertyName = "nombre_entidad";
+            this.nombre_entidad.HeaderText = "Banco";
+            this.nombre_entidad.Name = "nombre_entidad";
+            this.nombre_entidad.ReadOnly = true;
+            this.nombre_entidad.Width = 90;
+            // 
+            // numero_cuenta
+            // 
+            this.numero_cuenta.DataPropertyName = "numero_cuenta";
+            this.numero_cuenta.HeaderText = "Nro Cuenta";
+            this.numero_cuenta.Name = "numero_cuenta";
+            this.numero_cuenta.ReadOnly = true;
+            // 
+            // moneda
+            // 
+            this.moneda.DataPropertyName = "moneda";
+            this.moneda.HeaderText = "Mon";
+            this.moneda.Name = "moneda";
+            this.moneda.ReadOnly = true;
+            this.moneda.Width = 40;
+            // 
+            // importe_voucher_pago
+            // 
+            this.importe_voucher_pago.DataPropertyName = "importe_voucher_pago";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle1.Format = "N2";
+            this.importe_voucher_pago.DefaultCellStyle = dataGridViewCellStyle1;
+            this.importe_voucher_pago.HeaderText = "Imp. Vouch. Dep.";
+            this.importe_voucher_pago.Name = "importe_voucher_pago";
+            this.importe_voucher_pago.ReadOnly = true;
+            this.importe_voucher_pago.Width = 70;
+            // 
+            // TipoCambio
+            // 
+            this.TipoCambio.DataPropertyName = "TipoCambio";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle2.Format = "N3";
+            this.TipoCambio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.TipoCambio.HeaderText = "T. Cambio";
+            this.TipoCambio.Name = "TipoCambio";
+            this.TipoCambio.ReadOnly = true;
+            this.TipoCambio.Width = 60;
+            // 
+            // importe_cambio
+            // 
+            this.importe_cambio.DataPropertyName = "importe_cambio";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.importe_cambio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.importe_cambio.HeaderText = "Total Cambio";
+            this.importe_cambio.Name = "importe_cambio";
+            this.importe_cambio.ReadOnly = true;
+            this.importe_cambio.Width = 70;
+            // 
+            // NumeroDocumento_Voucher_cheque_pago
+            // 
+            this.NumeroDocumento_Voucher_cheque_pago.DataPropertyName = "NumeroDocumento_Voucher_cheque_pago";
+            this.NumeroDocumento_Voucher_cheque_pago.HeaderText = "Nro Voucher / Cheque";
+            this.NumeroDocumento_Voucher_cheque_pago.Name = "NumeroDocumento_Voucher_cheque_pago";
+            this.NumeroDocumento_Voucher_cheque_pago.ReadOnly = true;
+            // 
+            // FechaRecibo_ReciboCabecera
+            // 
+            this.FechaRecibo_ReciboCabecera.DataPropertyName = "FechaRecibo_ReciboCabecera";
+            this.FechaRecibo_ReciboCabecera.HeaderText = "Fecha Documento";
+            this.FechaRecibo_ReciboCabecera.Name = "FechaRecibo_ReciboCabecera";
+            this.FechaRecibo_ReciboCabecera.ReadOnly = true;
+            this.FechaRecibo_ReciboCabecera.Width = 80;
+            // 
+            // CantDocumentos
+            // 
+            this.CantDocumentos.DataPropertyName = "CantDocumentos";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CantDocumentos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CantDocumentos.HeaderText = "Cant. Doc.";
+            this.CantDocumentos.Name = "CantDocumentos";
+            this.CantDocumentos.ReadOnly = true;
+            this.CantDocumentos.Width = 40;
+            // 
+            // ImporteEfectivo
+            // 
+            this.ImporteEfectivo.DataPropertyName = "ImporteEfectivo";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.ImporteEfectivo.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ImporteEfectivo.HeaderText = "Monto Cobrado";
+            this.ImporteEfectivo.Name = "ImporteEfectivo";
+            this.ImporteEfectivo.ReadOnly = true;
+            this.ImporteEfectivo.Width = 70;
+            // 
+            // asignado
+            // 
+            this.asignado.DataPropertyName = "asignado";
+            this.asignado.HeaderText = "asignado";
+            this.asignado.Name = "asignado";
+            this.asignado.ReadOnly = true;
+            // 
             // frmIngresoVouchers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1065,6 +1065,9 @@
         internal System.Windows.Forms.Label label15;
         internal System.Windows.Forms.Button button2;
         internal System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        internal System.Windows.Forms.TextBox txtTotalVoucher;
+        internal System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn idIngresosEfectivoDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn desc_mod_Pago;
@@ -1079,8 +1082,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CantDocumentos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteEfectivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn asignado;
-        private System.Windows.Forms.GroupBox groupBox4;
-        internal System.Windows.Forms.TextBox txtTotalVoucher;
-        internal System.Windows.Forms.Label label7;
     }
 }

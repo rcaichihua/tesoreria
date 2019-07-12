@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -249,6 +249,12 @@
     </Compile>
     <Compile Include="caja\frmImpresionRecibos.Designer.cs">
       <DependentUpon>frmImpresionRecibos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\frmIngresosporRubroCta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmIngresosporRubroCta.Designer.cs">
+      <DependentUpon>frmIngresosporRubroCta.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\frmIngresoVouchers.cs">
       <SubType>Form</SubType>
@@ -518,6 +524,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptReporteDiarioDetalladoCanevaro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\Reportes\rptReporteIngresos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReporteIngresos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\Reportes\rptSubInforme_ResumenIngresoDiarioCanevaro.cs">
@@ -1269,6 +1281,9 @@
     <EmbeddedResource Include="caja\frmImpresionRecibos.resx">
       <DependentUpon>frmImpresionRecibos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\frmIngresosporRubroCta.resx">
+      <DependentUpon>frmIngresosporRubroCta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\frmIngresoVouchers.resx">
       <DependentUpon>frmIngresoVouchers.cs</DependentUpon>
     </EmbeddedResource>
@@ -1424,6 +1439,10 @@
     <EmbeddedResource Include="caja\Reportes\rptReporteDiarioDetalladoCanevaro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReporteDiarioDetalladoCanevaro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptReporteIngresos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteIngresos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptSubInforme_ResumenIngresoDiarioCanevaro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1909,6 +1928,7 @@
     <Content Include="FONDO\Sin título-1.png" />
     <Content Include="icons8_Workflow.ico" />
     <Content Include="llave\DBSistemaIngresos.txt" />
+    <None Include="Resources\reaperturar.png" />
     <None Include="Resources\modificar.png" />
     <None Include="Resources\editar.png" />
     <None Include="Resources\actualiza_32x32.png" />

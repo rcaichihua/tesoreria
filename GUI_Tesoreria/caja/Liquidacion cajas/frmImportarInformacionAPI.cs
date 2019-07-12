@@ -98,7 +98,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             id_Liq = 0;
             num_Liq = 0;
 
-            dt = cn.EjecutarSqlDTS("select numeroLiquidacion,idLiquidacion from liquidacionCajaPrincipalCabecera where convert(varchar(8),fechaLiquidacion,112)='" +
+            dt = cn.EjecutarSqlDTS("select numeroLiquidacion,idLiquidacion from liquidacionCajaPrincipalCabecera " + 
+                "where convert(varchar(8),fechaLiquidacion,112)='" +
                dtpFechaLiquidacion.Value.ToString("yyyyMMdd") + "' and fechaCajaOrigen='" +
                dtpFechaCaja.Value.ToString("yyyyMMdd") + "' and estado=1 and intProId=3").Tables[0];
 
@@ -111,7 +112,9 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             num_Liq = Convert.ToInt32(dt.Rows[0][0]);//numero de liquidacion
             id_Liq = Convert.ToInt32(dt.Rows[0][1]);//id de liquidacion
 
-            string consultaFactura = @"exec USP_IMPORTA_LIQUIDACION '"+dtpFechaLiquidacion.Value.ToString("yyyyMMdd")+"',"+num_Liq+","+id_Liq+",'"+ VariablesMetodosEstaticos.varUsuario+"','"+ VariablesMetodosEstaticos.ip_user+"/"+ VariablesMetodosEstaticos.host_user + "'";
+            string consultaFactura = @"exec USP_IMPORTA_LIQUIDACION '"+dtpFechaLiquidacion.Value.ToString("yyyyMMdd")+"',"+
+                num_Liq+","+id_Liq+",'"+ VariablesMetodosEstaticos.varUsuario+"','"+ VariablesMetodosEstaticos.ip_user+
+                "/"+ VariablesMetodosEstaticos.host_user + "'";
 
             filtroGenericoConsulta(consultaFactura);
         }

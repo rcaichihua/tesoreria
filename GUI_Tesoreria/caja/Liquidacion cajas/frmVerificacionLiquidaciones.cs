@@ -216,5 +216,54 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             winReport.WindowState = FormWindowState.Maximized;
             winReport.ShowDialog();
         }
+
+        private void cboPrograma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnBuscar_Click(sender, e);
+        }
+
+        private void btnRecalcular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(cboPrograma.SelectedValue)==3)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Para Inmobiliaria no se puede realizar la actualziación de cuentas.", VariablesMetodosEstaticos.encabezado,
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                DataTable resuActuCtas = new DataTable();
+
+                resuActuCtas = cn.TraerDataset("usp_verifica_Actualizacion_ctas", dtpFechaLiq.Value.ToString("yyyyMMdd"),
+                    cboPrograma.SelectedValue).Tables[0];
+
+                if (resuActuCtas.Rows.Count == 0)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datatos para actualizar.", VariablesMetodosEstaticos.encabezado,
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta Seguro actualizar las cuentas.?" +
+                    Environment.NewLine + "Se eliminaran las cuentas existentes.", VariablesMetodosEstaticos.encabezado,
+                              MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) ==
+                              DialogResult.Yes))
+                {
+                    cn.TraerDataset("usp_ActualizaCtaLiquidacion", dtpFechaLiq.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue,
+                        VariablesMetodosEstaticos.varNombreUser, VariablesMetodosEstaticos.ip_user + "/" +
+                        VariablesMetodosEstaticos.host_user);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado,
+                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    btnBuscar_Click(sender,e);                   
+                }
+            }
+            catch (Exception ex )
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado,
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
     }
 }

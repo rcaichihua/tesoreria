@@ -30,22 +30,22 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.cboCtaContable = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCodigo1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.cboMovimiento = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.cboElemento = new System.Windows.Forms.ComboBox();
             this.cboEstructura = new System.Windows.Forms.ComboBox();
+            this.cboCtaContable = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescripCodigo = new System.Windows.Forms.TextBox();
             this.txtCodigo2 = new System.Windows.Forms.TextBox();
+            this.txtCodigo1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtDescripCodigo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,63 +85,6 @@
             this.txtBuscar.TabIndex = 172;
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
-            // cboCtaContable
-            // 
-            this.cboCtaContable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCtaContable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCtaContable.FormattingEnabled = true;
-            this.cboCtaContable.Location = new System.Drawing.Point(135, 211);
-            this.cboCtaContable.Name = "cboCtaContable";
-            this.cboCtaContable.Size = new System.Drawing.Size(229, 23);
-            this.cboCtaContable.TabIndex = 170;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(73, 214);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 15);
-            this.label1.TabIndex = 171;
-            this.label1.Text = "Gestión";
-            // 
-            // txtCodigo1
-            // 
-            this.txtCodigo1.BackColor = System.Drawing.Color.White;
-            this.txtCodigo1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo1.ForeColor = System.Drawing.Color.Maroon;
-            this.txtCodigo1.Location = new System.Drawing.Point(135, 183);
-            this.txtCodigo1.Name = "txtCodigo1";
-            this.txtCodigo1.ReadOnly = true;
-            this.txtCodigo1.Size = new System.Drawing.Size(86, 22);
-            this.txtCodigo1.TabIndex = 171;
-            this.txtCodigo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCodigo1.TextChanged += new System.EventHandler(this.txtdebe_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(31, 187);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
-            this.label3.TabIndex = 169;
-            this.label3.Text = "Codigo Contable";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label5.Location = new System.Drawing.Point(48, 81);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 15);
-            this.label5.TabIndex = 171;
-            this.label5.Text = "Movimiento";
-            // 
             // cboMovimiento
             // 
             this.cboMovimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -152,17 +95,6 @@
             this.cboMovimiento.Size = new System.Drawing.Size(347, 23);
             this.cboMovimiento.TabIndex = 170;
             this.cboMovimiento.SelectedIndexChanged += new System.EventHandler(this.cboMovimiento_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label6.Location = new System.Drawing.Point(61, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 15);
-            this.label6.TabIndex = 171;
-            this.label6.Text = "Elemento";
             // 
             // cboElemento
             // 
@@ -186,6 +118,27 @@
             this.cboEstructura.TabIndex = 170;
             this.cboEstructura.SelectedIndexChanged += new System.EventHandler(this.cboEstructura_SelectedIndexChanged);
             // 
+            // cboCtaContable
+            // 
+            this.cboCtaContable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCtaContable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCtaContable.FormattingEnabled = true;
+            this.cboCtaContable.Location = new System.Drawing.Point(135, 211);
+            this.cboCtaContable.Name = "cboCtaContable";
+            this.cboCtaContable.Size = new System.Drawing.Size(229, 23);
+            this.cboCtaContable.TabIndex = 170;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label5.Location = new System.Drawing.Point(48, 81);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 15);
+            this.label5.TabIndex = 171;
+            this.label5.Text = "Movimiento";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -197,16 +150,51 @@
             this.label8.TabIndex = 171;
             this.label8.Text = "Estrucutura";
             // 
-            // label9
+            // label6
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(227, 192);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(10, 13);
-            this.label9.TabIndex = 169;
-            this.label9.Text = ".";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label6.Location = new System.Drawing.Point(61, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 15);
+            this.label6.TabIndex = 171;
+            this.label6.Text = "Elemento";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label2.Location = new System.Drawing.Point(24, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 15);
+            this.label2.TabIndex = 171;
+            this.label2.Text = "Descrip Codigo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.Location = new System.Drawing.Point(73, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 15);
+            this.label1.TabIndex = 171;
+            this.label1.Text = "Gestión";
+            // 
+            // txtDescripCodigo
+            // 
+            this.txtDescripCodigo.BackColor = System.Drawing.Color.White;
+            this.txtDescripCodigo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripCodigo.ForeColor = System.Drawing.Color.Maroon;
+            this.txtDescripCodigo.Location = new System.Drawing.Point(135, 107);
+            this.txtDescripCodigo.Multiline = true;
+            this.txtDescripCodigo.Name = "txtDescripCodigo";
+            this.txtDescripCodigo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescripCodigo.Size = new System.Drawing.Size(347, 70);
+            this.txtDescripCodigo.TabIndex = 171;
+            this.txtDescripCodigo.TextChanged += new System.EventHandler(this.txtdebe_TextChanged);
             // 
             // txtCodigo2
             // 
@@ -219,6 +207,42 @@
             this.txtCodigo2.Size = new System.Drawing.Size(239, 22);
             this.txtCodigo2.TabIndex = 171;
             this.txtCodigo2.TextChanged += new System.EventHandler(this.txtdebe_TextChanged);
+            // 
+            // txtCodigo1
+            // 
+            this.txtCodigo1.BackColor = System.Drawing.Color.White;
+            this.txtCodigo1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigo1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo1.ForeColor = System.Drawing.Color.Maroon;
+            this.txtCodigo1.Location = new System.Drawing.Point(135, 183);
+            this.txtCodigo1.Name = "txtCodigo1";
+            this.txtCodigo1.ReadOnly = true;
+            this.txtCodigo1.Size = new System.Drawing.Size(86, 22);
+            this.txtCodigo1.TabIndex = 171;
+            this.txtCodigo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCodigo1.TextChanged += new System.EventHandler(this.txtdebe_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Navy;
+            this.label9.Location = new System.Drawing.Point(227, 192);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(10, 13);
+            this.label9.TabIndex = 169;
+            this.label9.Text = ".";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(31, 187);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 169;
+            this.label3.Text = "Codigo Contable";
             // 
             // btnCancelar
             // 
@@ -253,31 +277,6 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // txtDescripCodigo
-            // 
-            this.txtDescripCodigo.BackColor = System.Drawing.Color.White;
-            this.txtDescripCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripCodigo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripCodigo.ForeColor = System.Drawing.Color.Maroon;
-            this.txtDescripCodigo.Location = new System.Drawing.Point(135, 107);
-            this.txtDescripCodigo.Multiline = true;
-            this.txtDescripCodigo.Name = "txtDescripCodigo";
-            this.txtDescripCodigo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripCodigo.Size = new System.Drawing.Size(347, 70);
-            this.txtDescripCodigo.TabIndex = 171;
-            this.txtDescripCodigo.TextChanged += new System.EventHandler(this.txtdebe_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(24, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 15);
-            this.label2.TabIndex = 171;
-            this.label2.Text = "Descrip Codigo";
             // 
             // frmMantContable
             // 

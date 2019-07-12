@@ -390,5 +390,13 @@ namespace GUI_Tesoreria.menus
             _frmEdicionCompDiario.MdiParent = this;
             _frmEdicionCompDiario.Show();
         }
+
+        private void reporteDeIngresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.frmIngresosporRubroCta _frmEdicionCompDiario = null;
+            _frmEdicionCompDiario = caja.frmIngresosporRubroCta.Instance();
+            _frmEdicionCompDiario.MdiParent = this;
+            _frmEdicionCompDiario.Show();
+        }
     }
 }

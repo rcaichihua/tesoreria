@@ -35,6 +35,12 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             DataTable dt = new DataTable();
             dt = cn.TraerDataset("usp_consulta_recibo_ingreso_por_programa",ProgramaId,FechaLiq.Substring(6,4)+ 
                 FechaLiq.Substring(3, 2)+ FechaLiq.Substring(0, 2)).Tables[0];
+            if (ProgramaId==1 && dt.Rows.Count==0)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Solo se ha registrado ingresos de comedores, seleccione un comedor y asigne Nro de pliego.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation);
+                return;
+            }
 
             txtGlosa.Text = "PARA CONTABILIZAR LOS INGRESOS SEGUN:";
             if (dt.Rows.Count>0)

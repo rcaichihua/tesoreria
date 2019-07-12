@@ -48,7 +48,6 @@
             this.txtTotalIngresoCaja = new System.Windows.Forms.TextBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.txtTotalDeposito = new System.Windows.Forms.TextBox();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.GBEstadoConvenio = new System.Windows.Forms.GroupBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
@@ -61,9 +60,11 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.GBOpciones = new System.Windows.Forms.GroupBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnCerrarLiquidacion = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnReAperturar = new System.Windows.Forms.Button();
+            this.btnCerrarLiquidacion = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoLiquidaciones)).BeginInit();
             this.GroupBox3.SuspendLayout();
@@ -259,23 +260,6 @@
             this.txtTotalDeposito.TabIndex = 86;
             this.txtTotalDeposito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.White;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
-            this.BtnBuscar.Image = global::GUI_Tesoreria.Properties.Resources.buscar;
-            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnBuscar.Location = new System.Drawing.Point(430, 55);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(78, 46);
-            this.BtnBuscar.TabIndex = 152;
-            this.BtnBuscar.Text = "&Buscar";
-            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
             // GBEstadoConvenio
             // 
             this.GBEstadoConvenio.BackColor = System.Drawing.Color.Transparent;
@@ -410,6 +394,7 @@
             // 
             this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
             this.GBOpciones.Controls.Add(this.btnCancelar);
+            this.GBOpciones.Controls.Add(this.btnReAperturar);
             this.GBOpciones.Controls.Add(this.btnCerrarLiquidacion);
             this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBOpciones.Location = new System.Drawing.Point(608, 111);
@@ -417,6 +402,38 @@
             this.GBOpciones.Size = new System.Drawing.Size(107, 394);
             this.GBOpciones.TabIndex = 149;
             this.GBOpciones.TabStop = false;
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTitulo.BackColor = System.Drawing.Color.White;
+            this.LblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblTitulo.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
+            this.LblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(703, 32);
+            this.LblTitulo.TabIndex = 147;
+            this.LblTitulo.Text = ":::   RESUMEN LIQUIDACIONES   :::\r\n";
+            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
+            this.BtnBuscar.Image = global::GUI_Tesoreria.Properties.Resources.buscar;
+            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnBuscar.Location = new System.Drawing.Point(430, 55);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(78, 46);
+            this.BtnBuscar.TabIndex = 152;
+            this.BtnBuscar.Text = "&Buscar";
+            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnCancelar
             // 
@@ -437,6 +454,25 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnReAperturar
+            // 
+            this.btnReAperturar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReAperturar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReAperturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReAperturar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReAperturar.ForeColor = System.Drawing.Color.Navy;
+            this.btnReAperturar.Image = global::GUI_Tesoreria.Properties.Resources.reaperturar;
+            this.btnReAperturar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReAperturar.Location = new System.Drawing.Point(8, 85);
+            this.btnReAperturar.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btnReAperturar.Name = "btnReAperturar";
+            this.btnReAperturar.Size = new System.Drawing.Size(90, 77);
+            this.btnReAperturar.TabIndex = 148;
+            this.btnReAperturar.Text = "&Re Aperturar Liquidación";
+            this.btnReAperturar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReAperturar.UseVisualStyleBackColor = false;
+            this.btnReAperturar.Click += new System.EventHandler(this.btnReAperturar_Click);
+            // 
             // btnCerrarLiquidacion
             // 
             this.btnCerrarLiquidacion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -455,21 +491,6 @@
             this.btnCerrarLiquidacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCerrarLiquidacion.UseVisualStyleBackColor = false;
             this.btnCerrarLiquidacion.Click += new System.EventHandler(this.btnCerrarLiquidacion_Click);
-            // 
-            // LblTitulo
-            // 
-            this.LblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblTitulo.BackColor = System.Drawing.Color.White;
-            this.LblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblTitulo.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
-            this.LblTitulo.Location = new System.Drawing.Point(12, 9);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(703, 32);
-            this.LblTitulo.TabIndex = 147;
-            this.LblTitulo.Text = ":::   RESUMEN LIQUIDACIONES   :::\r\n";
-            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmListaLiquidacionesCierre
             // 
@@ -534,5 +555,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn diferenciaDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalRecibo;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        internal System.Windows.Forms.Button btnReAperturar;
     }
 }

@@ -52,6 +52,12 @@ namespace GUI_Tesoreria
                 rpt.SetDataSource(dsDiario);
                 crvReportes.ReportSource = rpt;
             }
+            else if (TipoReporteLiquidacion == "REPINGRESOS")
+            {
+                caja.Reportes.rptReporteIngresos rpt = new caja.Reportes.rptReporteIngresos();
+                rpt.SetDataSource(dtR);
+                crvReportes.ReportSource = rpt;
+            }
         }
     }
 }

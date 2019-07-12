@@ -331,7 +331,8 @@ namespace GUI_Tesoreria.caja
                                     winReport.crvReportes.ReportSource = rptRecibo;
                                 }
                             }
-                            else if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa==6)
+                            else if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa==6 || 
+                                VariablesMetodosEstaticos.id_programa == 5)
                             {
                                 Reportes.rptReciboCajaCentral rptRecibo = new Reportes.rptReciboCajaCentral();
                                 rptRecibo.SetDataSource(dtsRecibo.Tables[0]);

@@ -62,6 +62,8 @@
             this.prepararComprobanteDiarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarComprobanteDiarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarComprobanteDeDiarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.reporteDeIngresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_2 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_2_1 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_2_2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -208,7 +210,9 @@
             this.toolStripMenuItem1,
             this.verificaciónDeLiquidacionesToolStripMenuItem,
             this.importarInformaciónAPIToolStripMenuItem,
-            this.depositosToolStripMenuItem});
+            this.depositosToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.reporteDeIngresosToolStripMenuItem});
             this.m_1.Name = "m_1";
             this.m_1.Size = new System.Drawing.Size(63, 20);
             this.m_1.Text = "Ingresos";
@@ -314,21 +318,21 @@
             // ingresoVouchersToolStripMenuItem
             // 
             this.ingresoVouchersToolStripMenuItem.Name = "ingresoVouchersToolStripMenuItem";
-            this.ingresoVouchersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ingresoVouchersToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.ingresoVouchersToolStripMenuItem.Text = "&Ingreso vouchers";
             this.ingresoVouchersToolStripMenuItem.Click += new System.EventHandler(this.ingresoVouchersToolStripMenuItem_Click);
             // 
             // listadoVouchersToolStripMenuItem
             // 
             this.listadoVouchersToolStripMenuItem.Name = "listadoVouchersToolStripMenuItem";
-            this.listadoVouchersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listadoVouchersToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.listadoVouchersToolStripMenuItem.Text = "&Listado Vouchers";
             this.listadoVouchersToolStripMenuItem.Click += new System.EventHandler(this.listadoVouchersToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
             // 
             // diariosToolStripMenuItem
             // 
@@ -337,7 +341,7 @@
             this.editarComprobanteDiarioToolStripMenuItem,
             this.listarComprobanteDeDiarioToolStripMenuItem});
             this.diariosToolStripMenuItem.Name = "diariosToolStripMenuItem";
-            this.diariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.diariosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.diariosToolStripMenuItem.Text = "&Diario";
             // 
             // prepararComprobanteDiarioToolStripMenuItem
@@ -360,6 +364,18 @@
             this.listarComprobanteDeDiarioToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.listarComprobanteDeDiarioToolStripMenuItem.Text = "&Listar comprobante de Diario";
             this.listarComprobanteDeDiarioToolStripMenuItem.Click += new System.EventHandler(this.listarComprobanteDeDiarioToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(270, 6);
+            // 
+            // reporteDeIngresosToolStripMenuItem
+            // 
+            this.reporteDeIngresosToolStripMenuItem.Name = "reporteDeIngresosToolStripMenuItem";
+            this.reporteDeIngresosToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.reporteDeIngresosToolStripMenuItem.Text = "&Reporte de Ingresos";
+            this.reporteDeIngresosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeIngresosToolStripMenuItem_Click);
             // 
             // m_2
             // 
@@ -659,5 +675,7 @@
         private System.Windows.Forms.ToolStripMenuItem prepararComprobanteDiarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarComprobanteDiarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarComprobanteDeDiarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeIngresosToolStripMenuItem;
     }
 }

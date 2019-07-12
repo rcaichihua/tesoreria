@@ -333,6 +333,16 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reaperturar {
+            get {
+                object obj = ResourceManager.GetObject("reaperturar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reciboscaja {
             get {
                 object obj = ResourceManager.GetObject("reciboscaja", resourceCulture);

@@ -223,6 +223,7 @@ namespace GUI_Tesoreria.mantenimiento
                     DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente.", VariablesMetodosEstaticos.encabezado,
                                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Save_ = true;
+                    this.Close();
                 }
                 else
                 {

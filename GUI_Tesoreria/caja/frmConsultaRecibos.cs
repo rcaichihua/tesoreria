@@ -379,12 +379,12 @@ namespace GUI_Tesoreria.caja
             {
                 int index = dgvRecibos.CurrentRow.Index;
 
-                if (dgvRecibos.Rows[index].Cells[5].Value.ToString().Substring(0,1)!="F")
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede hacer la modificacion de modalidad de pago para el documento seleccionado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                        MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (dgvRecibos.Rows[index].Cells[5].Value.ToString().Substring(0,1)!="F")
+                //{
+                //    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede hacer la modificacion de modalidad de pago para el documento seleccionado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                //                        MessageBoxIcon.Warning);
+                //    return;
+                //}
                 DataTable dtResuConsulta = new DataTable();
                 dtResuConsulta = cn.EjecutarSqlDTS("select FechaRecibo_ReciboCabecera,FechaCancelacion,cod_mod_Pago " + 
                     "from tb_ReciboCabecera where ReciboID = " + Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0];

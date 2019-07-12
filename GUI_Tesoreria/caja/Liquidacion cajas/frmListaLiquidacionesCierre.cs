@@ -148,5 +148,37 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             BtnBuscar_Click(sender, e);
         }
+
+        private void btnReAperturar_Click(object sender, EventArgs e)
+        {
+            if (dgvListadoLiquidaciones.Rows.Count <= 0) return;
+            int index = dgvListadoLiquidaciones.CurrentRow.Index;
+
+            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta Seguro de volver a abrir la fecha de liquidación seleccionada.?" + Environment.NewLine+"Los ingresos manuales como se eliminaran.", VariablesMetodosEstaticos.encabezado,
+                          MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+            {
+
+                if (dgvListadoLiquidaciones.Rows[index].Cells["Estado"].Value.ToString() == "ABIERTO")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Fecha de liquidación ya se encuentra ABIERTA.", VariablesMetodosEstaticos.encabezado,
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (cn.EjecutarSP("usp_AperturarLiquidacion",
+                    Convert.ToDateTime(dgvListadoLiquidaciones.Rows[index].Cells["FechaLiquidacion"].Value).ToString("yyyyMMdd"),
+                    VariablesMetodosEstaticos.varNombreUser, VariablesMetodosEstaticos.ip_user + "/" + VariablesMetodosEstaticos.host_user)>0)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Liquidación ReAperturada correctamente.", VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BtnBuscar_Click(sender, e);
+                }
+                else
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error en la ReApertura, intente de nuevo.", VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
     }
 }
