@@ -65,14 +65,14 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             }
             dtResu = new DataTable();
 
-            dtResu = cn.TraerDataset("usp_ListaLiquidaciones", dtpFechaLiq.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue).Tables[0];
+            dtResu = cn.TraerDataset("usp_ListaLiquidaciones_new", dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue).Tables[0];
             
             if (dtResu.Rows.Count == 0)
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show("No hay liquidaciones registradas para el dia "+dtpFechaLiq.Value.ToString("dd/MM/yyyy")+".", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay liquidaciones registradas para el rango de fecha ingresado.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                          MessageBoxIcon.Warning);
                 cboPrograma.Focus();
-                return;
+               // return;
             }
 
             dgvLiquidaciones.DataSource = dtResu;
@@ -88,19 +88,27 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnAsignarPliego_Click(object sender, EventArgs e)
         {
+            if (dtpFechaLiqDesde.Value != dtpFechaLiqHasta.Value)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Para el ingreso de la glosa y número de pliego seleccione una sola fecha.", VariablesMetodosEstaticos.encabezado,
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpFechaLiqDesde.Focus();
+                return;
+            }
+
             int id_Liq;
             id_Liq = 0;
             DataTable dt = new DataTable();
 
-            dt = cn.TraerDataset("usp_ListaLiquidaciones", dtpFechaLiq.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue).Tables[0];
+            dt = cn.TraerDataset("usp_ListaLiquidaciones", dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue).Tables[0];
             if (dt.Rows.Count<=0)
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show("El programa " + cboPrograma .Text+ " no tiene datos para asignar pliego y glosa." + dtpFechaLiq.Value.ToString("dd/MM/yyyy") + ".", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                DevComponents.DotNetBar.MessageBoxEx.Show("El programa " + cboPrograma .Text+ " no tiene datos para asignar pliego y glosa." + dtpFechaLiqDesde.Value.ToString("dd/MM/yyyy") + ".", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                          MessageBoxIcon.Warning);
                 return;
             }
             frmAsignaPliegoGlosa win = new frmAsignaPliegoGlosa();
-            win.FechaLiq = dtpFechaLiq.Value.ToString("dd/MM/yyyy");
+            win.FechaLiq = dtpFechaLiqDesde.Value.ToString("dd/MM/yyyy");
             win.Programa = cboPrograma.Text;
             win.ProgramaId = Convert.ToInt32(cboPrograma.SelectedValue);
             win.ShowDialog();
@@ -110,6 +118,14 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnModificarLiq_Click(object sender, EventArgs e)
         {
+            if (dtpFechaLiqDesde.Value != dtpFechaLiqHasta.Value)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Para modificar seleccione una sola fecha.", VariablesMetodosEstaticos.encabezado,
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpFechaLiqDesde.Focus();
+                return;
+            }
+
             if (dgvLiquidaciones.CurrentRow!=null)
             {
                 int index = 0;
@@ -131,9 +147,17 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnAgregarLiq_Click(object sender, EventArgs e)
         {
+            if (dtpFechaLiqDesde.Value != dtpFechaLiqHasta.Value)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Para agregar seleccione una sola fecha.", VariablesMetodosEstaticos.encabezado,
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpFechaLiqDesde.Focus();
+                return;
+            }
+
             frmModAgregaReciboIngreso win = new frmModAgregaReciboIngreso();
             win.Tipo = "I";
-            win.FechaLiq = dtpFechaLiq.Value.ToString("dd/MM/yyyy");
+            win.FechaLiq = dtpFechaLiqDesde.Value.ToString("dd/MM/yyyy");
             win.ProgramaId = Convert.ToInt32(cboPrograma.SelectedValue);
             win.ShowDialog();
 
@@ -141,6 +165,14 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (dtpFechaLiqDesde.Value != dtpFechaLiqHasta.Value)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Para eliminar seleccione una sola fecha.", VariablesMetodosEstaticos.encabezado,
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpFechaLiqDesde.Focus();
+                return;
+            }
+
             if (dgvLiquidaciones.CurrentRow != null)
             {
                 if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta Seguro de eliminar.?", VariablesMetodosEstaticos.encabezado,
@@ -175,7 +207,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 DataSet dtsListadoContable = new DataSet();
                 frmReporte winReport = new frmReporte();
 
-                dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable", dtpFechaLiq.Value.ToString("yyyyMMdd"),cboPrograma.SelectedValue);
+                dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable_new", 
+                    dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
 
                 if (dtsListadoContable.Tables[0].Rows.Count <= 0)
                 {
@@ -186,6 +219,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
                 Reportes.rptListadoContable rptRecibo = new Reportes.rptListadoContable();
                 rptRecibo.SetDataSource(dtsListadoContable.Tables[0]);
+                rptRecibo.SetParameterValue("@desde", dtpFechaLiqDesde.Value.ToString("dd/MM/yyyy"));
+                rptRecibo.SetParameterValue("@hasta", dtpFechaLiqHasta.Value.ToString("dd/MM/yyyy"));
                 winReport.crvReportes.ReportSource = rptRecibo;
 
                 winReport.WindowState = FormWindowState.Maximized;
@@ -196,16 +231,23 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         private void btnReciboIngreso_Click(object sender, EventArgs e)
         {
             //int indiceRecibo = 0;
+            if (dtpFechaLiqDesde.Value != dtpFechaLiqHasta.Value)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("El recibo de ingreso solo es visible para un día.", VariablesMetodosEstaticos.encabezado,
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpFechaLiqDesde.Focus();
+                return;
+            }
 
             DataSet dtsRecibo = new DataSet();
             frmReporte winReport = new frmReporte();
 
-            dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,dtpFechaLiq.Value.ToString("yyyyMMdd"));
+            dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
 
             if (dtsRecibo.Tables[0].Rows.Count == 0)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para motrar.", VariablesMetodosEstaticos.encabezado,
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -226,15 +268,22 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             try
             {
+                if (dtpFechaLiqDesde.Value!=dtpFechaLiqHasta.Value)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El recálculo solo se puede realizar a un día.", VariablesMetodosEstaticos.encabezado,
+                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dtpFechaLiqDesde.Focus();
+                    return;
+                }
                 if (Convert.ToInt32(cboPrograma.SelectedValue)==3)
                 {
                     DevComponents.DotNetBar.MessageBoxEx.Show("Para Inmobiliaria no se puede realizar la actualziación de cuentas.", VariablesMetodosEstaticos.encabezado,
-                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 DataTable resuActuCtas = new DataTable();
 
-                resuActuCtas = cn.TraerDataset("usp_verifica_Actualizacion_ctas", dtpFechaLiq.Value.ToString("yyyyMMdd"),
+                resuActuCtas = cn.TraerDataset("usp_verifica_Actualizacion_ctas", dtpFechaLiqDesde.Value.ToString("yyyyMMdd"),
                     cboPrograma.SelectedValue).Tables[0];
 
                 if (resuActuCtas.Rows.Count == 0)
@@ -249,7 +298,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) ==
                               DialogResult.Yes))
                 {
-                    cn.TraerDataset("usp_ActualizaCtaLiquidacion", dtpFechaLiq.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue,
+                    cn.TraerDataset("usp_ActualizaCtaLiquidacion", dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue,
                         VariablesMetodosEstaticos.varNombreUser, VariablesMetodosEstaticos.ip_user + "/" +
                         VariablesMetodosEstaticos.host_user);
                     DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente", VariablesMetodosEstaticos.encabezado,
@@ -264,6 +313,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void dtpFechaLiqDesde_ValueChanged(object sender, EventArgs e)
+        {
+            dtpFechaLiqHasta.Value = dtpFechaLiqDesde.Value;
         }
     }
 }

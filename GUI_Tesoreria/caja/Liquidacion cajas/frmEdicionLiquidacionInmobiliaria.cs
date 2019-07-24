@@ -56,6 +56,13 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             try
             {
                 if (!Validar()) return;
+                String fechaRec = "";
+                String concat,concat1,concat2;
+
+                concat = ", FCH_EMI=" + FechaLiquidacion + "";
+                concat1 = ",FCH_EMI";
+
+                fechaRec = FechaLiquidacion;
 
                 if (TipoMan == "E")
                 {
@@ -65,7 +72,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         "',TIP_MOVI='01',TIP_PAGO='01',MONTOSOLES=" + Convert.ToDecimal(txtMontoSoles.Text) +
                         ",RENTA=" + Convert.ToDecimal(txtRenta.Text) + ",IGV=" + Convert.ToDecimal(txtIgv.Text) + ",MORA=" + Convert.ToDecimal(txtMora.Text) +
                         ",USUING=USUING+'*',PCING='" + VariablesGlobales.NombreUsuario +
-                        "',FECHAING=GETDATE() where id=" + Id + "") > 0)
+                        "',FECHAING=GETDATE()"+ (Convert.ToInt32(txtTipDoc.Text)==4 ? concat:"") + " where id=" + Id + "") > 0)
                     {
                         DevComponents.DotNetBar.MessageBoxEx.Show("Registro actualizado correctamente.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -80,12 +87,12 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 else
                 {
                     if (cn.EjecutarUD("insert into LiquidacionInmobiliaria(COD_INMB,INQUILINO,TIP_DOCU,NRO_DOCU,AA,MM," +
-                        "FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE) " + "values('" + txtCodInm.Text +
+                        "FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE"+ (Convert.ToInt32(txtTipDoc.Text) == 4 ?  concat1 : "") + ") " + "values('" + txtCodInm.Text +
                         "', '" + txtInqui.Text + "', '" + txtTipDoc.Text + "'" +
                         ", '" + txtNroDoc.Text + "', '" + txtAnio.Text + "', '" + txtMes.Text + "', '" + FechaLiquidacion + "', '01', '01', " +
                         txtMontoSoles.Text + ", " + txtRenta.Text + ", " + txtIgv.Text + ", " + txtMora.Text + ", '" +
                         VariablesGlobales.NombreUsuario +
-                        "', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0)") > 0)
+                        "', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0"+ (Convert.ToInt32(txtTipDoc.Text) == 4 ? ","+FechaLiquidacion : "") + ")") > 0)
                     {
                         DevComponents.DotNetBar.MessageBoxEx.Show("Registro insertado correctamente.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

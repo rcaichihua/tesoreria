@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnNuevoIngreso = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotalAGenerar = new System.Windows.Forms.TextBox();
             this.txtDiferenciaDepositoIngreso = new System.Windows.Forms.TextBox();
+            this.btnVerIngresos = new System.Windows.Forms.Button();
             this.mtbFechaCajaOrigen = new System.Windows.Forms.MaskedTextBox();
             this.mtbFechaLiquidacion = new System.Windows.Forms.MaskedTextBox();
             this.txtTotalLiquidacion = new System.Windows.Forms.TextBox();
@@ -87,8 +89,6 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnIngresoRecibosCaja = new System.Windows.Forms.Button();
             this.btnGeneraLiquidación = new System.Windows.Forms.Button();
-            this.btnNuevoIngreso = new System.Windows.Forms.Button();
-            this.btnVerIngresos = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModalidadIngreso)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -125,6 +125,23 @@
             this.groupBox1.Size = new System.Drawing.Size(448, 231);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnNuevoIngreso
+            // 
+            this.btnNuevoIngreso.BackColor = System.Drawing.Color.White;
+            this.btnNuevoIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoIngreso.ForeColor = System.Drawing.Color.Navy;
+            this.btnNuevoIngreso.Image = global::GUI_Tesoreria.Properties.Resources.procesar;
+            this.btnNuevoIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoIngreso.Location = new System.Drawing.Point(298, 121);
+            this.btnNuevoIngreso.Name = "btnNuevoIngreso";
+            this.btnNuevoIngreso.Size = new System.Drawing.Size(137, 45);
+            this.btnNuevoIngreso.TabIndex = 4;
+            this.btnNuevoIngreso.Text = "&Nuevo Ingreso";
+            this.btnNuevoIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNuevoIngreso.UseVisualStyleBackColor = false;
+            this.btnNuevoIngreso.Click += new System.EventHandler(this.btnNuevoIngreso_Click);
             // 
             // label10
             // 
@@ -246,6 +263,23 @@
             this.txtDiferenciaDepositoIngreso.TabIndex = 143;
             this.txtDiferenciaDepositoIngreso.Text = "0.00";
             this.txtDiferenciaDepositoIngreso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnVerIngresos
+            // 
+            this.btnVerIngresos.BackColor = System.Drawing.Color.White;
+            this.btnVerIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerIngresos.ForeColor = System.Drawing.Color.Navy;
+            this.btnVerIngresos.Image = global::GUI_Tesoreria.Properties.Resources.asignar;
+            this.btnVerIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerIngresos.Location = new System.Drawing.Point(298, 70);
+            this.btnVerIngresos.Name = "btnVerIngresos";
+            this.btnVerIngresos.Size = new System.Drawing.Size(137, 45);
+            this.btnVerIngresos.TabIndex = 3;
+            this.btnVerIngresos.Text = "&Ver Ingresos";
+            this.btnVerIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerIngresos.UseVisualStyleBackColor = false;
+            this.btnVerIngresos.Click += new System.EventHandler(this.btnVerIngresos_Click);
             // 
             // mtbFechaCajaOrigen
             // 
@@ -770,45 +804,11 @@
             this.btnGeneraLiquidación.UseVisualStyleBackColor = false;
             this.btnGeneraLiquidación.Click += new System.EventHandler(this.btnGeneraLiquidación_Click);
             // 
-            // btnNuevoIngreso
-            // 
-            this.btnNuevoIngreso.BackColor = System.Drawing.Color.White;
-            this.btnNuevoIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoIngreso.ForeColor = System.Drawing.Color.Navy;
-            this.btnNuevoIngreso.Image = global::GUI_Tesoreria.Properties.Resources.procesar;
-            this.btnNuevoIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoIngreso.Location = new System.Drawing.Point(298, 121);
-            this.btnNuevoIngreso.Name = "btnNuevoIngreso";
-            this.btnNuevoIngreso.Size = new System.Drawing.Size(137, 45);
-            this.btnNuevoIngreso.TabIndex = 4;
-            this.btnNuevoIngreso.Text = "&Nuevo Ingreso";
-            this.btnNuevoIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNuevoIngreso.UseVisualStyleBackColor = false;
-            this.btnNuevoIngreso.Click += new System.EventHandler(this.btnNuevoIngreso_Click);
-            // 
-            // btnVerIngresos
-            // 
-            this.btnVerIngresos.BackColor = System.Drawing.Color.White;
-            this.btnVerIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerIngresos.ForeColor = System.Drawing.Color.Navy;
-            this.btnVerIngresos.Image = global::GUI_Tesoreria.Properties.Resources.asignar;
-            this.btnVerIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerIngresos.Location = new System.Drawing.Point(298, 70);
-            this.btnVerIngresos.Name = "btnVerIngresos";
-            this.btnVerIngresos.Size = new System.Drawing.Size(137, 45);
-            this.btnVerIngresos.TabIndex = 3;
-            this.btnVerIngresos.Text = "&Ver Ingresos";
-            this.btnVerIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVerIngresos.UseVisualStyleBackColor = false;
-            this.btnVerIngresos.Click += new System.EventHandler(this.btnVerIngresos_Click);
-            // 
             // frmGeneraLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 642);
+            this.ClientSize = new System.Drawing.Size(473, 642);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lblMensaje);

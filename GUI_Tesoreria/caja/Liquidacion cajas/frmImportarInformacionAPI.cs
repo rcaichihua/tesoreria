@@ -320,6 +320,12 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnImportaLiquidacionInmobiliaria_Click(object sender, EventArgs e)
         {
+            if (cn.TraerDataset("usp_verifica_cierre", dtpFechaLiquidacion.Value.ToString("yyyyMMdd"),3).Tables[0].Rows[0][0].ToString()=="False")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No se ha cerrado la fecha de liquidación del "+ dtpFechaLiquidacion.Value.ToString("dd/MM/yyyy"), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                     MessageBoxIcon.Exclamation);
+                return;
+            }
             if (cn.EjecutarSqlDTS("select * from  [dbo].[LiquidacionInmobiliaria] where fch_pago='" +
                 dtpFechaLiquidacion.Value.ToString("yyyyMMdd") + "'").Tables[0].Rows.Count > 0)
             {
@@ -476,6 +482,13 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             try
             {
+                if (cn.TraerDataset("usp_verifica_cierre", dtpFechaLiquidacion.Value.ToString("yyyyMMdd"), 3).Tables[0].Rows[0][0].ToString() == "False")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se ha cerrado la fecha de liquidación del " + dtpFechaLiquidacion.Value.ToString("dd/MM/yyyy"), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                         MessageBoxIcon.Exclamation);
+                    return;
+                }
+
                 cn.TraerDataset("USP_CTA_CONTABLE_SGI", dtpFechaLiquidacion.Value.ToString("yyyyMMdd"),
                     dtpFechaCaja.Value.ToString("yyyyMMdd"));
 
@@ -492,9 +505,34 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                                      MessageBoxIcon.Warning);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error);
             }
+        }
+
+        private void btnReporteIngresos_Click(object sender, EventArgs e)
+        {
+                DataSet dtsReporteIngresos = new DataSet();
+                frmReporte winReport = new frmReporte();
+
+            dtsReporteIngresos = cn.TraerDataset("USP_LLENA_LIQUIDACION_INMOBILIARIA2",
+                    dtpFechaCaja.Value.ToString("yyyyMMdd"));
+
+                if (dtsReporteIngresos.Tables[0].Rows.Count <= 0)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
+                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                Reportes.rptReporteDeIngresos rptRecibo = new Reportes.rptReporteDeIngresos();
+                rptRecibo.SetDataSource(dtsReporteIngresos.Tables[0]);
+                winReport.crvReportes.ReportSource = rptRecibo;
+
+                winReport.WindowState = FormWindowState.Maximized;
+                winReport.ShowDialog();
         }
     }
 }

@@ -64,7 +64,7 @@ namespace GUI_Tesoreria
                 string septimo = lines[7];//password
                 //"192.168.1.14";// 
                 Program.Server = MetodosGlobales2.Decrypt(primero, GetPasswordBytes());
-                Program.database = "bdtesoreriaback";// MetodosGlobales2.Decrypt(segundo, GetPasswordBytes()); //"bdtesoreria031218";//
+                Program.database = MetodosGlobales2.Decrypt(segundo, GetPasswordBytes()); //"bdtesoreria031218";//
                 Program.dbUsername = MetodosGlobales2.Decrypt(tercero, GetPasswordBytes());
                 Program.dbPassword = MetodosGlobales2.Decrypt(cuarto, GetPasswordBytes());
                 Program.database2 = MetodosGlobales2.Decrypt(quinto, GetPasswordBytes());

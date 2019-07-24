@@ -285,11 +285,11 @@ namespace GUI_Tesoreria.menus
 
         private void m_1_1_Click(object sender, EventArgs e)
         {
-            Gerencia.frmIngresosPorCajero _frmIngresosPorCajero = null;
-            _frmIngresosPorCajero = Gerencia.frmIngresosPorCajero.Instance();
-            _frmIngresosPorCajero.MdiParent = this;
-            _frmIngresosPorCajero.Text = "...:::Ingreso por Programa:::...";
-            _frmIngresosPorCajero.Show();
+            //Gerencia.frmIngresosPorCajero _frmIngresosPorCajero = null;
+            //_frmIngresosPorCajero = Gerencia.frmIngresosPorCajero.Instance();
+            //_frmIngresosPorCajero.MdiParent = this;
+            //_frmIngresosPorCajero.Text = "...:::Ingreso por Programa:::...";
+            //_frmIngresosPorCajero.Show();
         }
 
         private void m_4_1_Click(object sender, EventArgs e)
@@ -397,6 +397,33 @@ namespace GUI_Tesoreria.menus
             _frmEdicionCompDiario = caja.frmIngresosporRubroCta.Instance();
             _frmEdicionCompDiario.MdiParent = this;
             _frmEdicionCompDiario.Show();
+        }
+
+        private void reporteResumenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gerencia.frmIngresosPorCajero _frmIngresosPorCajero = null;
+            _frmIngresosPorCajero = Gerencia.frmIngresosPorCajero.Instance();
+            _frmIngresosPorCajero.MdiParent = this;
+            _frmIngresosPorCajero.Text = "...:::Ingreso por Programa:::...";
+            _frmIngresosPorCajero.Show();
+        }
+
+        private void reportePorDiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gerencia.frmIngresoPorDiaPrograma _frmIngresosPorCajero = null;
+            _frmIngresosPorCajero = Gerencia.frmIngresoPorDiaPrograma.Instance();
+            _frmIngresosPorCajero.MdiParent = this;
+            _frmIngresosPorCajero.Text = "...:::Ingreso por Programa diario:::...";
+            _frmIngresosPorCajero.Show();
+        }
+
+        private void m_1_1_Click_1(object sender, EventArgs e)
+        {
+            Gerencia.frmIngresosPorCajero _frmIngresosPorCajero = null;
+            _frmIngresosPorCajero = Gerencia.frmIngresosPorCajero.Instance();
+            _frmIngresosPorCajero.MdiParent = this;
+            _frmIngresosPorCajero.Text = "...:::Ingreso por Programa:::...";
+            _frmIngresosPorCajero.Show();
         }
     }
 }

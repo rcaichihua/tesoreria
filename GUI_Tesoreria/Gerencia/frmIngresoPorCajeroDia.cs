@@ -188,5 +188,63 @@ namespace GUI_Tesoreria.Gerencia
             win.WindowState = FormWindowState.Maximized;
             win.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable dt2 = new DataTable();
+            DataRow[] foundRows;
+
+            frmReporte win = new frmReporte();
+            caja.Reportes.rptProgramaDiario rptIngresos = new caja.Reportes.rptProgramaDiario();
+
+            dtIngCajeros = new DataTable();
+            dtIngCajerosSGI = new DataTable();
+            dtUnion = new DataTable();
+
+            if (cboPrograma.Text != cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
+            {
+                dtIngCajeros = cn.TraerDataset("usp_select_ingreso_programa_por_dia", dtpDesde.Value.ToString("yyyyMMdd"), dtpHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue).Tables[0];
+            }
+            if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
+            {
+                dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_POR_PROGRAMA_POR_DIA", dtpDesde.Value.ToString("yyyyMMdd"), dtpHasta.Value.ToString("yyyyMMdd")).Tables[0];
+            }
+            if (dtIngCajeros.Rows.Count == 0)
+            {
+                if (dtIngCajerosSGI.Rows.Count == 0)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (Union(dtIngCajerosSGI, dtIngCajeros).Rows.Count <= 0)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                dtUnion = Union(dtIngCajerosSGI, dtIngCajeros);
+                foundRows = dtUnion.Select("", "FECHA DESC, NOMBRES ASC");
+                dt2 = foundRows.CopyToDataTable();
+                //dgvIngresosxCajero.DataSource = dtUnion;
+            }
+            else
+            {
+                if (Union(dtIngCajeros, dtIngCajerosSGI).Rows.Count <= 0)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                dtUnion = Union(dtIngCajeros, dtIngCajerosSGI);
+                foundRows = dtUnion.Select("", "FECHA DESC, PROGRAMA ASC");
+                dt2 = foundRows.CopyToDataTable();
+                //dgvIngresosxCajero.DataSource = dt2;
+            }
+
+            rptIngresos.SetDataSource(dt2);
+            rptIngresos.SetParameterValue("@desde", dtpDesde.Value.ToString("dd/MM/yyyy"));
+            rptIngresos.SetParameterValue("@hasta", dtpHasta.Value.ToString("dd/MM/yyyy"));
+            win.crvReportes.ReportSource = rptIngresos;
+
+            win.WindowState = FormWindowState.Maximized;
+            win.ShowDialog();
+        }
     }
 }

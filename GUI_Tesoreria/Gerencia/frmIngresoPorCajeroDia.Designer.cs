@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresoPorCajeroDia));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.cboPrograma = new System.Windows.Forms.ComboBox();
@@ -75,6 +75,7 @@
             this.IGVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTALING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NROPAGOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -373,6 +374,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.BtnImprimir);
             this.groupBox1.Location = new System.Drawing.Point(9, 321);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -390,12 +392,12 @@
             this.BtnImprimir.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnImprimir.ForeColor = System.Drawing.Color.Navy;
             this.BtnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("BtnImprimir.Image")));
-            this.BtnImprimir.Location = new System.Drawing.Point(16, 26);
+            this.BtnImprimir.Location = new System.Drawing.Point(22, 16);
             this.BtnImprimir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(156, 39);
+            this.BtnImprimir.Size = new System.Drawing.Size(71, 48);
             this.BtnImprimir.TabIndex = 94;
-            this.BtnImprimir.Text = "&Mandar a Reporte";
+            this.BtnImprimir.Text = "&Mandar 1";
             this.BtnImprimir.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnImprimir.UseVisualStyleBackColor = false;
@@ -418,14 +420,14 @@
             this.dgvIngresosxCajero.AllowUserToResizeColumns = false;
             this.dgvIngresosxCajero.AllowUserToResizeRows = false;
             this.dgvIngresosxCajero.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngresosxCajero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngresosxCajero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgvIngresosxCajero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIngresosxCajero.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CODIGO,
@@ -437,14 +439,14 @@
             this.IGVING,
             this.TOTALING,
             this.NROPAGOS});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIngresosxCajero.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIngresosxCajero.DefaultCellStyle = dataGridViewCellStyle33;
             this.dgvIngresosxCajero.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvIngresosxCajero.Location = new System.Drawing.Point(3, 16);
             this.dgvIngresosxCajero.Name = "dgvIngresosxCajero";
@@ -458,8 +460,8 @@
             // CODIGO
             // 
             this.CODIGO.DataPropertyName = "CODIGO";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CODIGO.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CODIGO.DefaultCellStyle = dataGridViewCellStyle24;
             this.CODIGO.HeaderText = "COD.";
             this.CODIGO.Name = "CODIGO";
             this.CODIGO.ReadOnly = true;
@@ -470,9 +472,9 @@
             // NOMBRECAJERO
             // 
             this.NOMBRECAJERO.DataPropertyName = "NOMBRES";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.NOMBRECAJERO.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
+            this.NOMBRECAJERO.DefaultCellStyle = dataGridViewCellStyle25;
             this.NOMBRECAJERO.HeaderText = "PROGRAMA - NOMBRE DE CAJERO";
             this.NOMBRECAJERO.Name = "NOMBRECAJERO";
             this.NOMBRECAJERO.ReadOnly = true;
@@ -482,8 +484,8 @@
             // FECHA
             // 
             this.FECHA.DataPropertyName = "FECHA";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.FECHA.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.FECHA.DefaultCellStyle = dataGridViewCellStyle26;
             this.FECHA.HeaderText = "FECHA";
             this.FECHA.Name = "FECHA";
             this.FECHA.ReadOnly = true;
@@ -492,10 +494,10 @@
             // IMPORTEING
             // 
             this.IMPORTEING.DataPropertyName = "IMPORTEING";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.Format = "N2";
-            this.IMPORTEING.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.Format = "N2";
+            this.IMPORTEING.DefaultCellStyle = dataGridViewCellStyle27;
             this.IMPORTEING.HeaderText = "IMPORTE";
             this.IMPORTEING.Name = "IMPORTEING";
             this.IMPORTEING.ReadOnly = true;
@@ -504,10 +506,10 @@
             // MORAING
             // 
             this.MORAING.DataPropertyName = "MORA";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.Format = "N2";
-            this.MORAING.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.Format = "N2";
+            this.MORAING.DefaultCellStyle = dataGridViewCellStyle28;
             this.MORAING.HeaderText = "MORA";
             this.MORAING.Name = "MORAING";
             this.MORAING.ReadOnly = true;
@@ -517,10 +519,10 @@
             // DESCUENTOING
             // 
             this.DESCUENTOING.DataPropertyName = "DESCUENTO";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.Format = "N2";
-            this.DESCUENTOING.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle29.Format = "N2";
+            this.DESCUENTOING.DefaultCellStyle = dataGridViewCellStyle29;
             this.DESCUENTOING.HeaderText = "DSCTO";
             this.DESCUENTOING.Name = "DESCUENTOING";
             this.DESCUENTOING.ReadOnly = true;
@@ -530,9 +532,9 @@
             // IGVING
             // 
             this.IGVING.DataPropertyName = "IGV";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle19.Format = "N2";
-            this.IGVING.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle30.Format = "N2";
+            this.IGVING.DefaultCellStyle = dataGridViewCellStyle30;
             this.IGVING.HeaderText = "IGV";
             this.IGVING.Name = "IGVING";
             this.IGVING.ReadOnly = true;
@@ -541,9 +543,9 @@
             // TOTALING
             // 
             this.TOTALING.DataPropertyName = "TOTAL";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle20.Format = "N2";
-            this.TOTALING.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle31.Format = "N2";
+            this.TOTALING.DefaultCellStyle = dataGridViewCellStyle31;
             this.TOTALING.HeaderText = "TOTAL";
             this.TOTALING.Name = "TOTALING";
             this.TOTALING.ReadOnly = true;
@@ -551,12 +553,31 @@
             // NROPAGOS
             // 
             this.NROPAGOS.DataPropertyName = "NROPAGOS";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.NROPAGOS.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.NROPAGOS.DefaultCellStyle = dataGridViewCellStyle32;
             this.NROPAGOS.HeaderText = "Nº PAGOS";
             this.NROPAGOS.Name = "NROPAGOS";
             this.NROPAGOS.ReadOnly = true;
             this.NROPAGOS.Width = 70;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Navy;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(101, 17);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 48);
+            this.button1.TabIndex = 94;
+            this.button1.Text = "&Por día";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmIngresoPorCajeroDia
             // 
@@ -624,5 +645,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IGVING;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTALING;
         private System.Windows.Forms.DataGridViewTextBoxColumn NROPAGOS;
+        internal System.Windows.Forms.Button button1;
     }
 }

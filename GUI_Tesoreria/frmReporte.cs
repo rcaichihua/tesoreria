@@ -13,6 +13,8 @@ namespace GUI_Tesoreria
     public partial class frmReporte : DevComponents.DotNetBar.Metro.MetroForm//Form
     {
         public string TipoReporteLiquidacion { get; set; }
+        public int Fecha_desde { get; set; }
+        public string Fecha_hasta { get; set; }
 
         public string Fecha { get; set; }
         public DataTable dtR { get; set; }

@@ -36,11 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvListadoLiquidaciones = new System.Windows.Forms.DataGridView();
-            this.fechaLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalIngresoCaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diferenciaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalRecibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
             this.lblNroLiquidaciones = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,11 +55,18 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.GBOpciones = new System.Windows.Forms.GroupBox();
-            this.LblTitulo = new System.Windows.Forms.Label();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnReAperturar = new System.Windows.Forms.Button();
             this.btnCerrarLiquidacion = new System.Windows.Forms.Button();
+            this.LblTitulo = new System.Windows.Forms.Label();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.fechaLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalIngresoCaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diferenciaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalRecibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.intProId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoLiquidaciones)).BeginInit();
             this.GroupBox3.SuspendLayout();
@@ -81,7 +83,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox2.Location = new System.Drawing.Point(12, 111);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(584, 343);
+            this.groupBox2.Size = new System.Drawing.Size(678, 343);
             this.groupBox2.TabIndex = 153;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de liquidaciones";
@@ -99,6 +101,8 @@
             this.totalIngresoCaja,
             this.diferenciaDeposito,
             this.TotalRecibo,
+            this.programa,
+            this.intProId,
             this.estado});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
@@ -116,59 +120,9 @@
             this.dgvListadoLiquidaciones.ReadOnly = true;
             this.dgvListadoLiquidaciones.RowHeadersVisible = false;
             this.dgvListadoLiquidaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListadoLiquidaciones.Size = new System.Drawing.Size(578, 323);
+            this.dgvListadoLiquidaciones.Size = new System.Drawing.Size(672, 323);
             this.dgvListadoLiquidaciones.TabIndex = 0;
             this.dgvListadoLiquidaciones.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListadoLiquidaciones_CellFormatting);
-            // 
-            // fechaLiquidacion
-            // 
-            this.fechaLiquidacion.DataPropertyName = "fechaLiquidacion";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fechaLiquidacion.DefaultCellStyle = dataGridViewCellStyle1;
-            this.fechaLiquidacion.HeaderText = "FECHA LIQ";
-            this.fechaLiquidacion.Name = "fechaLiquidacion";
-            this.fechaLiquidacion.ReadOnly = true;
-            // 
-            // totalIngresoCaja
-            // 
-            this.totalIngresoCaja.DataPropertyName = "totalIngresoCaja";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.totalIngresoCaja.DefaultCellStyle = dataGridViewCellStyle2;
-            this.totalIngresoCaja.HeaderText = "TOTAL CAJA";
-            this.totalIngresoCaja.Name = "totalIngresoCaja";
-            this.totalIngresoCaja.ReadOnly = true;
-            // 
-            // diferenciaDeposito
-            // 
-            this.diferenciaDeposito.DataPropertyName = "TotalDeposito";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.diferenciaDeposito.DefaultCellStyle = dataGridViewCellStyle3;
-            this.diferenciaDeposito.HeaderText = "TOTAL DEPOSITO";
-            this.diferenciaDeposito.Name = "diferenciaDeposito";
-            this.diferenciaDeposito.ReadOnly = true;
-            this.diferenciaDeposito.Width = 110;
-            // 
-            // TotalRecibo
-            // 
-            this.TotalRecibo.DataPropertyName = "TotalRecibo";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.TotalRecibo.DefaultCellStyle = dataGridViewCellStyle4;
-            this.TotalRecibo.HeaderText = "TOTAL RECIBOS";
-            this.TotalRecibo.Name = "TotalRecibo";
-            this.TotalRecibo.ReadOnly = true;
-            this.TotalRecibo.Width = 110;
-            // 
-            // estado
-            // 
-            this.estado.DataPropertyName = "estado";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.estado.DefaultCellStyle = dataGridViewCellStyle5;
-            this.estado.HeaderText = "ESTADO";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
             // 
             // GroupBox3
             // 
@@ -270,7 +224,7 @@
             this.GBEstadoConvenio.Controls.Add(this.RBActivos);
             this.GBEstadoConvenio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBEstadoConvenio.ForeColor = System.Drawing.Color.Maroon;
-            this.GBEstadoConvenio.Location = new System.Drawing.Point(514, 44);
+            this.GBEstadoConvenio.Location = new System.Drawing.Point(602, 44);
             this.GBEstadoConvenio.MaximumSize = new System.Drawing.Size(303, 61);
             this.GBEstadoConvenio.Name = "GBEstadoConvenio";
             this.GBEstadoConvenio.Size = new System.Drawing.Size(201, 61);
@@ -347,7 +301,7 @@
             this.GroupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.GroupBox1.Location = new System.Drawing.Point(12, 44);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(412, 61);
+            this.GroupBox1.Size = new System.Drawing.Size(387, 61);
             this.GroupBox1.TabIndex = 150;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Busqueda por fecha de liquidación:";
@@ -397,43 +351,11 @@
             this.GBOpciones.Controls.Add(this.btnReAperturar);
             this.GBOpciones.Controls.Add(this.btnCerrarLiquidacion);
             this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBOpciones.Location = new System.Drawing.Point(608, 111);
+            this.GBOpciones.Location = new System.Drawing.Point(696, 111);
             this.GBOpciones.Name = "GBOpciones";
             this.GBOpciones.Size = new System.Drawing.Size(107, 394);
             this.GBOpciones.TabIndex = 149;
             this.GBOpciones.TabStop = false;
-            // 
-            // LblTitulo
-            // 
-            this.LblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblTitulo.BackColor = System.Drawing.Color.White;
-            this.LblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblTitulo.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
-            this.LblTitulo.Location = new System.Drawing.Point(12, 9);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(703, 32);
-            this.LblTitulo.TabIndex = 147;
-            this.LblTitulo.Text = ":::   RESUMEN LIQUIDACIONES   :::\r\n";
-            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.White;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
-            this.BtnBuscar.Image = global::GUI_Tesoreria.Properties.Resources.buscar;
-            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnBuscar.Location = new System.Drawing.Point(430, 55);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(78, 46);
-            this.BtnBuscar.TabIndex = 152;
-            this.BtnBuscar.Text = "&Buscar";
-            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnCancelar
             // 
@@ -492,11 +414,109 @@
             this.btnCerrarLiquidacion.UseVisualStyleBackColor = false;
             this.btnCerrarLiquidacion.Click += new System.EventHandler(this.btnCerrarLiquidacion_Click);
             // 
+            // LblTitulo
+            // 
+            this.LblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTitulo.BackColor = System.Drawing.Color.White;
+            this.LblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblTitulo.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
+            this.LblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(791, 32);
+            this.LblTitulo.TabIndex = 147;
+            this.LblTitulo.Text = ":::   RESUMEN LIQUIDACIONES   :::\r\n";
+            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
+            this.BtnBuscar.Image = global::GUI_Tesoreria.Properties.Resources.buscar;
+            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnBuscar.Location = new System.Drawing.Point(518, 55);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(78, 46);
+            this.BtnBuscar.TabIndex = 152;
+            this.BtnBuscar.Text = "&Buscar";
+            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // fechaLiquidacion
+            // 
+            this.fechaLiquidacion.DataPropertyName = "fechaLiquidacion";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fechaLiquidacion.DefaultCellStyle = dataGridViewCellStyle1;
+            this.fechaLiquidacion.HeaderText = "FECHA LIQ";
+            this.fechaLiquidacion.Name = "fechaLiquidacion";
+            this.fechaLiquidacion.ReadOnly = true;
+            // 
+            // totalIngresoCaja
+            // 
+            this.totalIngresoCaja.DataPropertyName = "totalIngresoCaja";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.totalIngresoCaja.DefaultCellStyle = dataGridViewCellStyle2;
+            this.totalIngresoCaja.HeaderText = "TOTAL CAJA";
+            this.totalIngresoCaja.Name = "totalIngresoCaja";
+            this.totalIngresoCaja.ReadOnly = true;
+            // 
+            // diferenciaDeposito
+            // 
+            this.diferenciaDeposito.DataPropertyName = "TotalDeposito";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.diferenciaDeposito.DefaultCellStyle = dataGridViewCellStyle3;
+            this.diferenciaDeposito.HeaderText = "TOTAL DEPOSITO";
+            this.diferenciaDeposito.Name = "diferenciaDeposito";
+            this.diferenciaDeposito.ReadOnly = true;
+            this.diferenciaDeposito.Width = 110;
+            // 
+            // TotalRecibo
+            // 
+            this.TotalRecibo.DataPropertyName = "TotalRecibo";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.TotalRecibo.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TotalRecibo.HeaderText = "TOTAL RECIBOS";
+            this.TotalRecibo.Name = "TotalRecibo";
+            this.TotalRecibo.ReadOnly = true;
+            this.TotalRecibo.Width = 110;
+            // 
+            // programa
+            // 
+            this.programa.DataPropertyName = "programa";
+            this.programa.HeaderText = "PROGRAMA";
+            this.programa.Name = "programa";
+            this.programa.ReadOnly = true;
+            this.programa.Width = 120;
+            // 
+            // intProId
+            // 
+            this.intProId.DataPropertyName = "intProId";
+            this.intProId.HeaderText = "intProId";
+            this.intProId.Name = "intProId";
+            this.intProId.ReadOnly = true;
+            this.intProId.Visible = false;
+            // 
+            // estado
+            // 
+            this.estado.DataPropertyName = "estado";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.estado.DefaultCellStyle = dataGridViewCellStyle5;
+            this.estado.HeaderText = "ESTADO";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
             // frmListaLiquidacionesCierre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 512);
+            this.ClientSize = new System.Drawing.Size(810, 512);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.BtnBuscar);
@@ -550,11 +570,13 @@
         internal System.Windows.Forms.Button btnCancelar;
         internal System.Windows.Forms.Button btnCerrarLiquidacion;
         internal System.Windows.Forms.Label LblTitulo;
+        internal System.Windows.Forms.Button btnReAperturar;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaLiquidacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalIngresoCaja;
         private System.Windows.Forms.DataGridViewTextBoxColumn diferenciaDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalRecibo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn programa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn intProId;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        internal System.Windows.Forms.Button btnReAperturar;
     }
 }

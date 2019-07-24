@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GBPago = new System.Windows.Forms.GroupBox();
             this.btnGeneraCodigoContable = new System.Windows.Forms.Button();
             this.btnImportaLiquidacionInmobiliaria = new System.Windows.Forms.Button();
@@ -48,17 +48,6 @@
             this.txtRenta = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvListado = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtIgv = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtMora = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtMontoSoles = new System.Windows.Forms.TextBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAgregarLiq = new System.Windows.Forms.Button();
-            this.btnModificarLiq = new System.Windows.Forms.Button();
-            this.btnExportar = new System.Windows.Forms.Button();
-            this.BtnSalirC = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COD_INMB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUM_CONTR = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +70,18 @@
             this.MORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COD_COB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FCH_EMI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIgv = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMora = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMontoSoles = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAgregarLiq = new System.Windows.Forms.Button();
+            this.btnModificarLiq = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
+            this.BtnSalirC = new System.Windows.Forms.Button();
+            this.btnReporteIngresos = new System.Windows.Forms.Button();
             this.GBPago.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
@@ -89,11 +90,11 @@
             // GBPago
             // 
             this.GBPago.BackColor = System.Drawing.Color.Transparent;
+            this.GBPago.Controls.Add(this.btnReporteIngresos);
             this.GBPago.Controls.Add(this.btnGeneraCodigoContable);
             this.GBPago.Controls.Add(this.btnImportaLiquidacionInmobiliaria);
             this.GBPago.Controls.Add(this.dtpFechaLiquidacion);
             this.GBPago.Controls.Add(this.label1);
-            this.GBPago.Controls.Add(this.btnImportar);
             this.GBPago.Controls.Add(this.dtpFechaCaja);
             this.GBPago.Controls.Add(this.label3);
             this.GBPago.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,7 +114,7 @@
             this.btnGeneraCodigoContable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGeneraCodigoContable.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGeneraCodigoContable.ForeColor = System.Drawing.Color.Navy;
-            this.btnGeneraCodigoContable.Image = global::GUI_Tesoreria.Properties.Resources.generar;
+            this.btnGeneraCodigoContable.Image = global::GUI_Tesoreria.Properties.Resources.modificar;
             this.btnGeneraCodigoContable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGeneraCodigoContable.Location = new System.Drawing.Point(414, 17);
             this.btnGeneraCodigoContable.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
@@ -168,9 +169,9 @@
             this.btnImportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportar.Image = global::GUI_Tesoreria.Properties.Resources.procesar;
             this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImportar.Location = new System.Drawing.Point(656, 12);
+            this.btnImportar.Location = new System.Drawing.Point(384, 477);
             this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(201, 44);
+            this.btnImportar.Size = new System.Drawing.Size(49, 24);
             this.btnImportar.TabIndex = 147;
             this.btnImportar.Text = "&Importar Información del API";
             this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -180,6 +181,7 @@
             // 
             // dtpFechaCaja
             // 
+            this.dtpFechaCaja.Enabled = false;
             this.dtpFechaCaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaCaja.Location = new System.Drawing.Point(98, 42);
             this.dtpFechaCaja.Name = "dtpFechaCaja";
@@ -268,14 +270,14 @@
             this.dgvListado.AllowUserToResizeColumns = false;
             this.dgvListado.AllowUserToResizeRows = false;
             this.dgvListado.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -300,14 +302,14 @@
             this.MORA,
             this.COD_COB,
             this.FCH_EMI});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListado.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListado.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListado.Location = new System.Drawing.Point(3, 17);
             this.dgvListado.Name = "dgvListado";
@@ -317,6 +319,185 @@
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListado.Size = new System.Drawing.Size(857, 331);
             this.dgvListado.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // COD_INMB
+            // 
+            this.COD_INMB.DataPropertyName = "COD_INMB";
+            this.COD_INMB.HeaderText = "COD_INMB";
+            this.COD_INMB.Name = "COD_INMB";
+            this.COD_INMB.ReadOnly = true;
+            // 
+            // NUM_CONTR
+            // 
+            this.NUM_CONTR.DataPropertyName = "NUM_CONTR";
+            this.NUM_CONTR.HeaderText = "NUM CONTR";
+            this.NUM_CONTR.Name = "NUM_CONTR";
+            this.NUM_CONTR.ReadOnly = true;
+            this.NUM_CONTR.Width = 50;
+            // 
+            // INQUILINO
+            // 
+            this.INQUILINO.DataPropertyName = "INQUILINO";
+            this.INQUILINO.HeaderText = "INQUILINO";
+            this.INQUILINO.Name = "INQUILINO";
+            this.INQUILINO.ReadOnly = true;
+            // 
+            // NUM_RUC
+            // 
+            this.NUM_RUC.DataPropertyName = "NUM_RUC";
+            this.NUM_RUC.HeaderText = "NUM RUC";
+            this.NUM_RUC.Name = "NUM_RUC";
+            this.NUM_RUC.ReadOnly = true;
+            this.NUM_RUC.Width = 70;
+            // 
+            // IDCOMPROBANTE
+            // 
+            this.IDCOMPROBANTE.DataPropertyName = "IDCOMPROBANTE";
+            this.IDCOMPROBANTE.HeaderText = "IDCOMPROBANTE";
+            this.IDCOMPROBANTE.Name = "IDCOMPROBANTE";
+            this.IDCOMPROBANTE.ReadOnly = true;
+            this.IDCOMPROBANTE.Visible = false;
+            // 
+            // AA
+            // 
+            this.AA.DataPropertyName = "AA";
+            this.AA.HeaderText = "AA";
+            this.AA.Name = "AA";
+            this.AA.ReadOnly = true;
+            this.AA.Width = 50;
+            // 
+            // MM
+            // 
+            this.MM.DataPropertyName = "MM";
+            this.MM.HeaderText = "MM";
+            this.MM.Name = "MM";
+            this.MM.ReadOnly = true;
+            this.MM.Width = 30;
+            // 
+            // TIP_DOCU
+            // 
+            this.TIP_DOCU.DataPropertyName = "TIP_DOCU";
+            this.TIP_DOCU.HeaderText = "DOC";
+            this.TIP_DOCU.Name = "TIP_DOCU";
+            this.TIP_DOCU.ReadOnly = true;
+            this.TIP_DOCU.Width = 30;
+            // 
+            // NRO_DOCU
+            // 
+            this.NRO_DOCU.DataPropertyName = "NRO_DOCU";
+            this.NRO_DOCU.HeaderText = "NRO_DOCU";
+            this.NRO_DOCU.Name = "NRO_DOCU";
+            this.NRO_DOCU.ReadOnly = true;
+            // 
+            // FCH_PAGO
+            // 
+            this.FCH_PAGO.DataPropertyName = "FCH_PAGO";
+            this.FCH_PAGO.HeaderText = "FCH_PAGO";
+            this.FCH_PAGO.Name = "FCH_PAGO";
+            this.FCH_PAGO.ReadOnly = true;
+            // 
+            // TIP_MOVI
+            // 
+            this.TIP_MOVI.DataPropertyName = "TIP_MOVI";
+            this.TIP_MOVI.HeaderText = "TIP MOVI";
+            this.TIP_MOVI.Name = "TIP_MOVI";
+            this.TIP_MOVI.ReadOnly = true;
+            this.TIP_MOVI.Width = 50;
+            // 
+            // TIP_PAGO
+            // 
+            this.TIP_PAGO.DataPropertyName = "TIP_PAGO";
+            this.TIP_PAGO.HeaderText = "TIP PAGO";
+            this.TIP_PAGO.Name = "TIP_PAGO";
+            this.TIP_PAGO.ReadOnly = true;
+            this.TIP_PAGO.Width = 50;
+            // 
+            // CODCON_REN
+            // 
+            this.CODCON_REN.DataPropertyName = "CODCON_REN";
+            this.CODCON_REN.HeaderText = "CODCON_REN";
+            this.CODCON_REN.Name = "CODCON_REN";
+            this.CODCON_REN.ReadOnly = true;
+            this.CODCON_REN.Width = 150;
+            // 
+            // CODCON_MOR
+            // 
+            this.CODCON_MOR.DataPropertyName = "CODCON_MOR";
+            this.CODCON_MOR.HeaderText = "CODCON_MOR";
+            this.CODCON_MOR.Name = "CODCON_MOR";
+            this.CODCON_MOR.ReadOnly = true;
+            this.CODCON_MOR.Width = 130;
+            // 
+            // CODCON_IGV
+            // 
+            this.CODCON_IGV.DataPropertyName = "CODCON_IGV";
+            this.CODCON_IGV.HeaderText = "CODCON_IGV";
+            this.CODCON_IGV.Name = "CODCON_IGV";
+            this.CODCON_IGV.ReadOnly = true;
+            this.CODCON_IGV.Width = 130;
+            // 
+            // MONTOSOLES
+            // 
+            this.MONTOSOLES.DataPropertyName = "MONTOSOLES";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            this.MONTOSOLES.DefaultCellStyle = dataGridViewCellStyle8;
+            this.MONTOSOLES.HeaderText = "MONTO SOLES";
+            this.MONTOSOLES.Name = "MONTOSOLES";
+            this.MONTOSOLES.ReadOnly = true;
+            // 
+            // RENTA
+            // 
+            this.RENTA.DataPropertyName = "RENTA";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            this.RENTA.DefaultCellStyle = dataGridViewCellStyle9;
+            this.RENTA.HeaderText = "RENTA";
+            this.RENTA.Name = "RENTA";
+            this.RENTA.ReadOnly = true;
+            // 
+            // IGV
+            // 
+            this.IGV.DataPropertyName = "IGV";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            this.IGV.DefaultCellStyle = dataGridViewCellStyle10;
+            this.IGV.HeaderText = "IGV";
+            this.IGV.Name = "IGV";
+            this.IGV.ReadOnly = true;
+            // 
+            // MORA
+            // 
+            this.MORA.DataPropertyName = "MORA";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N2";
+            this.MORA.DefaultCellStyle = dataGridViewCellStyle11;
+            this.MORA.HeaderText = "MORA";
+            this.MORA.Name = "MORA";
+            this.MORA.ReadOnly = true;
+            // 
+            // COD_COB
+            // 
+            this.COD_COB.DataPropertyName = "COD_COB";
+            this.COD_COB.HeaderText = "COD_COB";
+            this.COD_COB.Name = "COD_COB";
+            this.COD_COB.ReadOnly = true;
+            this.COD_COB.Width = 50;
+            // 
+            // FCH_EMI
+            // 
+            this.FCH_EMI.DataPropertyName = "FCH_EMI";
+            this.FCH_EMI.HeaderText = "FCH_EMI";
+            this.FCH_EMI.Name = "FCH_EMI";
+            this.FCH_EMI.ReadOnly = true;
             // 
             // label4
             // 
@@ -493,184 +674,24 @@
             this.BtnSalirC.UseVisualStyleBackColor = false;
             this.BtnSalirC.Click += new System.EventHandler(this.BtnSalirC_Click);
             // 
-            // id
+            // btnReporteIngresos
             // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // COD_INMB
-            // 
-            this.COD_INMB.DataPropertyName = "COD_INMB";
-            this.COD_INMB.HeaderText = "COD_INMB";
-            this.COD_INMB.Name = "COD_INMB";
-            this.COD_INMB.ReadOnly = true;
-            // 
-            // NUM_CONTR
-            // 
-            this.NUM_CONTR.DataPropertyName = "NUM_CONTR";
-            this.NUM_CONTR.HeaderText = "NUM CONTR";
-            this.NUM_CONTR.Name = "NUM_CONTR";
-            this.NUM_CONTR.ReadOnly = true;
-            this.NUM_CONTR.Width = 50;
-            // 
-            // INQUILINO
-            // 
-            this.INQUILINO.DataPropertyName = "INQUILINO";
-            this.INQUILINO.HeaderText = "INQUILINO";
-            this.INQUILINO.Name = "INQUILINO";
-            this.INQUILINO.ReadOnly = true;
-            // 
-            // NUM_RUC
-            // 
-            this.NUM_RUC.DataPropertyName = "NUM_RUC";
-            this.NUM_RUC.HeaderText = "NUM RUC";
-            this.NUM_RUC.Name = "NUM_RUC";
-            this.NUM_RUC.ReadOnly = true;
-            this.NUM_RUC.Width = 70;
-            // 
-            // IDCOMPROBANTE
-            // 
-            this.IDCOMPROBANTE.DataPropertyName = "IDCOMPROBANTE";
-            this.IDCOMPROBANTE.HeaderText = "IDCOMPROBANTE";
-            this.IDCOMPROBANTE.Name = "IDCOMPROBANTE";
-            this.IDCOMPROBANTE.ReadOnly = true;
-            this.IDCOMPROBANTE.Visible = false;
-            // 
-            // AA
-            // 
-            this.AA.DataPropertyName = "AA";
-            this.AA.HeaderText = "AA";
-            this.AA.Name = "AA";
-            this.AA.ReadOnly = true;
-            this.AA.Width = 50;
-            // 
-            // MM
-            // 
-            this.MM.DataPropertyName = "MM";
-            this.MM.HeaderText = "MM";
-            this.MM.Name = "MM";
-            this.MM.ReadOnly = true;
-            this.MM.Width = 30;
-            // 
-            // TIP_DOCU
-            // 
-            this.TIP_DOCU.DataPropertyName = "TIP_DOCU";
-            this.TIP_DOCU.HeaderText = "DOC";
-            this.TIP_DOCU.Name = "TIP_DOCU";
-            this.TIP_DOCU.ReadOnly = true;
-            this.TIP_DOCU.Width = 30;
-            // 
-            // NRO_DOCU
-            // 
-            this.NRO_DOCU.DataPropertyName = "NRO_DOCU";
-            this.NRO_DOCU.HeaderText = "NRO_DOCU";
-            this.NRO_DOCU.Name = "NRO_DOCU";
-            this.NRO_DOCU.ReadOnly = true;
-            // 
-            // FCH_PAGO
-            // 
-            this.FCH_PAGO.DataPropertyName = "FCH_PAGO";
-            this.FCH_PAGO.HeaderText = "FCH_PAGO";
-            this.FCH_PAGO.Name = "FCH_PAGO";
-            this.FCH_PAGO.ReadOnly = true;
-            // 
-            // TIP_MOVI
-            // 
-            this.TIP_MOVI.DataPropertyName = "TIP_MOVI";
-            this.TIP_MOVI.HeaderText = "TIP MOVI";
-            this.TIP_MOVI.Name = "TIP_MOVI";
-            this.TIP_MOVI.ReadOnly = true;
-            this.TIP_MOVI.Width = 50;
-            // 
-            // TIP_PAGO
-            // 
-            this.TIP_PAGO.DataPropertyName = "TIP_PAGO";
-            this.TIP_PAGO.HeaderText = "TIP PAGO";
-            this.TIP_PAGO.Name = "TIP_PAGO";
-            this.TIP_PAGO.ReadOnly = true;
-            this.TIP_PAGO.Width = 50;
-            // 
-            // CODCON_REN
-            // 
-            this.CODCON_REN.DataPropertyName = "CODCON_REN";
-            this.CODCON_REN.HeaderText = "CODCON_REN";
-            this.CODCON_REN.Name = "CODCON_REN";
-            this.CODCON_REN.ReadOnly = true;
-            this.CODCON_REN.Width = 150;
-            // 
-            // CODCON_MOR
-            // 
-            this.CODCON_MOR.DataPropertyName = "CODCON_MOR";
-            this.CODCON_MOR.HeaderText = "CODCON_MOR";
-            this.CODCON_MOR.Name = "CODCON_MOR";
-            this.CODCON_MOR.ReadOnly = true;
-            this.CODCON_MOR.Width = 130;
-            // 
-            // CODCON_IGV
-            // 
-            this.CODCON_IGV.DataPropertyName = "CODCON_IGV";
-            this.CODCON_IGV.HeaderText = "CODCON_IGV";
-            this.CODCON_IGV.Name = "CODCON_IGV";
-            this.CODCON_IGV.ReadOnly = true;
-            this.CODCON_IGV.Width = 130;
-            // 
-            // MONTOSOLES
-            // 
-            this.MONTOSOLES.DataPropertyName = "MONTOSOLES";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.MONTOSOLES.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MONTOSOLES.HeaderText = "MONTO SOLES";
-            this.MONTOSOLES.Name = "MONTOSOLES";
-            this.MONTOSOLES.ReadOnly = true;
-            // 
-            // RENTA
-            // 
-            this.RENTA.DataPropertyName = "RENTA";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.RENTA.DefaultCellStyle = dataGridViewCellStyle3;
-            this.RENTA.HeaderText = "RENTA";
-            this.RENTA.Name = "RENTA";
-            this.RENTA.ReadOnly = true;
-            // 
-            // IGV
-            // 
-            this.IGV.DataPropertyName = "IGV";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.IGV.DefaultCellStyle = dataGridViewCellStyle4;
-            this.IGV.HeaderText = "IGV";
-            this.IGV.Name = "IGV";
-            this.IGV.ReadOnly = true;
-            // 
-            // MORA
-            // 
-            this.MORA.DataPropertyName = "MORA";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.MORA.DefaultCellStyle = dataGridViewCellStyle5;
-            this.MORA.HeaderText = "MORA";
-            this.MORA.Name = "MORA";
-            this.MORA.ReadOnly = true;
-            // 
-            // COD_COB
-            // 
-            this.COD_COB.DataPropertyName = "COD_COB";
-            this.COD_COB.HeaderText = "COD_COB";
-            this.COD_COB.Name = "COD_COB";
-            this.COD_COB.ReadOnly = true;
-            this.COD_COB.Width = 50;
-            // 
-            // FCH_EMI
-            // 
-            this.FCH_EMI.DataPropertyName = "FCH_EMI";
-            this.FCH_EMI.HeaderText = "FCH_EMI";
-            this.FCH_EMI.Name = "FCH_EMI";
-            this.FCH_EMI.ReadOnly = true;
+            this.btnReporteIngresos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReporteIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporteIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteIngresos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteIngresos.ForeColor = System.Drawing.Color.Navy;
+            this.btnReporteIngresos.Image = global::GUI_Tesoreria.Properties.Resources.nuevodoc;
+            this.btnReporteIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteIngresos.Location = new System.Drawing.Point(655, 17);
+            this.btnReporteIngresos.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btnReporteIngresos.Name = "btnReporteIngresos";
+            this.btnReporteIngresos.Size = new System.Drawing.Size(163, 34);
+            this.btnReporteIngresos.TabIndex = 166;
+            this.btnReporteIngresos.Text = "&Reporte de Ingresos";
+            this.btnReporteIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReporteIngresos.UseVisualStyleBackColor = false;
+            this.btnReporteIngresos.Click += new System.EventHandler(this.btnReporteIngresos_Click);
             // 
             // frmImportarInformacionAPI
             // 
@@ -681,6 +702,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregarLiq);
             this.Controls.Add(this.btnModificarLiq);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.txtNroPliego);
             this.Controls.Add(this.LblTotal);
@@ -760,5 +782,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MORA;
         private System.Windows.Forms.DataGridViewTextBoxColumn COD_COB;
         private System.Windows.Forms.DataGridViewTextBoxColumn FCH_EMI;
+        internal System.Windows.Forms.Button btnReporteIngresos;
     }
 }

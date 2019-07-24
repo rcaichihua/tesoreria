@@ -20,6 +20,7 @@ namespace GUI_Tesoreria.Gerencia
         DataTable dtIngCajerosSGI;
         DataTable dtUnion;
 
+
         public frmIngresosPorCajero_2Mov_cobradoDelDia()
         {
             InitializeComponent();
@@ -222,6 +223,11 @@ namespace GUI_Tesoreria.Gerencia
         {
             Buscar();
             sumarColumnas();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

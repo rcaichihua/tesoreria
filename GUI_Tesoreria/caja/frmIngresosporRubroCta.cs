@@ -40,7 +40,8 @@ namespace GUI_Tesoreria.caja
         {
             DataTable dtResu = new DataTable();
             dtResu = cn.TraerDataset("usp_reporte_ingresos_rubro",txtRubro.Text.Trim()==""? null: txtRubro.Text, 
-                dtpFechaLiq.Value.ToString("yyyyMMdd"),cboPrograma.SelectedValue).Tables[0];
+                dtpDesde.Value.ToString("yyyyMMdd"), dtpHasta.Value.ToString("yyyyMMdd"), 
+                cboPrograma.SelectedValue).Tables[0];
             if (dtResu.Rows.Count==0)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para mostrar.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,

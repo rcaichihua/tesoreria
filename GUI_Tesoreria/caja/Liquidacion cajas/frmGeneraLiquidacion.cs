@@ -416,18 +416,51 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         return;
                     }
                 }
+
+                if (Convert.ToInt32(cboFuenteIngreso.SelectedValue)==3)
+                {
+                    decimal total;
+                    total = 0.00m;
+                    foreach (DataGridViewRow item in dgvIngresosInmobiliaria.Rows)
+                    {
+                        total = Convert.ToDecimal(item.Cells[4].Value);
+                        if (total != Convert.ToDecimal(txtTotalDeposito.Text))
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }                   
+                }
+                else
+                {
+                    decimal total;
+                    total = 0.00m;
+                    foreach (DataGridViewRow item in dgvModalidadIngreso.Rows)
+                    {
+                        total = total + Convert.ToDecimal(item.Cells[5].Value);
+                    }
+
+                    if (total != Convert.ToDecimal(txtTotalDeposito.Text))
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
                 if (Convert.ToDecimal(txtDiferenciaDepositoIngreso.Text)<0)
                 {
                     DevComponents.DotNetBar.MessageBoxEx.Show("La diferencia de depositos de más esta en negativo, verifique si no tiene pagos parciales(PA).", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (cn.TraerDataset("usp_VerificaFechaLiquidacion", Convert.ToDateTime(mtbFechaLiquidacion.Text).ToString("yyyyMMdd")).Tables[0].Rows[0][0].ToString()=="0")
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de liquidación ingresada no puede ser menor a la última liquidación ingresada.", VariablesMetodosEstaticos.encabezado,
-                           MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (cn.TraerDataset("usp_VerificaFechaLiquidacion", Convert.ToDateTime(mtbFechaLiquidacion.Text).ToString("yyyyMMdd")).Tables[0].Rows[0][0].ToString()=="0")
+                //{
+                //    DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de liquidación ingresada no puede ser menor a la última liquidación ingresada.", VariablesMetodosEstaticos.encabezado,
+                //           MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 if (caja=="02")
                 {
                     DataTable dtResu = new DataTable();

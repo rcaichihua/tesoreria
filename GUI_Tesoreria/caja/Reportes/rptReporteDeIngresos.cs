@@ -16,14 +16,14 @@ namespace GUI_Tesoreria.caja.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptListadoContable : ReportClass {
+    public class rptReporteDeIngresos : ReportClass {
         
-        public rptListadoContable() {
+        public rptReporteDeIngresos() {
         }
         
         public override string ResourceName {
             get {
-                return "rptListadoContable.rpt";
+                return "rptReporteDeIngresos.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         public override string FullResourceName {
             get {
-                return "GUI_Tesoreria.caja.Reportes.rptListadoContable.rpt";
+                return "GUI_Tesoreria.caja.Reportes.rptReporteDeIngresos.rpt";
             }
             set {
                 // Do nothing
@@ -87,28 +87,12 @@ namespace GUI_Tesoreria.caja.Reportes {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_desde {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_hasta {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptListadoContable : Component, ICachedReport {
+    public class CachedrptReporteDeIngresos : Component, ICachedReport {
         
-        public CachedrptListadoContable() {
+        public CachedrptReporteDeIngresos() {
         }
         
         [Browsable(false)]
@@ -145,7 +129,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptListadoContable rpt = new rptListadoContable();
+            rptReporteDeIngresos rpt = new rptReporteDeIngresos();
             rpt.Site = this.Site;
             return rpt;
         }
