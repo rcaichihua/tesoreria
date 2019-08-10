@@ -903,34 +903,37 @@ namespace GUI_Tesoreria.caja
 
                     DireccionID =Convert.ToInt32(cn.TraerDataset("usp_obtiene_direccion_x_residente", Convert.ToInt32(txtCodigo.Text.Trim())).Tables[0].Rows[0][0]);
                     //PENSION ANTERIOR COBRANZA DUDOSA
-                    if (DireccionID == 1 && Convert.ToInt32(row.Cells[1].Value) < DateTime.Now.Year)//canevaro
+                    if (DireccionID == 1 && Convert.ToInt32(row.Cells[1].Value) < (DateTime.Now.Year-1))//canevaro
                     {
                         rubroPension = "7027"; //pension canevaro
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 2 && Convert.ToInt32(row.Cells[1].Value) < DateTime.Now.Year)//perifericos
+                    else if (DireccionID == 2 && Convert.ToInt32(row.Cells[1].Value) < (DateTime.Now.Year - 1))//perifericos
                     {
                         rubroPension = "7029"; //pension perifericos
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 3 && Convert.ToInt32(row.Cells[1].Value) < DateTime.Now.Year)//svp
+                    else if (DireccionID == 3 && Convert.ToInt32(row.Cells[1].Value) < (DateTime.Now.Year - 1))//svp
                     {
                         rubroPension = "7028"; //pension svp
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
                     //PENSION ACTUAL
-                    if (DireccionID == 1 && row.Cells[1].Value.ToString()==DateTime.Now.Year.ToString())//canevaro
+                    if (DireccionID == 1 && (DateTime.Now.Year-Convert.ToInt32(row.Cells[1].Value)==1 || 
+                        (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value))==0))//canevaro
                     {
                         rubroPension = "7017"; //pension canevaro
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 2 && row.Cells[1].Value.ToString() == DateTime.Now.Year.ToString())//perifericos
+                    else if (DireccionID == 1 && (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value) == 1 ||
+                        (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value)) == 0))//perifericos
                     {
                         rubroPension = "7016"; //pension perifericos
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 3 && row.Cells[1].Value.ToString() == DateTime.Now.Year.ToString())//svp
-                    {
+                    else if (DireccionID == 1 && (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value) == 1 ||
+                        (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value)) == 0))//svp
+                        {
                         rubroPension = "7018"; //pension svp
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }

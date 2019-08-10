@@ -29,11 +29,6 @@ namespace GUI_Tesoreria
             else
                 sql_exec = "usp_exportar_data_ingresos_dbf_EC_CANEV";
 
-            DevComponents.DotNetBar.MessageBoxEx.Show("EXEC " + sql_exec + " '" + 
-                ObtieneFecha() + "'," + (cboPrograma.Text == "CEMENTERIO" ? 4 : 2) + ""+ 
-                dateTimePicker1.Value.Day.ToString("00") +
-                dateTimePicker1.Value.Month.ToString("00"), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             if (Databases.Sql2Dbf(conectar.conexionXml,
                 "EXEC " + sql_exec + " '"+ ObtieneFecha()+"',"+(cboPrograma.Text == "CEMENTERIO" ? 4 : 2)+"", 
                 (cboPrograma.Text=="CEMENTERIO" ? "CEC":"AEC")+dateTimePicker1.Value.Day.ToString("00")+

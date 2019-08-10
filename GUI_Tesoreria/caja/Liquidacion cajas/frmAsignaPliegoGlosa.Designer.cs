@@ -39,12 +39,14 @@
             this.LblNombre = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblContabilizar = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.lblContabilizar);
             this.groupBox2.Controls.Add(this.txtFechaLiq);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtPrograma);
@@ -124,10 +126,10 @@
             // txtGlosa
             // 
             this.txtGlosa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtGlosa.Location = new System.Drawing.Point(144, 97);
+            this.txtGlosa.Location = new System.Drawing.Point(144, 110);
             this.txtGlosa.Multiline = true;
             this.txtGlosa.Name = "txtGlosa";
-            this.txtGlosa.Size = new System.Drawing.Size(303, 112);
+            this.txtGlosa.Size = new System.Drawing.Size(303, 80);
             this.txtGlosa.TabIndex = 3;
             // 
             // LblNombre
@@ -135,11 +137,12 @@
             this.LblNombre.AutoSize = true;
             this.LblNombre.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblNombre.ForeColor = System.Drawing.Color.Navy;
-            this.LblNombre.Location = new System.Drawing.Point(12, 100);
+            this.LblNombre.Location = new System.Drawing.Point(12, 110);
             this.LblNombre.Name = "LblNombre";
             this.LblNombre.Size = new System.Drawing.Size(126, 13);
             this.LblNombre.TabIndex = 87;
             this.LblNombre.Text = "Glosa Recibo Ingreso";
+            this.LblNombre.Click += new System.EventHandler(this.LblNombre_Click);
             // 
             // btnCancelar
             // 
@@ -179,6 +182,17 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // lblContabilizar
+            // 
+            this.lblContabilizar.AutoSize = true;
+            this.lblContabilizar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContabilizar.ForeColor = System.Drawing.Color.Navy;
+            this.lblContabilizar.Location = new System.Drawing.Point(143, 94);
+            this.lblContabilizar.Name = "lblContabilizar";
+            this.lblContabilizar.Size = new System.Drawing.Size(249, 13);
+            this.lblContabilizar.TabIndex = 88;
+            this.lblContabilizar.Text = "PARA CONTABILIZAR LOS INGRESOS SEGUN:";
+            // 
             // frmAsignaPliegoGlosa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,5 +228,6 @@
         internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.TextBox txtNroPliego;
         internal System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Label lblContabilizar;
     }
 }

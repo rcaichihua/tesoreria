@@ -425,5 +425,45 @@ namespace GUI_Tesoreria.menus
             _frmIngresosPorCajero.Text = "...:::Ingreso por Programa:::...";
             _frmIngresosPorCajero.Show();
         }
+
+        private void altaDirecciònToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Contable.frmDiario _frmDiario = null;
+            _frmDiario = caja.Contable.frmDiario.Instance();
+            _frmDiario.MdiParent = this;
+            _frmDiario.gbDiario.Text = "ASIENTO DE DIARIO - ALTA DIRECCION";
+            _frmDiario.CodPrograma_ = 1;
+            _frmDiario.Show();
+        }
+
+        private void alberguesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Contable.frmDiario _frmDiario = null;
+            _frmDiario = caja.Contable.frmDiario.Instance();
+            _frmDiario.MdiParent = this;
+            _frmDiario.gbDiario.Text = "ASIENTO DE DIARIO - ALBERGUES";
+            _frmDiario.CodPrograma_ = 2;
+            _frmDiario.Show();
+        }
+
+        private void inmobiliariaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Contable.frmDiario _frmDiario = null;
+            _frmDiario = caja.Contable.frmDiario.Instance();
+            _frmDiario.MdiParent = this;
+            _frmDiario.gbDiario.Text = "ASIENTO DE DIARIO - INMOBILIARIA";
+            _frmDiario.CodPrograma_ = 3;
+            _frmDiario.Show();
+        }
+
+        private void cementerioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Contable.frmDiario _frmDiario = null;
+            _frmDiario = caja.Contable.frmDiario.Instance();
+            _frmDiario.MdiParent = this;
+            _frmDiario.gbDiario.Text = "ASIENTO DE DIARIO - CEMENTERIO";
+            _frmDiario.CodPrograma_ = 4;
+            _frmDiario.Show();
+        }
     }
 }

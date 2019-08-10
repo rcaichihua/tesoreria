@@ -152,7 +152,26 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                                                         {
                                                             if (txtCodInm.Text.Length >= 2)
                                                             {
-                                                                if (cn.EjecutarSqlDTS("select * from tconverInmobiliaria where tip_inmb='"+txtCodInm.Text.Substring(0,2)+"'").Tables[0].Rows.Count > 0)
+                                                                int codinmb;
+                                                                string cod;
+
+                                                                if (int.TryParse(txtCodInm.Text.Substring(0, 2), out codinmb))
+                                                                {
+                                                                    if (Convert.ToInt32(txtCodInm.Text.Substring(0, 2)) > 50)
+                                                                    {
+                                                                        cod = "50";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        cod = txtCodInm.Text.Substring(0, 2);
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    cod = txtCodInm.Text;
+                                                                }
+
+                                                                if (cn.EjecutarSqlDTS("select * from tconverInmobiliaria where tip_inmb='"+ cod.Substring(0,2)+"'").Tables[0].Rows.Count > 0)
                                                                 {
                                                                     if ((Convert.ToDecimal(txtRenta.Text) + Convert.ToDecimal(txtIgv.Text)) !=
                                                                         Convert.ToDecimal(txtMontoSoles.Text))

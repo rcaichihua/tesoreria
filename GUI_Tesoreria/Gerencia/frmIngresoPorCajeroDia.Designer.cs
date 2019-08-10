@@ -192,7 +192,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(440, 38);
             this.label6.TabIndex = 27;
-            this.label6.Text = "INGRESOS POR CAJA - DIARIO\r\nSOCIEDAD DE BENEFICENCIA DE LIMA METROPOLITANA";
+            this.label6.Text = "INGRESOS POR CAJA - DIARIO\r\nBENEFICENCIA DE LIMA";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7

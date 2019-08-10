@@ -13,7 +13,7 @@ using System.Text;
 
 namespace GUI_Tesoreria.control
 {
-    public partial class frmLogin : DevComponents.DotNetBar.Metro.MetroForm//Form
+    public partial class frmLogin : Form
     {
         private varGlobales varglo = new varGlobales();
         private CNegocio cn = new CNegocio();

@@ -319,7 +319,17 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         }
 
         private void btnImportaLiquidacionInmobiliaria_Click(object sender, EventArgs e)
-        {
+        {          
+            DataTable dtResultado = new DataTable();
+            dtResultado = cn.TraerDataset("usp_verifica_cierre", dtpFechaLiquidacion.Value.ToString("yyyyMMdd"), 3).Tables[0];
+
+            if (dtResultado.Rows.Count<=0)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para mostrar.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                     MessageBoxIcon.Warning);
+                return;
+            }
+
             if (cn.TraerDataset("usp_verifica_cierre", dtpFechaLiquidacion.Value.ToString("yyyyMMdd"),3).Tables[0].Rows[0][0].ToString()=="False")
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No se ha cerrado la fecha de liquidación del "+ dtpFechaLiquidacion.Value.ToString("dd/MM/yyyy"), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
@@ -480,6 +490,16 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnGeneraCodigoContable_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow item in this.dgvListado.Rows)
+            {
+                if (item.Cells[1].Value.ToString().Trim() == string.Empty)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Falta asignar un código de INMUEBLE al documento " + item.Cells[9].Value.ToString() +" del inquilino "+ item.Cells[3].Value.ToString(), VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                     MessageBoxIcon.Warning);
+                    return;                   
+                }
+            }
+
             try
             {
                 if (cn.TraerDataset("usp_verifica_cierre", dtpFechaLiquidacion.Value.ToString("yyyyMMdd"), 3).Tables[0].Rows[0][0].ToString() == "False")
@@ -495,7 +515,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 if (cn.TraerDataset("USP_CTA_CONTABLE_SGI",dtpFechaLiquidacion.Value.ToString("yyyyMMdd"),
                     dtpFechaCaja.Value.ToString("yyyyMMdd")).Tables[0].Rows[0][0].ToString()=="0")
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Se asigo las cuentas contables correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Se asigno las cuentas contables correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                      MessageBoxIcon.Information);
                     LlenarDatos();
                 }

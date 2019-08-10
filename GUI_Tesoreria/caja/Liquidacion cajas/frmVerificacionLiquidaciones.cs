@@ -205,10 +205,16 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             if (dgvLiquidaciones.CurrentRow!=null)
             {
                 DataSet dtsListadoContable = new DataSet();
+                DataSet dtsListadoContableNegativo = new DataSet();
+
                 frmReporte winReport = new frmReporte();
 
                 dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable_new", 
                     dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
+
+                dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
+                    dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
+                
 
                 if (dtsListadoContable.Tables[0].Rows.Count <= 0)
                 {
@@ -218,6 +224,9 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 }
 
                 Reportes.rptListadoContable rptRecibo = new Reportes.rptListadoContable();
+
+                rptRecibo.Subreports[0].Database.Tables[0].SetDataSource(dtsListadoContableNegativo.Tables[0]);
+
                 rptRecibo.SetDataSource(dtsListadoContable.Tables[0]);
                 rptRecibo.SetParameterValue("@desde", dtpFechaLiqDesde.Value.ToString("dd/MM/yyyy"));
                 rptRecibo.SetParameterValue("@hasta", dtpFechaLiqHasta.Value.ToString("dd/MM/yyyy"));

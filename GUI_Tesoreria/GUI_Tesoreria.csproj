@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationRevision>30</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -124,6 +124,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="caja\Contable\frmDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Contable\frmDiario.Designer.cs">
+      <DependentUpon>frmDiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="caja\Depositos\frmReporteBancoPorBanco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1231,6 +1237,9 @@
     <Compile Include="varGlobales.cs" />
     <Compile Include="VariablesGlobales.cs" />
     <Compile Include="VariablesMetodosEstaticos.cs" />
+    <EmbeddedResource Include="caja\Contable\frmDiario.resx">
+      <DependentUpon>frmDiario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Depositos\frmReporteBancoPorBanco.resx">
       <DependentUpon>frmReporteBancoPorBanco.cs</DependentUpon>
     </EmbeddedResource>
@@ -1428,7 +1437,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReciboCaja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReciboCaja.cs</LastGenOutput>
+      <LastGenOutput>rptReciboCaja1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReciboCajaCentral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1452,7 +1461,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReporteDeIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReporteDeIngresos.cs</LastGenOutput>
+      <LastGenOutput>rptReporteDeIngresos1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReporteDepositos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1878,6 +1887,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\circulo2.png" />
+    <None Include="Resources\CABECERA.png" />
+    <None Include="Resources\SESION.png" />
+    <None Include="Resources\FONDO42.png" />
+    <None Include="Resources\FONDO2.png" />
+    <None Include="bin\Debug\FONDO\logo.png" />
     <Content Include="FONDO\1028.png" />
     <Content Include="FONDO\anular.png" />
     <Content Include="FONDO\CABECERA.png" />

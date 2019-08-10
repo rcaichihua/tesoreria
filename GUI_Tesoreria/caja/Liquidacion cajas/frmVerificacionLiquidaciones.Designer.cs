@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GBPago = new System.Windows.Forms.GroupBox();
             this.btnRecalcular = new System.Windows.Forms.Button();
             this.cboPrograma = new System.Windows.Forms.ComboBox();
@@ -96,6 +97,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codrubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GBPago.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLiquidaciones)).BeginInit();
@@ -120,7 +122,7 @@
             this.GBPago.ForeColor = System.Drawing.Color.Maroon;
             this.GBPago.Location = new System.Drawing.Point(12, 12);
             this.GBPago.Name = "GBPago";
-            this.GBPago.Size = new System.Drawing.Size(761, 77);
+            this.GBPago.Size = new System.Drawing.Size(854, 77);
             this.GBPago.TabIndex = 149;
             this.GBPago.TabStop = false;
             this.GBPago.Text = "Filtro de liquidaciones";
@@ -131,7 +133,7 @@
             this.btnRecalcular.ForeColor = System.Drawing.Color.Navy;
             this.btnRecalcular.Image = global::GUI_Tesoreria.Properties.Resources.reaperturar;
             this.btnRecalcular.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRecalcular.Location = new System.Drawing.Point(449, 11);
+            this.btnRecalcular.Location = new System.Drawing.Point(574, 16);
             this.btnRecalcular.Name = "btnRecalcular";
             this.btnRecalcular.Size = new System.Drawing.Size(105, 61);
             this.btnRecalcular.TabIndex = 169;
@@ -152,7 +154,7 @@
             this.cboPrograma.IntegralHeight = false;
             this.cboPrograma.Location = new System.Drawing.Point(250, 22);
             this.cboPrograma.Name = "cboPrograma";
-            this.cboPrograma.Size = new System.Drawing.Size(193, 21);
+            this.cboPrograma.Size = new System.Drawing.Size(254, 21);
             this.cboPrograma.TabIndex = 149;
             this.cboPrograma.SelectedIndexChanged += new System.EventHandler(this.cboPrograma_SelectedIndexChanged);
             // 
@@ -210,7 +212,7 @@
             this.btnVer.ForeColor = System.Drawing.Color.Navy;
             this.btnVer.Image = global::GUI_Tesoreria.Properties.Resources.verdepositos;
             this.btnVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVer.Location = new System.Drawing.Point(385, 43);
+            this.btnVer.Location = new System.Drawing.Point(510, 20);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(58, 31);
             this.btnVer.TabIndex = 147;
@@ -225,7 +227,7 @@
             this.btnReciboIngreso.ForeColor = System.Drawing.Color.Navy;
             this.btnReciboIngreso.Image = global::GUI_Tesoreria.Properties.Resources.nuevodoc;
             this.btnReciboIngreso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReciboIngreso.Location = new System.Drawing.Point(645, 11);
+            this.btnReciboIngreso.Location = new System.Drawing.Point(770, 16);
             this.btnReciboIngreso.Name = "btnReciboIngreso";
             this.btnReciboIngreso.Size = new System.Drawing.Size(78, 61);
             this.btnReciboIngreso.TabIndex = 147;
@@ -240,7 +242,7 @@
             this.btnListadoContable.ForeColor = System.Drawing.Color.Navy;
             this.btnListadoContable.Image = global::GUI_Tesoreria.Properties.Resources.reporte;
             this.btnListadoContable.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnListadoContable.Location = new System.Drawing.Point(560, 11);
+            this.btnListadoContable.Location = new System.Drawing.Point(685, 16);
             this.btnListadoContable.Name = "btnListadoContable";
             this.btnListadoContable.Size = new System.Drawing.Size(79, 61);
             this.btnListadoContable.TabIndex = 147;
@@ -257,7 +259,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox1.Location = new System.Drawing.Point(12, 95);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(761, 463);
+            this.groupBox1.Size = new System.Drawing.Size(854, 463);
             this.groupBox1.TabIndex = 164;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado";
@@ -269,14 +271,14 @@
             this.dgvLiquidaciones.AllowUserToResizeColumns = false;
             this.dgvLiquidaciones.AllowUserToResizeRows = false;
             this.dgvLiquidaciones.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLiquidaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLiquidaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvLiquidaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLiquidaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.docIngresoDetalleID,
@@ -289,15 +291,16 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.codrubro,
-            this.idLiquidacion});
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLiquidaciones.DefaultCellStyle = dataGridViewCellStyle26;
+            this.idLiquidacion,
+            this.Fecha});
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLiquidaciones.DefaultCellStyle = dataGridViewCellStyle28;
             this.dgvLiquidaciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLiquidaciones.Location = new System.Drawing.Point(3, 17);
             this.dgvLiquidaciones.Name = "dgvLiquidaciones";
@@ -305,7 +308,7 @@
             this.dgvLiquidaciones.RowHeadersVisible = false;
             this.dgvLiquidaciones.RowHeadersWidth = 10;
             this.dgvLiquidaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLiquidaciones.Size = new System.Drawing.Size(755, 443);
+            this.dgvLiquidaciones.Size = new System.Drawing.Size(848, 443);
             this.dgvLiquidaciones.TabIndex = 0;
             // 
             // txtTotal
@@ -355,14 +358,14 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cod_inmb,
@@ -382,14 +385,14 @@
             this.fdepo,
             this.flag,
             this.donume});
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
@@ -403,8 +406,8 @@
             // cod_inmb
             // 
             this.cod_inmb.DataPropertyName = "cod_inmb";
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cod_inmb.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cod_inmb.DefaultCellStyle = dataGridViewCellStyle30;
             this.cod_inmb.HeaderText = "Cod Inmueble";
             this.cod_inmb.Name = "cod_inmb";
             this.cod_inmb.ReadOnly = true;
@@ -420,8 +423,8 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "aa";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle31;
             this.dataGridViewTextBoxColumn5.HeaderText = "Año Pago";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -430,8 +433,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "mm";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewTextBoxColumn6.HeaderText = "Mes pago";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -440,8 +443,8 @@
             // tip_Docu
             // 
             this.tip_Docu.DataPropertyName = "tip_Docu";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.tip_Docu.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.tip_Docu.DefaultCellStyle = dataGridViewCellStyle33;
             this.tip_Docu.HeaderText = "Tipo Doc";
             this.tip_Docu.Name = "tip_Docu";
             this.tip_Docu.ReadOnly = true;
@@ -450,8 +453,8 @@
             // nro_codu
             // 
             this.nro_codu.DataPropertyName = "nro_docu";
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.nro_codu.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nro_codu.DefaultCellStyle = dataGridViewCellStyle34;
             this.nro_codu.HeaderText = "Nro Doc";
             this.nro_codu.Name = "nro_codu";
             this.nro_codu.ReadOnly = true;
@@ -459,8 +462,8 @@
             // fch_pago
             // 
             this.fch_pago.DataPropertyName = "fch_pago";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fch_pago.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fch_pago.DefaultCellStyle = dataGridViewCellStyle35;
             this.fch_pago.HeaderText = "Fecha Pago";
             this.fch_pago.Name = "fch_pago";
             this.fch_pago.ReadOnly = true;
@@ -517,9 +520,9 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "monto";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle34.Format = "n2";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle36.Format = "n2";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridViewTextBoxColumn8.HeaderText = "Monto";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -543,8 +546,8 @@
             // donume
             // 
             this.donume.DataPropertyName = "donume";
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.donume.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.donume.DefaultCellStyle = dataGridViewCellStyle37;
             this.donume.HeaderText = "Nro Pliego";
             this.donume.Name = "donume";
             this.donume.ReadOnly = true;
@@ -558,7 +561,7 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.Navy;
             this.btnEliminar.Image = global::GUI_Tesoreria.Properties.Resources.eliminarV;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(616, 561);
+            this.btnEliminar.Location = new System.Drawing.Point(712, 564);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(74, 56);
@@ -577,7 +580,7 @@
             this.BtnSalir.ForeColor = System.Drawing.Color.Navy;
             this.BtnSalir.Image = global::GUI_Tesoreria.Properties.Resources.cancelardoc;
             this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnSalir.Location = new System.Drawing.Point(699, 561);
+            this.BtnSalir.Location = new System.Drawing.Point(795, 564);
             this.BtnSalir.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(71, 56);
@@ -596,7 +599,7 @@
             this.btnAgregarLiq.ForeColor = System.Drawing.Color.Navy;
             this.btnAgregarLiq.Image = global::GUI_Tesoreria.Properties.Resources.agregar_32x32;
             this.btnAgregarLiq.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarLiq.Location = new System.Drawing.Point(534, 561);
+            this.btnAgregarLiq.Location = new System.Drawing.Point(630, 564);
             this.btnAgregarLiq.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAgregarLiq.Name = "btnAgregarLiq";
             this.btnAgregarLiq.Size = new System.Drawing.Size(74, 56);
@@ -615,7 +618,7 @@
             this.btnModificarLiq.ForeColor = System.Drawing.Color.Navy;
             this.btnModificarLiq.Image = global::GUI_Tesoreria.Properties.Resources.modif_32x32;
             this.btnModificarLiq.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnModificarLiq.Location = new System.Drawing.Point(452, 561);
+            this.btnModificarLiq.Location = new System.Drawing.Point(548, 564);
             this.btnModificarLiq.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnModificarLiq.Name = "btnModificarLiq";
             this.btnModificarLiq.Size = new System.Drawing.Size(74, 56);
@@ -634,7 +637,7 @@
             this.btnAsignarPliego.ForeColor = System.Drawing.Color.Navy;
             this.btnAsignarPliego.Image = global::GUI_Tesoreria.Properties.Resources.asiganar_32x32;
             this.btnAsignarPliego.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAsignarPliego.Location = new System.Drawing.Point(278, 561);
+            this.btnAsignarPliego.Location = new System.Drawing.Point(374, 564);
             this.btnAsignarPliego.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAsignarPliego.Name = "btnAsignarPliego";
             this.btnAsignarPliego.Size = new System.Drawing.Size(166, 56);
@@ -655,8 +658,8 @@
             // cod_TipoDocVenta
             // 
             this.cod_TipoDocVenta.DataPropertyName = "cod_TipoDocVenta";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cod_TipoDocVenta.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cod_TipoDocVenta.DefaultCellStyle = dataGridViewCellStyle21;
             this.cod_TipoDocVenta.HeaderText = "Tipo Doc";
             this.cod_TipoDocVenta.Name = "cod_TipoDocVenta";
             this.cod_TipoDocVenta.ReadOnly = true;
@@ -665,8 +668,8 @@
             // nroDocumento
             // 
             this.nroDocumento.DataPropertyName = "nroDocumento";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.nroDocumento.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nroDocumento.DefaultCellStyle = dataGridViewCellStyle22;
             this.nroDocumento.HeaderText = "Nro Doc";
             this.nroDocumento.Name = "nroDocumento";
             this.nroDocumento.ReadOnly = true;
@@ -675,9 +678,9 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "monto";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "n2";
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "n2";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn1.HeaderText = "Monto";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -701,8 +704,8 @@
             // codigoInmueble
             // 
             this.codigoInmueble.DataPropertyName = "codigoInmueble";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.codigoInmueble.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.codigoInmueble.DefaultCellStyle = dataGridViewCellStyle24;
             this.codigoInmueble.HeaderText = "Cod Inmueble";
             this.codigoInmueble.Name = "codigoInmueble";
             this.codigoInmueble.ReadOnly = true;
@@ -710,8 +713,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "anioPago";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn3.HeaderText = "Anio Pago";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -720,8 +723,8 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "mesPago";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn4.HeaderText = "Mes pago";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -743,11 +746,21 @@
             this.idLiquidacion.ReadOnly = true;
             this.idLiquidacion.Visible = false;
             // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Fecha.DefaultCellStyle = dataGridViewCellStyle27;
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 80;
+            // 
             // frmVerificacionLiquidaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 625);
+            this.ClientSize = new System.Drawing.Size(874, 625);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtTotal);
@@ -828,5 +841,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn codrubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn idLiquidacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
     }
 }

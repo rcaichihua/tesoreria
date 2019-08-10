@@ -232,4 +232,22 @@
   <data name="reaperturar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reaperturar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CABECERA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CABECERA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circulo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circulo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FONDO2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FONDO42" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO42.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\FONDO\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SESION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SESION.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

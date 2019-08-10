@@ -42,7 +42,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 return;
             }
 
-            txtGlosa.Text = "PARA CONTABILIZAR LOS INGRESOS SEGUN:";
+            //txtGlosa.Text = "PARA CONTABILIZAR LOS INGRESOS SEGUN:";
             if (dt.Rows.Count>0)
             {
                 txtNroPliego.Text = dt.Rows[0][1].ToString();
@@ -59,7 +59,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             if (!Validacion()) return;
 
             if (cn.EjecutarSP("usp_actualiza_pliego_glosa", FechaLiq.Substring(6, 4) +
-                FechaLiq.Substring(3, 2) + FechaLiq.Substring(0, 2),ProgramaId,txtNroPliego.Text.Trim(),txtGlosa.Text)>0)
+                FechaLiq.Substring(3, 2) + FechaLiq.Substring(0, 2),ProgramaId,txtNroPliego.Text.Trim(),lblContabilizar.Text + Environment.NewLine + txtGlosa.Text)>0)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("Actualizado correctamente.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
@@ -99,6 +99,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 dato = false;
             }
             return dato;
+        }
+
+        private void LblNombre_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

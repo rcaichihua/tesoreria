@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.txtPwd1 = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
@@ -38,13 +37,13 @@
             this.Label2 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
-            this.PBFoto = new System.Windows.Forms.PictureBox();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.lblEmpresa = new System.Windows.Forms.Label();
+            this.PBFoto = new System.Windows.Forms.PictureBox();
             this.GroupBox2.SuspendLayout();
             this.GroupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).BeginInit();
             this.GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox2
@@ -158,16 +157,6 @@
             this.GroupBox4.TabIndex = 34;
             this.GroupBox4.TabStop = false;
             // 
-            // PBFoto
-            // 
-            this.PBFoto.Image = ((System.Drawing.Image)(resources.GetObject("PBFoto.Image")));
-            this.PBFoto.Location = new System.Drawing.Point(6, 11);
-            this.PBFoto.Name = "PBFoto";
-            this.PBFoto.Size = new System.Drawing.Size(150, 137);
-            this.PBFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PBFoto.TabIndex = 23;
-            this.PBFoto.TabStop = false;
-            // 
             // GroupBox1
             // 
             this.GroupBox1.BackColor = System.Drawing.Color.Transparent;
@@ -186,8 +175,18 @@
             this.lblEmpresa.Name = "lblEmpresa";
             this.lblEmpresa.Size = new System.Drawing.Size(458, 28);
             this.lblEmpresa.TabIndex = 25;
-            this.lblEmpresa.Text = "SOCIEDAD DE BENEFICENCIA DE LIMA METROPOLITANA";
+            this.lblEmpresa.Text = "BENEFICENCIA DE LIMA";
             this.lblEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBFoto
+            // 
+            this.PBFoto.Image = global::GUI_Tesoreria.Properties.Resources.logo;
+            this.PBFoto.Location = new System.Drawing.Point(6, 11);
+            this.PBFoto.Name = "PBFoto";
+            this.PBFoto.Size = new System.Drawing.Size(150, 137);
+            this.PBFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBFoto.TabIndex = 23;
+            this.PBFoto.TabStop = false;
             // 
             // frmLogin
             // 
@@ -208,8 +207,8 @@
             this.GroupBox2.ResumeLayout(false);
             this.GroupBox2.PerformLayout();
             this.GroupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).EndInit();
             this.GroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).EndInit();
             this.ResumeLayout(false);
 
         }

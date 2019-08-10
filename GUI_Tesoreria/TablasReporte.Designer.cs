@@ -84,6 +84,8 @@ namespace GUI_Tesoreria {
         
         private reporte_programa_diarioDataTable tablereporte_programa_diario;
         
+        private tb_listado_negativo_contableDataTable tabletb_listado_negativo_contable;
+        
         private global::System.Data.DataRelation _relation_Table_1__Table;
         
         private global::System.Data.DataRelation relationDIARIO_CAB_DIARIO_DET;
@@ -205,6 +207,9 @@ namespace GUI_Tesoreria {
                 }
                 if ((ds.Tables["reporte_programa_diario"] != null)) {
                     base.Tables.Add(new reporte_programa_diarioDataTable(ds.Tables["reporte_programa_diario"]));
+                }
+                if ((ds.Tables["tb_listado_negativo_contable"] != null)) {
+                    base.Tables.Add(new tb_listado_negativo_contableDataTable(ds.Tables["tb_listado_negativo_contable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -526,6 +531,16 @@ namespace GUI_Tesoreria {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tb_listado_negativo_contableDataTable tb_listado_negativo_contable {
+            get {
+                return this.tabletb_listado_negativo_contable;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -680,6 +695,9 @@ namespace GUI_Tesoreria {
                 }
                 if ((ds.Tables["reporte_programa_diario"] != null)) {
                     base.Tables.Add(new reporte_programa_diarioDataTable(ds.Tables["reporte_programa_diario"]));
+                }
+                if ((ds.Tables["tb_listado_negativo_contable"] != null)) {
+                    base.Tables.Add(new tb_listado_negativo_contableDataTable(ds.Tables["tb_listado_negativo_contable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -894,6 +912,12 @@ namespace GUI_Tesoreria {
                     this.tablereporte_programa_diario.InitVars();
                 }
             }
+            this.tabletb_listado_negativo_contable = ((tb_listado_negativo_contableDataTable)(base.Tables["tb_listado_negativo_contable"]));
+            if ((initTable == true)) {
+                if ((this.tabletb_listado_negativo_contable != null)) {
+                    this.tabletb_listado_negativo_contable.InitVars();
+                }
+            }
             this._relation_Table_1__Table = this.Relations["[Table 1]_Table"];
             this.relationDIARIO_CAB_DIARIO_DET = this.Relations["DIARIO_CAB_DIARIO_DET"];
         }
@@ -966,6 +990,8 @@ namespace GUI_Tesoreria {
             base.Tables.Add(this.tableReporteRecibosInmobiliaria);
             this.tablereporte_programa_diario = new reporte_programa_diarioDataTable();
             base.Tables.Add(this.tablereporte_programa_diario);
+            this.tabletb_listado_negativo_contable = new tb_listado_negativo_contableDataTable();
+            base.Tables.Add(this.tabletb_listado_negativo_contable);
             this._relation_Table_1__Table = new global::System.Data.DataRelation("[Table 1]_Table", new global::System.Data.DataColumn[] {
                         this.tableCABECERATITULO.CODCUARTELColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLETITULO.CODCUARTELColumn}, false);
@@ -1158,6 +1184,12 @@ namespace GUI_Tesoreria {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializetb_listado_negativo_contable() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1300,6 +1332,9 @@ namespace GUI_Tesoreria {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void reporte_programa_diarioRowChangeEventHandler(object sender, reporte_programa_diarioRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void tb_listado_negativo_contableRowChangeEventHandler(object sender, tb_listado_negativo_contableRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -13397,6 +13432,309 @@ namespace GUI_Tesoreria {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tb_listado_negativo_contableDataTable : global::System.Data.TypedTableBase<tb_listado_negativo_contableRow> {
+            
+            private global::System.Data.DataColumn columnnropliego;
+            
+            private global::System.Data.DataColumn columnfecha;
+            
+            private global::System.Data.DataColumn columncodigo_cuenta_contable;
+            
+            private global::System.Data.DataColumn columndescrip_cuenta_contable;
+            
+            private global::System.Data.DataColumn columntotaldebehaber;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tb_listado_negativo_contableDataTable() {
+                this.TableName = "tb_listado_negativo_contable";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tb_listado_negativo_contableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected tb_listado_negativo_contableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nropliegoColumn {
+                get {
+                    return this.columnnropliego;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn fechaColumn {
+                get {
+                    return this.columnfecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn codigo_cuenta_contableColumn {
+                get {
+                    return this.columncodigo_cuenta_contable;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn descrip_cuenta_contableColumn {
+                get {
+                    return this.columndescrip_cuenta_contable;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn totaldebehaberColumn {
+                get {
+                    return this.columntotaldebehaber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tb_listado_negativo_contableRow this[int index] {
+                get {
+                    return ((tb_listado_negativo_contableRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tb_listado_negativo_contableRowChangeEventHandler tb_listado_negativo_contableRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tb_listado_negativo_contableRowChangeEventHandler tb_listado_negativo_contableRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tb_listado_negativo_contableRowChangeEventHandler tb_listado_negativo_contableRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event tb_listado_negativo_contableRowChangeEventHandler tb_listado_negativo_contableRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Addtb_listado_negativo_contableRow(tb_listado_negativo_contableRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tb_listado_negativo_contableRow Addtb_listado_negativo_contableRow(string nropliego, System.DateTime fecha, string codigo_cuenta_contable, string descrip_cuenta_contable, decimal totaldebehaber) {
+                tb_listado_negativo_contableRow rowtb_listado_negativo_contableRow = ((tb_listado_negativo_contableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        nropliego,
+                        fecha,
+                        codigo_cuenta_contable,
+                        descrip_cuenta_contable,
+                        totaldebehaber};
+                rowtb_listado_negativo_contableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtb_listado_negativo_contableRow);
+                return rowtb_listado_negativo_contableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tb_listado_negativo_contableDataTable cln = ((tb_listado_negativo_contableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tb_listado_negativo_contableDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnnropliego = base.Columns["nropliego"];
+                this.columnfecha = base.Columns["fecha"];
+                this.columncodigo_cuenta_contable = base.Columns["codigo_cuenta_contable"];
+                this.columndescrip_cuenta_contable = base.Columns["descrip_cuenta_contable"];
+                this.columntotaldebehaber = base.Columns["totaldebehaber"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnnropliego = new global::System.Data.DataColumn("nropliego", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnropliego);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
+                this.columncodigo_cuenta_contable = new global::System.Data.DataColumn("codigo_cuenta_contable", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigo_cuenta_contable);
+                this.columndescrip_cuenta_contable = new global::System.Data.DataColumn("descrip_cuenta_contable", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescrip_cuenta_contable);
+                this.columntotaldebehaber = new global::System.Data.DataColumn("totaldebehaber", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotaldebehaber);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tb_listado_negativo_contableRow Newtb_listado_negativo_contableRow() {
+                return ((tb_listado_negativo_contableRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tb_listado_negativo_contableRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tb_listado_negativo_contableRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tb_listado_negativo_contableRowChanged != null)) {
+                    this.tb_listado_negativo_contableRowChanged(this, new tb_listado_negativo_contableRowChangeEvent(((tb_listado_negativo_contableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tb_listado_negativo_contableRowChanging != null)) {
+                    this.tb_listado_negativo_contableRowChanging(this, new tb_listado_negativo_contableRowChangeEvent(((tb_listado_negativo_contableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tb_listado_negativo_contableRowDeleted != null)) {
+                    this.tb_listado_negativo_contableRowDeleted(this, new tb_listado_negativo_contableRowChangeEvent(((tb_listado_negativo_contableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tb_listado_negativo_contableRowDeleting != null)) {
+                    this.tb_listado_negativo_contableRowDeleting(this, new tb_listado_negativo_contableRowChangeEvent(((tb_listado_negativo_contableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Removetb_listado_negativo_contableRow(tb_listado_negativo_contableRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                TablasReporte ds = new TablasReporte();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tb_listado_negativo_contableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class reporte_pagosRow : global::System.Data.DataRow {
@@ -23876,6 +24214,165 @@ namespace GUI_Tesoreria {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tb_listado_negativo_contableRow : global::System.Data.DataRow {
+            
+            private tb_listado_negativo_contableDataTable tabletb_listado_negativo_contable;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal tb_listado_negativo_contableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletb_listado_negativo_contable = ((tb_listado_negativo_contableDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string nropliego {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_listado_negativo_contable.nropliegoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nropliego\' in table \'tb_listado_negativo_contable\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_listado_negativo_contable.nropliegoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime fecha {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletb_listado_negativo_contable.fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fecha\' in table \'tb_listado_negativo_contable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_listado_negativo_contable.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string codigo_cuenta_contable {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_listado_negativo_contable.codigo_cuenta_contableColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'codigo_cuenta_contable\' in table \'tb_listado_negativo_conta" +
+                                "ble\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_listado_negativo_contable.codigo_cuenta_contableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string descrip_cuenta_contable {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_listado_negativo_contable.descrip_cuenta_contableColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'descrip_cuenta_contable\' in table \'tb_listado_negativo_cont" +
+                                "able\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_listado_negativo_contable.descrip_cuenta_contableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal totaldebehaber {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabletb_listado_negativo_contable.totaldebehaberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totaldebehaber\' in table \'tb_listado_negativo_contable\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_listado_negativo_contable.totaldebehaberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnropliegoNull() {
+                return this.IsNull(this.tabletb_listado_negativo_contable.nropliegoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnropliegoNull() {
+                this[this.tabletb_listado_negativo_contable.nropliegoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsfechaNull() {
+                return this.IsNull(this.tabletb_listado_negativo_contable.fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetfechaNull() {
+                this[this.tabletb_listado_negativo_contable.fechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscodigo_cuenta_contableNull() {
+                return this.IsNull(this.tabletb_listado_negativo_contable.codigo_cuenta_contableColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcodigo_cuenta_contableNull() {
+                this[this.tabletb_listado_negativo_contable.codigo_cuenta_contableColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isdescrip_cuenta_contableNull() {
+                return this.IsNull(this.tabletb_listado_negativo_contable.descrip_cuenta_contableColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setdescrip_cuenta_contableNull() {
+                this[this.tabletb_listado_negativo_contable.descrip_cuenta_contableColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IstotaldebehaberNull() {
+                return this.IsNull(this.tabletb_listado_negativo_contable.totaldebehaberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SettotaldebehaberNull() {
+                this[this.tabletb_listado_negativo_contable.totaldebehaberColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -24881,6 +25378,40 @@ namespace GUI_Tesoreria {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public reporte_programa_diarioRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class tb_listado_negativo_contableRowChangeEvent : global::System.EventArgs {
+            
+            private tb_listado_negativo_contableRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tb_listado_negativo_contableRowChangeEvent(tb_listado_negativo_contableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public tb_listado_negativo_contableRow Row {
                 get {
                     return this.eventRow;
                 }
