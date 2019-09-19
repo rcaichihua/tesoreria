@@ -86,6 +86,8 @@ namespace GUI_Tesoreria {
         
         private tb_listado_negativo_contableDataTable tabletb_listado_negativo_contable;
         
+        private rubroaltadireccionDataTable tablerubroaltadireccion;
+        
         private global::System.Data.DataRelation _relation_Table_1__Table;
         
         private global::System.Data.DataRelation relationDIARIO_CAB_DIARIO_DET;
@@ -210,6 +212,9 @@ namespace GUI_Tesoreria {
                 }
                 if ((ds.Tables["tb_listado_negativo_contable"] != null)) {
                     base.Tables.Add(new tb_listado_negativo_contableDataTable(ds.Tables["tb_listado_negativo_contable"]));
+                }
+                if ((ds.Tables["rubroaltadireccion"] != null)) {
+                    base.Tables.Add(new rubroaltadireccionDataTable(ds.Tables["rubroaltadireccion"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -541,6 +546,16 @@ namespace GUI_Tesoreria {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public rubroaltadireccionDataTable rubroaltadireccion {
+            get {
+                return this.tablerubroaltadireccion;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -698,6 +713,9 @@ namespace GUI_Tesoreria {
                 }
                 if ((ds.Tables["tb_listado_negativo_contable"] != null)) {
                     base.Tables.Add(new tb_listado_negativo_contableDataTable(ds.Tables["tb_listado_negativo_contable"]));
+                }
+                if ((ds.Tables["rubroaltadireccion"] != null)) {
+                    base.Tables.Add(new rubroaltadireccionDataTable(ds.Tables["rubroaltadireccion"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -918,6 +936,12 @@ namespace GUI_Tesoreria {
                     this.tabletb_listado_negativo_contable.InitVars();
                 }
             }
+            this.tablerubroaltadireccion = ((rubroaltadireccionDataTable)(base.Tables["rubroaltadireccion"]));
+            if ((initTable == true)) {
+                if ((this.tablerubroaltadireccion != null)) {
+                    this.tablerubroaltadireccion.InitVars();
+                }
+            }
             this._relation_Table_1__Table = this.Relations["[Table 1]_Table"];
             this.relationDIARIO_CAB_DIARIO_DET = this.Relations["DIARIO_CAB_DIARIO_DET"];
         }
@@ -992,6 +1016,8 @@ namespace GUI_Tesoreria {
             base.Tables.Add(this.tablereporte_programa_diario);
             this.tabletb_listado_negativo_contable = new tb_listado_negativo_contableDataTable();
             base.Tables.Add(this.tabletb_listado_negativo_contable);
+            this.tablerubroaltadireccion = new rubroaltadireccionDataTable();
+            base.Tables.Add(this.tablerubroaltadireccion);
             this._relation_Table_1__Table = new global::System.Data.DataRelation("[Table 1]_Table", new global::System.Data.DataColumn[] {
                         this.tableCABECERATITULO.CODCUARTELColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLETITULO.CODCUARTELColumn}, false);
@@ -1190,6 +1216,12 @@ namespace GUI_Tesoreria {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializerubroaltadireccion() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1335,6 +1367,9 @@ namespace GUI_Tesoreria {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void tb_listado_negativo_contableRowChangeEventHandler(object sender, tb_listado_negativo_contableRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void rubroaltadireccionRowChangeEventHandler(object sender, rubroaltadireccionRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -9602,7 +9637,7 @@ namespace GUI_Tesoreria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RECIBOCAJAPRINCIPALRow AddRECIBOCAJAPRINCIPALRow(string NroRecibo, string receptorNombre, System.DateTime fechaCajaOrigen, System.DateTime fechaLiquidacion, string glosa, decimal TotalDocumento, string UsuarioRegistro, string MontoLetras, int dia, string mes, int anio, string MONEDA, System.DateTime fecharegistro, string modalidadpago) {
+            public RECIBOCAJAPRINCIPALRow AddRECIBOCAJAPRINCIPALRow(string NroRecibo, string receptorNombre, System.DateTime fechaCajaOrigen, System.DateTime fechaLiquidacion, string glosa, decimal TotalDocumento, string UsuarioRegistro, string MontoLetras, string dia, string mes, string anio, string MONEDA, System.DateTime fecharegistro, string modalidadpago) {
                 RECIBOCAJAPRINCIPALRow rowRECIBOCAJAPRINCIPALRow = ((RECIBOCAJAPRINCIPALRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NroRecibo,
@@ -9676,11 +9711,11 @@ namespace GUI_Tesoreria {
                 base.Columns.Add(this.columnUsuarioRegistro);
                 this.columnMontoLetras = new global::System.Data.DataColumn("MontoLetras", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMontoLetras);
-                this.columndia = new global::System.Data.DataColumn("dia", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columndia = new global::System.Data.DataColumn("dia", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndia);
                 this.columnmes = new global::System.Data.DataColumn("mes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmes);
-                this.columnanio = new global::System.Data.DataColumn("anio", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnanio = new global::System.Data.DataColumn("anio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnanio);
                 this.columnMONEDA = new global::System.Data.DataColumn("MONEDA", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMONEDA);
@@ -13694,6 +13729,281 @@ namespace GUI_Tesoreria {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "tb_listado_negativo_contableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class rubroaltadireccionDataTable : global::System.Data.TypedTableBase<rubroaltadireccionRow> {
+            
+            private global::System.Data.DataColumn columnrubro;
+            
+            private global::System.Data.DataColumn columndesc_rubro;
+            
+            private global::System.Data.DataColumn columntotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public rubroaltadireccionDataTable() {
+                this.TableName = "rubroaltadireccion";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal rubroaltadireccionDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected rubroaltadireccionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn rubroColumn {
+                get {
+                    return this.columnrubro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn desc_rubroColumn {
+                get {
+                    return this.columndesc_rubro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public rubroaltadireccionRow this[int index] {
+                get {
+                    return ((rubroaltadireccionRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event rubroaltadireccionRowChangeEventHandler rubroaltadireccionRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event rubroaltadireccionRowChangeEventHandler rubroaltadireccionRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event rubroaltadireccionRowChangeEventHandler rubroaltadireccionRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event rubroaltadireccionRowChangeEventHandler rubroaltadireccionRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddrubroaltadireccionRow(rubroaltadireccionRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public rubroaltadireccionRow AddrubroaltadireccionRow(string rubro, string desc_rubro, decimal total) {
+                rubroaltadireccionRow rowrubroaltadireccionRow = ((rubroaltadireccionRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        rubro,
+                        desc_rubro,
+                        total};
+                rowrubroaltadireccionRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowrubroaltadireccionRow);
+                return rowrubroaltadireccionRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                rubroaltadireccionDataTable cln = ((rubroaltadireccionDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new rubroaltadireccionDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnrubro = base.Columns["rubro"];
+                this.columndesc_rubro = base.Columns["desc_rubro"];
+                this.columntotal = base.Columns["total"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnrubro = new global::System.Data.DataColumn("rubro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrubro);
+                this.columndesc_rubro = new global::System.Data.DataColumn("desc_rubro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndesc_rubro);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public rubroaltadireccionRow NewrubroaltadireccionRow() {
+                return ((rubroaltadireccionRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new rubroaltadireccionRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(rubroaltadireccionRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.rubroaltadireccionRowChanged != null)) {
+                    this.rubroaltadireccionRowChanged(this, new rubroaltadireccionRowChangeEvent(((rubroaltadireccionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.rubroaltadireccionRowChanging != null)) {
+                    this.rubroaltadireccionRowChanging(this, new rubroaltadireccionRowChangeEvent(((rubroaltadireccionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.rubroaltadireccionRowDeleted != null)) {
+                    this.rubroaltadireccionRowDeleted(this, new rubroaltadireccionRowChangeEvent(((rubroaltadireccionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.rubroaltadireccionRowDeleting != null)) {
+                    this.rubroaltadireccionRowDeleting(this, new rubroaltadireccionRowChangeEvent(((rubroaltadireccionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoverubroaltadireccionRow(rubroaltadireccionRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                TablasReporte ds = new TablasReporte();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "rubroaltadireccionDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -21266,10 +21576,10 @@ namespace GUI_Tesoreria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int dia {
+            public string dia {
                 get {
                     try {
-                        return ((int)(this[this.tableRECIBOCAJAPRINCIPAL.diaColumn]));
+                        return ((string)(this[this.tableRECIBOCAJAPRINCIPAL.diaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dia\' in table \'RECIBOCAJAPRINCIPAL\' is DBNull.", e);
@@ -21298,10 +21608,10 @@ namespace GUI_Tesoreria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int anio {
+            public string anio {
                 get {
                     try {
-                        return ((int)(this[this.tableRECIBOCAJAPRINCIPAL.anioColumn]));
+                        return ((string)(this[this.tableRECIBOCAJAPRINCIPAL.anioColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'anio\' in table \'RECIBOCAJAPRINCIPAL\' is DBNull.", e);
@@ -24373,6 +24683,105 @@ namespace GUI_Tesoreria {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class rubroaltadireccionRow : global::System.Data.DataRow {
+            
+            private rubroaltadireccionDataTable tablerubroaltadireccion;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal rubroaltadireccionRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablerubroaltadireccion = ((rubroaltadireccionDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string rubro {
+                get {
+                    try {
+                        return ((string)(this[this.tablerubroaltadireccion.rubroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'rubro\' in table \'rubroaltadireccion\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerubroaltadireccion.rubroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string desc_rubro {
+                get {
+                    try {
+                        return ((string)(this[this.tablerubroaltadireccion.desc_rubroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'desc_rubro\' in table \'rubroaltadireccion\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerubroaltadireccion.desc_rubroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal total {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablerubroaltadireccion.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'total\' in table \'rubroaltadireccion\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerubroaltadireccion.totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsrubroNull() {
+                return this.IsNull(this.tablerubroaltadireccion.rubroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetrubroNull() {
+                this[this.tablerubroaltadireccion.rubroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isdesc_rubroNull() {
+                return this.IsNull(this.tablerubroaltadireccion.desc_rubroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setdesc_rubroNull() {
+                this[this.tablerubroaltadireccion.desc_rubroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IstotalNull() {
+                return this.IsNull(this.tablerubroaltadireccion.totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SettotalNull() {
+                this[this.tablerubroaltadireccion.totalColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -25412,6 +25821,40 @@ namespace GUI_Tesoreria {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tb_listado_negativo_contableRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class rubroaltadireccionRowChangeEvent : global::System.EventArgs {
+            
+            private rubroaltadireccionRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public rubroaltadireccionRowChangeEvent(rubroaltadireccionRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public rubroaltadireccionRow Row {
                 get {
                     return this.eventRow;
                 }

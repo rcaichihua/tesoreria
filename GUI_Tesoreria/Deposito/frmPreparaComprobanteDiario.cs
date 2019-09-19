@@ -127,6 +127,7 @@ namespace GUI_Tesoreria.Deposito
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             frmBorrarComprobanteDiario win = new frmBorrarComprobanteDiario();
+            win._fechaBorrar = dtpFechaLiquidación.Value;
             win.ShowDialog();
         }
     }

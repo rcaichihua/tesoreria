@@ -100,19 +100,21 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         dtResultado_totalLiq = cn.TraerDataset("usp_SumaTotal_Carta_Fianza",
                         Convert.ToDateTime(dgvListadoLiquidaciones.Rows[index].Cells["FechaLiquidacion"].Value).ToString("yyyyMMdd")).Tables[0];
 
-                        if (Convert.ToDecimal(dgvListadoLiquidaciones.Rows[index].Cells["TotalRecibo"].Value) +
-                            Convert.ToDecimal(dtResultado_totalLiq.Rows[0][0].ToString()) !=
-                            Convert.ToDecimal(dgvListadoLiquidaciones.Rows[index].Cells["diferenciaDeposito"].Value))
+                        if (dtResultado_totalLiq.Rows[0][0].ToString() != string.Empty)
                         {
-                            //if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Al parecer falta recibos por ingresar, esta seguro de cerrar la fecha de liquidación seleccionada.?", VariablesMetodosEstaticos.encabezado,
-                            //  MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No))
-                            //{
-                            //}
-                            DevComponents.DotNetBar.MessageBoxEx.Show("Quedan recibos pendientes por ingresar.", VariablesMetodosEstaticos.encabezado,
-                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return;
+                            if (Convert.ToDecimal(dgvListadoLiquidaciones.Rows[index].Cells["TotalRecibo"].Value) +
+                                Convert.ToDecimal(dtResultado_totalLiq.Rows[0][0].ToString()) !=
+                                Convert.ToDecimal(dgvListadoLiquidaciones.Rows[index].Cells["diferenciaDeposito"].Value))
+                            {
+                                //if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Al parecer falta recibos por ingresar, esta seguro de cerrar la fecha de liquidación seleccionada.?", VariablesMetodosEstaticos.encabezado,
+                                //  MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No))
+                                //{
+                                //}
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Quedan recibos pendientes por ingresar.", VariablesMetodosEstaticos.encabezado,
+                                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return;
+                            }
                         }
-
                     }
                     dtResultado = cn.TraerDataset("usp_CerrarLiquidacion",
                         Convert.ToDateTime(dgvListadoLiquidaciones.Rows[index].Cells["FechaLiquidacion"].Value).ToString("yyyyMMdd"),

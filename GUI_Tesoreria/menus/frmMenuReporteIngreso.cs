@@ -195,8 +195,8 @@ namespace GUI_Tesoreria.menus
 
         private void frmMenuReporteIngreso_Load_1(object sender, EventArgs e)
         {
-            this.BackgroundImage = Image.FromFile(varglo.RUTA_FONDO + "FONDOFORM.png");
-            this.BackgroundImageLayout = ImageLayout.Center;
+            //this.BackgroundImage = Image.FromFile(varglo.RUTA_FONDO + "FONDOFORM.png");
+            //this.BackgroundImageLayout = ImageLayout.Center;
 
             tsslUsuario.Text = VariablesMetodosEstaticos.varNombreUser;
             tsslSucursal.Text = VariablesMetodosEstaticos.varNombreSucursal;
@@ -464,6 +464,22 @@ namespace GUI_Tesoreria.menus
             _frmDiario.gbDiario.Text = "ASIENTO DE DIARIO - CEMENTERIO";
             _frmDiario.CodPrograma_ = 4;
             _frmDiario.Show();
+        }
+
+        private void cierreDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Liquidacion_cajas.frmListaLiquidacionesCierre _frmListaLiquidacionesCierre = null;
+            _frmListaLiquidacionesCierre = caja.Liquidacion_cajas.frmListaLiquidacionesCierre.Instance();
+            _frmListaLiquidacionesCierre.MdiParent = this;
+            _frmListaLiquidacionesCierre.Show(); 
+        }
+
+        private void libroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito.frmMigraDiario _frmListadoDepositosGeneral = null;
+            _frmListadoDepositosGeneral = Deposito.frmMigraDiario.Instance();
+            _frmListadoDepositosGeneral.MdiParent = this;
+            _frmListadoDepositosGeneral.Show();
         }
     }
 }

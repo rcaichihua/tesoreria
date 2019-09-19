@@ -1,6 +1,6 @@
-﻿namespace GUI_Tesoreria.caja.Contable
+﻿namespace GUI_Tesoreria.Deposito
 {
-    partial class frmDiario
+    partial class frmMigraDiario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblPorcentaje = new System.Windows.Forms.Label();
+            this.lblCantidadProcesos = new System.Windows.Forms.Label();
+            this.progressbar = new MetroFramework.Controls.MetroProgressBar();
             this.gbDiario = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -36,13 +39,40 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMes = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.progressbar = new MetroFramework.Controls.MetroProgressBar();
-            this.lblPorcentaje = new System.Windows.Forms.Label();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.lblCantidadProcesos = new System.Windows.Forms.Label();
             this.gbDiario.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentaje.ForeColor = System.Drawing.Color.Navy;
+            this.lblPorcentaje.Location = new System.Drawing.Point(74, 249);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(114, 13);
+            this.lblPorcentaje.TabIndex = 14;
+            this.lblPorcentaje.Text = "Transfiriendo... 0%";
+            // 
+            // lblCantidadProcesos
+            // 
+            this.lblCantidadProcesos.AutoSize = true;
+            this.lblCantidadProcesos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadProcesos.ForeColor = System.Drawing.Color.Navy;
+            this.lblCantidadProcesos.Location = new System.Drawing.Point(12, 249);
+            this.lblCantidadProcesos.Name = "lblCantidadProcesos";
+            this.lblCantidadProcesos.Size = new System.Drawing.Size(12, 13);
+            this.lblCantidadProcesos.TabIndex = 13;
+            this.lblCantidadProcesos.Text = "-";
+            // 
+            // progressbar
+            // 
+            this.progressbar.Location = new System.Drawing.Point(12, 223);
+            this.progressbar.Name = "progressbar";
+            this.progressbar.Size = new System.Drawing.Size(238, 23);
+            this.progressbar.Style = MetroFramework.MetroColorStyle.Purple;
+            this.progressbar.TabIndex = 12;
             // 
             // gbDiario
             // 
@@ -52,9 +82,9 @@
             this.gbDiario.Location = new System.Drawing.Point(12, 12);
             this.gbDiario.Name = "gbDiario";
             this.gbDiario.Size = new System.Drawing.Size(238, 205);
-            this.gbDiario.TabIndex = 0;
+            this.gbDiario.TabIndex = 11;
             this.gbDiario.TabStop = false;
-            this.gbDiario.Text = "ASIENTO DE DIARIO - ALTA DIRECCION";
+            this.gbDiario.Text = "DIARIO";
             // 
             // btnCancelar
             // 
@@ -140,25 +170,6 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Mes";
             // 
-            // progressbar
-            // 
-            this.progressbar.Location = new System.Drawing.Point(12, 223);
-            this.progressbar.Name = "progressbar";
-            this.progressbar.Size = new System.Drawing.Size(238, 23);
-            this.progressbar.Style = MetroFramework.MetroColorStyle.Purple;
-            this.progressbar.TabIndex = 1;
-            // 
-            // lblPorcentaje
-            // 
-            this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentaje.ForeColor = System.Drawing.Color.Navy;
-            this.lblPorcentaje.Location = new System.Drawing.Point(74, 249);
-            this.lblPorcentaje.Name = "lblPorcentaje";
-            this.lblPorcentaje.Size = new System.Drawing.Size(114, 13);
-            this.lblPorcentaje.TabIndex = 10;
-            this.lblPorcentaje.Text = "Transfiriendo... 0%";
-            // 
             // backgroundWorker
             // 
             this.backgroundWorker.WorkerReportsProgress = true;
@@ -167,19 +178,7 @@
             this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
-            // lblCantidadProcesos
-            // 
-            this.lblCantidadProcesos.AutoSize = true;
-            this.lblCantidadProcesos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadProcesos.ForeColor = System.Drawing.Color.Navy;
-            this.lblCantidadProcesos.Location = new System.Drawing.Point(12, 249);
-            this.lblCantidadProcesos.Name = "lblCantidadProcesos";
-            this.lblCantidadProcesos.Size = new System.Drawing.Size(12, 13);
-            this.lblCantidadProcesos.TabIndex = 9;
-            this.lblCantidadProcesos.Text = "-";
-            this.lblCantidadProcesos.Click += new System.EventHandler(this.lblCantidadProcesos_Click);
-            // 
-            // frmDiario
+            // frmMigraDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,10 +191,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmDiario";
+            this.Name = "frmMigraDiario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "...:::Diario:::...";
-            this.Load += new System.EventHandler(this.frmDiario_Load);
+            this.Text = "...:::Migración de Diario:::...";
             this.gbDiario.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -205,17 +203,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox2;
+
+        internal System.Windows.Forms.Label lblPorcentaje;
+        internal System.Windows.Forms.Label lblCantidadProcesos;
+        private MetroFramework.Controls.MetroProgressBar progressbar;
+        public System.Windows.Forms.GroupBox gbDiario;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.GroupBox groupBox2;
         internal System.Windows.Forms.TextBox txtAnio;
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.TextBox txtMes;
         internal System.Windows.Forms.Label label4;
-        public System.Windows.Forms.GroupBox gbDiario;
-        private MetroFramework.Controls.MetroProgressBar progressbar;
-        internal System.Windows.Forms.Label lblPorcentaje;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
-        internal System.Windows.Forms.Label lblCantidadProcesos;
     }
 }

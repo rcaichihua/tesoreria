@@ -257,24 +257,24 @@ namespace GUI_Tesoreria.caja
                 DataRow[] foundRowFactura = CorrelativoRecibos.Select("Desc_TipoDocVenta like '%Fac%'");
                 if (foundRowFactura.Count() > 0)
                 {
-                    lblSerieFactura.Text = "F" + foundRowFactura[0][1].ToString().Trim().Substring(1,2);
+                    lblSerieFactura.Text = "FN" + foundRowFactura[0][1].ToString().Trim().Substring(1,2);
                     lblCorrelativoFactura.Text = foundRowFactura[0][2].ToString();
                 }
                 else
                 {
-                    lblSerieFactura.Text = "F00";
+                    lblSerieFactura.Text = "FN0";
                     lblCorrelativoFactura.Text = "00000000";
                 }
 
                 DataRow[] foundRowBoleta = CorrelativoRecibos.Select("Desc_TipoDocVenta like '%Bol%'");
                 if (foundRowBoleta.Count() > 0)
                 {
-                    lblSerieBoleta.Text ="B" + foundRowBoleta[0][1].ToString().Trim().Substring(1, 2);
+                    lblSerieBoleta.Text ="BN" + foundRowBoleta[0][1].ToString().Trim().Substring(1, 2);
                     lblCorrelativoVenta.Text = foundRowBoleta[0][2].ToString();
                 }
                 else
                 {
-                    lblSerieBoleta.Text = "B00";
+                    lblSerieBoleta.Text = "BN0";
                     lblCorrelativoVenta.Text = "00000000";
                 }
 

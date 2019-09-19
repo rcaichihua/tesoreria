@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>40</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -71,10 +71,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CA6A7A2A73E522C043D4345738781ABE74C3BB58</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>7AF57FE5E4D99C8D15D9825BB1789EFCA25F924D</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>GUI_Tesoreria_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>GUI_Tesoreria_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -122,6 +122,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VfpClient, Version=0.5.11.2190, Culture=neutral, PublicKeyToken=78aaa56544ab725d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\VfpClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="caja\Contable\frmDiario.cs">
@@ -520,6 +524,12 @@
       <DependentUpon>rptRecibosIngreso.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="caja\Reportes\rptRecibosingreso1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRecibosingreso1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="caja\Reportes\rptReporteDeIngresos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -538,6 +548,12 @@
       <DependentUpon>rptReporteDiario.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="caja\Reportes\rptReporteDiarioAltaDireccion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReporteDiarioAltaDireccion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="caja\Reportes\rptReporteDiarioDetalladoCanevaro.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -548,6 +564,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptReporteIngresos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\Reportes\rptRubrosAltaDireccion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRubrosAltaDireccion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\Reportes\rptSubInforme_ResumenIngresoDiarioCanevaro.cs">
@@ -836,6 +858,12 @@
     <Compile Include="Deposito\frmListarComprobanteDiario.Designer.cs">
       <DependentUpon>frmListarComprobanteDiario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deposito\frmMigraDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmMigraDiario.Designer.cs">
+      <DependentUpon>frmMigraDiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deposito\frmPreparaComprobanteDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -993,6 +1021,7 @@
       <DependentUpon>rptIngresosPorCajero.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KeyStateInfo.cs" />
     <Compile Include="mantenimiento\Contabilidad\frmMantenimientoCtaContable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1459,6 +1488,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptRecibosIngreso.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptRecibosingreso1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRecibosingreso1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReporteDeIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReporteDeIngresos1.cs</LastGenOutput>
@@ -1471,6 +1504,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReporteDiario.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptReporteDiarioAltaDireccion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteDiarioAltaDireccion.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptReporteDiarioDetalladoCanevaro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReporteDiarioDetalladoCanevaro.cs</LastGenOutput>
@@ -1478,6 +1515,10 @@
     <EmbeddedResource Include="caja\Reportes\rptReporteIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReporteIngresos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptRubrosAltaDireccion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRubrosAltaDireccion.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptSubInforme_ResumenIngresoDiarioCanevaro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1626,6 +1667,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Deposito\frmListarComprobanteDiario.resx">
       <DependentUpon>frmListarComprobanteDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmMigraDiario.resx">
+      <DependentUpon>frmMigraDiario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Deposito\frmPreparaComprobanteDiario.resx">
       <DependentUpon>frmPreparaComprobanteDiario.cs</DependentUpon>
@@ -1842,6 +1886,7 @@
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="GUI_Tesoreria_1_TemporaryKey.pfx" />
+    <None Include="GUI_Tesoreria_2_TemporaryKey.pfx" />
     <None Include="GUI_Tesoreria_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -1893,6 +1938,8 @@
     <None Include="Resources\FONDO42.png" />
     <None Include="Resources\FONDO2.png" />
     <None Include="bin\Debug\FONDO\logo.png" />
+    <Content Include="bin\Debug\FONDO\FONDOFORM.png" />
+    <Content Include="DLL\VfpClient.dll" />
     <Content Include="FONDO\1028.png" />
     <Content Include="FONDO\anular.png" />
     <Content Include="FONDO\CABECERA.png" />

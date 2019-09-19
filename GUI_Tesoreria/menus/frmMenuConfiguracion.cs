@@ -81,8 +81,8 @@ namespace GUI_Tesoreria.menus
         }
         private void frmMenuConfiguracion_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Image.FromFile(varglo.RUTA_FONDO + "FONDOFORM.png");
-            this.BackgroundImageLayout = ImageLayout.Center;
+            //this.BackgroundImage = Image.FromFile(varglo.RUTA_FONDO + "FONDOFORM.png");
+            //this.BackgroundImageLayout = ImageLayout.Center;
 
             tsslUsuario.Text = VariablesMetodosEstaticos.varNombreUser;
             tsslSucursal.Text = VariablesMetodosEstaticos.varNombreSucursal;

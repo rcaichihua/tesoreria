@@ -83,8 +83,8 @@ namespace GUI_Tesoreria.menus
         }
         private void frmMenuCaja_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Image.FromFile(varglo.RUTA_FONDO + "FONDOFORM.png");
-            this.BackgroundImageLayout = ImageLayout.Center;
+            //this.BackgroundImage = Image.FromFile(varglo.RUTA_FONDO + "FONDOFORM.png");
+            //this.BackgroundImageLayout = ImageLayout.Center;
 
             DataTable macDt = new DataTable();
             DataTable cajaUsuario = new DataTable();

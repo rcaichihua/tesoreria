@@ -16,14 +16,14 @@ namespace GUI_Tesoreria.caja.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptRecibosIngreso : ReportClass {
+    public class rptRecibosingreso1 : ReportClass {
         
-        public rptRecibosIngreso() {
+        public rptRecibosingreso1() {
         }
         
         public override string ResourceName {
             get {
-                return "rptRecibosIngreso.rpt";
+                return "rptRecibosingreso1.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         public override string FullResourceName {
             get {
-                return "GUI_Tesoreria.caja.Reportes.rptRecibosIngreso.rpt";
+                return "GUI_Tesoreria.caja.Reportes.rptRecibosingreso1.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace GUI_Tesoreria.caja.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptRecibosIngreso : Component, ICachedReport {
+    public class CachedrptRecibosingreso1 : Component, ICachedReport {
         
-        public CachedrptRecibosIngreso() {
+        public CachedrptRecibosingreso1() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptRecibosIngreso rpt = new rptRecibosIngreso();
+            rptRecibosingreso1 rpt = new rptRecibosingreso1();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -333,8 +333,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             DataTable dtBuscaNroRecibo = new DataTable();
 
-            if (cn.EjecutarSqlDTS("select estado from liquidacionPrincipal where CONVERT(varchar(10), fechaLiquidacion,112)='"+
-                Convert.ToDateTime(txtFechaLiquidacionC.Text).ToString("yyyyMMdd") +"'").Tables[0].Rows[0][0].ToString()=="True")
+            if (cn.EjecutarSqlDTS("select a.estado from liquidacionPrincipal a inner join liquidacionCajaPrincipalCabecera b on a.numeroLiquidacion=b.numeroLiquidacion where CONVERT(varchar(10), a.fechaLiquidacion,112)='" +
+                Convert.ToDateTime(txtFechaLiquidacionC.Text).ToString("yyyyMMdd") +"'").Tables[0].Rows[0][0].ToString()== "True and intProId="+FuenteIngreso+ " and b.estado=1")
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No se puede modificar debido a que la fecha de liquidación ya se encuentra cerrada.", VariablesMetodosEstaticos.encabezado,
                    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);

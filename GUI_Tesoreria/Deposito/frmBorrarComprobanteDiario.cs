@@ -12,6 +12,8 @@ namespace GUI_Tesoreria.Deposito
 {
     public partial class frmBorrarComprobanteDiario : DevComponents.DotNetBar.Metro.MetroForm
     {
+        public DateTime _fechaBorrar { get; set; }
+
         public frmBorrarComprobanteDiario()
         {
             InitializeComponent();
@@ -33,7 +35,8 @@ namespace GUI_Tesoreria.Deposito
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                     MessageBoxDefaultButton.Button2) ==DialogResult.Yes)
                 {
-                    if (cn.EjecutarSP("usp_paDiario_Borrar", dtpFechaLiquidación.Value.ToString("yyyyMMdd"), "1") > 0)
+                    if (cn.EjecutarSP("usp_paDiario_Borrar", dtpFechaLiquidación.Value.ToString("yyyyMMdd"), 
+                        rbDepositoBanco.Checked ? "1" : (rbInteres.Checked ? "2" : (rbRegularizacion.Checked ? "3" : "0"))) > 0)
                     {
                         DevComponents.DotNetBar.MessageBoxEx.Show("La información fue borrada del sistema.", 
                             VariablesMetodosEstaticos.encabezado,
@@ -53,6 +56,11 @@ namespace GUI_Tesoreria.Deposito
                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void frmBorrarComprobanteDiario_Load(object sender, EventArgs e)
+        {
+            dtpFechaLiquidación.Value = _fechaBorrar;
         }
     }
 }

@@ -37,12 +37,9 @@
             this.Label2 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
-            this.GroupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblEmpresa = new System.Windows.Forms.Label();
             this.PBFoto = new System.Windows.Forms.PictureBox();
             this.GroupBox2.SuspendLayout();
             this.GroupBox4.SuspendLayout();
-            this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +53,7 @@
             this.GroupBox2.Controls.Add(this.BtnSalir);
             this.GroupBox2.Controls.Add(this.Label2);
             this.GroupBox2.Controls.Add(this.Label1);
-            this.GroupBox2.Location = new System.Drawing.Point(183, 62);
+            this.GroupBox2.Location = new System.Drawing.Point(12, 172);
             this.GroupBox2.Name = "GroupBox2";
             this.GroupBox2.Size = new System.Drawing.Size(303, 154);
             this.GroupBox2.TabIndex = 32;
@@ -88,7 +85,7 @@
             this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAceptar.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.BtnAceptar.Location = new System.Drawing.Point(82, 123);
+            this.BtnAceptar.Location = new System.Drawing.Point(58, 123);
             this.BtnAceptar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnAceptar.Name = "BtnAceptar";
             this.BtnAceptar.Size = new System.Drawing.Size(89, 25);
@@ -114,7 +111,7 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.BtnSalir.Location = new System.Drawing.Point(179, 123);
+            this.BtnSalir.Location = new System.Drawing.Point(155, 123);
             this.BtnSalir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(89, 25);
@@ -129,7 +126,7 @@
             this.Label2.BackColor = System.Drawing.Color.Transparent;
             this.Label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Label2.Location = new System.Drawing.Point(45, 93);
+            this.Label2.Location = new System.Drawing.Point(49, 89);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(73, 15);
             this.Label2.TabIndex = 1;
@@ -141,7 +138,7 @@
             this.Label1.BackColor = System.Drawing.Color.Transparent;
             this.Label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Label1.Location = new System.Drawing.Point(45, 66);
+            this.Label1.Location = new System.Drawing.Point(71, 63);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(51, 15);
             this.Label1.TabIndex = 0;
@@ -151,40 +148,20 @@
             // 
             this.GroupBox4.BackColor = System.Drawing.Color.Transparent;
             this.GroupBox4.Controls.Add(this.PBFoto);
-            this.GroupBox4.Location = new System.Drawing.Point(15, 62);
+            this.GroupBox4.Location = new System.Drawing.Point(12, 12);
             this.GroupBox4.Name = "GroupBox4";
-            this.GroupBox4.Size = new System.Drawing.Size(162, 154);
+            this.GroupBox4.Size = new System.Drawing.Size(303, 154);
             this.GroupBox4.TabIndex = 34;
             this.GroupBox4.TabStop = false;
             // 
-            // GroupBox1
-            // 
-            this.GroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.GroupBox1.Controls.Add(this.lblEmpresa);
-            this.GroupBox1.Location = new System.Drawing.Point(15, 10);
-            this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(471, 46);
-            this.GroupBox1.TabIndex = 36;
-            this.GroupBox1.TabStop = false;
-            // 
-            // lblEmpresa
-            // 
-            this.lblEmpresa.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpresa.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblEmpresa.Location = new System.Drawing.Point(6, 12);
-            this.lblEmpresa.Name = "lblEmpresa";
-            this.lblEmpresa.Size = new System.Drawing.Size(458, 28);
-            this.lblEmpresa.TabIndex = 25;
-            this.lblEmpresa.Text = "BENEFICENCIA DE LIMA";
-            this.lblEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PBFoto
             // 
-            this.PBFoto.Image = global::GUI_Tesoreria.Properties.Resources.logo;
-            this.PBFoto.Location = new System.Drawing.Point(6, 11);
+            this.PBFoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PBFoto.Image = global::GUI_Tesoreria.Properties.Resources.FONDOFORM;
+            this.PBFoto.Location = new System.Drawing.Point(3, 16);
             this.PBFoto.Name = "PBFoto";
-            this.PBFoto.Size = new System.Drawing.Size(150, 137);
-            this.PBFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBFoto.Size = new System.Drawing.Size(297, 135);
+            this.PBFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBFoto.TabIndex = 23;
             this.PBFoto.TabStop = false;
             // 
@@ -192,13 +169,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 227);
-            this.Controls.Add(this.GroupBox1);
+            this.ClientSize = new System.Drawing.Size(325, 338);
             this.Controls.Add(this.GroupBox4);
             this.Controls.Add(this.GroupBox2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "...:::Ingreso al Sistema:::...";
@@ -207,7 +184,6 @@
             this.GroupBox2.ResumeLayout(false);
             this.GroupBox2.PerformLayout();
             this.GroupBox4.ResumeLayout(false);
-            this.GroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).EndInit();
             this.ResumeLayout(false);
 
@@ -224,8 +200,6 @@
         internal System.Windows.Forms.TextBox txtUser;
         internal System.Windows.Forms.GroupBox GroupBox4;
         internal System.Windows.Forms.PictureBox PBFoto;
-        internal System.Windows.Forms.GroupBox GroupBox1;
-        internal System.Windows.Forms.Label lblEmpresa;
         private System.Windows.Forms.TextBox txtPwd1;
     }
 }

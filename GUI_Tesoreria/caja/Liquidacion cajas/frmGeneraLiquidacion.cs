@@ -392,8 +392,10 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             DataTable dtResultadoLiq = new DataTable();
 
             int idLiquidacion = 0;
-            dtResultadoLiq = cn.EjecutarSqlDTS("select estado from liquidacionPrincipal where CONVERT(varchar(10), fechaLiquidacion,112)='" +
-                Convert.ToDateTime(mtbFechaLiquidacion.Text).ToString("yyyyMMdd") + "'").Tables[0];
+            dtResultadoLiq = cn.EjecutarSqlDTS("select estado from liquidacionPrincipal where numeroLiquidacion in (select numeroLiquidacion " + 
+                "from liquidacionCajaPrincipalCabecera where intProId = "+cboFuenteIngreso.SelectedValue+ 
+                " and CONVERT(varchar(10), fechaLiquidacion, 112) = '"+mtbFechaLiquidacion.Text+ "'  AND CONVERT(varchar(10), fechaCajaOrigen, 112) ='"+
+                mtbFechaCajaOrigen.Text+"' and estado = 1)").Tables[0];
             try
             {
                 if (dtResultadoLiq.Rows.Count > 0)
@@ -417,37 +419,37 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     }
                 }
 
-                if (Convert.ToInt32(cboFuenteIngreso.SelectedValue)==3)
-                {
-                    decimal total;
-                    total = 0.00m;
-                    foreach (DataGridViewRow item in dgvIngresosInmobiliaria.Rows)
-                    {
-                        total = Convert.ToDecimal(item.Cells[4].Value);
-                        if (total != Convert.ToDecimal(txtTotalDeposito.Text))
-                        {
-                            DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-                    }                   
-                }
-                else
-                {
-                    decimal total;
-                    total = 0.00m;
-                    foreach (DataGridViewRow item in dgvModalidadIngreso.Rows)
-                    {
-                        total = total + Convert.ToDecimal(item.Cells[5].Value);
-                    }
+                //if (Convert.ToInt32(cboFuenteIngreso.SelectedValue)==3)
+                //{
+                //    decimal total;
+                //    total = 0.00m;
+                //    foreach (DataGridViewRow item in dgvIngresosInmobiliaria.Rows)
+                //    {
+                //        total = Convert.ToDecimal(item.Cells[4].Value);
+                //        if (total != Convert.ToDecimal(txtTotalDeposito.Text))
+                //        {
+                //            DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                //                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //            return;
+                //        }
+                //    }                   
+                //}
+                //else
+                //{
+                //    decimal total;
+                //    total = 0.00m;
+                //    foreach (DataGridViewRow item in dgvModalidadIngreso.Rows)
+                //    {
+                //        total = total + Convert.ToDecimal(item.Cells[5].Value);
+                //    }
 
-                    if (total != Convert.ToDecimal(txtTotalDeposito.Text))
-                    {
-                        DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
+                //    if (total != Convert.ToDecimal(txtTotalDeposito.Text))
+                //    {
+                //        DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
+                //                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //        return;
+                //    }
+                //}
 
                 if (Convert.ToDecimal(txtDiferenciaDepositoIngreso.Text)<0)
                 {
@@ -471,9 +473,13 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     {
                         if (Convert.ToDecimal(item[1])-Convert.ToDecimal(item[2]) < 0 )
                         {
-                            DevComponents.DotNetBar.MessageBoxEx.Show("Falta ingresar el voucher en la liquidacion de uno o mas cobradores, verifíque.", VariablesMetodosEstaticos.encabezado,
+                            if (Convert.ToDecimal(item[1]) + Convert.ToDecimal(item[3]) - Convert.ToDecimal(item[2]) < 0)
+                            {
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Falta ingresar el voucher en la liquidacion de uno o mas cobradores, verifíque.", VariablesMetodosEstaticos.encabezado,
                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
+
+                                return;
+                            }
                         }
                     }
                 }

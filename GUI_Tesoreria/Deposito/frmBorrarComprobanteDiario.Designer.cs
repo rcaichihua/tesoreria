@@ -155,6 +155,7 @@
             this.Name = "frmBorrarComprobanteDiario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "...:::Borrar comprobante de Diario:::...";
+            this.Load += new System.EventHandler(this.frmBorrarComprobanteDiario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

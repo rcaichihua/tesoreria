@@ -51,10 +51,10 @@ namespace GUI_Tesoreria.Deposito
             AnchoFilas();
             SumarTotales();
 
-            foreach (DataGridViewColumn column in dgvListadoVouchers.Columns)
-            {
-                column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
+            //foreach (DataGridViewColumn column in dgvListadoVouchers.Columns)
+            //{
+            //    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //}
         }
 
         private void AnularAutocompletadoColumnas()
@@ -107,12 +107,11 @@ namespace GUI_Tesoreria.Deposito
         }
 
         private void dgvListadoVouchers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = this.dgvListadoVouchers.CurrentRow.Index;
-            DataTable dtResultadoBusqueda = new DataTable();
-
+        {          
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
+                int index = this.dgvListadoVouchers.CurrentRow.Index;
+                DataTable dtResultadoBusqueda = new DataTable();
                 if (this.dgvListadoVouchers.Columns[e.ColumnIndex].Name == "Depositos")
                 {
                     frmEdicionVouchers winfrmEdicionVouchers = new frmEdicionVouchers

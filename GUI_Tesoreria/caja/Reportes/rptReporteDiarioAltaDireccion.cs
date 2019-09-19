@@ -16,14 +16,14 @@ namespace GUI_Tesoreria.caja.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptRecibosIngreso : ReportClass {
+    public class rptReporteDiarioAltaDireccion : ReportClass {
         
-        public rptRecibosIngreso() {
+        public rptReporteDiarioAltaDireccion() {
         }
         
         public override string ResourceName {
             get {
-                return "rptRecibosIngreso.rpt";
+                return "rptReporteDiarioAltaDireccion.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         public override string FullResourceName {
             get {
-                return "GUI_Tesoreria.caja.Reportes.rptRecibosIngreso.rpt";
+                return "GUI_Tesoreria.caja.Reportes.rptReporteDiarioAltaDireccion.rpt";
             }
             set {
                 // Do nothing
@@ -58,7 +58,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
+        public CrystalDecisions.CrystalReports.Engine.Section ReportHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[1];
             }
@@ -66,7 +66,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,7 +90,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[5];
             }
@@ -98,17 +98,49 @@ namespace GUI_Tesoreria.caja.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section PageFooterSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[6];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection2 {
+            get {
+                return this.ReportDefinition.Sections[7];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[8];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Desde {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Hasta {
+            get {
+                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptRecibosIngreso : Component, ICachedReport {
+    public class CachedrptReporteDiarioAltaDireccion : Component, ICachedReport {
         
-        public CachedrptRecibosIngreso() {
+        public CachedrptReporteDiarioAltaDireccion() {
         }
         
         [Browsable(false)]
@@ -145,7 +177,7 @@ namespace GUI_Tesoreria.caja.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptRecibosIngreso rpt = new rptRecibosIngreso();
+            rptReporteDiarioAltaDireccion rpt = new rptReporteDiarioAltaDireccion();
             rpt.Site = this.Site;
             return rpt;
         }

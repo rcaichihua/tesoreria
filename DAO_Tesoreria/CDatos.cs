@@ -70,7 +70,7 @@ namespace DAO_Tesoreria
                     using (var mComando = new SqlCommand(ProcedimientoAlmacenado, cn))
                     {
                         cn.Open();
-                        mComando.CommandTimeout = 2700;
+                        mComando.CommandTimeout = 0;
                         mComando.Connection = cn;
                         mComando.CommandType = CommandType.StoredProcedure;
 
@@ -101,7 +101,7 @@ namespace DAO_Tesoreria
                     using (var mComando = new SqlCommand(ProcedimientoAlmacenado, cn))
                     {
                         cn.Open();
-                        mComando.CommandTimeout = 2700;
+                        mComando.CommandTimeout = 0;
                         mComando.Connection = cn;
                         mComando.CommandType = CommandType.StoredProcedure;
 
@@ -127,6 +127,7 @@ namespace DAO_Tesoreria
                         int Resp = 0;
                         cn.Open();
                         mCom.Connection = cn;
+                        mCom.CommandTimeout = 0;
                         mCom.CommandType = CommandType.StoredProcedure;
                         CargarParametros(mCom, Argumentos);
                         Resp = mCom.ExecuteNonQuery();

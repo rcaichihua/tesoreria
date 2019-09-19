@@ -15,6 +15,7 @@ namespace GUI_Tesoreria
     {
         public string tipo_reporte = "";
         private DataTable dtDatosReporte;
+        private DataTable dtDatosReporte2;
         private static frmReporteIngresoDiario frmInstance = null;
         private CNegocio cn = new CNegocio();
         public int programaId = 0;
@@ -64,23 +65,54 @@ namespace GUI_Tesoreria
                 if (tipo_reporte == "R")
                 {
                     dtDatosReporte = new DataTable();
-                    dtDatosReporte = cn.TraerDataset("usp_r_tb_recibocabecera", 1, 0, dtpDesde.Value.ToShortDateString()
-                                                    , dtpHasta.Value.ToShortDateString(), programaId, 1).Tables[0];
+                    dtDatosReporte2 = new DataTable();
 
-                    if (dtDatosReporte.Rows.Count > 0)
+                    if (VariablesMetodosEstaticos.id_programa == 1)
                     {
-                        caja.Reportes.rptReporteDiario rptReporteDiario = new caja.Reportes.rptReporteDiario();
-                        
-                        rptReporteDiario.SetDataSource(dtDatosReporte);
-                        rptReporteDiario.SetParameterValue("@Desde", dtpDesde.Value.ToShortDateString());
-                        rptReporteDiario.SetParameterValue("@Hasta", dtpHasta.Value.ToShortDateString());
-                        crvReportes.ReportSource = rptReporteDiario;
+                        dtDatosReporte = cn.TraerDataset("usp_r_tb_recibocabecera", 1, 0, dtpDesde.Value.ToShortDateString()
+                                                        , dtpHasta.Value.ToShortDateString(), programaId, 1).Tables[0];
+
+                        dtDatosReporte2 = cn.TraerDataset("usp_reporte_ingresos_rubro_general", null, dtpDesde.Value.ToString("yyyyMMdd")
+                                                        , dtpHasta.Value.ToString("yyyyMMdd"), VariablesMetodosEstaticos.id_programa).Tables[0];
+
+
+                        if (dtDatosReporte.Rows.Count > 0)
+                        {
+                            caja.Reportes.rptReporteDiarioAltaDireccion rptReporteDiario = new caja.Reportes.rptReporteDiarioAltaDireccion();
+
+                            rptReporteDiario.Subreports[0].Database.Tables[0].SetDataSource(dtDatosReporte2);
+                            rptReporteDiario.SetDataSource(dtDatosReporte);
+                            rptReporteDiario.SetParameterValue("@Desde", dtpDesde.Value.ToShortDateString());
+                            rptReporteDiario.SetParameterValue("@Hasta", dtpHasta.Value.ToShortDateString());
+                            crvReportes.ReportSource = rptReporteDiario;
+                        }
+                        else
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                            , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
                     }
                     else
                     {
-                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
-                        , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
+                        dtDatosReporte = cn.TraerDataset("usp_r_tb_recibocabecera", 1, 0, dtpDesde.Value.ToShortDateString()
+                                                        , dtpHasta.Value.ToShortDateString(), programaId, 1).Tables[0];
+
+                        if (dtDatosReporte.Rows.Count > 0)
+                        {
+                            caja.Reportes.rptReporteDiario rptReporteDiario = new caja.Reportes.rptReporteDiario();
+
+                            rptReporteDiario.SetDataSource(dtDatosReporte);
+                            rptReporteDiario.SetParameterValue("@Desde", dtpDesde.Value.ToShortDateString());
+                            rptReporteDiario.SetParameterValue("@Hasta", dtpHasta.Value.ToShortDateString());
+                            crvReportes.ReportSource = rptReporteDiario;
+                        }
+                        else
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                            , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
                     }
                 }
                 else if (tipo_reporte == "D" /*&& VariablesMetodosEstaticos.id_programa == 2*/)
@@ -159,7 +191,11 @@ namespace GUI_Tesoreria
                        , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                }                
+                }
+                else if (tipo_reporte=="reporte_altadireccion")
+                {
+
+                }
                 else
                 {
                     DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
