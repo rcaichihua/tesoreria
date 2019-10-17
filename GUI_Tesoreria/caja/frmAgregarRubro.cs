@@ -18,6 +18,7 @@ namespace GUI_Tesoreria.caja
         public bool EsCentral { get; set; }
         public int FuenteIngreso { get; set; }
         public bool Modifica { get; set; }
+        public string TipoRecibo { get; set; }
 
         CNegocio cn = new CNegocio();
         bool save = false;
@@ -139,12 +140,31 @@ namespace GUI_Tesoreria.caja
             }
             if (liquidacion)
             {
-                if ((Convert.ToInt32(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text) + TotalDocumento) > SaldoDocumento)
+                if (TipoRecibo=="N")
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no puede ser mayor al saldo de la liquidación.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtPrecio.Focus();
-                    return;
+                    if ((Convert.ToInt32(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text) + TotalDocumento) > SaldoDocumento)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no puede ser mayor al saldo de la liquidación.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtPrecio.Focus();
+                        return;
+                    }
                 }
+                else if (TipoRecibo == "E")
+                {
+                    if ((Convert.ToInt32(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text)) > SaldoDocumento)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no puede ser mayor al saldo de la liquidación.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtPrecio.Focus();
+                        return;
+                    }
+                    if ((Convert.ToInt32(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text)) == SaldoDocumento)
+                    {
+                        SaldoDocumento = 0.00m;
+                    }
+
+                }
+
+                
             }
             save = true;
             this.Close();

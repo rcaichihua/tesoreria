@@ -378,11 +378,13 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             winAddRub.liquidacion = true;
             winAddRub.EsCentral = true;//
             winAddRub.FuenteIngreso = FuenteIngreso;//
+            //SaldoLiquidacion = winAddRub.SaldoDocumento;
             winAddRub.SaldoDocumento = SaldoLiquidacion;
             winAddRub.TotalDocumento = Convert.ToDecimal(txtTotalDocumentoC.Text);
             winAddRub.Modifica = true;
+            winAddRub.TipoRecibo = "E";
             dtsRubros = winAddRub.traerFormulario();
-
+            SaldoLiquidacion = winAddRub.SaldoDocumento;
             llamaDetalle(dtsRubros, impuesto);
 
             //bool impuesto = false;
@@ -503,7 +505,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
             }
         }
-        private void acumulado(decimal tot2)
+        private void acumulado(decimal tot2, decimal eliminado)
         {
             try
             {
@@ -516,7 +518,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
                 txtTotalDocumentoC.Text = tot.ToString("##,##0.00");
                 //txtImportePago.Text = tot.ToString("##,##0.00");
-                SaldoLiquidacion = SaldoLiquidacion + tot2;
+                SaldoLiquidacion = SaldoLiquidacion + eliminado;
                 txtSaldoC.Text = (SaldoLiquidacion).ToString("###,###,##0.00");//(SaldoLiquidacion == 0 ? 0 : SaldoLiquidacion - tot).ToString("###,##0.00");
             }
             catch (Exception)
@@ -528,20 +530,23 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             try
             {
+                decimal importe_eliminado = 0.00m;
 
                 int index = DGVRubros.CurrentRow.Index;
 
                 decimal tot = 0.00m;
 
+                importe_eliminado = Convert.ToDecimal(DGVRubros.Rows[index].Cells[4].Value);
+
                 for (int i = 0; i < DGVRubros.RowCount; i++)
                 {
-                    tot = tot + Convert.ToDecimal(DGVRubros.Rows[index].Cells[4].Value);
+                    tot = tot + Convert.ToDecimal(DGVRubros.Rows[i].Cells[4].Value);
                 }
 
                 if (DGVRubros.RowCount > 0)
                 {
                     DGVRubros.Rows.RemoveAt(index);
-                    acumulado(tot);
+                    acumulado(tot, importe_eliminado);
                 }
                 else
                 {

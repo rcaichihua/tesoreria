@@ -611,9 +611,11 @@
             this.Controls.Add(this.IGBTotales);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmModificacionModalidadPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "...:::Modificacion Modalidad de Pagos:::...";
+            this.Text = "...:::Modificación  - Modalidad de Pagos:::...";
             this.Load += new System.EventHandler(this.frmModificacionModalidadPago_Load);
             this.GBPago.ResumeLayout(false);
             this.GBPago.PerformLayout();

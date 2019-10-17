@@ -36,17 +36,19 @@
             this.dtpFechaLiquidación = new System.Windows.Forms.DateTimePicker();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.rbContabiMesActual = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbContabiMesActual);
             this.groupBox1.Controls.Add(this.rbRegularizacion);
             this.groupBox1.Controls.Add(this.rbInteres);
             this.groupBox1.Controls.Add(this.rbDepositoBanco);
             this.groupBox1.Location = new System.Drawing.Point(18, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(255, 107);
+            this.groupBox1.Size = new System.Drawing.Size(255, 136);
             this.groupBox1.TabIndex = 166;
             this.groupBox1.TabStop = false;
             // 
@@ -112,7 +114,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.Navy;
             this.btnCancelar.Image = global::GUI_Tesoreria.Properties.Resources.salir_;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(148, 149);
+            this.btnCancelar.Location = new System.Drawing.Point(147, 177);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(92, 36);
             this.btnCancelar.TabIndex = 167;
@@ -129,7 +131,7 @@
             this.btnBorrar.ForeColor = System.Drawing.Color.Navy;
             this.btnBorrar.Image = global::GUI_Tesoreria.Properties.Resources.asignar;
             this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar.Location = new System.Drawing.Point(50, 149);
+            this.btnBorrar.Location = new System.Drawing.Point(49, 177);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(92, 36);
             this.btnBorrar.TabIndex = 163;
@@ -138,11 +140,22 @@
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
+            // rbContabiMesActual
+            // 
+            this.rbContabiMesActual.AutoSize = true;
+            this.rbContabiMesActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbContabiMesActual.Location = new System.Drawing.Point(31, 88);
+            this.rbContabiMesActual.Name = "rbContabiMesActual";
+            this.rbContabiMesActual.Size = new System.Drawing.Size(173, 30);
+            this.rbContabiMesActual.TabIndex = 1;
+            this.rbContabiMesActual.Text = "&Liquidados mes anterior y \r\ncontabilizados mes actual";
+            this.rbContabiMesActual.UseVisualStyleBackColor = true;
+            // 
             // frmBorrarComprobanteDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 197);
+            this.ClientSize = new System.Drawing.Size(289, 225);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Label2);
@@ -173,5 +186,6 @@
         internal System.Windows.Forms.Label Label2;
         private System.Windows.Forms.DateTimePicker dtpFechaLiquidación;
         internal System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.RadioButton rbContabiMesActual;
     }
 }

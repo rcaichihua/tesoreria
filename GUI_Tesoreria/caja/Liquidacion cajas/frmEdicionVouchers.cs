@@ -152,6 +152,13 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
                 return;
             }
+            if (Convert.ToInt16(cboModalidadPago.SelectedValue)==1 || Convert.ToInt16(cboModalidadPago.SelectedValue) == 4 || 
+                Convert.ToInt16(cboModalidadPago.SelectedValue) == 11 || Convert.ToInt16(cboModalidadPago.SelectedValue) == 14)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago que intenta ingresar no es válida, seleccione otra." + dtresu.Rows[0][0].ToString(), VariablesMetodosEstaticos.encabezado,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             //AQUI NO ES NECESARIO TENER VALOR EN LA VARIABLE Tabla DEBIDO A QUE CON LA FECHA DE LIQUIDACION Y FUENTEORIGEN
             //ES SUFICIENTE SABER A QUE TABLA DE DEPOSITO VA AFECTAR YA SEA A LA TABLA DE INMOBILIARIA O DE TESORERIA
             //PROGRAMAS.
@@ -400,22 +407,29 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void BtnBuscarDoc_Click(object sender, EventArgs e)
         {
-            string id_liq;
-            id_liq = "";
-            DataTable dt = new DataTable();
-            dt = cn.TraerDataset("USP_LISTA_DOC_LIQUIDACION",
-                Convert.ToInt32(id_liq), null).Tables[0];
-
-            if (dt.Rows.Count <= 0)
+            try
             {
-                MessageBox.Show("No hay datos para el reporte.", "Aplicacion",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                string id_liq;
+                id_liq = "";
+                DataTable dt = new DataTable();
+                dt = cn.TraerDataset("USP_LISTA_DOC_LIQUIDACION",
+                    Convert.ToInt32(id_liq), null).Tables[0];
+
+                if (dt.Rows.Count <= 0)
+                {
+                    MessageBox.Show("No hay datos para el reporte.", "Aplicacion",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                frmListadoDocumentosLiqInmo win = new frmListadoDocumentosLiqInmo();
+                win.Lista = dt;
+                win.IdLiq = Convert.ToInt32(id_liq);
+                win.ShowDialog();
             }
-            frmListadoDocumentosLiqInmo win = new frmListadoDocumentosLiqInmo();
-            win.Lista = dt;
-            win.IdLiq = Convert.ToInt32(id_liq);
-            win.ShowDialog();
+            catch (Exception)
+            {
+
+            }           
         }
 
         private void cboConcepto_SelectedIndexChanged(object sender, EventArgs e)

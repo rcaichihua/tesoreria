@@ -397,6 +397,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             frmEdicionLiquidacionInmobiliaria win = new frmEdicionLiquidacionInmobiliaria();          
             win.TipoMan = "I";
             win.FechaLiquidacion = dtpFechaLiquidacion.Value.ToString("yyyyMMdd");
+            win.FechaEmision = dtpFechaLiquidacion.Value.ToString("dd/MM/yyyy");
             win.ShowDialog();
             LlenarDatos();
         }
@@ -426,6 +427,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     win.Mora = Convert.ToDecimal(dgvListado.Rows[index].Cells[19].Value);
                     win.MontoSoles = Convert.ToDecimal(dgvListado.Rows[index].Cells[16].Value);
                     win.FechaLiquidacion = dtpFechaLiquidacion.Value.ToString("yyyyMMdd");
+                    win.FechaEmision = dgvListado.Rows[index].Cells[21].Value.ToString() != string.Empty ? dgvListado.Rows[index].Cells[21].Value.ToString().Substring(6,2)+"/"+ dgvListado.Rows[index].Cells[21].Value.ToString().Substring(4, 2)+"/" + dgvListado.Rows[index].Cells[21].Value.ToString().Substring(0, 4):"";
+                    win.NroDocumento = Convert.ToString(dgvListado.Rows[index].Cells[4].Value);
                     win.TipoMan = "E";
 
                     win.ShowDialog();

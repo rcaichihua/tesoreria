@@ -375,6 +375,16 @@ namespace GUI_Tesoreria.caja
 
         private void btnModificaModalidadPago_Click(object sender, EventArgs e)
         {
+            int index2 = 0;
+            index2 = dgvRecibos.CurrentRow.Index;
+
+            if (dgvRecibos.Rows[index2].Cells["Estado"].Value.ToString() == "EXTORNADO")
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("El documento ya se encuentra Extornado", VariablesMetodosEstaticos.encabezado,
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (dgvRecibos.Rows.Count>0)
             {
                 int index = dgvRecibos.CurrentRow.Index;

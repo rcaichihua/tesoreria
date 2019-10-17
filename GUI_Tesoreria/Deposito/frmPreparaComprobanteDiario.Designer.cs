@@ -150,7 +150,7 @@
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(92, 36);
             this.btnVer.TabIndex = 158;
-            this.btnVer.Text = "&Ver";
+            this.btnVer.Text = "&Procesar";
             this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVer.UseVisualStyleBackColor = false;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);

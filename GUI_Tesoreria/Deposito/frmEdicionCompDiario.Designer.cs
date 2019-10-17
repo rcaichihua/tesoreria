@@ -68,6 +68,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txthaber = new System.Windows.Forms.TextBox();
             this.txtdebe = new System.Windows.Forms.TextBox();
+            this.chkMesAnioAnterior = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiarioCabecera)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -158,7 +159,7 @@
             this.DOFECH.HeaderText = "FECHA";
             this.DOFECH.Name = "DOFECH";
             this.DOFECH.ReadOnly = true;
-            this.DOFECH.Width = 70;
+            this.DOFECH.Width = 80;
             // 
             // PROGRAMA
             // 
@@ -515,11 +516,24 @@
             this.txtdebe.Size = new System.Drawing.Size(117, 22);
             this.txtdebe.TabIndex = 175;
             // 
+            // chkMesAnioAnterior
+            // 
+            this.chkMesAnioAnterior.AutoSize = true;
+            this.chkMesAnioAnterior.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.chkMesAnioAnterior.ForeColor = System.Drawing.Color.Navy;
+            this.chkMesAnioAnterior.Location = new System.Drawing.Point(168, 12);
+            this.chkMesAnioAnterior.Name = "chkMesAnioAnterior";
+            this.chkMesAnioAnterior.Size = new System.Drawing.Size(236, 17);
+            this.chkMesAnioAnterior.TabIndex = 176;
+            this.chkMesAnioAnterior.Text = "&Ver depositos con mes o año anterior";
+            this.chkMesAnioAnterior.UseVisualStyleBackColor = true;
+            // 
             // frmEdicionCompDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 584);
+            this.Controls.Add(this.chkMesAnioAnterior);
             this.Controls.Add(this.txthaber);
             this.Controls.Add(this.txtdebe);
             this.Controls.Add(this.groupBox2);
@@ -577,6 +591,9 @@
         internal System.Windows.Forms.Button btnEditar;
         internal System.Windows.Forms.Button btnGuardar;
         internal System.Windows.Forms.Button button3;
+        internal System.Windows.Forms.Button btnCancelar;
+        internal System.Windows.Forms.TextBox txthaber;
+        internal System.Windows.Forms.TextBox txtdebe;
         private System.Windows.Forms.DataGridViewTextBoxColumn DONUME;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOFECH;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROGRAMA;
@@ -584,8 +601,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCODI;
         private System.Windows.Forms.DataGridViewTextBoxColumn DONOCO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIARIO_ID;
-        internal System.Windows.Forms.Button btnCancelar;
-        internal System.Windows.Forms.TextBox txthaber;
-        internal System.Windows.Forms.TextBox txtdebe;
+        private System.Windows.Forms.CheckBox chkMesAnioAnterior;
     }
 }

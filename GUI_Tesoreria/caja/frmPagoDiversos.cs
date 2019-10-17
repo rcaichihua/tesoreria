@@ -573,7 +573,7 @@ namespace GUI_Tesoreria.caja
 
         private void BtnGrabarC_Click(object sender, EventArgs e)
         {
-             try
+            try
             {
                 if (!ValidarCampos(false))
                 {
@@ -833,7 +833,7 @@ namespace GUI_Tesoreria.caja
             _filaCabecera["ReciboCementerio"] = VariablesMetodosEstaticos.id_programa == 4 ? cboCementerio.Text.ToUpper() : "";// cboCementerio.SelectedIndex == 0 ? null : cboCementerio.Text.ToUpper();//ReciboCementerio;
             _filaCabecera["CodigoDetraccion"] = cboTasaDetraccion.SelectedValue.ToString();
             _filaCabecera["MontoDetraccion"] = txtMontoDetraccion.Text.Trim()==string.Empty ? 0.00m: Convert.ToDecimal(txtMontoDetraccion.Text.Trim());
-            _filaCabecera["FechaCancelacion"] = Convert.ToInt32(cboComprobante.SelectedValue)==3 ? Convert.ToDateTime(txtFecha.Text) : dtpFechaCancelacion.Value.Date;
+            _filaCabecera["FechaCancelacion"] = Convert.ToInt32(cboModalidadPago.SelectedValue)!=19 ? Convert.ToDateTime(txtFecha.Text) : dtpFechaCancelacion.Value.Date;
             cabeceraRecibo.Rows.Add(_filaCabecera);
             
             int y = 0;
@@ -925,13 +925,13 @@ namespace GUI_Tesoreria.caja
                         rubroPension = "7017"; //pension canevaro
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 1 && (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value) == 1 ||
+                    else if (DireccionID == 2 && (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value) == 1 ||
                         (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value)) == 0))//perifericos
                     {
                         rubroPension = "7016"; //pension perifericos
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 1 && (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value) == 1 ||
+                    else if (DireccionID == 3 && (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value) == 1 ||
                         (DateTime.Now.Year - Convert.ToInt32(row.Cells[1].Value)) == 0))//svp
                         {
                         rubroPension = "7018"; //pension svp

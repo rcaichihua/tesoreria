@@ -612,22 +612,15 @@ namespace GUI_Tesoreria.caja
 
         private void BtnGrabarC_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 1 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 11 ||
-                Convert.ToInt32(cboModalidadPago.SelectedValue) == 19 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 20)
+            if (Convert.ToDateTime(dtpFechaCancelacion.Value.ToString("dd/MM/yyyy")) <= Convert.ToDateTime(dtpFechaEmision.Value.ToString("dd/MM/yyyy")))
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago ingresa no esta permitida.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
+                DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de cancelación no puede ser menor a la fecha de emisión.",
+                    VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!ValidarCampos(true))
-            {
-                return;
-            }
-            else { errorProvider1.Clear(); }
-
-            if (cboModalidadPago.SelectedIndex==0)
-            {
+            if (cboModalidadPago.SelectedIndex == 0)
+            {              
                 if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de modificar la fecha de CANCELACION.", VariablesMetodosEstaticos.encabezado,
                              MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
@@ -644,85 +637,102 @@ namespace GUI_Tesoreria.caja
                     return;
                 }
             }
-            if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de guardar? Una vez guardado no podra modificarlo.", VariablesMetodosEstaticos.encabezado,
-                             MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+            else
             {
-                if (!ValidarTotales())
+                if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 1 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 11 ||
+               Convert.ToInt32(cboModalidadPago.SelectedValue) == 19 || Convert.ToInt32(cboModalidadPago.SelectedValue) == 20)
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no coincide con la suma total de modalidades de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    return;
-                }
-                decimal tot = 0.00m;
-
-                for (int i = 0; i < modalidadesPago.Rows.Count; i++)
-                {
-                    tot = tot + Convert.ToDecimal(modalidadesPago.Rows[i][10]);
-                }
-
-                if (tot + Convert.ToDecimal(txtTotalCambioDolar.Text) < Convert.ToDecimal(txtPrecioVentaC.Text))
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("La suma total de modalidades de pago es menor al total del documento." +
-                        Environment.NewLine + Environment.NewLine + "No se puede continuar.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("La modalidad de pago ingresado no esta permitida.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
                     return;
                 }
 
-                for (int i = modalidadesPago.Rows.Count - 1; i >= 0; i--)
+                if (!ValidarCampos(true))
                 {
-                    DataRow dr = modalidadesPago.Rows[i];
-                    if (dr["cod_mod_pago"].ToString() == (cboModalidadPago.SelectedValue).ToString() && 
-                        dr["concep_cod"].ToString() == (cboConcepto.SelectedValue).ToString() &&
-                        Convert.ToDecimal(dr["importe_voucher_pago"]) == Convert.ToDecimal(txtImportePago.Text) &&
-                        Convert.ToDateTime(dr["FechaDeposito"]).ToShortDateString() == dtpFechaPago.Value.ToShortDateString())
-                        dr.Delete();
+                    return;
                 }
-                modalidadesPago.AcceptChanges();
+                else { errorProvider1.Clear(); }
 
-                cod_mod_pago = Convert.ToInt16(cboModalidadPago.SelectedValue);
-                desc_mod_Pago = cboModalidadPago.Text;
-                concep_cod = Convert.ToInt16(cboConcepto.SelectedValue);
-                FechaDeposito = dtpFechaPago.Value;
-                cod_entidad_financ = cboEntidadFinanciera.SelectedValue.ToString() == "0" ? null : cboEntidadFinanciera.SelectedValue.ToString();
-                nombre_entidad = cboEntidadFinanciera.Text == "[seleccione]" ? null : cboEntidadFinanciera.Text;
-                cuenta_bancaria_id = Convert.ToInt32(cboCuenta.SelectedValue) == 0 ? null : cboCuenta.SelectedValue.ToString();
-                numero_cuenta = cboCuenta.Text == "[seleccione]" ? null : cboCuenta.Text;
-                importe_voucher_pago = Convert.ToDecimal(txtImportePago.Text);
-                TipoCambio = Convert.ToDecimal(txtTipoCambio.Text);
-                importe_cambio = Convert.ToDecimal(txtTotalCambioDolar.Text);
-                NumeroDocumento_Voucher_cheque_pago = txtNumDocumento.Text;
-                ObservacionPago = txtObservacionesPago.Text.Trim();
-
-                DataRow _filaAddNewModalidad = modalidadesPago.NewRow();
-
-                _filaAddNewModalidad["cod_mod_pago"] = cod_mod_pago;
-                _filaAddNewModalidad["desc_mod_Pago"] = desc_mod_Pago;
-                _filaAddNewModalidad["concep_cod"] = concep_cod;
-                _filaAddNewModalidad["FechaDeposito"] = FechaDeposito;
-                _filaAddNewModalidad["cod_entidad_financ"] = cod_entidad_financ;
-                _filaAddNewModalidad["nombre_entidad"] = nombre_entidad;
-                _filaAddNewModalidad["cuenta_bancaria_id"] = cuenta_bancaria_id;
-                _filaAddNewModalidad["numero_cuenta"] = numero_cuenta;
-                _filaAddNewModalidad["importe_voucher_pago"] = importe_voucher_pago;
-                _filaAddNewModalidad["TipoCambio"] = TipoCambio;
-                _filaAddNewModalidad["importe_cambio"] = importe_cambio;
-                _filaAddNewModalidad["NumeroDocumento_Voucher_cheque_pago"] = NumeroDocumento_Voucher_cheque_pago;
-                _filaAddNewModalidad["ObservacionPago"] = ObservacionPago;
-
-                modalidadesPago.Rows.Add(_filaAddNewModalidad);
-
-                if (cn.ActualizaModalidadPago("usp_actualiza_modalidad_pago", ReciboId, cod_mod_pago, concep_cod, FechaDeposito.ToString("yyyyMMdd"), 
-                    cod_entidad_financ,cuenta_bancaria_id, importe_voucher_pago, TipoCambio, importe_cambio, NumeroDocumento_Voucher_cheque_pago,
-                    ObservacionPago, dtpFechaCancelacion.Value.ToString("yyyyMMdd"), modalidadesPago).Tables[0].Rows[0][0].ToString() == "1")
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de guardar? Una vez guardado no podra modificarlo.", VariablesMetodosEstaticos.encabezado,
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Se actualizo la modalidad de pago correctamente.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                }
-                else
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, intente de nuevo.", VariablesMetodosEstaticos.encabezado,
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!ValidarTotales())
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no coincide con la suma total de modalidades de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                        return;
+                    }
+                    decimal tot = 0.00m;
+
+                    for (int i = 0; i < modalidadesPago.Rows.Count; i++)
+                    {
+                        tot = tot + Convert.ToDecimal(modalidadesPago.Rows[i][10]);
+                    }
+
+                    if (tot + Convert.ToDecimal(txtTotalCambioDolar.Text) < Convert.ToDecimal(txtPrecioVentaC.Text))
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("La suma total de modalidades de pago es menor al total del documento." +
+                            Environment.NewLine + Environment.NewLine + "No se puede continuar.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    for (int i = modalidadesPago.Rows.Count - 1; i >= 0; i--)
+                    {
+                        DataRow dr = modalidadesPago.Rows[i];
+                        if (dr["cod_mod_pago"].ToString() == (cboModalidadPago.SelectedValue).ToString() &&
+                            dr["concep_cod"].ToString() == (cboConcepto.SelectedValue).ToString() &&
+                            Convert.ToDecimal(dr["importe_voucher_pago"]) == Convert.ToDecimal(txtImportePago.Text) &&
+                            Convert.ToDateTime(dr["FechaDeposito"]).ToShortDateString() == dtpFechaPago.Value.ToShortDateString())
+                            dr.Delete();
+                    }
+                    modalidadesPago.AcceptChanges();
+
+                    cod_mod_pago = Convert.ToInt16(cboModalidadPago.SelectedValue);
+                    desc_mod_Pago = cboModalidadPago.Text;
+                    concep_cod = Convert.ToInt16(cboConcepto.SelectedValue);
+                    FechaDeposito = dtpFechaPago.Value;
+                    cod_entidad_financ = cboEntidadFinanciera.SelectedValue.ToString() == "0" ? null : cboEntidadFinanciera.SelectedValue.ToString();
+                    nombre_entidad = cboEntidadFinanciera.Text == "[seleccione]" ? null : cboEntidadFinanciera.Text;
+                    cuenta_bancaria_id = Convert.ToInt32(cboCuenta.SelectedValue) == 0 ? null : cboCuenta.SelectedValue.ToString();
+                    numero_cuenta = cboCuenta.Text == "[seleccione]" ? null : cboCuenta.Text;
+                    importe_voucher_pago = Convert.ToDecimal(txtImportePago.Text);
+                    TipoCambio = Convert.ToDecimal(txtTipoCambio.Text);
+                    importe_cambio = Convert.ToDecimal(txtTotalCambioDolar.Text);
+                    NumeroDocumento_Voucher_cheque_pago = txtNumDocumento.Text;
+                    ObservacionPago = txtObservacionesPago.Text.Trim();
+
+                    DataRow _filaAddNewModalidad = modalidadesPago.NewRow();
+
+                    _filaAddNewModalidad["cod_mod_pago"] = cod_mod_pago;
+                    _filaAddNewModalidad["desc_mod_Pago"] = desc_mod_Pago;
+                    _filaAddNewModalidad["concep_cod"] = concep_cod;
+                    _filaAddNewModalidad["FechaDeposito"] = FechaDeposito;
+                    _filaAddNewModalidad["cod_entidad_financ"] = cod_entidad_financ;
+                    _filaAddNewModalidad["nombre_entidad"] = nombre_entidad;
+                    _filaAddNewModalidad["cuenta_bancaria_id"] = cuenta_bancaria_id;
+                    _filaAddNewModalidad["numero_cuenta"] = numero_cuenta;
+                    _filaAddNewModalidad["importe_voucher_pago"] = importe_voucher_pago;
+                    _filaAddNewModalidad["TipoCambio"] = TipoCambio;
+                    _filaAddNewModalidad["importe_cambio"] = importe_cambio;
+                    _filaAddNewModalidad["NumeroDocumento_Voucher_cheque_pago"] = NumeroDocumento_Voucher_cheque_pago;
+                    _filaAddNewModalidad["ObservacionPago"] = ObservacionPago;
+
+                    modalidadesPago.Rows.Add(_filaAddNewModalidad);
+
+                    if (cn.ActualizaModalidadPago("usp_actualiza_modalidad_pago", ReciboId, cod_mod_pago, concep_cod, FechaDeposito.ToString("yyyyMMdd"),
+                        cod_entidad_financ, cuenta_bancaria_id, importe_voucher_pago, TipoCambio, importe_cambio, NumeroDocumento_Voucher_cheque_pago,
+                        ObservacionPago, dtpFechaCancelacion.Value.ToString("yyyyMMdd"), modalidadesPago).Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Se actualizo la modalidad de pago correctamente.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Ocurrio un error, intente de nuevo.", VariablesMetodosEstaticos.encabezado,
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }

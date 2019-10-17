@@ -37,12 +37,6 @@
             this.txtTotalVouchers = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvListadoVouchers = new System.Windows.Forms.DataGridView();
-            this.dtpFechaLiquidación = new System.Windows.Forms.DateTimePicker();
-            this.Label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.btnVer = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.Depositos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idIngresosEfectivoDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.concep_cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +55,14 @@
             this.tabla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROG_COD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONCEP_DESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpFechaLiquidación = new System.Windows.Forms.DateTimePicker();
+            this.Label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.btnVer = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoVouchers)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +73,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(634, 454);
+            this.label6.Location = new System.Drawing.Point(663, 454);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 153;
@@ -84,7 +86,7 @@
             this.txtTotalVouchers.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTotalVouchers.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalVouchers.ForeColor = System.Drawing.Color.Maroon;
-            this.txtTotalVouchers.Location = new System.Drawing.Point(676, 451);
+            this.txtTotalVouchers.Location = new System.Drawing.Point(705, 451);
             this.txtTotalVouchers.MaxLength = 11;
             this.txtTotalVouchers.Name = "txtTotalVouchers";
             this.txtTotalVouchers.ReadOnly = true;
@@ -104,7 +106,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox3.Location = new System.Drawing.Point(12, 71);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1055, 374);
+            this.groupBox3.Size = new System.Drawing.Size(1113, 374);
             this.groupBox3.TabIndex = 151;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Listado de Vouchers";
@@ -135,7 +137,8 @@
             this.importe_cambio,
             this.tabla,
             this.observaciones,
-            this.PROG_COD});
+            this.PROG_COD,
+            this.CONCEP_DESC});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,88 +155,10 @@
             this.dgvListadoVouchers.ReadOnly = true;
             this.dgvListadoVouchers.RowHeadersVisible = false;
             this.dgvListadoVouchers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListadoVouchers.Size = new System.Drawing.Size(1049, 354);
+            this.dgvListadoVouchers.Size = new System.Drawing.Size(1107, 354);
             this.dgvListadoVouchers.TabIndex = 16;
             this.dgvListadoVouchers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListadoVouchers_CellClick);
             this.dgvListadoVouchers.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvListadoVouchers_CellPainting);
-            // 
-            // dtpFechaLiquidación
-            // 
-            this.dtpFechaLiquidación.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaLiquidación.Location = new System.Drawing.Point(15, 37);
-            this.dtpFechaLiquidación.Name = "dtpFechaLiquidación";
-            this.dtpFechaLiquidación.Size = new System.Drawing.Size(112, 20);
-            this.dtpFechaLiquidación.TabIndex = 156;
-            // 
-            // Label2
-            // 
-            this.Label2.AutoSize = true;
-            this.Label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label2.ForeColor = System.Drawing.Color.Navy;
-            this.Label2.Location = new System.Drawing.Point(12, 21);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(103, 13);
-            this.Label2.TabIndex = 157;
-            this.Label2.Text = "Fecha liquidación";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(64, 454);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 158;
-            this.label1.Text = "Total registros:";
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.ForeColor = System.Drawing.Color.Navy;
-            this.lblCantidad.Location = new System.Drawing.Point(165, 454);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(14, 13);
-            this.lblCantidad.TabIndex = 159;
-            this.lblCantidad.Text = "0";
-            // 
-            // btnVer
-            // 
-            this.btnVer.BackColor = System.Drawing.Color.White;
-            this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVer.ForeColor = System.Drawing.Color.Navy;
-            this.btnVer.Image = global::GUI_Tesoreria.Properties.Resources.asignar;
-            this.btnVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVer.Location = new System.Drawing.Point(133, 31);
-            this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(65, 36);
-            this.btnVer.TabIndex = 155;
-            this.btnVer.Text = "&Ver";
-            this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVer.UseVisualStyleBackColor = false;
-            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.BackColor = System.Drawing.Color.White;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Navy;
-            this.btnSalir.Image = global::GUI_Tesoreria.Properties.Resources.salir;
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalir.Location = new System.Drawing.Point(978, 448);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(86, 71);
-            this.btnSalir.TabIndex = 152;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Depositos
             // 
@@ -285,7 +210,7 @@
             this.desc_mod_Pago.HeaderText = "Modalidad de Pago";
             this.desc_mod_Pago.Name = "desc_mod_Pago";
             this.desc_mod_Pago.ReadOnly = true;
-            this.desc_mod_Pago.Width = 150;
+            this.desc_mod_Pago.Width = 130;
             // 
             // FechaDeposito
             // 
@@ -311,7 +236,7 @@
             this.nombre_entidad.HeaderText = "Nombre Entidad";
             this.nombre_entidad.Name = "nombre_entidad";
             this.nombre_entidad.ReadOnly = true;
-            this.nombre_entidad.Width = 150;
+            this.nombre_entidad.Width = 130;
             // 
             // cuenta_bancaria_id
             // 
@@ -391,11 +316,114 @@
             this.PROG_COD.ReadOnly = true;
             this.PROG_COD.Visible = false;
             // 
+            // CONCEP_DESC
+            // 
+            this.CONCEP_DESC.DataPropertyName = "CONCEP_DESC";
+            this.CONCEP_DESC.HeaderText = "Concepto";
+            this.CONCEP_DESC.Name = "CONCEP_DESC";
+            this.CONCEP_DESC.ReadOnly = true;
+            // 
+            // dtpFechaLiquidación
+            // 
+            this.dtpFechaLiquidación.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaLiquidación.Location = new System.Drawing.Point(15, 37);
+            this.dtpFechaLiquidación.Name = "dtpFechaLiquidación";
+            this.dtpFechaLiquidación.Size = new System.Drawing.Size(112, 20);
+            this.dtpFechaLiquidación.TabIndex = 156;
+            // 
+            // Label2
+            // 
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.ForeColor = System.Drawing.Color.Navy;
+            this.Label2.Location = new System.Drawing.Point(12, 21);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(103, 13);
+            this.Label2.TabIndex = 157;
+            this.Label2.Text = "Fecha liquidación";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(118, 454);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 158;
+            this.label1.Text = "Total registros:";
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.ForeColor = System.Drawing.Color.Navy;
+            this.lblCantidad.Location = new System.Drawing.Point(219, 454);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(14, 13);
+            this.lblCantidad.TabIndex = 159;
+            this.lblCantidad.Text = "0";
+            // 
+            // btnVer
+            // 
+            this.btnVer.BackColor = System.Drawing.Color.White;
+            this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVer.ForeColor = System.Drawing.Color.Navy;
+            this.btnVer.Image = global::GUI_Tesoreria.Properties.Resources.asignar;
+            this.btnVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVer.Location = new System.Drawing.Point(133, 31);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(65, 36);
+            this.btnVer.TabIndex = 155;
+            this.btnVer.Text = "&Ver";
+            this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVer.UseVisualStyleBackColor = false;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcel.BackColor = System.Drawing.Color.White;
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.ForeColor = System.Drawing.Color.Navy;
+            this.btnExcel.Image = global::GUI_Tesoreria.Properties.Resources.excel_48x48;
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExcel.Location = new System.Drawing.Point(15, 448);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(86, 71);
+            this.btnExcel.TabIndex = 152;
+            this.btnExcel.Text = "&Excel";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.BackColor = System.Drawing.Color.White;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Navy;
+            this.btnSalir.Image = global::GUI_Tesoreria.Properties.Resources.salir;
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSalir.Location = new System.Drawing.Point(1036, 448);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(86, 71);
+            this.btnSalir.TabIndex = 152;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmListadoDepositosGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 523);
+            this.ClientSize = new System.Drawing.Size(1137, 523);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Label2);
@@ -403,6 +431,7 @@
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTotalVouchers);
+            this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox3);
             this.DoubleBuffered = true;
@@ -450,5 +479,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn observaciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROG_COD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CONCEP_DESC;
+        internal System.Windows.Forms.Button btnExcel;
     }
 }

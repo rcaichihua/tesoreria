@@ -251,6 +251,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             winAddRub.SaldoDocumento = SaldoLiquidacion;
             winAddRub.TotalDocumento = Convert.ToDecimal(txtTotalDocumentoC.Text);
             winAddRub.Modifica = false;
+            winAddRub.TipoRecibo = "N";
             dtsRubros = winAddRub.traerFormulario();
             llamaDetalle(dtsRubros, impuesto);
 

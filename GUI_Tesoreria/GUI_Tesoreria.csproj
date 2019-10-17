@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>40</ApplicationRevision>
+    <ApplicationRevision>54</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -134,11 +134,29 @@
     <Compile Include="caja\Contable\frmDiario.Designer.cs">
       <DependentUpon>frmDiario.cs</DependentUpon>
     </Compile>
+    <Compile Include="caja\Contable\frmDiarioIngresosModalidadPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Contable\frmDiarioIngresosModalidadPago.Designer.cs">
+      <DependentUpon>frmDiarioIngresosModalidadPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Contable\rptIngresosModalidadDebe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIngresosModalidadDebe.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="caja\Depositos\frmReporteBancoPorBanco.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="caja\Depositos\frmReporteBancoPorBanco.Designer.cs">
       <DependentUpon>frmReporteBancoPorBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\Depositos\frmReporteBancoPorDetraccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Depositos\frmReporteBancoPorDetraccion.Designer.cs">
+      <DependentUpon>frmReporteBancoPorDetraccion.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\Depositos\frmReporteBancoPorPrograma.cs">
       <SubType>Form</SubType>
@@ -156,6 +174,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptDepositosPorRangoFDepositos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\Depositos\Reportes\rptDetraccion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDetraccion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\DocsElectronicos\rptBoletaArrendamiento.cs">
@@ -410,6 +434,12 @@
     <Compile Include="caja\Liquidacion cajas\frmReciboCajaPrincipalModifica.Designer.cs">
       <DependentUpon>frmReciboCajaPrincipalModifica.cs</DependentUpon>
     </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmReporteIngresosInmobiliaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\Liquidacion cajas\frmReporteIngresosInmobiliaria.Designer.cs">
+      <DependentUpon>frmReporteIngresosInmobiliaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="caja\Liquidacion cajas\frmVerificacionLiquidaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -462,6 +492,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptIngresoComedor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\Reportes\rptIngresosInmobiliaria.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIngresosInmobiliaria.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\Reportes\rptLiquidacionxDiaCementerio.cs">
@@ -846,6 +882,12 @@
     <Compile Include="Deposito\frmEditarDiarioDetalle.Designer.cs">
       <DependentUpon>frmEditarDiarioDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deposito\frmGeneracionGlosa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmGeneracionGlosa.Designer.cs">
+      <DependentUpon>frmGeneracionGlosa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deposito\frmListadoDepositosGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -870,10 +912,22 @@
     <Compile Include="Deposito\frmPreparaComprobanteDiario.Designer.cs">
       <DependentUpon>frmPreparaComprobanteDiario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deposito\frmReporteRegularizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\frmReporteRegularizacion.Designer.cs">
+      <DependentUpon>frmReporteRegularizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deposito\Reportes\rptListadoDiario.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptListadoDiario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Deposito\Reportes\rptRegularizacion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRegularizacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DGAI\frmAgregarRubrosDGAI.cs">
@@ -1269,8 +1323,18 @@
     <EmbeddedResource Include="caja\Contable\frmDiario.resx">
       <DependentUpon>frmDiario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\Contable\frmDiarioIngresosModalidadPago.resx">
+      <DependentUpon>frmDiarioIngresosModalidadPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Contable\rptIngresosModalidadDebe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIngresosModalidadDebe.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Depositos\frmReporteBancoPorBanco.resx">
       <DependentUpon>frmReporteBancoPorBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Depositos\frmReporteBancoPorDetraccion.resx">
+      <DependentUpon>frmReporteBancoPorDetraccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Depositos\frmReporteBancoPorPrograma.resx">
       <DependentUpon>frmReporteBancoPorPrograma.cs</DependentUpon>
@@ -1282,6 +1346,10 @@
     <EmbeddedResource Include="caja\Depositos\Reportes\rptDepositosPorRangoFDepositos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDepositosPorRangoFDepositos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Depositos\Reportes\rptDetraccion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDetraccion.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\DocsElectronicos\rptBoletaArrendamiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1413,6 +1481,9 @@
     <EmbeddedResource Include="caja\Liquidacion cajas\frmReciboCajaPrincipalModifica.resx">
       <DependentUpon>frmReciboCajaPrincipalModifica.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\Liquidacion cajas\frmReporteIngresosInmobiliaria.resx">
+      <DependentUpon>frmReporteIngresosInmobiliaria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Liquidacion cajas\frmVerificacionLiquidaciones.resx">
       <DependentUpon>frmVerificacionLiquidaciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -1447,6 +1518,10 @@
     <EmbeddedResource Include="caja\Reportes\rptIngresoComedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIngresoComedor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptIngresosInmobiliaria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIngresosInmobiliaria.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptLiquidacionxDiaCementerio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1662,6 +1737,9 @@
     <EmbeddedResource Include="Deposito\frmEditarDiarioDetalle.resx">
       <DependentUpon>frmEditarDiarioDetalle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmGeneracionGlosa.resx">
+      <DependentUpon>frmGeneracionGlosa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Deposito\frmListadoDepositosGeneral.resx">
       <DependentUpon>frmListadoDepositosGeneral.cs</DependentUpon>
     </EmbeddedResource>
@@ -1674,9 +1752,16 @@
     <EmbeddedResource Include="Deposito\frmPreparaComprobanteDiario.resx">
       <DependentUpon>frmPreparaComprobanteDiario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\frmReporteRegularizacion.resx">
+      <DependentUpon>frmReporteRegularizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Deposito\Reportes\rptListadoDiario.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptListadoDiario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\Reportes\rptRegularizacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRegularizacion.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DGAI\frmAgregarRubrosDGAI.resx">
       <DependentUpon>frmAgregarRubrosDGAI.cs</DependentUpon>
@@ -1932,6 +2017,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\excel_48x48.png" />
+    <None Include="Resources\excel_32_32.png" />
     <None Include="Resources\circulo2.png" />
     <None Include="Resources\CABECERA.png" />
     <None Include="Resources\SESION.png" />

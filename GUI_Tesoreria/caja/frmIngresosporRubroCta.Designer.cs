@@ -33,12 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboPrograma = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReciboIngreso = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.GBPago.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +107,24 @@
             this.label23.TabIndex = 150;
             this.label23.Text = "Programa";
             // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(58, 46);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(117, 21);
+            this.dtpHasta.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(6, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Hasta :";
+            // 
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -135,7 +153,7 @@
             this.btnReciboIngreso.Name = "btnReciboIngreso";
             this.btnReciboIngreso.Size = new System.Drawing.Size(78, 61);
             this.btnReciboIngreso.TabIndex = 153;
-            this.btnReciboIngreso.Text = "&Recibo de Ingreso";
+            this.btnReciboIngreso.Text = "&Reporte de Ingresos";
             this.btnReciboIngreso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReciboIngreso.UseVisualStyleBackColor = true;
             this.btnReciboIngreso.Click += new System.EventHandler(this.btnReciboIngreso_Click);
@@ -158,24 +176,6 @@
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(6, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Hasta :";
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(58, 46);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(117, 21);
-            this.dtpHasta.TabIndex = 2;
-            // 
             // frmIngresosporRubroCta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,7 +190,7 @@
             this.MinimizeBox = false;
             this.Name = "frmIngresosporRubroCta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmIngresosporRubroCta";
+            this.Text = "...:::Ingresos por rubro y codigo contable:::...";
             this.Load += new System.EventHandler(this.frmIngresosporRubroCta_Load);
             this.GBPago.ResumeLayout(false);
             this.GBPago.PerformLayout();

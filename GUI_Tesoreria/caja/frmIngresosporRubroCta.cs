@@ -39,8 +39,8 @@ namespace GUI_Tesoreria.caja
         private void btnReciboIngreso_Click(object sender, EventArgs e)
         {
             DataTable dtResu = new DataTable();
-            dtResu = cn.TraerDataset("usp_reporte_ingresos_rubro",txtRubro.Text.Trim()==""? null: txtRubro.Text, 
-                dtpDesde.Value.ToString("yyyyMMdd"), dtpHasta.Value.ToString("yyyyMMdd"), 
+            dtResu = cn.TraerDataset("usp_reporte_ingresos_rubro2", 
+                dtpDesde.Value.ToString("yyyyMMdd"), dtpHasta.Value.ToString("yyyyMMdd"), txtRubro.Text.Trim() == "" ? null : txtRubro.Text, 
                 cboPrograma.SelectedValue).Tables[0];
             if (dtResu.Rows.Count==0)
             {

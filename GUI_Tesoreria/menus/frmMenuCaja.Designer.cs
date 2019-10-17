@@ -49,7 +49,6 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.detraccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interesesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regularizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_1_8 = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteIngresosPorRubroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liquidacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +68,8 @@
             this.m_3_1_2 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_3_1_3 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_3_1_4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.altaDirecciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_3_2 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_3_3 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_3_4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,8 +87,8 @@
             this.tsslSucursal = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslPerfil = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
-            this.altaDirecciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.regularizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -226,6 +227,7 @@
             this.toolStripMenuItem2,
             this.detraccionesToolStripMenuItem,
             this.interesesToolStripMenuItem,
+            this.toolStripMenuItem8,
             this.regularizacionesToolStripMenuItem});
             this.m_1_7.Name = "m_1_7";
             this.m_1_7.Size = new System.Drawing.Size(208, 22);
@@ -234,39 +236,34 @@
             // m_1_7_1
             // 
             this.m_1_7_1.Name = "m_1_7_1";
-            this.m_1_7_1.Size = new System.Drawing.Size(162, 22);
+            this.m_1_7_1.Size = new System.Drawing.Size(180, 22);
             this.m_1_7_1.Text = "&Por Programas";
             this.m_1_7_1.Click += new System.EventHandler(this.m_1_7_1_Click);
             // 
             // porBancosToolStripMenuItem
             // 
             this.porBancosToolStripMenuItem.Name = "porBancosToolStripMenuItem";
-            this.porBancosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.porBancosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.porBancosToolStripMenuItem.Text = "&Por Bancos";
             this.porBancosToolStripMenuItem.Click += new System.EventHandler(this.porBancosToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(159, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // detraccionesToolStripMenuItem
             // 
             this.detraccionesToolStripMenuItem.Name = "detraccionesToolStripMenuItem";
-            this.detraccionesToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.detraccionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.detraccionesToolStripMenuItem.Text = "&Detracciones";
+            this.detraccionesToolStripMenuItem.Click += new System.EventHandler(this.detraccionesToolStripMenuItem_Click);
             // 
             // interesesToolStripMenuItem
             // 
             this.interesesToolStripMenuItem.Name = "interesesToolStripMenuItem";
-            this.interesesToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.interesesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.interesesToolStripMenuItem.Text = "&Intereses";
-            // 
-            // regularizacionesToolStripMenuItem
-            // 
-            this.regularizacionesToolStripMenuItem.Name = "regularizacionesToolStripMenuItem";
-            this.regularizacionesToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.regularizacionesToolStripMenuItem.Text = "&Regularizaciones";
             // 
             // m_1_8
             // 
@@ -280,7 +277,7 @@
             // reporteIngresosPorRubroToolStripMenuItem
             // 
             this.reporteIngresosPorRubroToolStripMenuItem.Name = "reporteIngresosPorRubroToolStripMenuItem";
-            this.reporteIngresosPorRubroToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.reporteIngresosPorRubroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reporteIngresosPorRubroToolStripMenuItem.Text = "&Ingresos por rubro";
             this.reporteIngresosPorRubroToolStripMenuItem.Click += new System.EventHandler(this.reporteIngresosPorRubroToolStripMenuItem_Click);
             // 
@@ -427,6 +424,17 @@
             this.m_3_1_4.Text = "Detallado - SANTA ROSA";
             this.m_3_1_4.Click += new System.EventHandler(this.m_3_1_4_Click);
             // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(218, 6);
+            // 
+            // altaDirecciónToolStripMenuItem
+            // 
+            this.altaDirecciónToolStripMenuItem.Name = "altaDirecciónToolStripMenuItem";
+            this.altaDirecciónToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.altaDirecciónToolStripMenuItem.Text = "Alta Dirección";
+            // 
             // m_3_2
             // 
             this.m_3_2.Name = "m_3_2";
@@ -555,16 +563,17 @@
             this.tsslPerfil.Size = new System.Drawing.Size(81, 17);
             this.tsslPerfil.Text = "Nombre Perfil";
             // 
-            // toolStripMenuItem7
+            // toolStripMenuItem8
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(218, 6);
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(177, 6);
             // 
-            // altaDirecciónToolStripMenuItem
+            // regularizacionesToolStripMenuItem
             // 
-            this.altaDirecciónToolStripMenuItem.Name = "altaDirecciónToolStripMenuItem";
-            this.altaDirecciónToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.altaDirecciónToolStripMenuItem.Text = "Alta Dirección";
+            this.regularizacionesToolStripMenuItem.Name = "regularizacionesToolStripMenuItem";
+            this.regularizacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regularizacionesToolStripMenuItem.Text = "&Regularizaciones";
+            this.regularizacionesToolStripMenuItem.Click += new System.EventHandler(this.regularizacionesToolStripMenuItem_Click);
             // 
             // frmMenuCaja
             // 
@@ -655,8 +664,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem detraccionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem interesesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem regularizacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem altaDirecciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem regularizacionesToolStripMenuItem;
     }
 }

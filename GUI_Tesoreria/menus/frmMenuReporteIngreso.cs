@@ -197,7 +197,16 @@ namespace GUI_Tesoreria.menus
         {
             //this.BackgroundImage = Image.FromFile(varglo.RUTA_FONDO + "FONDOFORM.png");
             //this.BackgroundImageLayout = ImageLayout.Center;
-
+            if (VariablesMetodosEstaticos.intPerfilID==7 || VariablesMetodosEstaticos.intPerfilID == 8)
+            {
+                m_1.Visible = false;
+                m_3.Visible = false;
+            }
+            else
+            {
+                toolStripMenuItem6.Visible = false;
+                m_2.Visible = false;
+            }
             tsslUsuario.Text = VariablesMetodosEstaticos.varNombreUser;
             tsslSucursal.Text = VariablesMetodosEstaticos.varNombreSucursal;
             tsslPerfil.Text = VariablesMetodosEstaticos.varNombrePerfil;
@@ -338,6 +347,7 @@ namespace GUI_Tesoreria.menus
         private void verificaciónDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             caja.Liquidacion_cajas.frmVerificacionLiquidaciones _frmVerif = new caja.Liquidacion_cajas.frmVerificacionLiquidaciones();
+            _frmVerif.Acceso = true;
             _frmVerif.MdiParent = this;
             _frmVerif.Show();
         }
@@ -480,6 +490,199 @@ namespace GUI_Tesoreria.menus
             _frmListadoDepositosGeneral = Deposito.frmMigraDiario.Instance();
             _frmListadoDepositosGeneral.MdiParent = this;
             _frmListadoDepositosGeneral.Show();
+        }
+
+        private void m_2_1_Click_1(object sender, EventArgs e)
+        {
+            caja.frmIngresosporRubroCta _frmEdicionCompDiario = null;
+            _frmEdicionCompDiario = caja.frmIngresosporRubroCta.Instance();
+            _frmEdicionCompDiario.MdiParent = this;
+            _frmEdicionCompDiario.Show();
+        }
+
+        private void m_2_2_Click(object sender, EventArgs e)
+        {
+            caja.Liquidacion_cajas.frmReporteIngresosInmobiliaria _frmVerif = new caja.Liquidacion_cajas.frmReporteIngresosInmobiliaria();
+            _frmVerif.MdiParent = this;
+            _frmVerif.Show();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            caja.frmIngresoVouchers _frmReporteResidentes = null;
+            _frmReporteResidentes = caja.frmIngresoVouchers.Instance();
+            _frmReporteResidentes.idCajeroIngresoVouchers = VariablesMetodosEstaticos.idcajausuario;
+            _frmReporteResidentes.habilita = 1;
+            _frmReporteResidentes.MdiParent = this;
+            _frmReporteResidentes.Show();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            Deposito.frmListadoDepositosGeneral _frmListadoDepositosGeneral = null;
+            _frmListadoDepositosGeneral = Deposito.frmListadoDepositosGeneral.Instance();
+            _frmListadoDepositosGeneral.MdiParent = this;
+            _frmListadoDepositosGeneral.Show();
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            Deposito.frmPreparaComprobanteDiario _frmfrmPreparaComprobanteDiario = null;
+            _frmfrmPreparaComprobanteDiario = Deposito.frmPreparaComprobanteDiario.Instance();
+            _frmfrmPreparaComprobanteDiario.MdiParent = this;
+            _frmfrmPreparaComprobanteDiario.Show();
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            Deposito.frmEdicionCompDiario _frmEdicionCompDiario = null;
+            _frmEdicionCompDiario = Deposito.frmEdicionCompDiario.Instance();
+            _frmEdicionCompDiario.MdiParent = this;
+            _frmEdicionCompDiario.Show();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            Deposito.frmListarComprobanteDiario _frmListarComprobanteDiario = null;
+            _frmListarComprobanteDiario = Deposito.frmListarComprobanteDiario.Instance();
+            _frmListarComprobanteDiario.MdiParent = this;
+            _frmListarComprobanteDiario.Show();
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            Deposito.frmMigraDiario _frmListadoDepositosGeneral = null;
+            _frmListadoDepositosGeneral = Deposito.frmMigraDiario.Instance();
+            _frmListadoDepositosGeneral.MdiParent = this;
+            _frmListadoDepositosGeneral.Show();
+        }
+
+        private void reporteIngresosPorModalidadYCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Contable.frmDiarioIngresosModalidadPago _frmListadoDepositosGeneral = new caja.Contable.frmDiarioIngresosModalidadPago();
+            _frmListadoDepositosGeneral.MdiParent = this;
+            _frmListadoDepositosGeneral.Show();
+        }
+
+        private void m_1_7_1_Click(object sender, EventArgs e)
+        {
+            caja.Depositos.frmReporteBancoPorPrograma _frmReporteBancoPorPrograma = null;
+            _frmReporteBancoPorPrograma = new caja.Depositos.frmReporteBancoPorPrograma(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorPrograma.MdiParent = this;
+            _frmReporteBancoPorPrograma.Show();
+        }
+
+        private void porBancosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Depositos.frmReporteBancoPorBanco _frmReporteBancoPorBanco = null;
+            _frmReporteBancoPorBanco = new caja.Depositos.frmReporteBancoPorBanco(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorBanco.MdiParent = this;
+            _frmReporteBancoPorBanco.Show();
+        }
+
+        private void detraccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Depositos.frmReporteBancoPorDetraccion _frmReporteBancoPorBanco = new caja.Depositos.frmReporteBancoPorDetraccion(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorBanco.MdiParent = this;
+            _frmReporteBancoPorBanco.Show();
+        }
+
+        private void generacionDeGlosaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito.frmGeneracionGlosa _frmReporteBancoPorBanco = new Deposito.frmGeneracionGlosa(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorBanco.MdiParent = this;
+            _frmReporteBancoPorBanco.Show();
+        }
+
+        private void recibosDeIngresoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            caja.Liquidacion_cajas.frmVerificacionLiquidaciones _frmVerif = new caja.Liquidacion_cajas.frmVerificacionLiquidaciones();
+            _frmVerif.Acceso = false;
+            _frmVerif.MdiParent = this;
+            _frmVerif.Show();
+        }
+
+        private void regularizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito.frmReporteRegularizacion _frmVerif = new Deposito.frmReporteRegularizacion();
+            _frmVerif.MdiParent = this;
+            _frmVerif.Show();
+        }
+
+        private void toolStripMenuItem23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        {
+            caja.Depositos.frmReporteBancoPorPrograma _frmReporteBancoPorPrograma = null;
+            _frmReporteBancoPorPrograma = new caja.Depositos.frmReporteBancoPorPrograma(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorPrograma.MdiParent = this;
+            _frmReporteBancoPorPrograma.Show();
+        }
+
+        private void toolStripMenuItem21_Click(object sender, EventArgs e)
+        {
+            caja.Depositos.frmReporteBancoPorBanco _frmReporteBancoPorBanco = null;
+            _frmReporteBancoPorBanco = new caja.Depositos.frmReporteBancoPorBanco(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorBanco.MdiParent = this;
+            _frmReporteBancoPorBanco.Show();
+        }
+
+        private void toolStripMenuItem22_Click(object sender, EventArgs e)
+        {
+            caja.Depositos.frmReporteBancoPorDetraccion _frmReporteBancoPorBanco = new caja.Depositos.frmReporteBancoPorDetraccion(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorBanco.MdiParent = this;
+            _frmReporteBancoPorBanco.Show();
+        }
+
+        private void interesesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem24_Click(object sender, EventArgs e)
+        {
+            Deposito.frmReporteRegularizacion _frmVerif = new Deposito.frmReporteRegularizacion();
+            _frmVerif.MdiParent = this;
+            _frmVerif.Show();
+        }
+
+        private void cierreDeLiquidacionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            caja.Liquidacion_cajas.frmListaLiquidacionesCierre _frmListaLiquidacionesCierre = null;
+            _frmListaLiquidacionesCierre = caja.Liquidacion_cajas.frmListaLiquidacionesCierre.Instance();
+            _frmListaLiquidacionesCierre.MdiParent = this;
+            _frmListaLiquidacionesCierre.Show();
+        }
+
+        private void listadoDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.intPerfilID != 9 && VariablesMetodosEstaticos.intPerfilID != 1)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmListadoLiquidacion _frmGeneraLiquidacion = null;
+            _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmListadoLiquidacion.Instance();
+            _frmGeneraLiquidacion.MdiParent = this;
+            _frmGeneraLiquidacion.Show();
+        }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.intPerfilID != 9 && VariablesMetodosEstaticos.intPerfilID != 1) 
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Liquidacion_cajas.frmFiltroFechaIngresos _frmGeneraLiquidacion = null;
+            _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmFiltroFechaIngresos.Instance();
+            _frmGeneraLiquidacion.MdiParent = this;
+            _frmGeneraLiquidacion.Show();
         }
     }
 }

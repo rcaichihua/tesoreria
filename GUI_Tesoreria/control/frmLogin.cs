@@ -50,7 +50,7 @@ namespace GUI_Tesoreria.control
        
             string clave_user = null;
 
-            try
+            try 
             {
                 if (string.IsNullOrEmpty(txtUser.Text))
                 {
@@ -93,6 +93,7 @@ namespace GUI_Tesoreria.control
                     FLG_VIGENTE = Convert.ToBoolean(dSet.Tables[0].Rows[0]["bitUsuEstado"]);
                     VariablesMetodosEstaticos.igv = Convert.ToDecimal(cn.TraerDataset("usp_select_control", "igv", VariablesMetodosEstaticos.intAnnioActual).Tables[0].Rows[0][0]);
                     byte[] passwordBytes = GetPasswordBytes();
+
 
                     if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
                     {

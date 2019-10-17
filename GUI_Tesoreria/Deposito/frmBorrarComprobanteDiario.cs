@@ -36,7 +36,7 @@ namespace GUI_Tesoreria.Deposito
                     MessageBoxDefaultButton.Button2) ==DialogResult.Yes)
                 {
                     if (cn.EjecutarSP("usp_paDiario_Borrar", dtpFechaLiquidación.Value.ToString("yyyyMMdd"), 
-                        rbDepositoBanco.Checked ? "1" : (rbInteres.Checked ? "2" : (rbRegularizacion.Checked ? "3" : "0"))) > 0)
+                        rbDepositoBanco.Checked ? "1" : (rbInteres.Checked ? "2" : (rbRegularizacion.Checked ? "3" : ((rbContabiMesActual.Checked ? "4" : "0"))))) > 0)
                     {
                         DevComponents.DotNetBar.MessageBoxEx.Show("La información fue borrada del sistema.", 
                             VariablesMetodosEstaticos.encabezado,

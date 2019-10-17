@@ -32,10 +32,12 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         public decimal MontoSoles { get; set; }
         public string TipoMan { get; set; }
         public string FechaLiquidacion { get; set; }
+        public string FechaEmision { get; set; }
+        public string NroDocumento { get; set; }
 
         private void frmEdicionLiquidacionInmobiliaria_Load(object sender, EventArgs e)
         {
-            if (TipoMan=="E")//edicion
+            if (TipoMan == "E")//edicion
             {
                 txtCodInm.Text = CodInm;
                 txtInqui.Text = Inquilino;
@@ -48,6 +50,12 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 txtIgv.Text = Igv.ToString("###,###,##0.00");
                 txtMora.Text = Mora.ToString("###,###,##0.00");
                 txtMontoSoles.Text = MontoSoles.ToString("###,###,##0.00");
+                mtbFechaEmision.Text = FechaEmision;
+                txtNroDocIdentidad.Text = NroDocumento;
+            }
+            else
+            {
+                mtbFechaEmision.Text = FechaEmision;
             }
         }
 
@@ -55,9 +63,22 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         {
             try
             {
+                DateTime dateValue;
+
+                if (mtbFechaEmision.Text.Trim()!= "/  /")
+                {
+                    if (!DateTime.TryParse(mtbFechaEmision.Text, out dateValue))
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de emisión tiene un formato incorrecto.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        return;
+                    }
+                } 
+
                 if (!Validar()) return;
                 String fechaRec = "";
-                String concat,concat1,concat2;
+                String concat,concat1;
 
                 concat = ", FCH_EMI=" + FechaLiquidacion + "";
                 concat1 = ",FCH_EMI";
@@ -66,13 +87,17 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
                 if (TipoMan == "E")
                 {
-                    if (cn.EjecutarUD("update dbo.LiquidacionInmobiliaria set COD_INMB='" + txtCodInm.Text +
+                    if (cn.EjecutarUD("update dbo.LiquidacionInmobiliaria set NUM_RUC = "+ (txtNroDocIdentidad.Text.Trim()=="" ? "NULL":"'"+
+                        txtNroDocIdentidad.Text.Trim()+"'") + " , FCH_EMI = "+
+                        (mtbFechaEmision.Text.Trim()== "  /  /" ? "NULL":("'"+Convert.ToDateTime(mtbFechaEmision.Text).ToString("yyyyMMdd")+"'"))+", COD_INMB='" + 
+                        txtCodInm.Text + 
                         "',INQUILINO='" + txtInqui.Text + "',TIP_DOCU='" + txtTipDoc.Text + "',NRO_DOCU='" + txtNroDoc.Text +
                         "',AA='" + txtAnio.Text + "',MM='" + txtMes.Text + "',FCH_PAGO='" + FechaLiquidacion +
                         "',TIP_MOVI='01',TIP_PAGO='01',MONTOSOLES=" + Convert.ToDecimal(txtMontoSoles.Text) +
                         ",RENTA=" + Convert.ToDecimal(txtRenta.Text) + ",IGV=" + Convert.ToDecimal(txtIgv.Text) + ",MORA=" + Convert.ToDecimal(txtMora.Text) +
-                        ",USUING=USUING+'*',PCING='" + VariablesGlobales.NombreUsuario +
-                        "',FECHAING=GETDATE()"+ (Convert.ToInt32(txtTipDoc.Text)==4 ? concat:"") + " where id=" + Id + "") > 0)
+                        ",USUING=USUING+'*',PCING='" + Environment.MachineName +
+                        "',FECHAING=GETDATE() where id=" + Id + "") > 0)
+                    //"',FECHAING=GETDATE()"+ (Convert.ToInt32(txtTipDoc.Text)==4 ? concat:"") + " where id=" + Id + "") > 0)
                     {
                         DevComponents.DotNetBar.MessageBoxEx.Show("Registro actualizado correctamente.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -87,12 +112,15 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 else
                 {
                     if (cn.EjecutarUD("insert into LiquidacionInmobiliaria(COD_INMB,INQUILINO,TIP_DOCU,NRO_DOCU,AA,MM," +
-                        "FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE"+ (Convert.ToInt32(txtTipDoc.Text) == 4 ?  concat1 : "") + ") " + "values('" + txtCodInm.Text +
+                        //"FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE"+ (Convert.ToInt32(txtTipDoc.Text) == 4 ?  concat1 : "") + ") " + "values('" + txtCodInm.Text +
+                        "FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE" + ",FCH_EMI" + ") " + "values('" + txtCodInm.Text +
                         "', '" + txtInqui.Text + "', '" + txtTipDoc.Text + "'" +
                         ", '" + txtNroDoc.Text + "', '" + txtAnio.Text + "', '" + txtMes.Text + "', '" + FechaLiquidacion + "', '01', '01', " +
                         txtMontoSoles.Text + ", " + txtRenta.Text + ", " + txtIgv.Text + ", " + txtMora.Text + ", '" +
                         VariablesGlobales.NombreUsuario +
-                        "', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0"+ (Convert.ToInt32(txtTipDoc.Text) == 4 ? ","+FechaLiquidacion : "") + ")") > 0)
+                        "', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0," + (mtbFechaEmision.Text == "  /  /" ? "NULL" : 
+                        ("'" + Convert.ToDateTime(mtbFechaEmision.Text).ToString("yyyyMMdd") + "'")) + ")") > 0)
+                    //"', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0"+ (Convert.ToInt32(txtTipDoc.Text) == 4 ? ","+FechaLiquidacion : "") + ")") > 0)
                     {
                         DevComponents.DotNetBar.MessageBoxEx.Show("Registro insertado correctamente.", VariablesMetodosEstaticos.encabezado,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -309,6 +337,50 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 rspta = false;
             }
             return rspta;
+        }
+
+        private void txtRenta_TextChanged(object sender, EventArgs e)
+        {
+                
+        }
+
+        private void txtIgv_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMontoSoles.Text = (Convert.ToDecimal(txtRenta.Text) + Convert.ToDecimal(txtIgv.Text) +
+                    Convert.ToDecimal(txtMora.Text)).ToString("###,###,##0.00");
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void txtRenta_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMontoSoles.Text = (Convert.ToDecimal(txtRenta.Text) + Convert.ToDecimal(txtIgv.Text) +
+                    Convert.ToDecimal(txtMora.Text)).ToString("###,###,##0.00");
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void txtMora_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMontoSoles.Text = (Convert.ToDecimal(txtRenta.Text) + Convert.ToDecimal(txtIgv.Text) +
+                    Convert.ToDecimal(txtMora.Text)).ToString("###,###,##0.00");
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

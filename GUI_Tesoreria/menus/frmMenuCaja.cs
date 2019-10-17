@@ -324,6 +324,13 @@ namespace GUI_Tesoreria.menus
 
         private void m_1_7_1_Click(object sender, EventArgs e)
         {
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+
             caja.Depositos.frmReporteBancoPorPrograma _frmReporteBancoPorPrograma = null;
             _frmReporteBancoPorPrograma = new caja.Depositos.frmReporteBancoPorPrograma(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
             _frmReporteBancoPorPrograma.MdiParent = this;
@@ -351,7 +358,7 @@ namespace GUI_Tesoreria.menus
 
         private void generaciónDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            if (VariablesMetodosEstaticos.intPerfilID != 9 && VariablesMetodosEstaticos.intPerfilID != 1)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
@@ -365,7 +372,7 @@ namespace GUI_Tesoreria.menus
 
         private void listadoDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
@@ -379,12 +386,13 @@ namespace GUI_Tesoreria.menus
 
         private void listadoDeRecibosDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
                 return;
             }
+
             caja.Liquidacion_cajas.frmListadoRecibosTotal _frmGeneraLiquidacion = null;
             _frmGeneraLiquidacion = caja.Liquidacion_cajas.frmListadoRecibosTotal.Instance();
             _frmGeneraLiquidacion.MdiParent = this;
@@ -423,12 +431,13 @@ namespace GUI_Tesoreria.menus
 
         private void cierreDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
                 return;
             }
+
             caja.Liquidacion_cajas.frmListaLiquidacionesCierre _frmListaLiquidacionesCierre = null;
             _frmListaLiquidacionesCierre = caja.Liquidacion_cajas.frmListaLiquidacionesCierre.Instance();
             _frmListaLiquidacionesCierre.MdiParent = this;
@@ -437,7 +446,7 @@ namespace GUI_Tesoreria.menus
 
         private void listaadoDeRubrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
@@ -451,7 +460,7 @@ namespace GUI_Tesoreria.menus
 
         private void reporteDeIngresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VariablesMetodosEstaticos.varUsuario != "ESOTOMAYOR")
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
@@ -465,10 +474,43 @@ namespace GUI_Tesoreria.menus
 
         private void porBancosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
             caja.Depositos.frmReporteBancoPorBanco _frmReporteBancoPorBanco = null;
             _frmReporteBancoPorBanco = new caja.Depositos.frmReporteBancoPorBanco(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
             _frmReporteBancoPorBanco.MdiParent = this;
             _frmReporteBancoPorBanco.Show();
+        }
+
+        private void detraccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            caja.Depositos.frmReporteBancoPorDetraccion _frmReporteBancoPorBanco = new caja.Depositos.frmReporteBancoPorDetraccion(); //cementerio.frmAperturaExpedienteInHumacion.Instance();
+            _frmReporteBancoPorBanco.MdiParent = this;
+            _frmReporteBancoPorBanco.Show();
+        }
+
+        private void regularizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.intPerfilID != 9 || VariablesMetodosEstaticos.intPerfilID != 1)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+
+            Deposito.frmReporteRegularizacion _frmVerif = new Deposito.frmReporteRegularizacion();
+            _frmVerif.MdiParent = this;
+            _frmVerif.Show();
         }
     }
 }

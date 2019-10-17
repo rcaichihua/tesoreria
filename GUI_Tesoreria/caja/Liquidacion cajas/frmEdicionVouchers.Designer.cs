@@ -404,6 +404,7 @@
             this.txtImpuesto.TabIndex = 153;
             this.txtImpuesto.Text = "0.00";
             this.txtImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtImpuesto.Visible = false;
             // 
             // txtNeto
             // 
@@ -417,6 +418,7 @@
             this.txtNeto.TabIndex = 152;
             this.txtNeto.Text = "0.00";
             this.txtNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNeto.Visible = false;
             // 
             // label1
             // 
@@ -428,6 +430,7 @@
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 150;
             this.label1.Text = "IMPUESTO";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -439,6 +442,7 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 151;
             this.label2.Text = "NETO";
+            this.label2.Visible = false;
             // 
             // BtnBuscarDoc
             // 
@@ -448,12 +452,13 @@
             this.BtnBuscarDoc.ForeColor = System.Drawing.Color.Navy;
             this.BtnBuscarDoc.Image = global::GUI_Tesoreria.Properties.Resources.buscar;
             this.BtnBuscarDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBuscarDoc.Location = new System.Drawing.Point(101, 162);
+            this.BtnBuscarDoc.Location = new System.Drawing.Point(128, 163);
             this.BtnBuscarDoc.Name = "BtnBuscarDoc";
             this.BtnBuscarDoc.Size = new System.Drawing.Size(121, 46);
             this.BtnBuscarDoc.TabIndex = 155;
             this.BtnBuscarDoc.Text = "&Buscar documento";
             this.BtnBuscarDoc.UseVisualStyleBackColor = false;
+            this.BtnBuscarDoc.Visible = false;
             this.BtnBuscarDoc.Click += new System.EventHandler(this.BtnBuscarDoc_Click);
             // 
             // frmEdicionVouchers

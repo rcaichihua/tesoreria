@@ -35,8 +35,8 @@ namespace GUI_Tesoreria.Deposito
         {
             try
             {
-                this.dgvDiarioCabecera.DataSource = cn.TraerDataset("usp_paDiario_Edit",
-                    dtpFechaLiquidación.Value.ToString("yyyyMMdd")).Tables[0];
+                this.dgvDiarioCabecera.DataSource = cn.TraerDataset("usp_paDiario_Edit2",
+                    dtpFechaLiquidación.Value.ToString("yyyyMMdd"),(chkMesAnioAnterior.Checked ? 0:1)).Tables[0];
             }
             catch (Exception)
             {

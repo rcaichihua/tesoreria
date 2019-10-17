@@ -79,7 +79,7 @@ namespace GUI_Tesoreria.caja.Depositos
                 return;
             }
             DataTable dtResu = new DataTable();
-            dtResu = cn.TraerDataset("usp_DEPOSITO_BANCO", cboCuenta.SelectedValue, dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd")).Tables[0];
+            dtResu = cn.TraerDataset("usp_DEPOSITO_BANCO_cuenta_bancaria", cboCuenta.SelectedValue, dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd")).Tables[0];
 
             if (dtResu.Rows.Count<=0)
             {

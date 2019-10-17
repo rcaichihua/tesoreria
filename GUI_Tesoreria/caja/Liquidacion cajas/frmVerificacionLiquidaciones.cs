@@ -14,6 +14,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
     {
         CNegocio cn = new CNegocio();
         DataTable dtResu;
+        public Boolean Acceso { get; set; }
 
         public frmVerificacionLiquidaciones()
         {
@@ -23,6 +24,14 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         private void frmVerificacionLiquidaciones_Load(object sender, EventArgs e)
         {
             ListarProgramas();
+            if (!Acceso)
+            {
+                btnRecalcular.Enabled = false;
+                btnAsignarPliego.Enabled = false;
+                btnModificarLiq.Enabled = false;
+                btnAgregarLiq.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
         }
 
         private void ListarProgramas()

@@ -87,7 +87,7 @@ namespace GUI_Tesoreria.caja
         {
             cboPrograma.SelectedValue = VariablesMetodosEstaticos.id_programa;
 
-            if (VariablesMetodosEstaticos.intPerfilID!=5)
+            if (VariablesMetodosEstaticos.intPerfilID!=5 && VariablesMetodosEstaticos.intPerfilID!=8)
             {
                 cboPrograma.Enabled = false;
             }
@@ -296,6 +296,13 @@ namespace GUI_Tesoreria.caja
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (Convert.ToInt16(cboConcepto.SelectedValue)==4 && Convert.ToInt16(cboPrograma.SelectedValue)!=1)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Los INTERESES solo pueden ser registrados en ALTA DIRECCION.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
             if (!Validar())
             {
                 return;
@@ -338,7 +345,10 @@ namespace GUI_Tesoreria.caja
                         SumaTotalDeposito();
                     }
                 }
-                btnBuscar_Click(sender, e);
+                if (Convert.ToInt32(cboPrograma.SelectedValue) != 7)
+                {
+                    btnBuscar_Click(sender, e);
+                }
             }
             catch (Exception)
             {
@@ -444,7 +454,7 @@ namespace GUI_Tesoreria.caja
                 txtNumDocumento.Focus();
                 return false;
             }
-            if (txtCantidadDocumentos.Text.Trim() == string.Empty && Convert.ToInt32(cboPrograma.SelectedValue)!=7)
+            if (txtCantidadDocumentos.Text.Trim() == string.Empty && Convert.ToInt32(cboPrograma.SelectedValue)!=7 && Convert.ToInt16(cboConcepto.SelectedValue)!=4)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
