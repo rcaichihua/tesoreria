@@ -286,7 +286,7 @@ namespace GUI_Tesoreria.caja
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             try
-            {
+                {
                 if (dgvRecibos.RowCount > 0)
                 {
                     frmExtornarRecibo winExt = new frmExtornarRecibo();
@@ -312,6 +312,13 @@ namespace GUI_Tesoreria.caja
                                                                             System.Data.SqlTypes.SqlInt32.Null,
                                                                             System.Data.SqlTypes.SqlString.Null,
                                                                             1);
+
+                    if (dtsExterno.Tables[0].Rows.Count<=0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de emisión del documento no tiene la caja apertura.", VariablesMetodosEstaticos.encabezado,
+                      MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
 
                     if (dtsExterno.Tables[0].Rows[0]["Observacion"].ToString() != "Aperturado")
                     {
@@ -357,8 +364,10 @@ namespace GUI_Tesoreria.caja
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado,
+                      MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 

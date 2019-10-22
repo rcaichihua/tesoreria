@@ -136,6 +136,29 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>585, 17</value>
   </metadata>
+  <data name="m_3_1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAD
+        sAAAA7ABJ8QPrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAE1SURBVDhPjdO7
+        SgNBFMbx4CUqiASEoCLiBeKlCOkkWFiJPoKVoJWNgp19igRRRImI4DOohYVgk87HWv/f7pl4nF3CDvyY
+        s5PZb2cmu5UkSVK0C9yjV9I3Zn3ANZZxjpaN7dl1rAHNr8UBdTSxggncYhXP1ot+19zCAN0YflzDC7Tc
+        H+tF28wHuKAunrCDno2lvdU1jAzQU45M+QDaCe6gZYeAMygwbEVucIAsgDaJDgY24Fewa9exRQwD/i8p
+        mxAC5tEqMINhwBze8I4rfOHRbOG4QHhodgY0vUDhf/baiJcvf1twh7iPBWjCqV2r1jlcWj3t5ucCNKA3
+        UXtcd7XOYdPqcehNVP2AXMAStEc9fdvqDRy6+hWa+4mxOED7HrUFrUR9H1PpfS6gzOesj+oD1ey+pPIL
+        RAzFmJEL5jAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="m_3_5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAE
+        tQAABLUBypZCUAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEQSURBVDhP1dIx
+        SEJhEMDxr6i0JMFaBDeH2kKanBx0yEGpqa1FxcGlQoK2oKE5QdodollocFMkWixocYi2pqZocQp8/S++
+        g2/4HoZbBz/eu/vujvcezwRB8GfEFjp4wRXi3sYwRA+XOMQjzr2NPkQcU9xjD8948jYrYhVtVJBAHy0c
+        4A4X3kFFxPAOSXLYQRevuMFm2GAEx3iAvPPYOdvGLlK/uR7Yw2XUIYNVLNn6mr2WId9Bki+kdHARRxii
+        gRVd6iJOIDcqA1PCAKeIOs1pFFHAwqwFMR20jev4hDY2Qxe4g4pIOk3i2ta9T5CH/GGiNs8CGdTCx/9c
+        cOYUbm2j/IkjW/vGvq1nMYEkb8aYjR/pmGzgmGvwSwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="CerrarSesionToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -172,29 +195,6 @@
         dqCaYKDaQ0BMjA9A7G4GoC0OUDOIBkCL3IGG3AQZRAA/h2ohHQBdtwdkCBZXI7OfQJWTBoA+8MFnKJC9
         Cxj0/cDQ0YZqIQ1oaGjEAA25A8Q7gAb1AS1MAWZOK2BRIgBVMgpGAdUAAwMAHIHw/Y9jwTwAAAAASUVO
         RK5CYII=
-</value>
-  </data>
-  <data name="m_3_1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAD
-        sAAAA7ABJ8QPrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAE1SURBVDhPjdO7
-        SgNBFMbx4CUqiASEoCLiBeKlCOkkWFiJPoKVoJWNgp19igRRRImI4DOohYVgk87HWv/f7pl4nF3CDvyY
-        s5PZb2cmu5UkSVK0C9yjV9I3Zn3ANZZxjpaN7dl1rAHNr8UBdTSxggncYhXP1ot+19zCAN0YflzDC7Tc
-        H+tF28wHuKAunrCDno2lvdU1jAzQU45M+QDaCe6gZYeAMygwbEVucIAsgDaJDgY24Fewa9exRQwD/i8p
-        mxAC5tEqMINhwBze8I4rfOHRbOG4QHhodgY0vUDhf/baiJcvf1twh7iPBWjCqV2r1jlcWj3t5ucCNKA3
-        UXtcd7XOYdPqcehNVP2AXMAStEc9fdvqDRy6+hWa+4mxOED7HrUFrUR9H1PpfS6gzOesj+oD1ey+pPIL
-        RAzFmJEL5jAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="m_3_5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAE
-        tQAABLUBypZCUAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEQSURBVDhP1dIx
-        SEJhEMDxr6i0JMFaBDeH2kKanBx0yEGpqa1FxcGlQoK2oKE5QdodollocFMkWixocYi2pqZocQp8/S++
-        g2/4HoZbBz/eu/vujvcezwRB8GfEFjp4wRXi3sYwRA+XOMQjzr2NPkQcU9xjD8948jYrYhVtVJBAHy0c
-        4A4X3kFFxPAOSXLYQRevuMFm2GAEx3iAvPPYOdvGLlK/uR7Yw2XUIYNVLNn6mr2WId9Bki+kdHARRxii
-        gRVd6iJOIDcqA1PCAKeIOs1pFFHAwqwFMR20jev4hDY2Qxe4g4pIOk3i2ta9T5CH/GGiNs8CGdTCx/9c
-        cOYUbm2j/IkjW/vGvq1nMYEkb8aYjR/pmGzgmGvwSwAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

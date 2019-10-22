@@ -51,7 +51,7 @@ namespace GUI_Tesoreria
             else if (TipoReporteLiquidacion == "DEPOABANCO")
             {
                 Deposito.Reportes.rptListadoDiario rpt = new Deposito.Reportes.rptListadoDiario();
-                rpt.SetDataSource(dsDiario.Tables[0]);
+                rpt.SetDataSource(dsDiario);
                 crvReportes.ReportSource = rpt;
             }
             else if (TipoReporteLiquidacion == "REPINGRESOS")

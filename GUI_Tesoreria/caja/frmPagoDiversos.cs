@@ -477,6 +477,7 @@ namespace GUI_Tesoreria.caja
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
+            //BtnGrabarC_Click(sender, e);
             limpia();
             asignaNumeroADocumentos();
             varGlobales.habilitarCampos(this, true);
@@ -2083,10 +2084,10 @@ namespace GUI_Tesoreria.caja
                         dtpFechaCancelacion.Value = DateTime.Now;
                         dtpFechaCancelacion.Enabled = true;
                         cboTasaDetraccion.SelectedIndex = 0;
-                        cboTasaDetraccion.Enabled = false;
+                        cboTasaDetraccion.Enabled = true;
                         txtMontoDetraccion.Clear();
                         txtMontoDetraccion.Text = "0.00";
-                        txtMontoDetraccion.Enabled = false;
+                        txtMontoDetraccion.Enabled = true;
                     }
                     else if (id == 2)
                     {

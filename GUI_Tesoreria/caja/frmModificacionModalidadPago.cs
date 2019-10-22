@@ -612,7 +612,7 @@ namespace GUI_Tesoreria.caja
 
         private void BtnGrabarC_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDateTime(dtpFechaCancelacion.Value.ToString("dd/MM/yyyy")) <= Convert.ToDateTime(dtpFechaEmision.Value.ToString("dd/MM/yyyy")))
+            if (Convert.ToDateTime(dtpFechaCancelacion.Value.ToString("dd/MM/yyyy")) < Convert.ToDateTime(dtpFechaEmision.Value.ToString("dd/MM/yyyy")))
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de cancelación no puede ser menor a la fecha de emisión.",
                     VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -59,7 +59,7 @@ namespace GUI_Tesoreria.caja
             dtpFechaCobro.Enabled = activa;
             txtCantidadDocumentos.Enabled = activa;
             txtImporteEfectivo.Enabled = activa;
-            if (VariablesMetodosEstaticos.intPerfilID != 5)
+            if (VariablesMetodosEstaticos.intPerfilID != 9 && VariablesMetodosEstaticos.intPerfilID != 1 && VariablesMetodosEstaticos.intPerfilID != 6 && VariablesMetodosEstaticos.intPerfilID != 8)
             {
                 cboPrograma.Enabled = false;
             }
@@ -82,6 +82,7 @@ namespace GUI_Tesoreria.caja
             idCajeroIngresoVouchers);
             habilitaBotones(habilita);
             SeleccionaPrograma();
+            HabilitaControlBusqueda(true);
         }
         private void SeleccionaPrograma()
         {
@@ -307,11 +308,14 @@ namespace GUI_Tesoreria.caja
             {
                 return;
             }
-            if (verificaDuplicidad())                                                                                                                                         
+            if (Convert.ToInt16(cboPrograma.SelectedValue) != 7)
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesMetodosEstaticos.encabezado,
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                return;
+                if (verificaDuplicidad())
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return;
+                }
             }
             //if (verificaModalidadPago())
             //{
@@ -339,16 +343,19 @@ namespace GUI_Tesoreria.caja
                             MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                         Limpiar();
-                        cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"), dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"), 
+                        if (Convert.ToInt32(cboPrograma.SelectedValue) != 7)
+                        {
+                            cargarDepositos(dtpFechaDepoFiltroDesde.Value.ToString("yyyyMMdd"), dtpFechaDepoFiltroHasta.Value.ToString("yyyyMMdd"),
                             idCajeroIngresoVouchers);
-                        btnVerIngresos_Click(sender, e);
+                            btnVerIngresos_Click(sender, e);
+                        }
                         SumaTotalDeposito();
                     }
                 }
-                if (Convert.ToInt32(cboPrograma.SelectedValue) != 7)
-                {
+                //if (Convert.ToInt32(cboPrograma.SelectedValue) != 7)
+                //{
                     btnBuscar_Click(sender, e);
-                }
+                //}
             }
             catch (Exception)
             {
@@ -454,7 +461,8 @@ namespace GUI_Tesoreria.caja
                 txtNumDocumento.Focus();
                 return false;
             }
-            if (txtCantidadDocumentos.Text.Trim() == string.Empty && Convert.ToInt32(cboPrograma.SelectedValue)!=7 && Convert.ToInt16(cboConcepto.SelectedValue)!=4)
+            if (txtCantidadDocumentos.Text.Trim() == string.Empty && Convert.ToInt32(cboPrograma.SelectedValue)!=7 && 
+                Convert.ToInt16(cboConcepto.SelectedValue)!=4)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No se ha seleccionado la fecha de ingreso a la que se va a relacionar el voucher.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
@@ -549,8 +557,11 @@ namespace GUI_Tesoreria.caja
             txtNumDocumento.Clear();
             txtObservacionesPago.Clear();
             //dtpFechaCobro.Value = DateTime.Now;
-            txtCantidadDocumentos.Clear();
-            txtImporteEfectivo.Clear();
+            if (Convert.ToInt16(cboPrograma.SelectedValue) != 7)
+            {
+                txtCantidadDocumentos.Clear();
+                txtImporteEfectivo.Clear();
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
