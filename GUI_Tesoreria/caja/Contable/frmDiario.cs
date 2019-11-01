@@ -283,7 +283,7 @@ namespace GUI_Tesoreria.caja.Contable
                                     " VALUES(#" + item[0].ToString().Substring(6, 4) + "-" +
                                     item[0].ToString().Substring(3, 2) + "-" + item[0].ToString().Substring(0, 2) + "#,'" + item[1].ToString() + "','" + item[2].ToString() + "','" + item[3].ToString() + "'," +
                                     item[4].ToString()
-                                    + ",'" + item[5].ToString() + "','" + item[6].ToString() + "',#" + item[7].ToString().Substring(6, 4) + "-" +
+                                    + ",'" + item[5].ToString() + "','" +(item[6].ToString().Length >1 ? (item[6].ToString()=="03" ? "B":(item[6].ToString() == "01" ? "F":"R")) : item[6].ToString()) + "',#" + item[7].ToString().Substring(6, 4) + "-" +
                                     item[7].ToString().Substring(3, 2) + "-" + item[7].ToString().Substring(0, 2) + "#,'" + item[8].ToString() + "','" +
                                     item[9].ToString() + "','" + item[10].ToString() + "')";
 
@@ -446,7 +446,7 @@ namespace GUI_Tesoreria.caja.Contable
                                         cmd.CommandText = "INSERT INTO APIMAE(COD_INMB,NUM_CONTR,INQUILINO,NUM_RUC,AA,MM,TIP_DOCU,NRO_DOCU,FGIRO,FCH_PAGO,TIP_MOVI" +
                                         ",TIP_PAGO,FCH_EM,RENTA,DOCRET,IGV,IGVRET,AUTOSEG,MORA,JUDIC,COD_COB,FDEPO,FLAG,CODCON_REN,CODCON_MOR,CODCON_IGV," +
                                         "CODCO_IGVR,CODCON_RES,PRES_IGV,PRES_IGVR,PRES_MOR,PRES_REN,DONUME) " +
-                                        " VALUES('" + item[0].ToString() + "','" + item[1].ToString() + "','" + item[2].ToString() + "','" + item[3].ToString() + "','" +
+                                        " VALUES('" + item[0].ToString() + "','" + item[1].ToString() + "','" + item[2].ToString().Replace("'","''").ToString() + "','" + item[3].ToString() + "','" +
                                         item[4].ToString() + "','" + item[5].ToString() + "','" + item[6].ToString() + "','" + item[7].ToString() + "',#" +
                                         item[8].ToString() + "#,#" + item[9].ToString() + "#,'" +
                                         item[10].ToString() + "','" + item[11].ToString() + "',#" + (item[12].ToString().Trim() == string.Empty ? "1900-01-01" :
@@ -459,6 +459,7 @@ namespace GUI_Tesoreria.caja.Contable
                                         item[30].ToString() + "','" + item[31].ToString() + "','" + item[32].ToString() + "')";
 
                                         cmd.ExecuteNonQuery();
+
                                         index = index + 1;
                                         backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
                                     }
@@ -505,6 +506,83 @@ namespace GUI_Tesoreria.caja.Contable
                     //ALTA DIRECCIOMN
                     else if (CodPrograma_ == 1)
                     {
+                        using (OleDbConnection cnd_ = new OleDbConnection(strConnDbf))
+                        {
+                            using (OleDbCommand cmd_ = new OleDbCommand())
+                            {
+                                cmd_.Connection = cnd_;
+                                cnd_.Open();
+
+                                dtAltaDireccion = cn.TraerDataset("USP_GENERA_INGRESO_ALTA_DIRECCION", Convert.ToInt16(txtAnio.Text), 
+                                    Convert.ToInt16(txtMes.Text));
+
+                                if (dtAltaDireccion.Tables[0].Rows.Count <= 0)
+                                {
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay liquidaciones en el mes ingresado, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error);
+                                    return;
+                                }
+
+                                cmd_.CommandText = "DELETE FROM rectes";
+                                cmd_.Parameters.Clear();
+
+                                cmd_.ExecuteNonQuery();
+
+                                process = dtAltaDireccion.Tables[0].Rows.Count;
+                                index = 0;
+
+                                _inputparameter.Process = 1;
+                                _inputparameter.Delay = 4;
+
+                                foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
+                                {
+                                    if (!backgroundWorker.CancellationPending)
+                                    {
+                                        cmd_.CommandText = "INSERT INTO " + "rectes" + " " +
+                                    "" + " "
+                                             //+ "(feemi,Nrorec,Nrorec1,tippag,Modpag,Monto,Cing,codigo,Nomclie," +
+                                        //"Ciedia,Band,Fdepo,Flag)"
+                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                                        cmd_.Parameters.Clear();
+                                        cmd_.Parameters.Add("feemi", OleDbType.Date).Value = (item[0].ToString().Trim() == string.Empty ? new
+                                            DateTime(1900, 1, 1) :
+                                            new DateTime(Convert.ToInt16(item[0].ToString().Substring(0, 4)),
+                                            Convert.ToInt16(item[0].ToString().Substring(4, 2)),
+                                            Convert.ToInt16(item[0].ToString().Substring(6, 2))));
+
+                                        cmd_.Parameters.Add("Nrorec", OleDbType.VarChar).Value = item[1].ToString();
+                                        cmd_.Parameters.Add("Nrorec1", OleDbType.VarChar).Value = item[2].ToString();
+                                        cmd_.Parameters.Add("tippag", OleDbType.Char).Value = item[3].ToString();
+                                        cmd_.Parameters.Add("Modpag", OleDbType.Char).Value = item[4].ToString();
+                                        cmd_.Parameters.Add("Monto", OleDbType.Decimal).Value = (item[5].ToString().Trim() == string.Empty ? 0.00m : 
+                                            Convert.ToDecimal(item[5].ToString()));
+                                        cmd_.Parameters.Add("Cing", OleDbType.Char).Value = item[6].ToString();
+                                        cmd_.Parameters.Add("codigo", OleDbType.Char).Value = item[7].ToString();
+                                        cmd_.Parameters.Add("Nomclie", OleDbType.VarChar).Value = item[8].ToString();
+                                        cmd_.Parameters.Add("Ciedia", OleDbType.Char).Value = item[9].ToString();
+                                        cmd_.Parameters.Add("Band", OleDbType.Char).Value = item[10].ToString();
+                                        cmd_.Parameters.Add("Fdepo", OleDbType.Date).Value = (item[0].ToString().Trim() == string.Empty ? new
+                                            DateTime(1900, 1, 1) :
+                                            new DateTime(Convert.ToInt16(item[0].ToString().Substring(0, 4)),
+                                            Convert.ToInt16(item[0].ToString().Substring(4, 2)),
+                                            Convert.ToInt16(item[0].ToString().Substring(6, 2))));
+                                        cmd_.Parameters.Add("Flag", OleDbType.Char).Value = item[12].ToString();
+
+                                        cmd_.ExecuteNonQuery();
+                                        index = index + 1;
+                                        backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
+
+                                    }
+                                    else
+                                    {
+                                        e.Cancel = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
                         if (!BuscarArchivo("c01cd"+Convert.ToInt32(txtMes.Text).ToString("00")+txtAnio.Text.Substring(3,1), pathSalida2))
                         {
                             DevComponents.DotNetBar.MessageBoxEx.Show("La tabla " + "c01cd"+Convert.ToInt32(txtMes.Text).ToString("00")+
@@ -557,8 +635,8 @@ namespace GUI_Tesoreria.caja.Contable
                                 process = dtAltaDireccion.Tables[0].Rows.Count;
                                 index = 0;
 
-                                _inputparameter.Process = 1;
-                                _inputparameter.Delay = 3;
+                                _inputparameter.Process = 2;
+                                _inputparameter.Delay = 4;
 
                                 foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
                                 {
@@ -567,10 +645,16 @@ namespace GUI_Tesoreria.caja.Contable
                                         cmd.CommandText= "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
                                     txtAnio.Text.Substring(3, 1) + " "
                                              + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
-                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
+                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
+                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
 
-                                    cmd.Parameters.Clear();
+                                        /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                                    txtAnio.Text.Substring(3, 1) + " "
+                                             + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
+                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
+
+                                        cmd.Parameters.Clear();
                                     cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
                                     cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
                                     cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new 
@@ -605,10 +689,10 @@ namespace GUI_Tesoreria.caja.Contable
                                         new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
                                         Convert.ToInt16(item[14].ToString().Substring(6, 2))));
                                     cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
-                                    cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
+                                    /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
                                     cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
                                     cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
-                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();
+                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
 
                                     cmd.ExecuteNonQuery();
                                     index = index + 1;
@@ -635,8 +719,8 @@ namespace GUI_Tesoreria.caja.Contable
                                 process = dtAltaDireccion.Tables[0].Rows.Count;
                                 index = 0;
 
-                                _inputparameter.Process = 2;
-                                _inputparameter.Delay = 3;
+                                _inputparameter.Process = 3;
+                                _inputparameter.Delay = 4;
 
                                 foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
                                 {
@@ -645,10 +729,16 @@ namespace GUI_Tesoreria.caja.Contable
                                         cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
                                     txtAnio.Text.Substring(3, 1) + " "
                                              + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
-                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
+                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
+                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
 
-                                    cmd.Parameters.Clear();
+                                        /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                                        txtAnio.Text.Substring(3, 1) + " "
+                                                 + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                                            "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
+                                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
+
+                                        cmd.Parameters.Clear();
                                     cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
                                     cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
                                     cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new
@@ -683,10 +773,10 @@ namespace GUI_Tesoreria.caja.Contable
                                         new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
                                         Convert.ToInt16(item[14].ToString().Substring(6, 2))));
                                     cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
-                                    cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
+                                    /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
                                     cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
                                     cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
-                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();
+                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
 
                                     cmd.ExecuteNonQuery();
                                         index = index + 1;
@@ -703,8 +793,8 @@ namespace GUI_Tesoreria.caja.Contable
                                 process = dtAltaDireccion.Tables[1].Rows.Count;
                                 index = 0;
 
-                                _inputparameter.Process = 3;
-                                _inputparameter.Delay = 3;
+                                _inputparameter.Process = 4;
+                                _inputparameter.Delay = 4;
 
                                 foreach (DataRow item in dtAltaDireccion.Tables[1].Rows)
                                 {
@@ -713,10 +803,16 @@ namespace GUI_Tesoreria.caja.Contable
                                         cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
                                     txtAnio.Text.Substring(3, 1) + " "
                                              + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
-                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
+                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
+                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
 
-                                    cmd.Parameters.Clear();
+                                        /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                                        txtAnio.Text.Substring(3, 1) + " "
+                                                 + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                                            "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
+                                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
+
+                                        cmd.Parameters.Clear();
                                     cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
                                     cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
                                     cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new
@@ -751,10 +847,10 @@ namespace GUI_Tesoreria.caja.Contable
                                         new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
                                         Convert.ToInt16(item[14].ToString().Substring(6, 2))));
                                     cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
-                                    cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
+                                    /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
                                     cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
                                     cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
-                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();
+                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
 
                                     cmd.ExecuteNonQuery();
                                     index = index + 1;
@@ -770,6 +866,7 @@ namespace GUI_Tesoreria.caja.Contable
                                 cmd.CommandText = "set null on";
 
                                 cmd.ExecuteNonQuery();
+
                                 cnd.Close();
                             }
                         }

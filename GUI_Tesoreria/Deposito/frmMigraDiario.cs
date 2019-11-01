@@ -200,7 +200,7 @@ namespace GUI_Tesoreria.Deposito
                     DataTable dtAstos = new DataTable();
                     DataSet dtAltaDireccion = new DataSet();
 
-                    strConnDbf = Cadena("contab2009");
+                    strConnDbf = Cadena("");
 
                     DataTable dtFecha = new DataTable();
 
@@ -272,8 +272,8 @@ namespace GUI_Tesoreria.Deposito
                                 {
                                     cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") + txtAnio.Text.Substring(3, 1) + " "
                                             + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                    "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
-                                            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
+                                    "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
+                                            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
 
                                     cmd.Parameters.Clear();
                                     cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();//
@@ -313,11 +313,11 @@ namespace GUI_Tesoreria.Deposito
                                         new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)),
                                         Convert.ToInt16(item[2].ToString().Substring(4, 2)),
                                         Convert.ToInt16(item[2].ToString().Substring(6, 2))));//
-                                    cmd.Parameters.Add("user", OleDbType.Char).Value = VariablesMetodosEstaticos.varUsuario.Substring(0,10);//
-                                    cmd.Parameters.Add("periodo", OleDbType.Char).Value = "";//
-                                    cmd.Parameters.Add("glosa", OleDbType.Char).Value = memoContent;//
-                                    cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = "";//
-                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = "";//
+                                    cmd.Parameters.Add("user", OleDbType.Char).Value = VariablesMetodosEstaticos.varUsuario.Substring(0, VariablesMetodosEstaticos.varUsuario.Length>10 ? 10 : VariablesMetodosEstaticos.varUsuario.Length);//
+                                    //cmd.Parameters.Add("periodo", OleDbType.Char).Value = "";//
+                                    //cmd.Parameters.Add("glosa", OleDbType.Char).Value = memoContent;//
+                                    //cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = "";//
+                                    //cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = "";//
 
                                     cmd.ExecuteNonQuery();
                                     index = index + 1;
