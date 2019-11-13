@@ -508,47 +508,56 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mtbFechaLiquidacion.Focus();
             }           
         }
 
         private void btnIngresoRecibosCaja_Click(object sender, EventArgs e)
         {
-            DataTable dtResu = new DataTable();
-            frmReciboCajaPrincipal win = new frmReciboCajaPrincipal();
-            dtResu = cn.EjecutarSqlDTS("select NOMBREOFICINASECUNDARIA from SUNATFE.dbo.SISTEMAS WHERE ID = " +
-                (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 1 ? "7" :
-                (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 2 ? "4" :
-                (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 3 ? "1" :
-                (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 4 ? "2" :
-                (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 5 ? "5" :
-                (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 6 ? "6" : "0")))))) + "").Tables[0];
-            if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 5 || Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 6)
+            try
             {
-                win.Glosa = cn.TraerDataset("USP_DETALLE_COMEDORES", Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),
-                    cboFuenteIngreso.SelectedValue).Tables[0].Rows[0][0].ToString();
+                DataTable dtResu = new DataTable();
+                frmReciboCajaPrincipal win = new frmReciboCajaPrincipal();
+                dtResu = cn.EjecutarSqlDTS("select NOMBREOFICINASECUNDARIA from SUNATFE.dbo.SISTEMAS WHERE ID = " +
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 1 ? "7" :
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 2 ? "4" :
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 3 ? "1" :
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 4 ? "2" :
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 5 ? "5" :
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 6 ? "6" : "0")))))) + "").Tables[0];
+                if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 5 || Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 6)
+                {
+                    win.Glosa = cn.TraerDataset("USP_DETALLE_COMEDORES", Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),
+                        cboFuenteIngreso.SelectedValue).Tables[0].Rows[0][0].ToString();
+                }
+                else if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 4)
+                {
+                    win.Glosa = cn.TraerDataset("USP_DETALLE_CEMENTERIO", Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),
+                        cboFuenteIngreso.SelectedValue).Tables[0].Rows[0][0].ToString();
+                }
+                else if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 2)
+                {
+                    win.Glosa = cn.TraerDataset("USP_DETALLE_ALBERGUES", Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),
+                        cboFuenteIngreso.SelectedValue).Tables[0].Rows[0][0].ToString();
+                }
+                win.FuenteIngreso = Convert.ToInt32(cboFuenteIngreso.SelectedValue);
+                win.Nombre = dtResu.Rows.Count > 0 ? dtResu.Rows[0][0].ToString() : "";
+                win.NroLiquidacion = Convert.ToInt32(lblNro.Text);//.ToString("0000000");
+                win.FechaCaja = mtbFechaCajaOrigen.Text;
+                win.FechaLiquidacion = mtbFechaLiquidacion.Text;
+                win.TotalLiquidacion = Convert.ToDecimal(txtTotalDeposito.Text);
+                win.ShowDialog();
+                btnVerIngresos_Click(sender, e);
             }
-            else if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 4)
+            catch (Exception ex)
             {
-                win.Glosa = cn.TraerDataset("USP_DETALLE_CEMENTERIO", Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),
-                    cboFuenteIngreso.SelectedValue).Tables[0].Rows[0][0].ToString();
+                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message, VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mtbFechaLiquidacion.Focus();
             }
-            else if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 2)
-            {
-                win.Glosa = cn.TraerDataset("USP_DETALLE_ALBERGUES", Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),
-                    cboFuenteIngreso.SelectedValue).Tables[0].Rows[0][0].ToString();               
-            }
-            win.FuenteIngreso = Convert.ToInt32(cboFuenteIngreso.SelectedValue);
-            win.Nombre = dtResu.Rows.Count>0 ? dtResu.Rows[0][0].ToString():"";
-            win.NroLiquidacion = Convert.ToInt32(lblNro.Text);//.ToString("0000000");
-            win.FechaCaja = mtbFechaCajaOrigen.Text;
-            win.FechaLiquidacion = mtbFechaLiquidacion.Text;
-            win.TotalLiquidacion = Convert.ToDecimal(txtTotalDeposito.Text);
-            win.ShowDialog();
-            btnVerIngresos_Click(sender, e);
+            
         }
 
         private void txtTotalAGenerar_TextChanged(object sender, EventArgs e)

@@ -532,7 +532,7 @@ namespace GUI_Tesoreria.caja.Contable
                                 index = 0;
 
                                 _inputparameter.Process = 1;
-                                _inputparameter.Delay = 4;
+                                _inputparameter.Delay = 1;
 
                                 foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
                                 {
@@ -583,293 +583,293 @@ namespace GUI_Tesoreria.caja.Contable
                             }
                         }
 
-                        if (!BuscarArchivo("c01cd"+Convert.ToInt32(txtMes.Text).ToString("00")+txtAnio.Text.Substring(3,1), pathSalida2))
-                        {
-                            DevComponents.DotNetBar.MessageBoxEx.Show("La tabla " + "c01cd"+Convert.ToInt32(txtMes.Text).ToString("00")+
-                                txtAnio.Text.Substring(3,1)+".DBF no existe.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                             MessageBoxIcon.Warning);
-                            e.Cancel = true;
-                            return;
-                        }
+                        //if (!BuscarArchivo("c01cd"+Convert.ToInt32(txtMes.Text).ToString("00")+txtAnio.Text.Substring(3,1), pathSalida2))
+                        //{
+                        //    DevComponents.DotNetBar.MessageBoxEx.Show("La tabla " + "c01cd"+Convert.ToInt32(txtMes.Text).ToString("00")+
+                        //        txtAnio.Text.Substring(3,1)+".DBF no existe.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        //                     MessageBoxIcon.Warning);
+                        //    e.Cancel = true;
+                        //    return;
+                        //}
 
-                        using (OleDbConnection cnd = new OleDbConnection(strConnDbf_2))
-                        {
-                            using (OleDbCommand cmd = new OleDbCommand())
-                            {
-                                cmd.Connection = cnd;
-                                cnd.Open();
+                        //using (OleDbConnection cnd = new OleDbConnection(strConnDbf_2))
+                        //{
+                        //    using (OleDbCommand cmd = new OleDbCommand())
+                        //    {
+                        //        cmd.Connection = cnd;
+                        //        cnd.Open();
 
-                                dtAltaDireccion = cn.TraerDataset("USP_ALTA_DIRECCION_CONTAB2009",txtAnio.Text,Convert.ToInt16(txtMes.Text).ToString("00"));
+                        //        dtAltaDireccion = cn.TraerDataset("USP_ALTA_DIRECCION_CONTAB2009",txtAnio.Text,Convert.ToInt16(txtMes.Text).ToString("00"));
 
-                                if (dtAltaDireccion.Tables[0].Rows.Count <= 0)
-                                {
-                                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay Datos de Glosa, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
-                                    return;
-                                }
+                        //        if (dtAltaDireccion.Tables[0].Rows.Count <= 0)
+                        //        {
+                        //            DevComponents.DotNetBar.MessageBoxEx.Show("No hay Datos de Glosa, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        //                     MessageBoxIcon.Error);
+                        //            return;
+                        //        }
 
-                                cmd.CommandText = "DELETE FROM " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
-                                    txtAnio.Text.Substring(3, 1) + " WHERE auxcod = ? and " + "Dofech between ? and ? "+" ";
-                                cmd.Parameters.Clear();
+                        //        cmd.CommandText = "DELETE FROM " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                        //            txtAnio.Text.Substring(3, 1) + " WHERE auxcod = ? and " + "Dofech between ? and ? "+" ";
+                        //        cmd.Parameters.Clear();
 
-                                cmd.Parameters.Add("@aux", OleDbType.Char).Value = "00000039";
+                        //        cmd.Parameters.Add("@aux", OleDbType.Char).Value = "00000039";
 
-                                cmd.Parameters.Add("@ini", OleDbType.Date).Value = (fechaini.ToString().Trim() == string.Empty ? new
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(fechaini.ToString().Substring(0, 4)),
-                                        Convert.ToInt16(fechaini.ToString().Substring(5, 2)),
-                                        Convert.ToInt16(fechaini.ToString().Substring(8, 2))));
+                        //        cmd.Parameters.Add("@ini", OleDbType.Date).Value = (fechaini.ToString().Trim() == string.Empty ? new
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(fechaini.ToString().Substring(0, 4)),
+                        //                Convert.ToInt16(fechaini.ToString().Substring(5, 2)),
+                        //                Convert.ToInt16(fechaini.ToString().Substring(8, 2))));
 
-                                cmd.Parameters.Add("@fin", OleDbType.Date).Value = (fechafin.ToString().Trim() == string.Empty ? new
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(fechafin.ToString().Substring(0, 4)),
-                                        Convert.ToInt16(fechafin.ToString().Substring(5, 2)),
-                                        Convert.ToInt16(fechafin.ToString().Substring(8, 2))));
+                        //        cmd.Parameters.Add("@fin", OleDbType.Date).Value = (fechafin.ToString().Trim() == string.Empty ? new
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(fechafin.ToString().Substring(0, 4)),
+                        //                Convert.ToInt16(fechafin.ToString().Substring(5, 2)),
+                        //                Convert.ToInt16(fechafin.ToString().Substring(8, 2))));
 
-                                cmd.ExecuteNonQuery();
+                        //        cmd.ExecuteNonQuery();
 
-                                cmd.CommandText = "set null off";
+                        //        cmd.CommandText = "set null off";
 
-                                cmd.ExecuteNonQuery();
+                        //        cmd.ExecuteNonQuery();
 
-                                process = dtAltaDireccion.Tables[0].Rows.Count;
-                                index = 0;
+                        //        process = dtAltaDireccion.Tables[0].Rows.Count;
+                        //        index = 0;
 
-                                _inputparameter.Process = 2;
-                                _inputparameter.Delay = 4;
+                        //        _inputparameter.Process = 2;
+                        //        _inputparameter.Delay = 4;
 
-                                foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
-                                {
-                                    if (!backgroundWorker.CancellationPending)
-                                    {
-                                        cmd.CommandText= "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
-                                    txtAnio.Text.Substring(3, 1) + " "
-                                             + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
-                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
+                        //        foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
+                        //        {
+                        //            if (!backgroundWorker.CancellationPending)
+                        //            {
+                        //                cmd.CommandText= "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                        //            txtAnio.Text.Substring(3, 1) + " "
+                        //                     + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                        //                "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
+                        //                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
 
-                                        /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
-                                    txtAnio.Text.Substring(3, 1) + " "
-                                             + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
-                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
+                        //                /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                        //            txtAnio.Text.Substring(3, 1) + " "
+                        //                     + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                        //                "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
+                        //                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
 
-                                        cmd.Parameters.Clear();
-                                    cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
-                                    cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
-                                    cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new 
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)), 
-                                        Convert.ToInt16(item[2].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[2].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("auxcod", OleDbType.Char).Value = item[3].ToString();
-                                    cmd.Parameters.Add("dorfcodi", OleDbType.Char).Value = item[4].ToString();
-                                    cmd.Parameters.Add("dorffech", OleDbType.Date).Value = (item[5].ToString().Trim() == string.Empty ? new 
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[5].ToString().Substring(0, 4)), 
-                                        Convert.ToInt16(item[5].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[5].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("dorfnume", OleDbType.Char).Value = item[6].ToString();
-                                    cmd.Parameters.Add("donoco", OleDbType.Char).Value = item[7].ToString();
-                                    cmd.Parameters.Add("doglco", OleDbType.Char).Value = item[8].ToString();
-                                    cmd.Parameters.Add("plcodi", OleDbType.Char).Value = item[9].ToString();
-                                    cmd.Parameters.Add("dodeha", OleDbType.Char).Value = item[10].ToString();
-                                    cmd.Parameters.Add("domovi", OleDbType.Decimal).Value = (item[11].ToString().Trim() == string.Empty ? 0.00m : Convert.ToDecimal(item[11].ToString()));
-                                    cmd.Parameters.Add("anulado", OleDbType.Char).Value = item[12].ToString();
-                                    cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();
+                        //                cmd.Parameters.Clear();
+                        //            cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
+                        //            cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
+                        //            cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new 
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)), 
+                        //                Convert.ToInt16(item[2].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[2].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("auxcod", OleDbType.Char).Value = item[3].ToString();
+                        //            cmd.Parameters.Add("dorfcodi", OleDbType.Char).Value = item[4].ToString();
+                        //            cmd.Parameters.Add("dorffech", OleDbType.Date).Value = (item[5].ToString().Trim() == string.Empty ? new 
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[5].ToString().Substring(0, 4)), 
+                        //                Convert.ToInt16(item[5].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[5].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("dorfnume", OleDbType.Char).Value = item[6].ToString();
+                        //            cmd.Parameters.Add("donoco", OleDbType.Char).Value = item[7].ToString();
+                        //            cmd.Parameters.Add("doglco", OleDbType.Char).Value = item[8].ToString();
+                        //            cmd.Parameters.Add("plcodi", OleDbType.Char).Value = item[9].ToString();
+                        //            cmd.Parameters.Add("dodeha", OleDbType.Char).Value = item[10].ToString();
+                        //            cmd.Parameters.Add("domovi", OleDbType.Decimal).Value = (item[11].ToString().Trim() == string.Empty ? 0.00m : Convert.ToDecimal(item[11].ToString()));
+                        //            cmd.Parameters.Add("anulado", OleDbType.Char).Value = item[12].ToString();
+                        //            cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();
 
-                                    //string file2read = @"\\192.168.1.192\Archivos_Maliciosos\conta\contab2009\prueba.txt";
-                                    string memoContent;
-                                    //using (StreamReader sr = new StreamReader(file2read))
-                                    //{
-                                    memoContent = item[17].ToString();// sr.ReadToEnd();
-                                    //}
-                                    cmd.Parameters.Add("Cammem", OleDbType.Char).Value = memoContent;
-                                    cmd.Parameters.Add("fsis", OleDbType.Date).Value = (item[14].ToString().Trim() == string.Empty ? new DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[14].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
-                                    /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
-                                    cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
-                                    cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
-                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
+                        //            //string file2read = @"\\192.168.1.192\Archivos_Maliciosos\conta\contab2009\prueba.txt";
+                        //            string memoContent;
+                        //            //using (StreamReader sr = new StreamReader(file2read))
+                        //            //{
+                        //            memoContent = item[17].ToString();// sr.ReadToEnd();
+                        //            //}
+                        //            cmd.Parameters.Add("Cammem", OleDbType.Char).Value = memoContent;
+                        //            cmd.Parameters.Add("fsis", OleDbType.Date).Value = (item[14].ToString().Trim() == string.Empty ? new DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[14].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
+                        //            /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
+                        //            cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
+                        //            cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
+                        //            cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
 
-                                    cmd.ExecuteNonQuery();
-                                    index = index + 1;
-                                    backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
+                        //            cmd.ExecuteNonQuery();
+                        //            index = index + 1;
+                        //            backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
 
-                                    }
-                                    else
-                                    {
-                                        e.Cancel = true;
-                                        break;
-                                    }
-                                }
+                        //            }
+                        //            else
+                        //            {
+                        //                e.Cancel = true;
+                        //                break;
+                        //            }
+                        //        }
 
-                                dtAltaDireccion = cn.TraerDataset("usp_haber_ingresos_contab", CodPrograma_, txtAnio.Text, 
-                                    Convert.ToInt16(txtMes.Text).ToString("00"));
+                        //        dtAltaDireccion = cn.TraerDataset("usp_haber_ingresos_contab", CodPrograma_, txtAnio.Text, 
+                        //            Convert.ToInt16(txtMes.Text).ToString("00"));
 
-                                if (dtAltaDireccion.Tables[0].Rows.Count <= 0)
-                                {
-                                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay Datos de Glosa, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
-                                    return;
-                                }
+                        //        if (dtAltaDireccion.Tables[0].Rows.Count <= 0)
+                        //        {
+                        //            DevComponents.DotNetBar.MessageBoxEx.Show("No hay Datos de Glosa, verifique.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                        //                     MessageBoxIcon.Error);
+                        //            return;
+                        //        }
 
-                                process = dtAltaDireccion.Tables[0].Rows.Count;
-                                index = 0;
+                        //        process = dtAltaDireccion.Tables[0].Rows.Count;
+                        //        index = 0;
 
-                                _inputparameter.Process = 3;
-                                _inputparameter.Delay = 4;
+                        //        _inputparameter.Process = 3;
+                        //        _inputparameter.Delay = 4;
 
-                                foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
-                                {
-                                    if (!backgroundWorker.CancellationPending)
-                                    {
-                                        cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
-                                    txtAnio.Text.Substring(3, 1) + " "
-                                             + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
-                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
+                        //        foreach (DataRow item in dtAltaDireccion.Tables[0].Rows)
+                        //        {
+                        //            if (!backgroundWorker.CancellationPending)
+                        //            {
+                        //                cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                        //            txtAnio.Text.Substring(3, 1) + " "
+                        //                     + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                        //                "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
+                        //                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
 
-                                        /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
-                                        txtAnio.Text.Substring(3, 1) + " "
-                                                 + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                            "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
-                                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
+                        //                /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                        //                txtAnio.Text.Substring(3, 1) + " "
+                        //                         + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                        //                    "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
+                        //                         + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
 
-                                        cmd.Parameters.Clear();
-                                    cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
-                                    cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
-                                    cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)),
-                                        Convert.ToInt16(item[2].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[2].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("auxcod", OleDbType.Char).Value = item[3].ToString();
-                                    cmd.Parameters.Add("dorfcodi", OleDbType.Char).Value = item[4].ToString();
-                                    cmd.Parameters.Add("dorffech", OleDbType.Date).Value = (item[5].ToString().Trim() == string.Empty ? new
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[5].ToString().Substring(0, 4)),
-                                        Convert.ToInt16(item[5].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[5].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("dorfnume", OleDbType.Char).Value = item[6].ToString();
-                                    cmd.Parameters.Add("donoco", OleDbType.Char).Value = item[7].ToString();
-                                    cmd.Parameters.Add("doglco", OleDbType.Char).Value = item[8].ToString();
-                                    cmd.Parameters.Add("plcodi", OleDbType.Char).Value = item[9].ToString();
-                                    cmd.Parameters.Add("dodeha", OleDbType.Char).Value = item[10].ToString();
-                                    cmd.Parameters.Add("domovi", OleDbType.Decimal).Value = (item[11].ToString().Trim() == string.Empty ? 0.00m : Convert.ToDecimal(item[11].ToString()));
-                                    cmd.Parameters.Add("anulado", OleDbType.Char).Value = item[12].ToString();
-                                    cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();
+                        //                cmd.Parameters.Clear();
+                        //            cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
+                        //            cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
+                        //            cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)),
+                        //                Convert.ToInt16(item[2].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[2].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("auxcod", OleDbType.Char).Value = item[3].ToString();
+                        //            cmd.Parameters.Add("dorfcodi", OleDbType.Char).Value = item[4].ToString();
+                        //            cmd.Parameters.Add("dorffech", OleDbType.Date).Value = (item[5].ToString().Trim() == string.Empty ? new
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[5].ToString().Substring(0, 4)),
+                        //                Convert.ToInt16(item[5].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[5].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("dorfnume", OleDbType.Char).Value = item[6].ToString();
+                        //            cmd.Parameters.Add("donoco", OleDbType.Char).Value = item[7].ToString();
+                        //            cmd.Parameters.Add("doglco", OleDbType.Char).Value = item[8].ToString();
+                        //            cmd.Parameters.Add("plcodi", OleDbType.Char).Value = item[9].ToString();
+                        //            cmd.Parameters.Add("dodeha", OleDbType.Char).Value = item[10].ToString();
+                        //            cmd.Parameters.Add("domovi", OleDbType.Decimal).Value = (item[11].ToString().Trim() == string.Empty ? 0.00m : Convert.ToDecimal(item[11].ToString()));
+                        //            cmd.Parameters.Add("anulado", OleDbType.Char).Value = item[12].ToString();
+                        //            cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();
 
-                                    //string file2read = @"\\192.168.1.192\Archivos_Maliciosos\conta\contab2009\prueba.txt";
-                                    string memoContent;
-                                    //using (StreamReader sr = new StreamReader(file2read))
-                                    //{
-                                    memoContent = item[17].ToString();// sr.ReadToEnd();
-                                    //}
-                                    cmd.Parameters.Add("Cammem", OleDbType.Char).Value = memoContent;
-                                    cmd.Parameters.Add("fsis", OleDbType.Date).Value = (item[14].ToString().Trim() == string.Empty ? new DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[14].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
-                                    /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
-                                    cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
-                                    cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
-                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
+                        //            //string file2read = @"\\192.168.1.192\Archivos_Maliciosos\conta\contab2009\prueba.txt";
+                        //            string memoContent;
+                        //            //using (StreamReader sr = new StreamReader(file2read))
+                        //            //{
+                        //            memoContent = item[17].ToString();// sr.ReadToEnd();
+                        //            //}
+                        //            cmd.Parameters.Add("Cammem", OleDbType.Char).Value = memoContent;
+                        //            cmd.Parameters.Add("fsis", OleDbType.Date).Value = (item[14].ToString().Trim() == string.Empty ? new DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[14].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
+                        //            /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
+                        //            cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
+                        //            cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
+                        //            cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
 
-                                    cmd.ExecuteNonQuery();
-                                        index = index + 1;
-                                        backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
+                        //            cmd.ExecuteNonQuery();
+                        //                index = index + 1;
+                        //                backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
 
-                                    }
-                                    else
-                                    {
-                                        e.Cancel = true;
-                                        break;
-                                    }
-                                }
+                        //            }
+                        //            else
+                        //            {
+                        //                e.Cancel = true;
+                        //                break;
+                        //            }
+                        //        }
 
-                                process = dtAltaDireccion.Tables[1].Rows.Count;
-                                index = 0;
+                        //        process = dtAltaDireccion.Tables[1].Rows.Count;
+                        //        index = 0;
 
-                                _inputparameter.Process = 4;
-                                _inputparameter.Delay = 4;
+                        //        _inputparameter.Process = 4;
+                        //        _inputparameter.Delay = 4;
 
-                                foreach (DataRow item in dtAltaDireccion.Tables[1].Rows)
-                                {
-                                    if (!backgroundWorker.CancellationPending)
-                                    {
-                                        cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
-                                    txtAnio.Text.Substring(3, 1) + " "
-                                             + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                        "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
-                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
+                        //        foreach (DataRow item in dtAltaDireccion.Tables[1].Rows)
+                        //        {
+                        //            if (!backgroundWorker.CancellationPending)
+                        //            {
+                        //                cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                        //            txtAnio.Text.Substring(3, 1) + " "
+                        //                     + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                        //                "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
+                        //                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
 
-                                        /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
-                                        txtAnio.Text.Substring(3, 1) + " "
-                                                 + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
-                                            "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
-                                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
+                        //                /*cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") +
+                        //                txtAnio.Text.Substring(3, 1) + " "
+                        //                         + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
+                        //                    "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user,periodo,glosa,dorgcodi,dorgnume)"
+                        //                         + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";*/
 
-                                        cmd.Parameters.Clear();
-                                    cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
-                                    cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
-                                    cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)),
-                                        Convert.ToInt16(item[2].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[2].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("auxcod", OleDbType.Char).Value = item[3].ToString();
-                                    cmd.Parameters.Add("dorfcodi", OleDbType.Char).Value = item[4].ToString();
-                                    cmd.Parameters.Add("dorffech", OleDbType.Date).Value = (item[5].ToString().Trim() == string.Empty ? new
-                                        DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[5].ToString().Substring(0, 4)),
-                                        Convert.ToInt16(item[5].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[5].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("dorfnume", OleDbType.Char).Value = item[6].ToString();
-                                    cmd.Parameters.Add("donoco", OleDbType.Char).Value = item[7].ToString();
-                                    cmd.Parameters.Add("doglco", OleDbType.Char).Value = item[8].ToString();
-                                    cmd.Parameters.Add("plcodi", OleDbType.Char).Value = item[9].ToString();
-                                    cmd.Parameters.Add("dodeha", OleDbType.Char).Value = item[10].ToString();
-                                    cmd.Parameters.Add("domovi", OleDbType.Decimal).Value = (item[11].ToString().Trim() == string.Empty ? 0.00m : Convert.ToDecimal(item[11].ToString()));
-                                    cmd.Parameters.Add("anulado", OleDbType.Char).Value = item[12].ToString();
-                                    cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();
+                        //                cmd.Parameters.Clear();
+                        //            cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();
+                        //            cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString();
+                        //            cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)),
+                        //                Convert.ToInt16(item[2].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[2].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("auxcod", OleDbType.Char).Value = item[3].ToString();
+                        //            cmd.Parameters.Add("dorfcodi", OleDbType.Char).Value = item[4].ToString();
+                        //            cmd.Parameters.Add("dorffech", OleDbType.Date).Value = (item[5].ToString().Trim() == string.Empty ? new
+                        //                DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[5].ToString().Substring(0, 4)),
+                        //                Convert.ToInt16(item[5].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[5].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("dorfnume", OleDbType.Char).Value = item[6].ToString();
+                        //            cmd.Parameters.Add("donoco", OleDbType.Char).Value = item[7].ToString();
+                        //            cmd.Parameters.Add("doglco", OleDbType.Char).Value = item[8].ToString();
+                        //            cmd.Parameters.Add("plcodi", OleDbType.Char).Value = item[9].ToString();
+                        //            cmd.Parameters.Add("dodeha", OleDbType.Char).Value = item[10].ToString();
+                        //            cmd.Parameters.Add("domovi", OleDbType.Decimal).Value = (item[11].ToString().Trim() == string.Empty ? 0.00m : Convert.ToDecimal(item[11].ToString()));
+                        //            cmd.Parameters.Add("anulado", OleDbType.Char).Value = item[12].ToString();
+                        //            cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();
 
-                                    //string file2read = @"\\192.168.1.192\Archivos_Maliciosos\conta\contab2009\prueba.txt";
-                                    string memoContent;
-                                    //using (StreamReader sr = new StreamReader(file2read))
-                                    //{
-                                    memoContent = item[17].ToString();// sr.ReadToEnd();
-                                    //}
-                                    cmd.Parameters.Add("Cammem", OleDbType.Char).Value = memoContent;
-                                    cmd.Parameters.Add("fsis", OleDbType.Date).Value = (item[14].ToString().Trim() == string.Empty ? new DateTime(1900, 1, 1) :
-                                        new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
-                                        Convert.ToInt16(item[14].ToString().Substring(6, 2))));
-                                    cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
-                                    /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
-                                    cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
-                                    cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
-                                    cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
+                        //            //string file2read = @"\\192.168.1.192\Archivos_Maliciosos\conta\contab2009\prueba.txt";
+                        //            string memoContent;
+                        //            //using (StreamReader sr = new StreamReader(file2read))
+                        //            //{
+                        //            memoContent = item[17].ToString();// sr.ReadToEnd();
+                        //            //}
+                        //            cmd.Parameters.Add("Cammem", OleDbType.Char).Value = memoContent;
+                        //            cmd.Parameters.Add("fsis", OleDbType.Date).Value = (item[14].ToString().Trim() == string.Empty ? new DateTime(1900, 1, 1) :
+                        //                new DateTime(Convert.ToInt16(item[14].ToString().Substring(0, 4)), Convert.ToInt16(item[14].ToString().Substring(4, 2)),
+                        //                Convert.ToInt16(item[14].ToString().Substring(6, 2))));
+                        //            cmd.Parameters.Add("user", OleDbType.Char).Value = item[15].ToString();
+                        //            /*cmd.Parameters.Add("periodo", OleDbType.Char).Value = item[16].ToString();
+                        //            cmd.Parameters.Add("glosa", OleDbType.Char).Value = item[17].ToString();
+                        //            cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = item[18].ToString();
+                        //            cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = item[19].ToString();*/
 
-                                    cmd.ExecuteNonQuery();
-                                    index = index + 1;
-                                    backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
+                        //            cmd.ExecuteNonQuery();
+                        //            index = index + 1;
+                        //            backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));
 
-                                    }
-                                    else
-                                    {
-                                        e.Cancel = true;
-                                        break;
-                                    }
-                                }
-                                cmd.CommandText = "set null on";
+                        //            }
+                        //            else
+                        //            {
+                        //                e.Cancel = true;
+                        //                break;
+                        //            }
+                        //        }
+                        //        cmd.CommandText = "set null on";
 
-                                cmd.ExecuteNonQuery();
+                        //        cmd.ExecuteNonQuery();
 
-                                cnd.Close();
-                            }
-                        }
+                        //        cnd.Close();
+                        //    }
+                        //}
                     }
                 }
                 catch (Exception EX)

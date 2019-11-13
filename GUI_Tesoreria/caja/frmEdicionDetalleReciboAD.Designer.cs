@@ -1,6 +1,6 @@
-﻿namespace GUI_Tesoreria.Gerencia
+﻿namespace GUI_Tesoreria.caja
 {
-    partial class frmListadoRecibosPrograma
+    partial class frmEdicionDetalleReciboAD
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoRecibosPrograma));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEdicionDetalleReciboAD));
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
             this.lblNroRecibos = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,6 +60,7 @@
             this.subTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Igv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnBuscar = new System.Windows.Forms.Button();
             this.GBEstadoConvenio = new System.Windows.Forms.GroupBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
@@ -77,13 +78,10 @@
             this.LblNombre = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.GBOpciones = new System.Windows.Forms.GroupBox();
-            this.LblTitulo = new System.Windows.Forms.Label();
-            this.cboPrograma = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.BtnBuscar = new System.Windows.Forms.Button();
-            this.btnExportar = new System.Windows.Forms.Button();
+            this.btnEditarDetalle = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnImprimir = new System.Windows.Forms.Button();
+            this.LblTitulo = new System.Windows.Forms.Label();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecibos)).BeginInit();
@@ -105,10 +103,10 @@
             this.GroupBox3.Controls.Add(this.txtTotal);
             this.GroupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox3.ForeColor = System.Drawing.Color.Maroon;
-            this.GroupBox3.Location = new System.Drawing.Point(12, 461);
+            this.GroupBox3.Location = new System.Drawing.Point(12, 460);
             this.GroupBox3.Name = "GroupBox3";
             this.GroupBox3.Size = new System.Drawing.Size(924, 45);
-            this.GroupBox3.TabIndex = 120;
+            this.GroupBox3.TabIndex = 129;
             this.GroupBox3.TabStop = false;
             // 
             // lblNroRecibos
@@ -209,10 +207,10 @@
             // 
             this.GroupBox2.BackColor = System.Drawing.Color.Transparent;
             this.GroupBox2.Controls.Add(this.dgvRecibos);
-            this.GroupBox2.Location = new System.Drawing.Point(12, 107);
+            this.GroupBox2.Location = new System.Drawing.Point(12, 106);
             this.GroupBox2.Name = "GroupBox2";
             this.GroupBox2.Size = new System.Drawing.Size(924, 353);
-            this.GroupBox2.TabIndex = 119;
+            this.GroupBox2.TabIndex = 128;
             this.GroupBox2.TabStop = false;
             // 
             // dgvRecibos
@@ -222,14 +220,14 @@
             this.dgvRecibos.AllowUserToResizeColumns = false;
             this.dgvRecibos.AllowUserToResizeRows = false;
             this.dgvRecibos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRecibos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecibos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_ReciboCabecera,
@@ -245,14 +243,14 @@
             this.subTotal,
             this.Igv,
             this.Total});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvRecibos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecibos.Location = new System.Drawing.Point(3, 16);
             this.dgvRecibos.Name = "dgvRecibos";
@@ -262,7 +260,6 @@
             this.dgvRecibos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecibos.Size = new System.Drawing.Size(918, 334);
             this.dgvRecibos.TabIndex = 83;
-            this.dgvRecibos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRecibos_CellFormatting);
             // 
             // Id_ReciboCabecera
             // 
@@ -301,8 +298,8 @@
             // nombre_documento
             // 
             this.nombre_documento.DataPropertyName = "nombre_documento";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.nombre_documento.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.nombre_documento.DefaultCellStyle = dataGridViewCellStyle9;
             this.nombre_documento.HeaderText = "Documento";
             this.nombre_documento.Name = "nombre_documento";
             this.nombre_documento.ReadOnly = true;
@@ -311,8 +308,8 @@
             // serieRecibo
             // 
             this.serieRecibo.DataPropertyName = "serieRecibo";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.serieRecibo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.serieRecibo.DefaultCellStyle = dataGridViewCellStyle10;
             this.serieRecibo.HeaderText = "Serie";
             this.serieRecibo.Name = "serieRecibo";
             this.serieRecibo.ReadOnly = true;
@@ -321,8 +318,8 @@
             // Numero_Recibo
             // 
             this.Numero_Recibo.DataPropertyName = "Numero_Recibo";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Numero_Recibo.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Numero_Recibo.DefaultCellStyle = dataGridViewCellStyle11;
             this.Numero_Recibo.HeaderText = "Nº Recibo";
             this.Numero_Recibo.Name = "Numero_Recibo";
             this.Numero_Recibo.ReadOnly = true;
@@ -331,8 +328,8 @@
             // Fecha
             // 
             this.Fecha.DataPropertyName = "Fecha";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Fecha.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Fecha.DefaultCellStyle = dataGridViewCellStyle12;
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
@@ -373,14 +370,31 @@
             // Total
             // 
             this.Total.DataPropertyName = "Total";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = "0";
+            this.Total.DefaultCellStyle = dataGridViewCellStyle13;
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             this.Total.Width = 85;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
+            this.BtnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("BtnBuscar.Image")));
+            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnBuscar.Location = new System.Drawing.Point(753, 61);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(53, 39);
+            this.BtnBuscar.TabIndex = 130;
+            this.BtnBuscar.Text = "&Buscar";
+            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // GBEstadoConvenio
             // 
@@ -392,11 +406,11 @@
             this.GBEstadoConvenio.Controls.Add(this.RBActivos);
             this.GBEstadoConvenio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBEstadoConvenio.ForeColor = System.Drawing.Color.Maroon;
-            this.GBEstadoConvenio.Location = new System.Drawing.Point(837, 45);
+            this.GBEstadoConvenio.Location = new System.Drawing.Point(837, 44);
             this.GBEstadoConvenio.MaximumSize = new System.Drawing.Size(303, 61);
             this.GBEstadoConvenio.Name = "GBEstadoConvenio";
             this.GBEstadoConvenio.Size = new System.Drawing.Size(186, 61);
-            this.GBEstadoConvenio.TabIndex = 116;
+            this.GBEstadoConvenio.TabIndex = 125;
             this.GBEstadoConvenio.TabStop = false;
             this.GBEstadoConvenio.Text = "Estado de Recibos";
             // 
@@ -474,10 +488,10 @@
             this.GroupBox1.Controls.Add(this.TxtNombre);
             this.GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.GroupBox1.Location = new System.Drawing.Point(12, 45);
+            this.GroupBox1.Location = new System.Drawing.Point(12, 44);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Size = new System.Drawing.Size(735, 61);
-            this.GroupBox1.TabIndex = 118;
+            this.GroupBox1.TabIndex = 127;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Busqueda por :";
             // 
@@ -583,85 +597,32 @@
             // GBOpciones
             // 
             this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
-            this.GBOpciones.Controls.Add(this.btnExportar);
+            this.GBOpciones.Controls.Add(this.btnEditarDetalle);
             this.GBOpciones.Controls.Add(this.BtnSalir);
             this.GBOpciones.Controls.Add(this.BtnImprimir);
             this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBOpciones.Location = new System.Drawing.Point(942, 107);
+            this.GBOpciones.Location = new System.Drawing.Point(942, 106);
             this.GBOpciones.Name = "GBOpciones";
             this.GBOpciones.Size = new System.Drawing.Size(81, 399);
-            this.GBOpciones.TabIndex = 117;
+            this.GBOpciones.TabIndex = 126;
             this.GBOpciones.TabStop = false;
             // 
-            // LblTitulo
+            // btnEditarDetalle
             // 
-            this.LblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblTitulo.BackColor = System.Drawing.Color.White;
-            this.LblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblTitulo.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
-            this.LblTitulo.Location = new System.Drawing.Point(12, 10);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(1011, 32);
-            this.LblTitulo.TabIndex = 115;
-            this.LblTitulo.Text = ":::   RECIBOS  EMITIDOS  :::\r\n";
-            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cboPrograma
-            // 
-            this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPrograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPrograma.FormattingEnabled = true;
-            this.cboPrograma.Location = new System.Drawing.Point(90, 512);
-            this.cboPrograma.Name = "cboPrograma";
-            this.cboPrograma.Size = new System.Drawing.Size(234, 23);
-            this.cboPrograma.TabIndex = 123;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label9.Location = new System.Drawing.Point(14, 515);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 15);
-            this.label9.TabIndex = 122;
-            this.label9.Text = "Programa";
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.White;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
-            this.BtnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("BtnBuscar.Image")));
-            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnBuscar.Location = new System.Drawing.Point(753, 62);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(53, 39);
-            this.BtnBuscar.TabIndex = 121;
-            this.BtnBuscar.Text = "&Buscar";
-            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnExportar.Image = global::GUI_Tesoreria.Properties.Resources.generar;
-            this.btnExportar.Location = new System.Drawing.Point(7, 56);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(59, 39);
-            this.btnExportar.TabIndex = 58;
-            this.btnExportar.Text = "&Exportar";
-            this.btnExportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnExportar.UseVisualStyleBackColor = false;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            this.btnEditarDetalle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditarDetalle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditarDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarDetalle.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnEditarDetalle.Image = global::GUI_Tesoreria.Properties.Resources.modificar;
+            this.btnEditarDetalle.Location = new System.Drawing.Point(7, 56);
+            this.btnEditarDetalle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEditarDetalle.Name = "btnEditarDetalle";
+            this.btnEditarDetalle.Size = new System.Drawing.Size(59, 68);
+            this.btnEditarDetalle.TabIndex = 58;
+            this.btnEditarDetalle.Text = "&Editar detalle";
+            this.btnEditarDetalle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditarDetalle.UseVisualStyleBackColor = false;
+            this.btnEditarDetalle.Click += new System.EventHandler(this.btnEditarDetalle_Click);
             // 
             // BtnSalir
             // 
@@ -686,7 +647,7 @@
             this.BtnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnImprimir.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimir.ForeColor = System.Drawing.Color.Navy;
+            this.BtnImprimir.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.BtnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("BtnImprimir.Image")));
             this.BtnImprimir.Location = new System.Drawing.Point(6, 11);
             this.BtnImprimir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -699,13 +660,26 @@
             this.BtnImprimir.UseVisualStyleBackColor = false;
             this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
-            // frmListadoRecibosPrograma
+            // LblTitulo
+            // 
+            this.LblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTitulo.BackColor = System.Drawing.Color.White;
+            this.LblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblTitulo.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
+            this.LblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(958, 32);
+            this.LblTitulo.TabIndex = 124;
+            this.LblTitulo.Text = ":::   RECIBOS  EMITIDOS  :::\r\n";
+            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // frmEdicionDetalleReciboAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 542);
-            this.Controls.Add(this.cboPrograma);
-            this.Controls.Add(this.label9);
+            this.ClientSize = new System.Drawing.Size(1038, 513);
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.BtnBuscar);
@@ -714,13 +688,10 @@
             this.Controls.Add(this.GBOpciones);
             this.Controls.Add(this.LblTitulo);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "frmListadoRecibosPrograma";
+            this.Name = "frmEdicionDetalleReciboAD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "....:::Listado de Recibos Emitidos:::...";
-            this.Load += new System.EventHandler(this.frmListadoRecibosPrograma_Load);
+            this.Text = "...:::Modificación de Recibos:::...";
+            this.Load += new System.EventHandler(this.frmEdicionDetalleReciboAD_Load);
             this.GroupBox3.ResumeLayout(false);
             this.GroupBox3.PerformLayout();
             this.GroupBox2.ResumeLayout(false);
@@ -731,12 +702,10 @@
             this.GroupBox1.PerformLayout();
             this.GBOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
         internal System.Windows.Forms.GroupBox GroupBox3;
         internal System.Windows.Forms.Label lblNroRecibos;
         internal System.Windows.Forms.Label label7;
@@ -748,6 +717,19 @@
         internal System.Windows.Forms.TextBox txtTotal;
         internal System.Windows.Forms.GroupBox GroupBox2;
         internal System.Windows.Forms.DataGridView dgvRecibos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_ReciboCabecera;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Movimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn concepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serieRecibo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero_Recibo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Igv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         internal System.Windows.Forms.Button BtnBuscar;
         internal System.Windows.Forms.GroupBox GBEstadoConvenio;
         internal System.Windows.Forms.Label Label3;
@@ -766,24 +748,9 @@
         internal System.Windows.Forms.Label LblNombre;
         internal System.Windows.Forms.TextBox TxtNombre;
         internal System.Windows.Forms.GroupBox GBOpciones;
+        internal System.Windows.Forms.Button btnEditarDetalle;
         internal System.Windows.Forms.Button BtnSalir;
         internal System.Windows.Forms.Button BtnImprimir;
         internal System.Windows.Forms.Label LblTitulo;
-        internal System.Windows.Forms.ComboBox cboPrograma;
-        internal System.Windows.Forms.Label label9;
-        internal System.Windows.Forms.Button btnExportar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_ReciboCabecera;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Movimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn concepto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serieRecibo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero_Recibo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cod_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto_Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Igv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }
