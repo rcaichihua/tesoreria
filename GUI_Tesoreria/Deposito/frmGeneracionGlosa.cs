@@ -52,7 +52,7 @@ namespace GUI_Tesoreria.Deposito
                     cn.EjecutarSP("USP_GENERA_GLOSA_BANCOS", dtpDesde.Value.ToString("yyyyMMdd"), 
                         dtpHasta.Value.ToString("yyyyMMdd"),Convert.ToInt16(txtNumInicio.Text));
 
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Se generó las Glosa exitosamente.", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Se generó la Glosa exitosamente.", VariablesMetodosEstaticos.encabezado,
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -61,7 +61,7 @@ namespace GUI_Tesoreria.Deposito
                 cn.EjecutarSP("USP_GENERA_GLOSA_BANCOS", dtpDesde.Value.ToString("yyyyMMdd"),
                         dtpHasta.Value.ToString("yyyyMMdd"), Convert.ToInt16(txtNumInicio.Text));
 
-                DevComponents.DotNetBar.MessageBoxEx.Show("Se generó las Glosa exitosamente.", VariablesMetodosEstaticos.encabezado,
+                DevComponents.DotNetBar.MessageBoxEx.Show("Se generó la Glosa exitosamente.", VariablesMetodosEstaticos.encabezado,
                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

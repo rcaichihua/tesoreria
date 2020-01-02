@@ -15,7 +15,7 @@ namespace GUI_Tesoreria.caja
     {
         public DataTable dtbFonavi;
         private CNegocio cn = new CNegocio();
-        string cadena = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\sblmdgai\Tesoreria\Fonavi\DBFS\ ; Extended Properties = dBase IV; user ID=;Password=";
+        string cadena = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\192.168.1.13\Tesoreria\Fonavi\DBFS\ ; Extended Properties = dBase IV; user ID=;Password=";
         //string cadena = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\192.168.1.192\Archivos_Maliciosos\teso\Fonavi\DBFS\ ; Extended Properties = dBase IV; user ID=;Password=";
         DataSet ds = new DataSet();
         DataTable dtTabla = new DataTable();

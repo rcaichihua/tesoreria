@@ -558,7 +558,7 @@ namespace GUI_Tesoreria.caja
             VariablesMetodosEstaticos.Numeros_KeyPress(sender, e);
         }
 
-        private bool ValidarTotales()
+        private bool ValidarTotalesMayor()
         {
             decimal total = 0.00m;
 
@@ -569,7 +569,21 @@ namespace GUI_Tesoreria.caja
 
             total = total + Convert.ToDecimal(txtTotalCambioDolar.Text);
 
-            return (total >= Convert.ToDecimal(txtPrecioVentaC.Text));
+            return (total > Convert.ToDecimal(txtPrecioVentaC.Text));
+        }
+
+        private bool ValidarTotalesMenor()
+        {
+            decimal total = 0.00m;
+
+            foreach (DataRow item in modalidadesPago.Rows)
+            {
+                total = total + Convert.ToDecimal(item["importe_cambio"].ToString() == "" ? "0" : item["importe_cambio"].ToString());
+            }
+
+            total = total + Convert.ToDecimal(txtTotalCambioDolar.Text);
+
+            return (total < Convert.ToDecimal(txtPrecioVentaC.Text));
         }
 
         private void BtnGrabarC_Click(object sender, EventArgs e)
@@ -581,11 +595,23 @@ namespace GUI_Tesoreria.caja
                     return;
                 }
 
-                if (!ValidarTotales())
+                if (ValidarTotalesMayor())
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento no coincide con la suma total de modalidades de pago.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento es MENOR al total de modalidades de pago, no se puede continuar", 
+                        VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                     return;
+                }
+
+                if (VariablesMetodosEstaticos.id_programa == 4)
+                {
+                    if (ValidarTotalesMenor())
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento es MAYOR al total de modalidades de pago, no se puede continuar",
+                            VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
 
                 else { errorProvider1.Clear(); }

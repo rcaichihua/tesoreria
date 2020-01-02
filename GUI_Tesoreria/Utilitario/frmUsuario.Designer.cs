@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.chkExtorna = new System.Windows.Forms.CheckBox();
             this.chkCaja = new System.Windows.Forms.CheckBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.chkExtorna = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
@@ -72,6 +73,7 @@
             // 
             this.GroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.GroupBox1.Controls.Add(this.txtContraseña);
+            this.GroupBox1.Controls.Add(this.checkBox1);
             this.GroupBox1.Controls.Add(this.chkExtorna);
             this.GroupBox1.Controls.Add(this.chkCaja);
             this.GroupBox1.Controls.Add(this.chkActivo);
@@ -90,7 +92,7 @@
             this.GroupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.GroupBox1.Location = new System.Drawing.Point(12, 48);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(420, 219);
+            this.GroupBox1.Size = new System.Drawing.Size(420, 241);
             this.GroupBox1.TabIndex = 1;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Usuario";
@@ -103,12 +105,24 @@
             this.txtContraseña.TabIndex = 3;
             this.txtContraseña.UseSystemPasswordChar = true;
             // 
+            // chkExtorna
+            // 
+            this.chkExtorna.AutoSize = true;
+            this.chkExtorna.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkExtorna.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.chkExtorna.Location = new System.Drawing.Point(262, 130);
+            this.chkExtorna.Name = "chkExtorna";
+            this.chkExtorna.Size = new System.Drawing.Size(80, 19);
+            this.chkExtorna.TabIndex = 4;
+            this.chkExtorna.Text = "Extornar";
+            this.chkExtorna.UseVisualStyleBackColor = true;
+            // 
             // chkCaja
             // 
             this.chkCaja.AutoSize = true;
             this.chkCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkCaja.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.chkCaja.Location = new System.Drawing.Point(201, 130);
+            this.chkCaja.Location = new System.Drawing.Point(201, 131);
             this.chkCaja.Name = "chkCaja";
             this.chkCaja.Size = new System.Drawing.Size(55, 19);
             this.chkCaja.TabIndex = 4;
@@ -273,9 +287,9 @@
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.dgvUsuarios);
             this.groupBox2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox2.Location = new System.Drawing.Point(12, 271);
+            this.groupBox2.Location = new System.Drawing.Point(12, 295);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(574, 298);
+            this.groupBox2.Size = new System.Drawing.Size(574, 274);
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             // 
@@ -308,7 +322,7 @@
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersWidth = 25;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(568, 279);
+            this.dgvUsuarios.Size = new System.Drawing.Size(568, 255);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellEnter);
             this.dgvUsuarios.Click += new System.EventHandler(this.dgvUsuarios_Click);
@@ -446,17 +460,17 @@
             this.LblTitulo.Text = "MANTENIMIENTO - USUARIO";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkExtorna
+            // checkBox1
             // 
-            this.chkExtorna.AutoSize = true;
-            this.chkExtorna.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkExtorna.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.chkExtorna.Location = new System.Drawing.Point(262, 130);
-            this.chkExtorna.Name = "chkExtorna";
-            this.chkExtorna.Size = new System.Drawing.Size(80, 19);
-            this.chkExtorna.TabIndex = 4;
-            this.chkExtorna.Text = "Extornar";
-            this.chkExtorna.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.checkBox1.Location = new System.Drawing.Point(132, 211);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(103, 19);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Re-Apertura";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // frmUsuario
             // 
@@ -472,6 +486,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.GroupBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmUsuario";
@@ -521,5 +536,6 @@
         internal System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.CheckBox chkCaja;
         private System.Windows.Forms.CheckBox chkExtorna;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

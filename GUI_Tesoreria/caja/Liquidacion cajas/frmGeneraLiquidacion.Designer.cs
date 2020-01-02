@@ -640,8 +640,8 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox4.Controls.Add(this.dgvIngresosInmobiliaria);
             this.groupBox4.Controls.Add(this.dgvModalidadIngreso);
+            this.groupBox4.Controls.Add(this.dgvIngresosInmobiliaria);
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox4.Location = new System.Drawing.Point(12, 273);

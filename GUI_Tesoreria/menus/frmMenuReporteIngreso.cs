@@ -729,6 +729,16 @@ namespace GUI_Tesoreria.menus
         {
             if (VariablesMetodosEstaticos.intPerfilID != 1 && VariablesMetodosEstaticos.intPerfilID != 6 && VariablesMetodosEstaticos.intPerfilID != 8 && VariablesMetodosEstaticos.intPerfilID != 7)
             {
+                if (VariablesMetodosEstaticos.varUsuario != "EPOQUIOMA")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            if (VariablesMetodosEstaticos.varUsuario != "EPOQUIOMA")
+            {
                 DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
                 return;
@@ -969,9 +979,42 @@ namespace GUI_Tesoreria.menus
                                                MessageBoxIcon.Warning);
                 return;
             }
-            caja.frmEdicionDetalleReciboAD _frmListadoRecibosPrograma = new caja.frmEdicionDetalleReciboAD();
+            caja.frmListadoParaEdicionDetalleReciboAD _frmListadoRecibosPrograma = new caja.frmListadoParaEdicionDetalleReciboAD();
             _frmListadoRecibosPrograma.MdiParent = this;
             _frmListadoRecibosPrograma.Show();
+        }
+
+        private void toolStripMenuItem25_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.intPerfilID != 1 && VariablesMetodosEstaticos.intPerfilID != 6)
+            {
+                if (VariablesMetodosEstaticos.varUsuario != "EPOQUIOMA")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            Contabilidad.Diario.frmGenerarAsientoAltaDireccion _frmDiario = null;
+            _frmDiario = Contabilidad.Diario.frmGenerarAsientoAltaDireccion.Instance();
+            _frmDiario.MdiParent = this;
+            _frmDiario.gbDiario.Text = "ASIENTO DE DIARIO - ALTA DIRECCION";
+            _frmDiario.CodPrograma_ = 1;
+            _frmDiario.Show();
+        }
+
+        private void imprimirAsientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.intPerfilID != 1 && VariablesMetodosEstaticos.intPerfilID != 6)
+            {
+                if (VariablesMetodosEstaticos.varUsuario != "EPOQUIOMA")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                    return;
+                }
+            }
         }
     }
 }

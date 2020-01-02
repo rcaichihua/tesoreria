@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotalVouchers = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -63,6 +63,7 @@
             this.btnVer = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoVouchers)).BeginInit();
             this.SuspendLayout();
@@ -139,14 +140,14 @@
             this.observaciones,
             this.PROG_COD,
             this.CONCEP_DESC});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListadoVouchers.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListadoVouchers.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvListadoVouchers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListadoVouchers.GridColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvListadoVouchers.Location = new System.Drawing.Point(3, 17);
@@ -215,8 +216,8 @@
             // FechaDeposito
             // 
             this.FechaDeposito.DataPropertyName = "FechaDeposito";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FechaDeposito.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FechaDeposito.DefaultCellStyle = dataGridViewCellStyle6;
             this.FechaDeposito.HeaderText = "Fecha Depósito";
             this.FechaDeposito.Name = "FechaDeposito";
             this.FechaDeposito.ReadOnly = true;
@@ -264,9 +265,9 @@
             // importe_voucher_pago
             // 
             this.importe_voucher_pago.DataPropertyName = "importe_voucher_pago";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "n2";
-            this.importe_voucher_pago.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "n2";
+            this.importe_voucher_pago.DefaultCellStyle = dataGridViewCellStyle7;
             this.importe_voucher_pago.HeaderText = "Importe Voucher";
             this.importe_voucher_pago.Name = "importe_voucher_pago";
             this.importe_voucher_pago.ReadOnly = true;
@@ -274,9 +275,9 @@
             // TipoCambio
             // 
             this.TipoCambio.DataPropertyName = "TipoCambio";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "n3";
-            this.TipoCambio.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "n3";
+            this.TipoCambio.DefaultCellStyle = dataGridViewCellStyle8;
             this.TipoCambio.HeaderText = "T.C.";
             this.TipoCambio.Name = "TipoCambio";
             this.TipoCambio.ReadOnly = true;
@@ -285,9 +286,9 @@
             // importe_cambio
             // 
             this.importe_cambio.DataPropertyName = "importe_cambio";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "n2";
-            this.importe_cambio.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "n2";
+            this.importe_cambio.DefaultCellStyle = dataGridViewCellStyle9;
             this.importe_cambio.HeaderText = "Total";
             this.importe_cambio.Name = "importe_cambio";
             this.importe_cambio.ReadOnly = true;
@@ -419,6 +420,23 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Navy;
+            this.btnEliminar.Image = global::GUI_Tesoreria.Properties.Resources.eliminarV;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(204, 31);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(88, 36);
+            this.btnEliminar.TabIndex = 155;
+            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // frmListadoDepositosGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,6 +446,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.dtpFechaLiquidación);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTotalVouchers);
@@ -481,5 +500,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PROG_COD;
         private System.Windows.Forms.DataGridViewTextBoxColumn CONCEP_DESC;
         internal System.Windows.Forms.Button btnExcel;
+        internal System.Windows.Forms.Button btnEliminar;
     }
 }

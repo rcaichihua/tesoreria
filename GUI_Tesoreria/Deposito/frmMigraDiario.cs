@@ -270,15 +270,24 @@ namespace GUI_Tesoreria.Deposito
                             {
                                 if (!backgroundWorker.CancellationPending)
                                 {
-                                    cmd.CommandText = "INSERT INTO "+ "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") + txtAnio.Text.Substring(3, 1) + " "
+                                    cmd.CommandText = "INSERT INTO " + "c01cd" + Convert.ToInt32(txtMes.Text).ToString("00") + txtAnio.Text.Substring(3, 1) + " "
                                             + "(docodi,donume,dofech,auxcod,dorfcodi,dorffech,dorfnume,donoco,doglco," +
                                     "plcodi,dodeha,domovi,anulado,clase,cammem,fsis,user)"
                                             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)";
-
+                                    decimal tipo;
                                     cmd.Parameters.Clear();
                                     cmd.Parameters.Add("docodi", OleDbType.Char).Value = item[0].ToString();//
-                                    cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString().Trim()=="" ? "": 
-                                        Convert.ToInt32(item[1].ToString()).ToString("000000") ;//
+                                    if (decimal.TryParse(item[1].ToString().Trim(), out tipo))
+                                    {
+                                        cmd.Parameters.Add("donume", OleDbType.Char).Value = item[1].ToString().Trim() == "" ? "" :
+                                        Convert.ToInt32(item[1].ToString()).ToString("000000");//
+                                    }
+                                    else
+                                    {
+                                        cmd.Parameters.Add("donume", OleDbType.Char).Value = (item[1].ToString().Trim() == "" ? "" :
+                                        item[1].ToString());//
+                                    }
+                                    
                                     cmd.Parameters.Add("dofech", OleDbType.Date).Value = (item[2].ToString().Trim() == string.Empty ? new
                                         DateTime(1900, 1, 1) :
                                         new DateTime(Convert.ToInt16(item[2].ToString().Substring(0, 4)),
@@ -318,7 +327,10 @@ namespace GUI_Tesoreria.Deposito
                                     //cmd.Parameters.Add("glosa", OleDbType.Char).Value = memoContent;//
                                     //cmd.Parameters.Add("dorgcodi", OleDbType.Char).Value = "";//
                                     //cmd.Parameters.Add("dorgnume", OleDbType.Char).Value = "";//
-
+                                    //if (index==643)
+                                    //{
+                                    //    MessageBox.Show("");
+                                    //}
                                     cmd.ExecuteNonQuery();
                                     index = index + 1;
                                     backgroundWorker.ReportProgress(index * 100 / process, string.Format("Transfiriendo... {0}%", index));

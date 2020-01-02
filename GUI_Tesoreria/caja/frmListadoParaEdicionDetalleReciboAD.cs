@@ -12,18 +12,18 @@ using GUI_Tesoreria.caja.Reportes;
 
 namespace GUI_Tesoreria.caja
 {
-    public partial class frmEdicionDetalleReciboAD : DevComponents.DotNetBar.Metro.MetroForm//Form
+    public partial class frmListadoParaEdicionDetalleReciboAD : DevComponents.DotNetBar.Metro.MetroForm//Form
     {
-        public frmEdicionDetalleReciboAD()
+        public frmListadoParaEdicionDetalleReciboAD()
         {
             InitializeComponent();
         }
 
-        public static frmEdicionDetalleReciboAD Instance()
+        public static frmListadoParaEdicionDetalleReciboAD Instance()
         {
             if (((frmInstance == null) || (frmInstance.IsDisposed == true)))
             {
-                frmInstance = new frmEdicionDetalleReciboAD();
+                frmInstance = new frmListadoParaEdicionDetalleReciboAD();
             }
             frmInstance.BringToFront();
             return frmInstance;
@@ -33,7 +33,7 @@ namespace GUI_Tesoreria.caja
         private int idCliente;
         private CNegocio cn = new CNegocio();
         private varGlobales varglo = new varGlobales();
-        private static frmEdicionDetalleReciboAD frmInstance = null;
+        private static frmListadoParaEdicionDetalleReciboAD frmInstance = null;
         public Boolean autoziza = false;
         public int cajeroIngreso = 0;
 
@@ -283,10 +283,19 @@ namespace GUI_Tesoreria.caja
 
                 if (dgvRecibos.Rows[index].Cells["Estado"].Value.ToString() == "EXTORNADO")
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("El documento Extornado y no se puede Anular", VariablesMetodosEstaticos.encabezado,
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Los documentos extornados no se pueden editar", VariablesMetodosEstaticos.encabezado,
+                           MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                frmEdicionDetalleRecibo win = new frmEdicionDetalleRecibo();
+                win._IdRecibo = Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value);
+                win._TipoNroRecibo = dgvRecibos.Rows[index].Cells[4].Value.ToString() + " - "+ dgvRecibos.Rows[index].Cells[5].Value.ToString() + "-"+ 
+                    dgvRecibos.Rows[index].Cells[6].Value.ToString();
+
+                win._DatosDetalle = cn.TraerDataset("select idRubro as rubro,Item_ReciboDetalle as descripcion," + 
+                    "Precio_ReciboDetalle as punit,Cantidad_ReciboDetalle as cant,Total_ReciboDetalle as total " + 
+                    " from tb_ReciboDetalle where ReciboID="+ Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0];
+                win.ShowDialog();
             }
         }
     }

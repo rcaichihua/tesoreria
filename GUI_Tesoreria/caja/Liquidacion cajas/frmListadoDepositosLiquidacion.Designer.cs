@@ -34,6 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListadoVouchers = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTotalVouchers = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.Depositos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idIngresosEfectivoDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.concep_cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,12 +56,6 @@
             this.importe_cambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtTotalVouchers = new System.Windows.Forms.TextBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoVouchers)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +106,100 @@
             this.dgvListadoVouchers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListadoVouchers_CellClick);
             this.dgvListadoVouchers.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvListadoVouchers_CellPainting);
             this.dgvListadoVouchers.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dgvListadoVouchers_CellToolTipTextNeeded);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.dgvListadoVouchers);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox3.Location = new System.Drawing.Point(12, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(956, 464);
+            this.groupBox3.TabIndex = 146;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Listado de Vouchers";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.White;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Navy;
+            this.btnSalir.Image = global::GUI_Tesoreria.Properties.Resources.salir;
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSalir.Location = new System.Drawing.Point(882, 479);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(86, 71);
+            this.btnSalir.TabIndex = 148;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.Location = new System.Drawing.Point(708, 482);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 149;
+            this.label6.Text = "Total";
+            // 
+            // txtTotalVouchers
+            // 
+            this.txtTotalVouchers.BackColor = System.Drawing.Color.White;
+            this.txtTotalVouchers.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTotalVouchers.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalVouchers.ForeColor = System.Drawing.Color.Maroon;
+            this.txtTotalVouchers.Location = new System.Drawing.Point(750, 479);
+            this.txtTotalVouchers.MaxLength = 11;
+            this.txtTotalVouchers.Name = "txtTotalVouchers";
+            this.txtTotalVouchers.ReadOnly = true;
+            this.txtTotalVouchers.Size = new System.Drawing.Size(126, 21);
+            this.txtTotalVouchers.TabIndex = 150;
+            this.txtTotalVouchers.Text = "0.00";
+            this.txtTotalVouchers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.Navy;
+            this.btnImprimir.Image = global::GUI_Tesoreria.Properties.Resources.imprimirD;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnImprimir.Location = new System.Drawing.Point(12, 482);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(69, 57);
+            this.btnImprimir.TabIndex = 151;
+            this.btnImprimir.Text = "&Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.ForeColor = System.Drawing.Color.Navy;
+            this.btnExportar.Image = global::GUI_Tesoreria.Properties.Resources.procesar;
+            this.btnExportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExportar.Location = new System.Drawing.Point(91, 482);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(109, 57);
+            this.btnExportar.TabIndex = 151;
+            this.btnExportar.Text = "&Exportar Vouchers";
+            this.btnExportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExportar.UseVisualStyleBackColor = false;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // Depositos
             // 
@@ -260,100 +354,6 @@
             this.observaciones.ReadOnly = true;
             this.observaciones.Visible = false;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.dgvListadoVouchers);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox3.Location = new System.Drawing.Point(12, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(956, 464);
-            this.groupBox3.TabIndex = 146;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Listado de Vouchers";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.White;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Navy;
-            this.btnSalir.Image = global::GUI_Tesoreria.Properties.Resources.salir;
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalir.Location = new System.Drawing.Point(882, 479);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(86, 71);
-            this.btnSalir.TabIndex = 148;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(708, 482);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
-            this.label6.TabIndex = 149;
-            this.label6.Text = "Total";
-            // 
-            // txtTotalVouchers
-            // 
-            this.txtTotalVouchers.BackColor = System.Drawing.Color.White;
-            this.txtTotalVouchers.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTotalVouchers.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalVouchers.ForeColor = System.Drawing.Color.Maroon;
-            this.txtTotalVouchers.Location = new System.Drawing.Point(750, 479);
-            this.txtTotalVouchers.MaxLength = 11;
-            this.txtTotalVouchers.Name = "txtTotalVouchers";
-            this.txtTotalVouchers.ReadOnly = true;
-            this.txtTotalVouchers.Size = new System.Drawing.Size(126, 21);
-            this.txtTotalVouchers.TabIndex = 150;
-            this.txtTotalVouchers.Text = "0.00";
-            this.txtTotalVouchers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.Navy;
-            this.btnImprimir.Image = global::GUI_Tesoreria.Properties.Resources.imprimirD;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnImprimir.Location = new System.Drawing.Point(12, 482);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(69, 57);
-            this.btnImprimir.TabIndex = 151;
-            this.btnImprimir.Text = "&Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportar.ForeColor = System.Drawing.Color.Navy;
-            this.btnExportar.Image = global::GUI_Tesoreria.Properties.Resources.procesar;
-            this.btnExportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExportar.Location = new System.Drawing.Point(91, 482);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(109, 57);
-            this.btnExportar.TabIndex = 151;
-            this.btnExportar.Text = "&Exportar Vouchers";
-            this.btnExportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExportar.UseVisualStyleBackColor = false;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
-            // 
             // frmListadoDepositosLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,6 +387,7 @@
         internal System.Windows.Forms.Label label6;
         internal System.Windows.Forms.TextBox txtTotalVouchers;
         internal System.Windows.Forms.Button btnImprimir;
+        internal System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.DataGridViewButtonColumn Depositos;
         private System.Windows.Forms.DataGridViewTextBoxColumn idIngresosEfectivoDeposito;
         private System.Windows.Forms.DataGridViewTextBoxColumn concep_cod;
@@ -403,6 +404,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn importe_cambio;
         private System.Windows.Forms.DataGridViewTextBoxColumn tabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn observaciones;
-        internal System.Windows.Forms.Button btnExportar;
     }
 }

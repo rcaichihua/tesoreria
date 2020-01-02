@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationRevision>71</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -260,17 +260,17 @@
     <Compile Include="caja\frmDetalleRecibo.Designer.cs">
       <DependentUpon>frmDetalleRecibo.cs</DependentUpon>
     </Compile>
-    <Compile Include="caja\frmEdicionDetaleRecibo.cs">
+    <Compile Include="caja\frmEdicionDetalleRecibo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="caja\frmEdicionDetaleRecibo.Designer.cs">
-      <DependentUpon>frmEdicionDetaleRecibo.cs</DependentUpon>
+    <Compile Include="caja\frmEdicionDetalleRecibo.Designer.cs">
+      <DependentUpon>frmEdicionDetalleRecibo.cs</DependentUpon>
     </Compile>
-    <Compile Include="caja\frmEdicionDetalleReciboAD.cs">
+    <Compile Include="caja\frmListadoParaEdicionDetalleReciboAD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="caja\frmEdicionDetalleReciboAD.Designer.cs">
-      <DependentUpon>frmEdicionDetalleReciboAD.cs</DependentUpon>
+    <Compile Include="caja\frmListadoParaEdicionDetalleReciboAD.Designer.cs">
+      <DependentUpon>frmListadoParaEdicionDetalleReciboAD.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\frmEfectuarPago.cs">
       <SubType>Form</SubType>
@@ -861,6 +861,12 @@
       <DependentUpon>rptTituloNicho.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Contabilidad\Diario\frmGenerarAsientoAltaDireccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\Diario\frmGenerarAsientoAltaDireccion.Designer.cs">
+      <DependentUpon>frmGenerarAsientoAltaDireccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contabilidad\frmMantenimientoDepositos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1413,11 +1419,11 @@
       <DependentUpon>frmDetalleRecibo.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="caja\frmEdicionDetaleRecibo.resx">
-      <DependentUpon>frmEdicionDetaleRecibo.cs</DependentUpon>
+    <EmbeddedResource Include="caja\frmEdicionDetalleRecibo.resx">
+      <DependentUpon>frmEdicionDetalleRecibo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="caja\frmEdicionDetalleReciboAD.resx">
-      <DependentUpon>frmEdicionDetalleReciboAD.cs</DependentUpon>
+    <EmbeddedResource Include="caja\frmListadoParaEdicionDetalleReciboAD.resx">
+      <DependentUpon>frmListadoParaEdicionDetalleReciboAD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\frmEfectuarPago.resx">
       <DependentUpon>frmEfectuarPago.cs</DependentUpon>
@@ -1745,6 +1751,9 @@
     <EmbeddedResource Include="cementerio\reportes\rptTituloNicho.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptTituloNicho.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\Diario\frmGenerarAsientoAltaDireccion.resx">
+      <DependentUpon>frmGenerarAsientoAltaDireccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmMantenimientoDepositos.resx">
       <DependentUpon>frmMantenimientoDepositos.cs</DependentUpon>

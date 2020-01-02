@@ -676,7 +676,7 @@ namespace GUI_Tesoreria.caja.Contable
                         //            cmd.Parameters.Add("dodeha", OleDbType.Char).Value = item[10].ToString();
                         //            cmd.Parameters.Add("domovi", OleDbType.Decimal).Value = (item[11].ToString().Trim() == string.Empty ? 0.00m : Convert.ToDecimal(item[11].ToString()));
                         //            cmd.Parameters.Add("anulado", OleDbType.Char).Value = item[12].ToString();
-                        //            cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();
+                        //            cmd.Parameters.Add("clase", OleDbType.Char).Value = item[13].ToString();    
 
                         //            //string file2read = @"\\192.168.1.192\Archivos_Maliciosos\conta\contab2009\prueba.txt";
                         //            string memoContent;

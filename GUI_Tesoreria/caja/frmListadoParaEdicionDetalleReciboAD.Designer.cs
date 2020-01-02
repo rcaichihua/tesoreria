@@ -1,6 +1,6 @@
 ﻿namespace GUI_Tesoreria.caja
 {
-    partial class frmEdicionDetalleReciboAD
+    partial class frmListadoParaEdicionDetalleReciboAD
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEdicionDetalleReciboAD));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoParaEdicionDetalleReciboAD));
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
             this.lblNroRecibos = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();

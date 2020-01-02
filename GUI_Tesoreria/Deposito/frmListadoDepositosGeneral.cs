@@ -197,5 +197,35 @@ namespace GUI_Tesoreria.Deposito
             }
 
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvListadoVouchers.CurrentRow != null)
+            {
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de eliminar el voucher seleccionado?" + Environment.NewLine +
+                                                                "una vez eliminado ya no se podra recuperer el registro " + Environment.NewLine +
+                                                                "" + Environment.NewLine + Environment.NewLine
+                                                                + "", VariablesMetodosEstaticos.encabezado,
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+                {
+                    int index = 0;
+                    index = dgvListadoVouchers.CurrentRow.Index;
+
+                    if (cn.EjecutarSP("USP_ELIMINA_VOUCHERS", dgvListadoVouchers.Rows[index].Cells[15].Value.ToString(),
+                        Convert.ToInt32(dgvListadoVouchers.Rows[index].Cells[1].Value), VariablesMetodosEstaticos.varUsuario,
+                        VariablesMetodosEstaticos.host_user)>0)
+                    {
+                        MessageBox.Show("Voucher Eliminado correctamente.", VariablesGlobales.NombreMensajes,
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnVer_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error, intente de nuevo.", VariablesGlobales.NombreMensajes,
+                                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
     }
 }
