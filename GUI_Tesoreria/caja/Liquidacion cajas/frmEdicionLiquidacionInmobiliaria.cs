@@ -116,9 +116,10 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         "FCH_PAGO,TIP_MOVI,TIP_PAGO,MONTOSOLES,RENTA,IGV,MORA,USUING,PCING,FECHAING,IDCOMPROBANTE" + ",FCH_EMI" + ") " + "values('" + txtCodInm.Text +
                         "', '" + txtInqui.Text + "', '" + txtTipDoc.Text + "'" +
                         ", '" + txtNroDoc.Text + "', '" + txtAnio.Text + "', '" + txtMes.Text + "', '" + FechaLiquidacion + "', '01', '01', " +
-                        txtMontoSoles.Text + ", " + txtRenta.Text + ", " + txtIgv.Text + ", " + txtMora.Text + ", '" +
-                        VariablesGlobales.NombreUsuario +
-                        "', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0," + (mtbFechaEmision.Text == "  /  /" ? "NULL" : 
+                        Convert.ToDecimal(txtMontoSoles.Text) + ", " + Convert.ToDecimal(txtRenta.Text) + ", " + Convert.ToDecimal(txtIgv.Text) + ", " + 
+                        Convert.ToDecimal(txtMora.Text) + ", '" +
+                        VariablesMetodosEstaticos.varUsuario +
+                        "', '" + VariablesMetodosEstaticos.host_user + "', GETDATE(),0," + (mtbFechaEmision.Text == "  /  /" ? "NULL" : 
                         ("'" + Convert.ToDateTime(mtbFechaEmision.Text).ToString("yyyyMMdd") + "'")) + ")") > 0)
                     //"', '" + VariablesGlobales.UserHostIp + "', GETDATE(),0"+ (Convert.ToInt32(txtTipDoc.Text) == 4 ? ","+FechaLiquidacion : "") + ")") > 0)
                     {

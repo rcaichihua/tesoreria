@@ -187,6 +187,22 @@ namespace GUI_Tesoreria.control
                 Application.Exit();
             }
         }
+
+        private void CargarAnioFiscal()
+        {
+            var dt = new DataTable();
+            try
+            {
+                dt = cn.TraerDataset("USP_LISTA_ANIO_FISCAL").Tables[0];
+                cboAnio.DataSource = dt;
+                cboAnio.DisplayMember = "CONCEP_DESC";
+                cboAnio.ValueMember = "CONCEP_COD";
+            }
+            catch (Exception)
+            {
+            }
+        }
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
             string con_are = "SBLMLAN";
@@ -360,6 +376,11 @@ namespace GUI_Tesoreria.control
                 }
                 BtnAceptar_Click(sender, e);
             }
+        }
+
+        private void GroupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

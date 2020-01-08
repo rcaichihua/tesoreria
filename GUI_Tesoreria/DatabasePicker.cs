@@ -64,6 +64,7 @@ namespace GUI_Tesoreria
                 string septimo = lines[7];//password
 
                 Program.Server = MetodosGlobales2.Decrypt(primero, GetPasswordBytes());
+                //Program.Server = "192.168.1.11";
                 Program.database = MetodosGlobales2.Decrypt(segundo, GetPasswordBytes());
                 Program.dbUsername = MetodosGlobales2.Decrypt(tercero, GetPasswordBytes());
                 Program.dbPassword = MetodosGlobales2.Decrypt(cuarto, GetPasswordBytes());
