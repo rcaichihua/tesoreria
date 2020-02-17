@@ -44,7 +44,7 @@ namespace GUI_Tesoreria.canevaro
         private void CalcularDeuda()
         {
             dtDatosReporte = new DataTable();
-            dtDatosReporte = cn.TraerDataset("usp_calculo_morosos", "2006", "2019"/*,dtpFechaCalculo.Value.ToShortDateString()*/).Tables[0];
+            dtDatosReporte = cn.TraerDataset("usp_calculo_morosos", "2006", "2020"/*,dtpFechaCalculo.Value.ToShortDateString()*/).Tables[0];
 
             if (dtDatosReporte.Rows.Count > 0)
             {

@@ -120,6 +120,8 @@
             this.m_4 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_4_1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuentasGubYEmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -245,7 +247,9 @@
             this.reporteDeIngresosToolStripMenuItem,
             this.contableToolStripMenuItem,
             this.toolStripMenuItem3,
-            this.cajaAltaDirecciónToolStripMenuItem});
+            this.cajaAltaDirecciónToolStripMenuItem,
+            this.toolStripMenuItem18,
+            this.cuentasGubYEmpToolStripMenuItem});
             this.m_1.Name = "m_1";
             this.m_1.Size = new System.Drawing.Size(63, 20);
             this.m_1.Text = "Ingresos";
@@ -837,6 +841,18 @@
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(271, 6);
+            // 
+            // cuentasGubYEmpToolStripMenuItem
+            // 
+            this.cuentasGubYEmpToolStripMenuItem.Name = "cuentasGubYEmpToolStripMenuItem";
+            this.cuentasGubYEmpToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.cuentasGubYEmpToolStripMenuItem.Text = "&Cuentas Gub. y Emp.";
+            this.cuentasGubYEmpToolStripMenuItem.Click += new System.EventHandler(this.cuentasGubYEmpToolStripMenuItem_Click);
+            // 
             // frmMenuReporteIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -959,5 +975,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem diarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem25;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem18;
+        private System.Windows.Forms.ToolStripMenuItem cuentasGubYEmpToolStripMenuItem;
     }
 }

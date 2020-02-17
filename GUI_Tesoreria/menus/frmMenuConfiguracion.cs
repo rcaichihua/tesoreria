@@ -383,10 +383,20 @@ namespace GUI_Tesoreria.menus
 
         private void cuentasContableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mantenimiento.frmMantenimientoCtaContable _frmMantenimientoCtaContable = null;
-            _frmMantenimientoCtaContable = mantenimiento.frmMantenimientoCtaContable.Instance();
-            _frmMantenimientoCtaContable.MdiParent = this;
-            _frmMantenimientoCtaContable.Show();
+            if (VariablesMetodosEstaticos.AnioFiscal < 2020)
+            {
+                mantenimiento.frmMantenimientoCtaContable _frmMantenimientoCtaContable = null;
+                _frmMantenimientoCtaContable = mantenimiento.frmMantenimientoCtaContable.Instance();
+                _frmMantenimientoCtaContable.MdiParent = this;
+                _frmMantenimientoCtaContable.Show();
+            }
+            else
+            {
+                mantenimiento.frmMantenimientoCtaContable_nuevo _frmMantenimientoCtaContable = null;
+                _frmMantenimientoCtaContable = mantenimiento.frmMantenimientoCtaContable_nuevo.Instance();
+                _frmMantenimientoCtaContable.MdiParent = this;
+                _frmMantenimientoCtaContable.Show();
+            }
         }
 
         private void registrarCajaToolStripMenuItem_Click(object sender, EventArgs e)

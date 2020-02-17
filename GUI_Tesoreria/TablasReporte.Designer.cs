@@ -5906,6 +5906,8 @@ namespace GUI_Tesoreria {
             
             private global::System.Data.DataColumn columna_2019;
             
+            private global::System.Data.DataColumn columna_2020;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public deudas_tabla_cruzadaDataTable() {
@@ -6093,6 +6095,14 @@ namespace GUI_Tesoreria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn a_2020Column {
+                get {
+                    return this.columna_2020;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6147,7 +6157,8 @@ namespace GUI_Tesoreria {
                         decimal a_2016, 
                         decimal a_2017, 
                         decimal a_2018, 
-                        decimal a_2019) {
+                        decimal a_2019, 
+                        decimal a_2020) {
                 deudas_tabla_cruzadaRow rowdeudas_tabla_cruzadaRow = ((deudas_tabla_cruzadaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ResidenteId,
@@ -6168,7 +6179,8 @@ namespace GUI_Tesoreria {
                         a_2016,
                         a_2017,
                         a_2018,
-                        a_2019};
+                        a_2019,
+                        a_2020};
                 rowdeudas_tabla_cruzadaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdeudas_tabla_cruzadaRow);
                 return rowdeudas_tabla_cruzadaRow;
@@ -6210,6 +6222,7 @@ namespace GUI_Tesoreria {
                 this.columna_2017 = base.Columns["a_2017"];
                 this.columna_2018 = base.Columns["a_2018"];
                 this.columna_2019 = base.Columns["a_2019"];
+                this.columna_2020 = base.Columns["a_2020"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6253,6 +6266,8 @@ namespace GUI_Tesoreria {
                 base.Columns.Add(this.columna_2018);
                 this.columna_2019 = new global::System.Data.DataColumn("a_2019", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columna_2019);
+                this.columna_2020 = new global::System.Data.DataColumn("a_2020", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columna_2020);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19704,6 +19719,22 @@ namespace GUI_Tesoreria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal a_2020 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledeudas_tabla_cruzada.a_2020Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'a_2020\' in table \'deudas_tabla_cruzada\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledeudas_tabla_cruzada.a_2020Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsResidenteIdNull() {
                 return this.IsNull(this.tabledeudas_tabla_cruzada.ResidenteIdColumn);
             }
@@ -19928,6 +19959,18 @@ namespace GUI_Tesoreria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Seta_2019Null() {
                 this[this.tabledeudas_tabla_cruzada.a_2019Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isa_2020Null() {
+                return this.IsNull(this.tabledeudas_tabla_cruzada.a_2020Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Seta_2020Null() {
+                this[this.tabledeudas_tabla_cruzada.a_2020Column] = global::System.Convert.DBNull;
             }
         }
         

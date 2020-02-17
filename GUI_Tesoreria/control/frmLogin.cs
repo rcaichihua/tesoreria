@@ -84,7 +84,7 @@ namespace GUI_Tesoreria.control
                     VariablesMetodosEstaticos.id_programa = Convert.ToInt32(dSet.Tables[0].Rows[0]["intProId"]);
                     VariablesMetodosEstaticos.id_Sucursal = Convert.ToInt32(dSet.Tables[0].Rows[0]["intSuId"]);
                     VariablesMetodosEstaticos.intPerfilID = Convert.ToInt32(dSet.Tables[0].Rows[0]["intPeId"]);
-
+                    VariablesMetodosEstaticos.AnioFiscal = Convert.ToInt32(cboAnio.Text);
                     VariablesMetodosEstaticos.varNombreUser = dSet.Tables[0].Rows[0]["varUsuNombres"].ToString() + " " +
                                                     dSet.Tables[0].Rows[0]["varUsuApellidos"].ToString();
 
@@ -94,8 +94,7 @@ namespace GUI_Tesoreria.control
                     VariablesMetodosEstaticos.igv = Convert.ToDecimal(cn.TraerDataset("usp_select_control", "igv", VariablesMetodosEstaticos.intAnnioActual).Tables[0].Rows[0][0]);
                     byte[] passwordBytes = GetPasswordBytes();
 
-
-                    if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
+                     if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
                     //if(1==1)
                     {
                         if (FLG_VIGENTE == false)
@@ -195,8 +194,8 @@ namespace GUI_Tesoreria.control
             {
                 dt = cn.TraerDataset("USP_LISTA_ANIO_FISCAL").Tables[0];
                 cboAnio.DataSource = dt;
-                cboAnio.DisplayMember = "CONCEP_DESC";
-                cboAnio.ValueMember = "CONCEP_COD";
+                cboAnio.DisplayMember = "intAFDescripcionAnno";
+                cboAnio.ValueMember = "intAFID";
             }
             catch (Exception)
             {
@@ -283,6 +282,7 @@ namespace GUI_Tesoreria.control
                 cn.TraerServidorSGI(Program.Server, Program.database2, Program.dbUsername2, Program.dbPassword2);
                 //cn.TraerServidor();
                 //cn.TraerServidorSGI();
+                CargarAnioFiscal();
             }
             catch (Exception ex)
             {

@@ -36,6 +36,7 @@
             this.dtpFechaLiquidación = new System.Windows.Forms.DateTimePicker();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
+            this.chkcuentas = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +113,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.Navy;
             this.btnCancelar.Image = global::GUI_Tesoreria.Properties.Resources.salir_;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(164, 166);
+            this.btnCancelar.Location = new System.Drawing.Point(159, 166);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(92, 36);
             this.btnCancelar.TabIndex = 168;
@@ -129,7 +130,7 @@
             this.btnVer.ForeColor = System.Drawing.Color.Navy;
             this.btnVer.Image = global::GUI_Tesoreria.Properties.Resources.asignar;
             this.btnVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVer.Location = new System.Drawing.Point(66, 166);
+            this.btnVer.Location = new System.Drawing.Point(61, 166);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(92, 36);
             this.btnVer.TabIndex = 164;
@@ -138,11 +139,22 @@
             this.btnVer.UseVisualStyleBackColor = false;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
+            // chkcuentas
+            // 
+            this.chkcuentas.AutoSize = true;
+            this.chkcuentas.Location = new System.Drawing.Point(18, 208);
+            this.chkcuentas.Name = "chkcuentas";
+            this.chkcuentas.Size = new System.Drawing.Size(285, 17);
+            this.chkcuentas.TabIndex = 171;
+            this.chkcuentas.Text = "Códigos Contable - PLAN CONTABLE EMPRESARIAL";
+            this.chkcuentas.UseVisualStyleBackColor = true;
+            // 
             // frmListarComprobanteDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 210);
+            this.ClientSize = new System.Drawing.Size(324, 237);
+            this.Controls.Add(this.chkcuentas);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Label2);
@@ -170,5 +182,6 @@
         internal System.Windows.Forms.Label Label2;
         private System.Windows.Forms.DateTimePicker dtpFechaLiquidación;
         internal System.Windows.Forms.Button btnVer;
+        private System.Windows.Forms.CheckBox chkcuentas;
     }
 }

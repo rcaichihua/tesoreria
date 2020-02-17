@@ -215,22 +215,162 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
                 DataSet dtsListadoContable = new DataSet();
                 DataSet dtsListadoContableNegativo = new DataSet();
+                frmReporte winReport = new frmReporte();
+
+                if (dtpFechaLiqDesde.Value.Year<2020)
+                {
+                    dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable_new",
+                        dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
+
+                    if (dtsListadoContable.Tables[0].Rows.Count > 0)
+                    {
+                        if (chkcuentas.Checked)
+                        {
+                            DataTable dtCuenta;
+
+                            foreach (DataRow item in dtsListadoContable.Tables[0].Rows)
+                            {
+                                dtCuenta = new DataTable();
+
+                                dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
+
+                                if (dtCuenta.Rows.Count <= 0)
+                                {
+                                    item[2] = "S/CTA";
+                                    item[3] = "S/NOMBRE";
+                                }
+                                else
+                                {
+                                    item[2] = dtCuenta.Rows[0][0];
+                                    item[3] = dtCuenta.Rows[0][1];
+                                }
+                            }
+                        }
+                    }
+
+                    dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
+                        dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
+
+                    if (dtsListadoContableNegativo.Tables[0].Rows.Count > 0)
+                    {
+                        if (chkcuentas.Checked)
+                        {
+                            DataTable dtCuenta;
+
+                            foreach (DataRow item in dtsListadoContableNegativo.Tables[0].Rows)
+                            {
+                                dtCuenta = new DataTable();
+
+                                dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
+
+                                if (dtCuenta.Rows.Count <= 0)
+                                {
+                                    item[2] = "S/CTA";
+                                    item[3] = "S/NOMBRE";
+                                }
+                                else
+                                {
+                                    item[2] = dtCuenta.Rows[0][0];
+                                    item[3] = dtCuenta.Rows[0][1];
+                                }
+                            }
+                        }
+                    }
+
+                    if (dtsListadoContable.Tables[0].Rows.Count <= 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                else
+                {
+                    // usp_listado_contable_cuenta_empresarial_
+                    dtsListadoContable = cn.TraerDataset("usp_listado_contable_cuenta_empresarial_rango"
+                        , cboPrograma.SelectedValue, dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"));
+
+                    dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
+                        dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
+
+
+                    dtsListadoContableNegativo.AcceptChanges();
+
+                    foreach (DataRow row in dtsListadoContableNegativo.Tables[0].Rows)
+                    {
+                        // If this row is offensive then
+                        row.Delete();
+                    }
+                }
+                /*DataSet dtsListadoContableNegativo = new DataSet();
 
                 frmReporte winReport = new frmReporte();
 
                 dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable_new", 
                     dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
 
+                if (dtsListadoContable.Tables[0].Rows.Count > 0)
+                {
+                    if (chkcuentas.Checked)
+                    {
+                        DataTable dtCuenta;
+
+                        foreach (DataRow item in dtsListadoContable.Tables[0].Rows)
+                        {
+                            dtCuenta = new DataTable();
+
+                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
+
+                            if (dtCuenta.Rows.Count <= 0)
+                            {
+                                item[2] = "S/CTA";
+                                item[3] = "S/NOMBRE";
+                            }
+                            else
+                            {
+                                item[2] = dtCuenta.Rows[0][0];
+                                item[3] = dtCuenta.Rows[0][1];
+                            }
+                        }
+                    }
+                }
+
                 dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
                     dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
-                
+
+                if(dtsListadoContableNegativo.Tables[0].Rows.Count > 0)
+                {
+                    if (chkcuentas.Checked)
+                    {
+                        DataTable dtCuenta;
+
+                        foreach (DataRow item in dtsListadoContableNegativo.Tables[0].Rows)
+                        {
+                            dtCuenta = new DataTable();
+
+                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
+
+                            if (dtCuenta.Rows.Count <= 0)
+                            {
+                                item[2] = "S/CTA";
+                                item[3] = "S/NOMBRE";
+                            }
+                            else
+                            {
+                                item[2] = dtCuenta.Rows[0][0];
+                                item[3] = dtCuenta.Rows[0][1];
+                            }
+                        }
+                    }
+                }
 
                 if (dtsListadoContable.Tables[0].Rows.Count <= 0)
                 {
                     DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
                           MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
-                }
+                }*/
+                
 
                 Reportes.rptListadoContable rptRecibo = new Reportes.rptListadoContable();
 
@@ -253,20 +393,133 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("El recibo de ingreso solo es visible para un día.", VariablesMetodosEstaticos.encabezado,
                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dtpFechaLiqDesde.Focus();
+                 dtpFechaLiqDesde.Focus();
                 return;
             }
 
             DataSet dtsRecibo = new DataSet();
             frmReporte winReport = new frmReporte();
 
-            dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
-
-            if (dtsRecibo.Tables[0].Rows.Count == 0)
+            if (Convert.ToInt32(cboPrograma.SelectedValue) == 3 || Convert.ToInt32(cboPrograma.SelectedValue)==4 )
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para motrar.", VariablesMetodosEstaticos.encabezado,
-                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                if (dtpFechaLiqDesde.Value.Year > 2019)
+                {                 //dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
+                    dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso_cuenta_empresarial", cboPrograma.SelectedValue,
+                        dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
+
+                    if (dtsRecibo.Tables[0].Rows.Count == 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para motrar.", VariablesMetodosEstaticos.encabezado,
+                               MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    //if (chkcuentas.Checked)
+                    //{
+                    //    DataTable dtCuenta;
+
+                    //    foreach (DataRow item in dtsRecibo.Tables[0].Rows)
+                    //    {
+                    //        dtCuenta = new DataTable();
+
+                    //        dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[6] + "'").Tables[0];
+
+                    //        if (dtCuenta.Rows.Count <= 0)
+                    //        {
+                    //            item[6] = "S/CTA";
+                    //            item[7] = "S/NOMBRE";
+                    //        }
+                    //        else
+                    //        {
+                    //            item[6] = dtCuenta.Rows[0][0];
+                    //            item[7] = dtCuenta.Rows[0][1];
+                    //        }
+                    //    }
+                    //}
+                }
+                else
+                {
+                    dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,
+                    dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
+
+                    if (dtsRecibo.Tables[0].Rows.Count == 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para motrar.", VariablesMetodosEstaticos.encabezado,
+                               MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    if (chkcuentas.Checked)
+                    {
+                        DataTable dtCuenta;
+
+                        foreach (DataRow item in dtsRecibo.Tables[0].Rows)
+                        {
+                            dtCuenta = new DataTable();
+
+                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[6] + "'").Tables[0];
+
+                            if (dtCuenta.Rows.Count <= 0)
+                            {
+                                item[6] = "S/CTA";
+                                item[7] = "S/NOMBRE";
+                            }
+                            else
+                            {
+                                item[6] = dtCuenta.Rows[0][0];
+                                item[7] = dtCuenta.Rows[0][1];
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (dtpFechaLiqDesde.Value.Year > 2019)
+                {
+                    dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso_cuenta_empresarial_", cboPrograma.SelectedValue,
+                    dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
+
+                    if (dtsRecibo.Tables[0].Rows.Count == 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para motrar.", VariablesMetodosEstaticos.encabezado,
+                               MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+                else
+                {
+                    dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,
+                    dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
+
+                    if (dtsRecibo.Tables[0].Rows.Count == 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para motrar.", VariablesMetodosEstaticos.encabezado,
+                               MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
+                    if (chkcuentas.Checked)
+                    {
+                        DataTable dtCuenta;
+
+                        foreach (DataRow item in dtsRecibo.Tables[0].Rows)
+                        {
+                            dtCuenta = new DataTable();
+
+                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[6] + "'").Tables[0];
+
+                            if (dtCuenta.Rows.Count <= 0)
+                            {
+                                item[6] = "S/CTA";
+                                item[7] = "S/NOMBRE";
+                            }
+                            else
+                            {
+                                item[6] = dtCuenta.Rows[0][0];
+                                item[7] = dtCuenta.Rows[0][1];
+                            }
+                        }
+                    }
+                }
             }
 
             Reportes.rptRecibosIngreso rptRecibo = new Reportes.rptRecibosIngreso();

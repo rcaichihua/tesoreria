@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboAnio = new System.Windows.Forms.ComboBox();
             this.txtPwd1 = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.BtnAceptar = new System.Windows.Forms.Button();
             this.Label7 = new System.Windows.Forms.Label();
-            this.BtnSalir = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
+            this.BtnAceptar = new System.Windows.Forms.Button();
+            this.BtnSalir = new System.Windows.Forms.Button();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
             this.PBFoto = new System.Windows.Forms.PictureBox();
-            this.cboAnio = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.GroupBox2.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).BeginInit();
@@ -62,6 +62,14 @@
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Enter += new System.EventHandler(this.GroupBox2_Enter);
             // 
+            // cboAnio
+            // 
+            this.cboAnio.FormattingEnabled = true;
+            this.cboAnio.Location = new System.Drawing.Point(128, 113);
+            this.cboAnio.Name = "cboAnio";
+            this.cboAnio.Size = new System.Drawing.Size(91, 21);
+            this.cboAnio.TabIndex = 37;
+            // 
             // txtPwd1
             // 
             this.txtPwd1.Location = new System.Drawing.Point(128, 87);
@@ -82,21 +90,6 @@
             this.txtUser.TabIndex = 0;
             this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
             // 
-            // BtnAceptar
-            // 
-            this.BtnAceptar.BackColor = System.Drawing.Color.White;
-            this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAceptar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAceptar.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.BtnAceptar.Location = new System.Drawing.Point(71, 329);
-            this.BtnAceptar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(89, 25);
-            this.BtnAceptar.TabIndex = 2;
-            this.BtnAceptar.Text = "&Aceptar";
-            this.BtnAceptar.UseVisualStyleBackColor = false;
-            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
-            // 
             // Label7
             // 
             this.Label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,20 +101,17 @@
             this.Label7.Text = "Escriba su Nombre de Usuario y su Contraseña";
             this.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnSalir
+            // label3
             // 
-            this.BtnSalir.BackColor = System.Drawing.Color.White;
-            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSalir.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSalir.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.BtnSalir.Location = new System.Drawing.Point(168, 329);
-            this.BtnSalir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(89, 25);
-            this.BtnSalir.TabIndex = 3;
-            this.BtnSalir.Text = "&Cancelar";
-            this.BtnSalir.UseVisualStyleBackColor = false;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label3.Location = new System.Drawing.Point(57, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 15);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Año Fiscal";
             // 
             // Label2
             // 
@@ -147,6 +137,36 @@
             this.Label1.TabIndex = 0;
             this.Label1.Text = "Usuario";
             // 
+            // BtnAceptar
+            // 
+            this.BtnAceptar.BackColor = System.Drawing.Color.White;
+            this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAceptar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAceptar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.BtnAceptar.Location = new System.Drawing.Point(71, 329);
+            this.BtnAceptar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(89, 25);
+            this.BtnAceptar.TabIndex = 2;
+            this.BtnAceptar.Text = "&Aceptar";
+            this.BtnAceptar.UseVisualStyleBackColor = false;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
+            // BtnSalir
+            // 
+            this.BtnSalir.BackColor = System.Drawing.Color.White;
+            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSalir.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.BtnSalir.Location = new System.Drawing.Point(168, 329);
+            this.BtnSalir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(89, 25);
+            this.BtnSalir.TabIndex = 3;
+            this.BtnSalir.Text = "&Cancelar";
+            this.BtnSalir.UseVisualStyleBackColor = false;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
             // GroupBox4
             // 
             this.GroupBox4.BackColor = System.Drawing.Color.Transparent;
@@ -167,26 +187,6 @@
             this.PBFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBFoto.TabIndex = 23;
             this.PBFoto.TabStop = false;
-            // 
-            // cboAnio
-            // 
-            this.cboAnio.FormattingEnabled = true;
-            this.cboAnio.Location = new System.Drawing.Point(128, 113);
-            this.cboAnio.Name = "cboAnio";
-            this.cboAnio.Size = new System.Drawing.Size(91, 21);
-            this.cboAnio.TabIndex = 37;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label3.Location = new System.Drawing.Point(57, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 15);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Año Fiscal";
             // 
             // frmLogin
             // 

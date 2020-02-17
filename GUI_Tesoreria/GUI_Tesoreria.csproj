@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>71</ApplicationRevision>
+    <ApplicationRevision>80</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -867,6 +867,12 @@
     <Compile Include="Contabilidad\Diario\frmGenerarAsientoAltaDireccion.Designer.cs">
       <DependentUpon>frmGenerarAsientoAltaDireccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\frmGeneracionCuentasContables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmGeneracionCuentasContables.Designer.cs">
+      <DependentUpon>frmGeneracionCuentasContables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contabilidad\frmMantenimientoDepositos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1112,6 +1118,12 @@
     <Compile Include="mantenimiento\frmCambioContrasenaUsuario.Designer.cs">
       <DependentUpon>frmCambioContrasenaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="mantenimiento\frmCuentasEmpresariales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento\frmCuentasEmpresariales.Designer.cs">
+      <DependentUpon>frmCuentasEmpresariales.cs</DependentUpon>
+    </Compile>
     <Compile Include="mantenimiento\frmFiltro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1141,6 +1153,12 @@
     </Compile>
     <Compile Include="mantenimiento\frmMantContable.Designer.cs">
       <DependentUpon>frmMantContable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mantenimiento\frmMantenimientoCtaContable_nuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento\frmMantenimientoCtaContable_nuevo.Designer.cs">
+      <DependentUpon>frmMantenimientoCtaContable_nuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="mantenimiento\frmMantenimientoCtaContable.cs">
       <SubType>Form</SubType>
@@ -1755,6 +1773,9 @@
     <EmbeddedResource Include="Contabilidad\Diario\frmGenerarAsientoAltaDireccion.resx">
       <DependentUpon>frmGenerarAsientoAltaDireccion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\frmGeneracionCuentasContables.resx">
+      <DependentUpon>frmGeneracionCuentasContables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmMantenimientoDepositos.resx">
       <DependentUpon>frmMantenimientoDepositos.cs</DependentUpon>
     </EmbeddedResource>
@@ -1881,6 +1902,9 @@
     <EmbeddedResource Include="mantenimiento\frmCambioContrasenaUsuario.resx">
       <DependentUpon>frmCambioContrasenaUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="mantenimiento\frmCuentasEmpresariales.resx">
+      <DependentUpon>frmCuentasEmpresariales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mantenimiento\frmFiltro.resx">
       <DependentUpon>frmFiltro.cs</DependentUpon>
     </EmbeddedResource>
@@ -1895,6 +1919,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mantenimiento\frmMantContable.resx">
       <DependentUpon>frmMantContable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mantenimiento\frmMantenimientoCtaContable_nuevo.resx">
+      <DependentUpon>frmMantenimientoCtaContable_nuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mantenimiento\frmMantenimientoCtaContable.resx">
       <DependentUpon>frmMantenimientoCtaContable.cs</DependentUpon>

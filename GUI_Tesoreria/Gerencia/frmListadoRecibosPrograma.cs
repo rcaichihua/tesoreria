@@ -306,24 +306,6 @@ namespace GUI_Tesoreria.Gerencia
 
                 dtExport = CargarGrilla2().Tables[0];
 
-                //String strcolname = "";
-                //int i = 0;
-                //for (i = dtExport.Columns.Count - 1; i >= 0; i--)
-                //{
-                //    strcolname = dtExport.Columns[i].ColumnName.ToString();
-
-                //    if (strcolname == "CodigoBarra")
-                //    {
-                //        dtExport.Columns.RemoveAt(i);
-                //        i--;
-                //    }
-
-                //    if (i <= 15 || i >= 71)
-                //    {
-                //        dtExport.Columns.RemoveAt(i);
-                //    }
-                //}
-
                 ExportHelper.CreateXlsFromDataTable(dtExport, @"C:\tmp\ingresocementerio.xls");
 
                 DevComponents.DotNetBar.MessageBoxEx.Show("Documento exportado correctamente", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);

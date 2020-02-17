@@ -76,6 +76,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnCerrarLiquidacion_Click(object sender, EventArgs e)
         {
+            //CIERRA TODOS LOS PROGRAMAS MENOS A INMOBILIARIA
             try
             {
                 if (dgvListadoLiquidaciones.Rows.Count <= 0) return;

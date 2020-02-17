@@ -463,6 +463,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 //           MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //    return;
                 //}
+                /*CAJA=02 ES DE INMOBILIARIA Y VERIFICA QUE A TODAS LAS LIQUIDACIONES DE LOS COBRADORES NO LE FALTE INGRESAR UN VOUCHER*/
                 if (caja=="02")
                 {
                     DataTable dtResu = new DataTable();

@@ -41,6 +41,27 @@ namespace GUI_Tesoreria.Deposito
                 dsDatos.Tables[1].TableName = "DIARIO_DET";
 
                 win.TipoReporteLiquidacion ="DEPOABANCO";
+
+                if (chkcuentas.Checked)
+                {
+                    DataTable dtCuenta;
+
+                    foreach (DataRow item in dsDatos.Tables[1].Rows)
+                    {
+                        dtCuenta = new DataTable();
+
+                        dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2 from contable_privado where CODIGO_CONTABLE1='" + item[1] + "'").Tables[0];
+
+                        if (dtCuenta.Rows.Count <= 0)
+                        {
+                            item[1] = "S/CTA";
+                        }
+                        else
+                        {
+                            item[1] = dtCuenta.Rows[0][0];
+                        }
+                    }
+                }
                 win.dsDiario = dsDatos;
                 win.ShowDialog();
             }
@@ -54,6 +75,26 @@ namespace GUI_Tesoreria.Deposito
                 dsDatos.Tables[1].TableName = "DIARIO_DET";
 
                 win.TipoReporteLiquidacion = "DEPOABANCO";
+                if (chkcuentas.Checked)
+                {
+                    DataTable dtCuenta;
+
+                    foreach (DataRow item in dsDatos.Tables[1].Rows)
+                    {
+                        dtCuenta = new DataTable();
+
+                        dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2 from contable_privado where CODIGO_CONTABLE1='" + item[1] + "'").Tables[0];
+
+                        if (dtCuenta.Rows.Count <= 0)
+                        {
+                            item[1] = "S/CTA";
+                        }
+                        else
+                        {
+                            item[1] = dtCuenta.Rows[0][0];
+                        }
+                    }
+                }
                 win.dsDiario = dsDatos;
                 win.ShowDialog();
             }
@@ -65,8 +106,27 @@ namespace GUI_Tesoreria.Deposito
                 dsDatos = cn.TraerDataset("usp_paDiarioRepo", dtpFechaLiquidación.Value.ToString("yyyyMMdd"), "4");
                 dsDatos.Tables[0].TableName = "DIARIO_CAB";
                 dsDatos.Tables[1].TableName = "DIARIO_DET";
-
                 win.TipoReporteLiquidacion = "DEPOABANCO";
+                if (chkcuentas.Checked)
+                {
+                    DataTable dtCuenta;
+
+                    foreach (DataRow item in dsDatos.Tables[1].Rows)
+                    {
+                        dtCuenta = new DataTable();
+
+                        dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2 from contable_privado where CODIGO_CONTABLE1='" + item[1] + "'").Tables[0];
+
+                        if (dtCuenta.Rows.Count <= 0)
+                        {
+                            item[1] = "S/CTA";
+                        }
+                        else
+                        {
+                            item[1] = dtCuenta.Rows[0][0];
+                        }
+                    }
+                }
                 win.dsDiario = dsDatos;
                 win.ShowDialog();
             }
@@ -76,5 +136,7 @@ namespace GUI_Tesoreria.Deposito
         {
             this.Close();
         }
+
+
     }
 }

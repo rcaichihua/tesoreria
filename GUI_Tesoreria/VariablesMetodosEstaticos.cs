@@ -35,6 +35,7 @@ namespace GUI_Tesoreria
         public static string numeroapertura { get; set; }
         public static int id_programa { get; set; }
         public static int id_Sucursal { get; set; }
+        public static int AnioFiscal { get; set; }
 
         public static object ToSafeDbDateDBnull(this object objectstring)
         {

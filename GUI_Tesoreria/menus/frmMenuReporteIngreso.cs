@@ -1016,5 +1016,18 @@ namespace GUI_Tesoreria.menus
                 }
             }
         }
+
+        private void cuentasGubYEmpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VariablesMetodosEstaticos.intPerfilID != 1 && VariablesMetodosEstaticos.intPerfilID != 6 && VariablesMetodosEstaticos.intPerfilID != 8 && VariablesMetodosEstaticos.intPerfilID != 7)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("No tiene permiso para acceder a este menú.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                return;
+            }
+            mantenimiento.frmCuentasEmpresariales _frmListadoRecibosPrograma = new mantenimiento.frmCuentasEmpresariales();
+            _frmListadoRecibosPrograma.MdiParent = this;
+            _frmListadoRecibosPrograma.Show();
+        }
     }
 }

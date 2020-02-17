@@ -10,34 +10,33 @@ using BL_Tesoreria;
 
 namespace GUI_Tesoreria.mantenimiento
 {
-    public partial class frmMantenimientoCtaContable : DevComponents.DotNetBar.Metro.MetroForm//Form
+    public partial class frmMantenimientoCtaContable_nuevo : DevComponents.DotNetBar.Metro.MetroForm//Form
     {
         CNegocio cn = new CNegocio();
-        private static frmMantenimientoCtaContable frmInstance = null;
-        public frmMantenimientoCtaContable()
+        private static frmMantenimientoCtaContable_nuevo frmInstance = null;
+        public frmMantenimientoCtaContable_nuevo()
         {
             InitializeComponent();
         }
 
-        public static frmMantenimientoCtaContable Instance()
+        public static frmMantenimientoCtaContable_nuevo Instance()
         {
             if (((frmInstance == null) || (frmInstance.IsDisposed == true)))
             {
-                frmInstance = new frmMantenimientoCtaContable();
+                frmInstance = new frmMantenimientoCtaContable_nuevo();
             }
             frmInstance.BringToFront();
             return frmInstance;
         }
 
-        private void frmMantenimientoCtaContable_Load(object sender, EventArgs e)
+        private void frmMantenimientoCtaContable_nuevo_Load(object sender, EventArgs e)
         {
             Cargar();
         }
 
         private void Cargar()
         {
-            //dgvCta.DataSource = cn.TraerDataset("usp_select_tb_cta_contable",VariablesMetodosEstaticos.AnioFiscal).Tables[0];
-            dgvCta.DataSource = cn.TraerDataset("usp_select_tb_cta_contable").Tables[0];
+            dgvCta.DataSource = cn.TraerDataset("usp_select_tb_cta_contable",VariablesMetodosEstaticos.AnioFiscal).Tables[0];
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
