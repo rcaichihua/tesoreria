@@ -82,6 +82,8 @@
             this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
+            this.cboPrograma = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecibos)).BeginInit();
@@ -93,7 +95,9 @@
             // GroupBox3
             // 
             this.GroupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.GroupBox3.Controls.Add(this.cboPrograma);
             this.GroupBox3.Controls.Add(this.lblNroRecibos);
+            this.GroupBox3.Controls.Add(this.label9);
             this.GroupBox3.Controls.Add(this.label7);
             this.GroupBox3.Controls.Add(this.label6);
             this.GroupBox3.Controls.Add(this.label2);
@@ -113,22 +117,23 @@
             // 
             this.lblNroRecibos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroRecibos.ForeColor = System.Drawing.Color.Navy;
-            this.lblNroRecibos.Location = new System.Drawing.Point(155, 11);
+            this.lblNroRecibos.Location = new System.Drawing.Point(311, 19);
             this.lblNroRecibos.Name = "lblNroRecibos";
-            this.lblNroRecibos.Size = new System.Drawing.Size(67, 15);
+            this.lblNroRecibos.Size = new System.Drawing.Size(55, 15);
             this.lblNroRecibos.TabIndex = 120;
             this.lblNroRecibos.Text = "0";
             this.lblNroRecibos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
+            this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Navy;
-            this.label7.Location = new System.Drawing.Point(15, 11);
+            this.label7.Location = new System.Drawing.Point(372, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 15);
+            this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 119;
-            this.label7.Text = "Cantidad de recibos: ";
+            this.label7.Text = "Registros";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
@@ -675,11 +680,32 @@
             this.LblTitulo.Text = ":::   RECIBOS  EMITIDOS  :::\r\n";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // frmEdicionDetalleReciboAD
+            // cboPrograma
+            // 
+            this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPrograma.FormattingEnabled = true;
+            this.cboPrograma.Location = new System.Drawing.Point(82, 13);
+            this.cboPrograma.Name = "cboPrograma";
+            this.cboPrograma.Size = new System.Drawing.Size(179, 23);
+            this.cboPrograma.TabIndex = 125;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label9.Location = new System.Drawing.Point(6, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 15);
+            this.label9.TabIndex = 124;
+            this.label9.Text = "Programa";
+            // 
+            // frmListadoParaEdicionDetalleReciboAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 513);
+            this.ClientSize = new System.Drawing.Size(1038, 511);
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.BtnBuscar);
@@ -688,7 +714,7 @@
             this.Controls.Add(this.GBOpciones);
             this.Controls.Add(this.LblTitulo);
             this.DoubleBuffered = true;
-            this.Name = "frmEdicionDetalleReciboAD";
+            this.Name = "frmListadoParaEdicionDetalleReciboAD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "...:::Modificación de Recibos:::...";
             this.Load += new System.EventHandler(this.frmEdicionDetalleReciboAD_Load);
@@ -752,5 +778,7 @@
         internal System.Windows.Forms.Button BtnSalir;
         internal System.Windows.Forms.Button BtnImprimir;
         internal System.Windows.Forms.Label LblTitulo;
+        internal System.Windows.Forms.ComboBox cboPrograma;
+        internal System.Windows.Forms.Label label9;
     }
 }

@@ -28,26 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvRecibos = new System.Windows.Forms.DataGridView();
+            this.ReciboId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idrubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inttaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad_recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnVerReporte = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.txtGlosa = new System.Windows.Forms.TextBox();
-            this.Id_ReciboCabecera = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODRUBRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPRUBRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.punit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecibos)).BeginInit();
@@ -59,7 +61,7 @@
             this.GroupBox2.Controls.Add(this.dgvRecibos);
             this.GroupBox2.Location = new System.Drawing.Point(12, 44);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(675, 206);
+            this.GroupBox2.Size = new System.Drawing.Size(757, 206);
             this.GroupBox2.TabIndex = 120;
             this.GroupBox2.TabStop = false;
             // 
@@ -70,30 +72,32 @@
             this.dgvRecibos.AllowUserToResizeColumns = false;
             this.dgvRecibos.AllowUserToResizeRows = false;
             this.dgvRecibos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRecibos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecibos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id_ReciboCabecera,
-            this.CODRUBRO,
-            this.DESCRIPRUBRO,
-            this.punit,
-            this.cant,
-            this.Total});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle14;
+            this.ReciboId,
+            this.Id_Recibodetalle,
+            this.idrubro,
+            this.inttaid,
+            this.item_recibodetalle,
+            this.precio_recibodetalle,
+            this.cantidad_recibodetalle,
+            this.total_recibodetalle});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRecibos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecibos.Location = new System.Drawing.Point(3, 16);
             this.dgvRecibos.Name = "dgvRecibos";
@@ -101,17 +105,96 @@
             this.dgvRecibos.RowHeadersVisible = false;
             this.dgvRecibos.RowHeadersWidth = 10;
             this.dgvRecibos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecibos.Size = new System.Drawing.Size(669, 187);
+            this.dgvRecibos.Size = new System.Drawing.Size(751, 187);
             this.dgvRecibos.TabIndex = 83;
+            // 
+            // ReciboId
+            // 
+            this.ReciboId.DataPropertyName = "ReciboId";
+            this.ReciboId.HeaderText = "ReciboId";
+            this.ReciboId.Name = "ReciboId";
+            this.ReciboId.ReadOnly = true;
+            this.ReciboId.Visible = false;
+            // 
+            // Id_Recibodetalle
+            // 
+            this.Id_Recibodetalle.DataPropertyName = "Id_Recibodetalle";
+            this.Id_Recibodetalle.HeaderText = "Id_Recibodetalle";
+            this.Id_Recibodetalle.Name = "Id_Recibodetalle";
+            this.Id_Recibodetalle.ReadOnly = true;
+            this.Id_Recibodetalle.Visible = false;
+            this.Id_Recibodetalle.Width = 103;
+            // 
+            // idrubro
+            // 
+            this.idrubro.DataPropertyName = "idrubro";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.idrubro.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idrubro.HeaderText = "COD. RUB.";
+            this.idrubro.Name = "idrubro";
+            this.idrubro.ReadOnly = true;
+            this.idrubro.Width = 80;
+            // 
+            // inttaid
+            // 
+            this.inttaid.DataPropertyName = "inttaid";
+            this.inttaid.HeaderText = "COD TARIFA";
+            this.inttaid.Name = "inttaid";
+            this.inttaid.ReadOnly = true;
+            this.inttaid.Width = 80;
+            // 
+            // item_recibodetalle
+            // 
+            this.item_recibodetalle.DataPropertyName = "item_recibodetalle";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.item_recibodetalle.DefaultCellStyle = dataGridViewCellStyle3;
+            this.item_recibodetalle.HeaderText = "DESCRIPCION";
+            this.item_recibodetalle.Name = "item_recibodetalle";
+            this.item_recibodetalle.ReadOnly = true;
+            this.item_recibodetalle.Width = 300;
+            // 
+            // precio_recibodetalle
+            // 
+            this.precio_recibodetalle.DataPropertyName = "precio_recibodetalle";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "n2";
+            this.precio_recibodetalle.DefaultCellStyle = dataGridViewCellStyle4;
+            this.precio_recibodetalle.HeaderText = "P. UNIT";
+            this.precio_recibodetalle.Name = "precio_recibodetalle";
+            this.precio_recibodetalle.ReadOnly = true;
+            this.precio_recibodetalle.Width = 85;
+            // 
+            // cantidad_recibodetalle
+            // 
+            this.cantidad_recibodetalle.DataPropertyName = "cantidad_recibodetalle";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "n2";
+            this.cantidad_recibodetalle.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cantidad_recibodetalle.HeaderText = "CANT";
+            this.cantidad_recibodetalle.Name = "cantidad_recibodetalle";
+            this.cantidad_recibodetalle.ReadOnly = true;
+            this.cantidad_recibodetalle.Width = 80;
+            // 
+            // total_recibodetalle
+            // 
+            this.total_recibodetalle.DataPropertyName = "total_recibodetalle";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.total_recibodetalle.DefaultCellStyle = dataGridViewCellStyle6;
+            this.total_recibodetalle.HeaderText = "TOTAL";
+            this.total_recibodetalle.Name = "total_recibodetalle";
+            this.total_recibodetalle.ReadOnly = true;
+            this.total_recibodetalle.Width = 90;
             // 
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Image = global::GUI_Tesoreria.Properties.Resources.salirDoc;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(561, 324);
+            this.btnSalir.Location = new System.Drawing.Point(554, 327);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(123, 34);
+            this.btnSalir.Size = new System.Drawing.Size(212, 34);
             this.btnSalir.TabIndex = 122;
             this.btnSalir.Text = "&Cancelar";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -122,9 +205,9 @@
             this.btnVerReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerReporte.Image = global::GUI_Tesoreria.Properties.Resources.reporte;
             this.btnVerReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerReporte.Location = new System.Drawing.Point(561, 290);
+            this.btnVerReporte.Location = new System.Drawing.Point(554, 293);
             this.btnVerReporte.Name = "btnVerReporte";
-            this.btnVerReporte.Size = new System.Drawing.Size(123, 34);
+            this.btnVerReporte.Size = new System.Drawing.Size(212, 34);
             this.btnVerReporte.TabIndex = 121;
             this.btnVerReporte.Text = "&Guardar";
             this.btnVerReporte.UseVisualStyleBackColor = true;
@@ -140,7 +223,7 @@
             this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
             this.LblTitulo.Location = new System.Drawing.Point(12, 9);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(298, 32);
+            this.LblTitulo.Size = new System.Drawing.Size(757, 32);
             this.LblTitulo.TabIndex = 125;
             this.LblTitulo.Text = "RC - 0000-00000000";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -169,77 +252,14 @@
             this.txtGlosa.Size = new System.Drawing.Size(484, 104);
             this.txtGlosa.TabIndex = 128;
             // 
-            // Id_ReciboCabecera
-            // 
-            this.Id_ReciboCabecera.DataPropertyName = "Id_ReciboCabecera";
-            this.Id_ReciboCabecera.HeaderText = "Id_ReciboCabecera";
-            this.Id_ReciboCabecera.Name = "Id_ReciboCabecera";
-            this.Id_ReciboCabecera.ReadOnly = true;
-            this.Id_ReciboCabecera.Visible = false;
-            this.Id_ReciboCabecera.Width = 103;
-            // 
-            // CODRUBRO
-            // 
-            this.CODRUBRO.DataPropertyName = "CODRUBRO";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CODRUBRO.DefaultCellStyle = dataGridViewCellStyle9;
-            this.CODRUBRO.HeaderText = "COD. RUB.";
-            this.CODRUBRO.Name = "CODRUBRO";
-            this.CODRUBRO.ReadOnly = true;
-            this.CODRUBRO.Width = 80;
-            // 
-            // DESCRIPRUBRO
-            // 
-            this.DESCRIPRUBRO.DataPropertyName = "DESCRIPRUBRO";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DESCRIPRUBRO.DefaultCellStyle = dataGridViewCellStyle10;
-            this.DESCRIPRUBRO.HeaderText = "DESCRIPCION";
-            this.DESCRIPRUBRO.Name = "DESCRIPRUBRO";
-            this.DESCRIPRUBRO.ReadOnly = true;
-            this.DESCRIPRUBRO.Width = 300;
-            // 
-            // punit
-            // 
-            this.punit.DataPropertyName = "punit";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "n2";
-            this.punit.DefaultCellStyle = dataGridViewCellStyle11;
-            this.punit.HeaderText = "P. UNIT";
-            this.punit.Name = "punit";
-            this.punit.ReadOnly = true;
-            this.punit.Width = 85;
-            // 
-            // cant
-            // 
-            this.cant.DataPropertyName = "cant";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "n2";
-            this.cant.DefaultCellStyle = dataGridViewCellStyle12;
-            this.cant.HeaderText = "CANT";
-            this.cant.Name = "cant";
-            this.cant.ReadOnly = true;
-            this.cant.Width = 80;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "total";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = "0";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Total.HeaderText = "TOTAL";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 90;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::GUI_Tesoreria.Properties.Resources.reporte;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(561, 256);
+            this.button1.Location = new System.Drawing.Point(554, 259);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 34);
+            this.button1.Size = new System.Drawing.Size(212, 34);
             this.button1.TabIndex = 121;
             this.button1.Text = "&Editar";
             this.button1.UseVisualStyleBackColor = true;
@@ -249,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 365);
+            this.ClientSize = new System.Drawing.Size(780, 365);
             this.Controls.Add(this.txtGlosa);
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.LblTitulo);
@@ -281,12 +301,14 @@
         internal System.Windows.Forms.Label LblTitulo;
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.TextBox txtGlosa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_ReciboCabecera;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CODRUBRO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPRUBRO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn punit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReciboId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Recibodetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idrubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inttaid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_recibodetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_recibodetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_recibodetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_recibodetalle;
     }
 }

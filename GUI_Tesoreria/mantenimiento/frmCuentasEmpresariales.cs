@@ -139,10 +139,24 @@ namespace GUI_Tesoreria.mantenimiento
                             {
                                 if (cn.EjecutarSqlDTS("select * from tb_cta_contable where codigoCuenta='" + txtCodigGub.Text.Replace("'", "").Replace("--", "") + "'").Tables[0].Rows.Count==0)
                                 {
-                                    DevComponents.DotNetBar.MessageBoxEx.Show("EL codigo Gub. que intenta ingresar no existe en la tabla de cuentas del sistema.", VariablesMetodosEstaticos.encabezado,
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("EL codigo Gub. que intenta ingresar no existe en la tabla de cuentas " + 
+                                        "del sistema, se abrira una ventana para que cree la cuenta Gub.", VariablesMetodosEstaticos.encabezado,
+                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                    frmMantContable win = new frmMantContable();
+                                    win.TipoMant = "N";
+                                    win.ShowDialog();
+                                    if (win.Save_)
+                                    {
+                                        LlenarDatos();
+                                    }
+                                    else
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("Cancelo el registro de la cuenta nueva.", VariablesMetodosEstaticos.encabezado,
                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    txtCodigGub.Focus();
-                                    return;
+                                        txtCodigGub.Focus();
+                                        return;
+                                    }
                                 }
 
                                 if (cn.EjecutarUD("insert into contable_privado(CODIGO_CONTABLE1,DENOMINACION1,CODIGO_CONTABLE2,DENOMINACION2,usuing,fechaing) values('" + 
@@ -164,10 +178,24 @@ namespace GUI_Tesoreria.mantenimiento
                             {
                                 if (cn.EjecutarSqlDTS("select * from tb_cta_contable where codigoCuenta='" + txtCodigGub.Text.Replace("'", "").Replace("--", "") + "'").Tables[0].Rows.Count == 0)
                                 {
-                                    DevComponents.DotNetBar.MessageBoxEx.Show("EL codigo Gub. que intenta ingresar no existe en la tabla de cuentas del sistema.", VariablesMetodosEstaticos.encabezado,
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("EL codigo Gub. que intenta ingresar no existe en la tabla de cuentas " +
+                                        "del sistema, se abrira una ventana para que cree la cuenta Gub.", VariablesMetodosEstaticos.encabezado,
+                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                    frmMantContable win = new frmMantContable();
+                                    win.TipoMant = "N";
+                                    win.ShowDialog();
+                                    if (win.Save_)
+                                    {
+                                        LlenarDatos();
+                                    }
+                                    else
+                                    {
+                                        DevComponents.DotNetBar.MessageBoxEx.Show("Cancelo el registro de la cuenta nueva.", VariablesMetodosEstaticos.encabezado,
                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    txtCodigGub.Focus();
-                                    return;
+                                        txtCodigGub.Focus();
+                                        return;
+                                    }
                                 }
 
                                 if (dgvListadoCuentas.Rows.Count > 0)
@@ -186,6 +214,10 @@ namespace GUI_Tesoreria.mantenimiento
                                             VariablesMetodosEstaticos.varNombreUser+"',fechamod=getdate() where CODIGO_CONTABLE1='"+ 
                                             dgvListadoCuentas.Rows[indice].Cells[0].Value.ToString() + "'") > 0)
                                         {
+                                            cn.EjecutarUD("update tb_cta_contable set descripcionCuenta='"+
+                                                txtDescGub.Text.Replace("'", "").Replace("--", "") + 
+                                                "' where codigoCuenta='"+ txtCodigGub.Text.Replace("'", "").Replace("--", "") + "'");
+
                                             DevComponents.DotNetBar.MessageBoxEx.Show("Ingresado correctamente", VariablesMetodosEstaticos.encabezado,
                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             Cancelar();

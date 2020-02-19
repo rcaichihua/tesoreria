@@ -46,6 +46,20 @@ namespace GUI_Tesoreria.caja
         {
             try
             {
+                if (cboPrograma.SelectedIndex == 0)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un programa.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cboPrograma.Focus();
+                    return;
+                }
+
+                if (cboPrograma.SelectedValue.ToString() == "2")
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No esta permitido listar los recibos de Canevaro.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cboPrograma.Focus();
+                    return;
+                }
+
                 dsDatos = new DataSet();
                 int estado = 0;
 
@@ -55,10 +69,10 @@ namespace GUI_Tesoreria.caja
                 if (ChTodos.Checked) idCliente = 0;
 
                 dsDatos = cn.TraerDataset("usp_s_tb_recibocabecera", 3, 0, 0, 0
-                    , txtNrorecibo.Text.Trim() == string.Empty ? 0 : Convert.ToInt32(txtNrorecibo.Text.Trim())
-                    , 0, 0, idCliente, TxtNombre.Text.Trim(), "", "",
-                    Convert.ToDateTime(dtpFechaDesde.Value.ToShortDateString()), 0, 0, 0, ""
-                    , 1, estado, Convert.ToDateTime(dtpFechaHasta.Value.ToShortDateString()));
+                     , txtNrorecibo.Text.Trim() == string.Empty ? 0 : Convert.ToInt32(txtNrorecibo.Text.Trim())
+                     , 0, 0, idCliente, TxtNombre.Text.Trim(), "", "",
+                     Convert.ToDateTime(dtpFechaDesde.Value.ToShortDateString()), 0, 0, 0, ""
+                     , cboPrograma.SelectedValue, estado, Convert.ToDateTime(dtpFechaHasta.Value.ToShortDateString()));
 
                 dgvRecibos.DataSource = dsDatos.Tables[0];
 
@@ -92,6 +106,20 @@ namespace GUI_Tesoreria.caja
 
         private void frmEdicionDetalleReciboAD_Load(object sender, EventArgs e)
         {
+            var dt = new DataTable();
+            try
+            {
+                dt = cn.TraerDataset("usp_select_programa").Tables[0];
+                cboPrograma.DataSource = dt;
+                cboPrograma.DisplayMember = "varProDescripcion";
+                cboPrograma.ValueMember = "intProId";
+            }
+            catch (Exception ex)
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+
             if (cajeroIngreso == 0)
             {
                 cajeroIngreso = VariablesMetodosEstaticos.idcajausuario;
@@ -284,17 +312,18 @@ namespace GUI_Tesoreria.caja
                 if (dgvRecibos.Rows[index].Cells["Estado"].Value.ToString() == "EXTORNADO")
                 {
                     DevComponents.DotNetBar.MessageBoxEx.Show("Los documentos extornados no se pueden editar", VariablesMetodosEstaticos.encabezado,
-                           MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
                 frmEdicionDetalleRecibo win = new frmEdicionDetalleRecibo();
                 win._IdRecibo = Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value);
-                win._TipoNroRecibo = dgvRecibos.Rows[index].Cells[4].Value.ToString() + " - "+ dgvRecibos.Rows[index].Cells[5].Value.ToString() + "-"+ 
+                win._TipoNroRecibo = dgvRecibos.Rows[index].Cells[4].Value.ToString() + " - " + dgvRecibos.Rows[index].Cells[5].Value.ToString() + "-" +
                     dgvRecibos.Rows[index].Cells[6].Value.ToString();
 
-                win._DatosDetalle = cn.TraerDataset("select idRubro as rubro,Item_ReciboDetalle as descripcion," + 
-                    "Precio_ReciboDetalle as punit,Cantidad_ReciboDetalle as cant,Total_ReciboDetalle as total " + 
-                    " from tb_ReciboDetalle where ReciboID="+ Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0];
+                win._DatosDetalle = cn.EjecutarSqlDTS("select ReciboID,Id_ReciboDetalle, idRubro,intTaId,Item_ReciboDetalle," +
+                    "Precio_ReciboDetalle,Cantidad_ReciboDetalle,Total_ReciboDetalle " +
+                    " from tb_ReciboDetalle where ReciboID=" + Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0];
                 win.ShowDialog();
             }
         }

@@ -29,8 +29,9 @@ namespace GUI_Tesoreria.caja
         private void frmEdicionDetaleRecibo_Load(object sender, EventArgs e)
         {
             DataTable dtG = new DataTable();
+            LblTitulo.Text = _TipoNroRecibo;
             this.dgvRecibos.DataSource = _DatosDetalle;
-            dtG= cn.TraerDataset("select Glosa_ReciboCabecera from tb_ReciboCabecera where ReciboID="+ _IdRecibo + "").Tables[0];
+            dtG= cn.EjecutarSqlDTS("select Glosa_ReciboCabecera from tb_ReciboCabecera where ReciboID="+ _IdRecibo + "").Tables[0];
             if (dtG.Rows.Count > 0)
             {
                 txtGlosa.Text = dtG.Rows[0][0].ToString();
