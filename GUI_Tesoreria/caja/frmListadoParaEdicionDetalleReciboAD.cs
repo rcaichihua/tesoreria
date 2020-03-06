@@ -324,8 +324,14 @@ namespace GUI_Tesoreria.caja
                 win._DatosDetalle = cn.EjecutarSqlDTS("select ReciboID,Id_ReciboDetalle, idRubro,intTaId,Item_ReciboDetalle," +
                     "Precio_ReciboDetalle,Cantidad_ReciboDetalle,Total_ReciboDetalle " +
                     " from tb_ReciboDetalle where ReciboID=" + Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0];
+                win.Programa_ = Convert.ToInt16(cboPrograma.SelectedValue.ToString());
                 win.ShowDialog();
             }
+        }
+
+        private void cboPrograma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BtnBuscar_Click(sender,e);
         }
     }
 }

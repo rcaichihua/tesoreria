@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>83</ApplicationRevision>
+    <ApplicationRevision>85</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -265,6 +265,12 @@
     </Compile>
     <Compile Include="caja\frmEdicionDetalleRecibo.Designer.cs">
       <DependentUpon>frmEdicionDetalleRecibo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\frmEdicionDetalleRecibo_editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmEdicionDetalleRecibo_editar.Designer.cs">
+      <DependentUpon>frmEdicionDetalleRecibo_editar.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\frmListadoParaEdicionDetalleReciboAD.cs">
       <SubType>Form</SubType>
@@ -1439,6 +1445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="caja\frmEdicionDetalleRecibo.resx">
       <DependentUpon>frmEdicionDetalleRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\frmEdicionDetalleRecibo_editar.resx">
+      <DependentUpon>frmEdicionDetalleRecibo_editar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\frmListadoParaEdicionDetalleReciboAD.resx">
       <DependentUpon>frmListadoParaEdicionDetalleReciboAD.cs</DependentUpon>

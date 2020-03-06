@@ -72,8 +72,8 @@ namespace GUI_Tesoreria
                         dtDatosReporte = cn.TraerDataset("usp_r_tb_recibocabecera", 1, 0, dtpDesde.Value.ToShortDateString()
                                                         , dtpHasta.Value.ToShortDateString(), programaId, 1).Tables[0];
 
-                        dtDatosReporte2 = cn.TraerDataset("usp_reporte_ingresos_rubro_general", null, dtpDesde.Value.ToString("yyyyMMdd")
-                                                        , dtpHasta.Value.ToString("yyyyMMdd"), VariablesMetodosEstaticos.id_programa).Tables[0];
+                        dtDatosReporte2 = cn.TraerDataset("usp_reporte_ingresos_rubro_general_", null, dtpDesde.Value.ToString("yyyyMMdd")
+                                                        , dtpHasta.Value.ToString("yyyyMMdd"), VariablesMetodosEstaticos.id_programa,VariablesMetodosEstaticos.id_user).Tables[0];
 
 
                         if (dtDatosReporte.Rows.Count > 0)
