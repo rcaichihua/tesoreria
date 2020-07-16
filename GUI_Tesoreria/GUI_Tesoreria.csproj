@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.1.8\SIGEIN\</PublishUrl>
+    <PublishUrl>\\192.168.1.8\sistemas\SIGEIN\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,12 +25,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\192.168.1.8\SIGEIN\</UpdateUrl>
+    <UpdateUrl>\\192.168.1.8\sistemas\SIGEIN\</UpdateUrl>
     <ProductName>Sistema de Gestion de Ingresos</ProductName>
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>83</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -265,6 +265,12 @@
     </Compile>
     <Compile Include="caja\frmEdicionDetalleRecibo.Designer.cs">
       <DependentUpon>frmEdicionDetalleRecibo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\frmEdicionDetalleRecibo_editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmEdicionDetalleRecibo_editar.Designer.cs">
+      <DependentUpon>frmEdicionDetalleRecibo_editar.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\frmListadoParaEdicionDetalleReciboAD.cs">
       <SubType>Form</SubType>
@@ -1105,6 +1111,7 @@
       <DependentUpon>rptIngresosPorCajero.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="helperClassforControlMover.cs" />
     <Compile Include="KeyStateInfo.cs" />
     <Compile Include="mantenimiento\Contabilidad\frmMantenimientoCtaContable.cs">
       <SubType>Form</SubType>
@@ -1439,6 +1446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="caja\frmEdicionDetalleRecibo.resx">
       <DependentUpon>frmEdicionDetalleRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="caja\frmEdicionDetalleRecibo_editar.resx">
+      <DependentUpon>frmEdicionDetalleRecibo_editar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="caja\frmListadoParaEdicionDetalleReciboAD.resx">
       <DependentUpon>frmListadoParaEdicionDetalleReciboAD.cs</DependentUpon>

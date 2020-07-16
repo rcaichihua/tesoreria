@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoParaEdicionDetalleReciboAD));
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
+            this.cboPrograma = new System.Windows.Forms.ComboBox();
             this.lblNroRecibos = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,8 +84,6 @@
             this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.cboPrograma = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecibos)).BeginInit();
@@ -113,6 +113,17 @@
             this.GroupBox3.TabIndex = 129;
             this.GroupBox3.TabStop = false;
             // 
+            // cboPrograma
+            // 
+            this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPrograma.FormattingEnabled = true;
+            this.cboPrograma.Location = new System.Drawing.Point(82, 13);
+            this.cboPrograma.Name = "cboPrograma";
+            this.cboPrograma.Size = new System.Drawing.Size(179, 23);
+            this.cboPrograma.TabIndex = 125;
+            this.cboPrograma.SelectedIndexChanged += new System.EventHandler(this.cboPrograma_SelectedIndexChanged);
+            // 
             // lblNroRecibos
             // 
             this.lblNroRecibos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,6 +134,17 @@
             this.lblNroRecibos.TabIndex = 120;
             this.lblNroRecibos.Text = "0";
             this.lblNroRecibos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label9.Location = new System.Drawing.Point(6, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 15);
+            this.label9.TabIndex = 124;
+            this.label9.Text = "Programa";
             // 
             // label7
             // 
@@ -225,14 +247,14 @@
             this.dgvRecibos.AllowUserToResizeColumns = false;
             this.dgvRecibos.AllowUserToResizeRows = false;
             this.dgvRecibos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRecibos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecibos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_ReciboCabecera,
@@ -248,14 +270,14 @@
             this.subTotal,
             this.Igv,
             this.Total});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRecibos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecibos.Location = new System.Drawing.Point(3, 16);
             this.dgvRecibos.Name = "dgvRecibos";
@@ -303,8 +325,8 @@
             // nombre_documento
             // 
             this.nombre_documento.DataPropertyName = "nombre_documento";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.nombre_documento.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.nombre_documento.DefaultCellStyle = dataGridViewCellStyle2;
             this.nombre_documento.HeaderText = "Documento";
             this.nombre_documento.Name = "nombre_documento";
             this.nombre_documento.ReadOnly = true;
@@ -313,8 +335,8 @@
             // serieRecibo
             // 
             this.serieRecibo.DataPropertyName = "serieRecibo";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.serieRecibo.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.serieRecibo.DefaultCellStyle = dataGridViewCellStyle3;
             this.serieRecibo.HeaderText = "Serie";
             this.serieRecibo.Name = "serieRecibo";
             this.serieRecibo.ReadOnly = true;
@@ -323,8 +345,8 @@
             // Numero_Recibo
             // 
             this.Numero_Recibo.DataPropertyName = "Numero_Recibo";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Numero_Recibo.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Numero_Recibo.DefaultCellStyle = dataGridViewCellStyle4;
             this.Numero_Recibo.HeaderText = "Nº Recibo";
             this.Numero_Recibo.Name = "Numero_Recibo";
             this.Numero_Recibo.ReadOnly = true;
@@ -333,8 +355,8 @@
             // Fecha
             // 
             this.Fecha.DataPropertyName = "Fecha";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Fecha.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Fecha.DefaultCellStyle = dataGridViewCellStyle5;
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
@@ -375,10 +397,10 @@
             // Total
             // 
             this.Total.DataPropertyName = "Total";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = "0";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -679,27 +701,6 @@
             this.LblTitulo.TabIndex = 124;
             this.LblTitulo.Text = ":::   RECIBOS  EMITIDOS  :::\r\n";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cboPrograma
-            // 
-            this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPrograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPrograma.FormattingEnabled = true;
-            this.cboPrograma.Location = new System.Drawing.Point(82, 13);
-            this.cboPrograma.Name = "cboPrograma";
-            this.cboPrograma.Size = new System.Drawing.Size(179, 23);
-            this.cboPrograma.TabIndex = 125;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label9.Location = new System.Drawing.Point(6, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 15);
-            this.label9.TabIndex = 124;
-            this.label9.Text = "Programa";
             // 
             // frmListadoParaEdicionDetalleReciboAD
             // 

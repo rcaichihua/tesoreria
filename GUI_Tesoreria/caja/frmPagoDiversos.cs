@@ -605,6 +605,11 @@ namespace GUI_Tesoreria.caja
 
                 if (VariablesMetodosEstaticos.id_programa == 4)
                 {
+                    if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 19)
+                    {
+
+                    }
+
                     if (ValidarTotalesMenor())
                     {
                         DevComponents.DotNetBar.MessageBoxEx.Show("El total del documento es MAYOR al total de modalidades de pago, no se puede continuar",
@@ -1097,7 +1102,7 @@ namespace GUI_Tesoreria.caja
                     }
                 }
             }
-            if (VariablesMetodosEstaticos.id_programa != 1)
+            if (VariablesMetodosEstaticos.id_programa == 2)
             {
                 if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 19)
                 {
@@ -1106,49 +1111,40 @@ namespace GUI_Tesoreria.caja
                     return false;
                 }
             }
-            else if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa == 4)
+            if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa == 4)
             {
                 if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 19)//cobro pendiente
                 {
-                    if (Convert.ToInt32(this.cboComprobante.SelectedValue) > 0)//FACTURA BOLETA
+                    if (cboConcepto.SelectedIndex == 0)
                     {
-                        if (cboConcepto.SelectedIndex == 0)
+                        DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un concepto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                        return false;
+                    }
+                    else
+                    {
+                        if (Convert.ToDateTime(dtpFechaCancelacion.Value.ToShortDateString()) <= Convert.ToDateTime(txtFecha.Text))
                         {
-                            DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un concepto.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                           MessageBoxIcon.Warning);
+                            DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de cobro no puede ser menor o igual a la fecha de emisión debido a que se selecciono PENDIENTE DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                            dtpFechaCancelacion.Focus();
                             return false;
                         }
                         else
                         {
-                            if (Convert.ToDateTime(dtpFechaCancelacion.Value.ToShortDateString()) <= Convert.ToDateTime(txtFecha.Text))
+                            if (cboCuenta.SelectedValue != null)
                             {
-                                DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de cobro no puede ser menor o igual a la fecha de emisión debido a que se selecciono PENDIENTE DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                               MessageBoxIcon.Warning);
-                                dtpFechaCancelacion.Focus();
-                                return false;
-                            }
-                            else
-                            {
-                                if (cboCuenta.SelectedValue != null)
+                                if ((int)cboCuenta.SelectedValue != 0)
                                 {
-                                    if ((int)cboCuenta.SelectedValue != 0)
-                                    {
-                                        DevComponents.DotNetBar.MessageBoxEx.Show("Ha seleccionado PENDIENTE DE COBRO y no puede seleccionar una cuenta bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                            MessageBoxIcon.Warning);
-                                        cboCuenta.Focus();
-                                        flag = false;
-                                    }
+                                    DevComponents.DotNetBar.MessageBoxEx.Show("Ha seleccionado PENDIENTE DE COBRO y no puede seleccionar una cuenta bancaria.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                                    cboCuenta.Focus();
+                                    flag = false;
                                 }
                             }
                         }
                     }
-                    else
-                    {
-                        DevComponents.DotNetBar.MessageBoxEx.Show("El documento seleccionado no puede ser PENDIENTE DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
-                                           MessageBoxIcon.Warning);
-                        cboComprobante.Focus();
-                        return false;
-                    }
+
                 }
                 else
                 {
@@ -2243,6 +2239,35 @@ namespace GUI_Tesoreria.caja
                 }
                 else
                 {
+                    if (VariablesMetodosEstaticos.id_programa == 4)
+                    {
+                        if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 19)
+                        {
+                            label18.Visible = true;
+                            dtpFechaCancelacion.Visible = true;
+                            GBGlosa.Controls.Add(label18);
+                            GBGlosa.Controls.Add(dtpFechaCancelacion);
+                            label18.Left = 58;
+                            label18.Top = 62;
+                            dtpFechaCancelacion.Left = 173;
+                            dtpFechaCancelacion.Top = 58;
+
+                            this.Refresh();
+                        }
+                    }
+
+                    if (VariablesMetodosEstaticos.id_programa == 2)
+                    {
+                        if (Convert.ToInt32(cboModalidadPago.SelectedValue) == 19)
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("No puede usar la modalidad PENDIENTE DE COBRO .", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            cboModalidadPago.SelectedValue = 0;
+                            cboModalidadPago.Select();
+                            return;
+                        }
+                    }
+
                     lblTipoMoneda.Text = dsetMonedaModPago.Tables[0].Rows[0][1].ToString();
                     txtTipoCambio.Text = "1.000";
                 }
@@ -2538,3 +2563,4 @@ namespace GUI_Tesoreria.caja
         }
     }
 }
+

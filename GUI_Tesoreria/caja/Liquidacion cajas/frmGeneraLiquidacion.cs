@@ -411,12 +411,15 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
                 foreach (DataGridViewRow item in dgvModalidadIngreso.Rows)
                 {
-                    if (item.Cells[8].Value.ToString()=="PA" || item.Cells[8].Value.ToString() == "SD")
+                    if (item.Cells[2].Value.ToString() != "14")
                     {
-                        DevComponents.DotNetBar.MessageBoxEx.Show("Hay pagos parciales(PA) o pagos sin deposito(SD), no se puede generar la liquidación.", VariablesMetodosEstaticos.encabezado,
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                        if (item.Cells[8].Value.ToString() == "PA" || item.Cells[8].Value.ToString() == "SD")
+                        {
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Hay pagos parciales(PA) o pagos sin deposito(SD), no se puede generar la liquidación.", VariablesMetodosEstaticos.encabezado,
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }   
                 }
 
                 //if (Convert.ToInt32(cboFuenteIngreso.SelectedValue)==3)

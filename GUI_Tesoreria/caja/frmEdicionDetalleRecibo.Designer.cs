@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvRecibos = new System.Windows.Forms.DataGridView();
+            this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.ReciboId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idrubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,42 +46,42 @@
             this.cantidad_recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total_recibodetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnVerReporte = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.txtGlosa = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecibos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox2
             // 
             this.GroupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.GroupBox2.Controls.Add(this.dgvRecibos);
+            this.GroupBox2.Controls.Add(this.dgvDetalle);
             this.GroupBox2.Location = new System.Drawing.Point(12, 44);
             this.GroupBox2.Name = "GroupBox2";
             this.GroupBox2.Size = new System.Drawing.Size(757, 206);
             this.GroupBox2.TabIndex = 120;
             this.GroupBox2.TabStop = false;
             // 
-            // dgvRecibos
+            // dgvDetalle
             // 
-            this.dgvRecibos.AllowUserToAddRows = false;
-            this.dgvRecibos.AllowUserToDeleteRows = false;
-            this.dgvRecibos.AllowUserToResizeColumns = false;
-            this.dgvRecibos.AllowUserToResizeRows = false;
-            this.dgvRecibos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvRecibos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecibos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDetalle.AllowUserToAddRows = false;
+            this.dgvDetalle.AllowUserToDeleteRows = false;
+            this.dgvDetalle.AllowUserToResizeColumns = false;
+            this.dgvDetalle.AllowUserToResizeRows = false;
+            this.dgvDetalle.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ReciboId,
             this.Id_Recibodetalle,
             this.idrubro,
@@ -90,23 +90,23 @@
             this.precio_recibodetalle,
             this.cantidad_recibodetalle,
             this.total_recibodetalle});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvRecibos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRecibos.Location = new System.Drawing.Point(3, 16);
-            this.dgvRecibos.Name = "dgvRecibos";
-            this.dgvRecibos.ReadOnly = true;
-            this.dgvRecibos.RowHeadersVisible = false;
-            this.dgvRecibos.RowHeadersWidth = 10;
-            this.dgvRecibos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecibos.Size = new System.Drawing.Size(751, 187);
-            this.dgvRecibos.TabIndex = 83;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalle.DefaultCellStyle = dataGridViewCellStyle35;
+            this.dgvDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetalle.Location = new System.Drawing.Point(3, 16);
+            this.dgvDetalle.Name = "dgvDetalle";
+            this.dgvDetalle.ReadOnly = true;
+            this.dgvDetalle.RowHeadersVisible = false;
+            this.dgvDetalle.RowHeadersWidth = 10;
+            this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalle.Size = new System.Drawing.Size(751, 187);
+            this.dgvDetalle.TabIndex = 83;
             // 
             // ReciboId
             // 
@@ -128,8 +128,8 @@
             // idrubro
             // 
             this.idrubro.DataPropertyName = "idrubro";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.idrubro.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.idrubro.DefaultCellStyle = dataGridViewCellStyle30;
             this.idrubro.HeaderText = "COD. RUB.";
             this.idrubro.Name = "idrubro";
             this.idrubro.ReadOnly = true;
@@ -146,8 +146,8 @@
             // item_recibodetalle
             // 
             this.item_recibodetalle.DataPropertyName = "item_recibodetalle";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.item_recibodetalle.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.item_recibodetalle.DefaultCellStyle = dataGridViewCellStyle31;
             this.item_recibodetalle.HeaderText = "DESCRIPCION";
             this.item_recibodetalle.Name = "item_recibodetalle";
             this.item_recibodetalle.ReadOnly = true;
@@ -156,9 +156,9 @@
             // precio_recibodetalle
             // 
             this.precio_recibodetalle.DataPropertyName = "precio_recibodetalle";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "n2";
-            this.precio_recibodetalle.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle32.Format = "n2";
+            this.precio_recibodetalle.DefaultCellStyle = dataGridViewCellStyle32;
             this.precio_recibodetalle.HeaderText = "P. UNIT";
             this.precio_recibodetalle.Name = "precio_recibodetalle";
             this.precio_recibodetalle.ReadOnly = true;
@@ -167,9 +167,9 @@
             // cantidad_recibodetalle
             // 
             this.cantidad_recibodetalle.DataPropertyName = "cantidad_recibodetalle";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "n2";
-            this.cantidad_recibodetalle.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle33.Format = "n2";
+            this.cantidad_recibodetalle.DefaultCellStyle = dataGridViewCellStyle33;
             this.cantidad_recibodetalle.HeaderText = "CANT";
             this.cantidad_recibodetalle.Name = "cantidad_recibodetalle";
             this.cantidad_recibodetalle.ReadOnly = true;
@@ -178,10 +178,10 @@
             // total_recibodetalle
             // 
             this.total_recibodetalle.DataPropertyName = "total_recibodetalle";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.total_recibodetalle.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle34.Format = "N2";
+            dataGridViewCellStyle34.NullValue = "0";
+            this.total_recibodetalle.DefaultCellStyle = dataGridViewCellStyle34;
             this.total_recibodetalle.HeaderText = "TOTAL";
             this.total_recibodetalle.Name = "total_recibodetalle";
             this.total_recibodetalle.ReadOnly = true;
@@ -200,18 +200,18 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnVerReporte
+            // btnGuardar
             // 
-            this.btnVerReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerReporte.Image = global::GUI_Tesoreria.Properties.Resources.reporte;
-            this.btnVerReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerReporte.Location = new System.Drawing.Point(554, 293);
-            this.btnVerReporte.Name = "btnVerReporte";
-            this.btnVerReporte.Size = new System.Drawing.Size(212, 34);
-            this.btnVerReporte.TabIndex = 121;
-            this.btnVerReporte.Text = "&Guardar";
-            this.btnVerReporte.UseVisualStyleBackColor = true;
-            this.btnVerReporte.Click += new System.EventHandler(this.btnVerReporte_Click);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::GUI_Tesoreria.Properties.Resources.guardarDoc;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(554, 293);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(212, 34);
+            this.btnGuardar.TabIndex = 121;
+            this.btnGuardar.Text = "&Guardar GLOSA";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // LblTitulo
             // 
@@ -252,18 +252,18 @@
             this.txtGlosa.Size = new System.Drawing.Size(484, 104);
             this.txtGlosa.TabIndex = 128;
             // 
-            // button1
+            // btnEditar
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::GUI_Tesoreria.Properties.Resources.reporte;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(554, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(212, 34);
-            this.button1.TabIndex = 121;
-            this.button1.Text = "&Editar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnVerReporte_Click);
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::GUI_Tesoreria.Properties.Resources.reporte;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(554, 259);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(212, 34);
+            this.btnEditar.TabIndex = 121;
+            this.btnEditar.Text = "&Editar DETALLE";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnVerReporte_Click);
             // 
             // frmEdicionDetalleRecibo
             // 
@@ -274,8 +274,8 @@
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.LblTitulo);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnVerReporte);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.GroupBox2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -286,7 +286,7 @@
             this.Text = "...:::Detalle Documento:::...";
             this.Load += new System.EventHandler(this.frmEdicionDetaleRecibo_Load);
             this.GroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecibos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,13 +295,13 @@
         #endregion
 
         internal System.Windows.Forms.GroupBox GroupBox2;
-        internal System.Windows.Forms.DataGridView dgvRecibos;
+        internal System.Windows.Forms.DataGridView dgvDetalle;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnVerReporte;
+        private System.Windows.Forms.Button btnGuardar;
         internal System.Windows.Forms.Label LblTitulo;
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.TextBox txtGlosa;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReciboId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Recibodetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn idrubro;

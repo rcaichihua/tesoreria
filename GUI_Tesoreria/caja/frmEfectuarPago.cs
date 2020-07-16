@@ -249,7 +249,7 @@ namespace GUI_Tesoreria.caja
                             }
                             else if (VariablesMetodosEstaticos.id_programa == 4)//CEMENTERIO
                             {
-                                DocsElectronicos.rptBoletaCajaCementerio rptRecibo = new DocsElectronicos.rptBoletaCajaCementerio();
+                                                    DocsElectronicos.rptBoletaCajaCementerio rptRecibo = new DocsElectronicos.rptBoletaCajaCementerio();
                                 rptRecibo.SetDataSource(dtsRecibo.Tables[0]);
                                 //rptRecibo.SetParameterValue("@descripMonto", VariablesMetodosEstaticos.varNombreSucursal);
                                 rptRecibo.SetParameterValue("@descripMonto", Letras.Convertir(dtsRecibo.Tables[0].Rows[0]["PrecioVenta_reciboCabecera"].ToString(), true) + " " + cn.TraerDataset("usp_obtener_descripcion_moneda", 1).Tables[0].Rows[0][0].ToString());
@@ -322,7 +322,7 @@ namespace GUI_Tesoreria.caja
                                     winReport.crvReportes.ReportSource = rptRecibo;
                                 }
                             }
-                            else if (VariablesMetodosEstaticos.id_programa == 4)
+                            else if (VariablesMetodosEstaticos.id_programa == 4)//CEMENTERIO.
                             {
                                 Reportes.rptReciboCajaCementerio rptRecibo = new Reportes.rptReciboCajaCementerio();
                                 rptRecibo.SetDataSource(dtsRecibo.Tables[0]);

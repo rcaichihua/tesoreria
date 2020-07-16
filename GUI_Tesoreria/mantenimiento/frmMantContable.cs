@@ -203,10 +203,17 @@ namespace GUI_Tesoreria.mantenimiento
 
         private void cboMovimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(cboMovimiento.SelectedValue)!=0)
+            try
             {
-                txtCodigo1.Text = cboMovimiento.Text.Substring(0, 4);
+                if (Convert.ToInt32(cboMovimiento.SelectedValue) != 0)
+                {
+                    txtCodigo1.Text = cboMovimiento.Text.Substring(0, 4);
+                }
             }
+            catch (Exception)
+            {
+
+            }          
 
         }
 

@@ -410,7 +410,7 @@ namespace GUI_Tesoreria.caja
 
                 if (dtResuConsulta.Rows[0][2].ToString() != "19")
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede editar documentos que no sean PENDIENTES DE PAGO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No se puede editar documentos que no sean PENDIENTES DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
                     return;
                 }

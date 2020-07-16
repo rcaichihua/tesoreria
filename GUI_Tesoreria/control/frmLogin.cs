@@ -94,7 +94,8 @@ namespace GUI_Tesoreria.control
                     VariablesMetodosEstaticos.igv = Convert.ToDecimal(cn.TraerDataset("usp_select_control", "igv", VariablesMetodosEstaticos.intAnnioActual).Tables[0].Rows[0][0]);
                     byte[] passwordBytes = GetPasswordBytes();
 
-                     if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
+                    if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
+
                     //if(1==1)
                     {
                         if (FLG_VIGENTE == false)
@@ -239,6 +240,7 @@ namespace GUI_Tesoreria.control
                 //VariablesMetodosEstaticos.mac_pc = "90FBA6349622";
 
                 VariablesMetodosEstaticos.host_user = Dns.GetHostName();
+                /*
                 IPAddress[] hostIPs = Dns.GetHostAddresses(VariablesMetodosEstaticos.host_user);
                 string Ip;
                 Ip = "";
@@ -271,7 +273,8 @@ namespace GUI_Tesoreria.control
                         if (Ip.Substring(0, 8) == "192.168.") break;
                     }
                 }
-                VariablesMetodosEstaticos.ip_user = Ip;
+                */
+                VariablesMetodosEstaticos.ip_user = "192.168.1.0";
                 //DataSet dtsXML = new DataSet();
                 //VariablesMetodosEstaticos.encabezado = "...:::S I S T E M A  T E S O R E R I A:::...";
                 //dtsXML.ReadXml(varglo.RUTA_XML + "ConfiguracionServidor.xml");

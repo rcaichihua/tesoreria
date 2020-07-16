@@ -76,6 +76,8 @@
             this.modificaciónDeDetalleDeRecibosDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.cierreDeLiquidacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuentasGubYEmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,8 +122,6 @@
             this.m_4 = new System.Windows.Forms.ToolStripMenuItem();
             this.m_4_1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripSeparator();
-            this.cuentasGubYEmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -428,28 +428,28 @@
             // altaDirecciònToolStripMenuItem
             // 
             this.altaDirecciònToolStripMenuItem.Name = "altaDirecciònToolStripMenuItem";
-            this.altaDirecciònToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.altaDirecciònToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.altaDirecciònToolStripMenuItem.Text = "&Alta Direcciòn";
             this.altaDirecciònToolStripMenuItem.Click += new System.EventHandler(this.altaDirecciònToolStripMenuItem_Click);
             // 
             // alberguesToolStripMenuItem
             // 
             this.alberguesToolStripMenuItem.Name = "alberguesToolStripMenuItem";
-            this.alberguesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.alberguesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alberguesToolStripMenuItem.Text = "&Albergues";
             this.alberguesToolStripMenuItem.Click += new System.EventHandler(this.alberguesToolStripMenuItem_Click);
             // 
             // inmobiliariaToolStripMenuItem
             // 
             this.inmobiliariaToolStripMenuItem.Name = "inmobiliariaToolStripMenuItem";
-            this.inmobiliariaToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.inmobiliariaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inmobiliariaToolStripMenuItem.Text = "&Inmobiliaria";
             this.inmobiliariaToolStripMenuItem.Click += new System.EventHandler(this.inmobiliariaToolStripMenuItem_Click);
             // 
             // cementerioToolStripMenuItem
             // 
             this.cementerioToolStripMenuItem.Name = "cementerioToolStripMenuItem";
-            this.cementerioToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.cementerioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cementerioToolStripMenuItem.Text = "&Cementerio";
             this.cementerioToolStripMenuItem.Click += new System.EventHandler(this.cementerioToolStripMenuItem_Click);
             // 
@@ -468,7 +468,7 @@
             this.cierreDeLiquidacionesToolStripMenuItem1});
             this.cajaAltaDirecciónToolStripMenuItem.Name = "cajaAltaDirecciónToolStripMenuItem";
             this.cajaAltaDirecciónToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.cajaAltaDirecciónToolStripMenuItem.Text = "&Caja Alta dirección";
+            this.cajaAltaDirecciónToolStripMenuItem.Text = "&Caja Alta dirección - Otros";
             this.cajaAltaDirecciónToolStripMenuItem.Click += new System.EventHandler(this.cajaAltaDirecciónToolStripMenuItem_Click);
             // 
             // reporteToolStripMenuItem
@@ -503,6 +503,18 @@
             this.cierreDeLiquidacionesToolStripMenuItem1.Size = new System.Drawing.Size(300, 22);
             this.cierreDeLiquidacionesToolStripMenuItem1.Text = "&Cierre de liquidaciones";
             this.cierreDeLiquidacionesToolStripMenuItem1.Click += new System.EventHandler(this.cierreDeLiquidacionesToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(271, 6);
+            // 
+            // cuentasGubYEmpToolStripMenuItem
+            // 
+            this.cuentasGubYEmpToolStripMenuItem.Name = "cuentasGubYEmpToolStripMenuItem";
+            this.cuentasGubYEmpToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.cuentasGubYEmpToolStripMenuItem.Text = "&Cuentas Gub. y Emp.";
+            this.cuentasGubYEmpToolStripMenuItem.Click += new System.EventHandler(this.cuentasGubYEmpToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -840,18 +852,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(668, 25);
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(271, 6);
-            // 
-            // cuentasGubYEmpToolStripMenuItem
-            // 
-            this.cuentasGubYEmpToolStripMenuItem.Name = "cuentasGubYEmpToolStripMenuItem";
-            this.cuentasGubYEmpToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.cuentasGubYEmpToolStripMenuItem.Text = "&Cuentas Gub. y Emp.";
-            this.cuentasGubYEmpToolStripMenuItem.Click += new System.EventHandler(this.cuentasGubYEmpToolStripMenuItem_Click);
             // 
             // frmMenuReporteIngreso
             // 
