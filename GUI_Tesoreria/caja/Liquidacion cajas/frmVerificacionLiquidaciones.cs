@@ -404,7 +404,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
                 if (dtpFechaLiqDesde.Value.Year > 2019)
                 {                 //dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
-                    dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso_cuenta_empresarial", cboPrograma.SelectedValue,
+                    dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso_cuenta_empresarial_", cboPrograma.SelectedValue,
                         dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
 
                     if (dtsRecibo.Tables[0].Rows.Count == 0)

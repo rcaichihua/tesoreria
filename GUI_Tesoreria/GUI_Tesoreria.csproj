@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.1.8\sistemas\SIGEIN\</PublishUrl>
+    <PublishUrl>\\192.168.1.8\SIGEIN\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,12 +25,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\192.168.1.8\sistemas\SIGEIN\</UpdateUrl>
+    <UpdateUrl>\\192.168.1.8\SIGEIN\</UpdateUrl>
     <ProductName>Sistema de Gestion de Ingresos</ProductName>
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>85</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -1111,7 +1111,6 @@
       <DependentUpon>rptIngresosPorCajero.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="helperClassforControlMover.cs" />
     <Compile Include="KeyStateInfo.cs" />
     <Compile Include="mantenimiento\Contabilidad\frmMantenimientoCtaContable.cs">
       <SubType>Form</SubType>
