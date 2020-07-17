@@ -94,8 +94,7 @@ namespace GUI_Tesoreria.control
                     VariablesMetodosEstaticos.igv = Convert.ToDecimal(cn.TraerDataset("usp_select_control", "igv", VariablesMetodosEstaticos.intAnnioActual).Tables[0].Rows[0][0]);
                     byte[] passwordBytes = GetPasswordBytes();
 
-                    if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
-
+                     if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
                     //if(1==1)
                     {
                         if (FLG_VIGENTE == false)
