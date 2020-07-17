@@ -192,6 +192,7 @@ namespace GUI_Tesoreria.control
             var dt = new DataTable();
             try
             {
+                //Listas por año
                 dt = cn.TraerDataset("USP_LISTA_ANIO_FISCAL").Tables[0];
                 cboAnio.DataSource = dt;
                 cboAnio.DisplayMember = "intAFDescripcionAnno";
