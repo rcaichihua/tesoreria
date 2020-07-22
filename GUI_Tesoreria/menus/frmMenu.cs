@@ -303,8 +303,12 @@ namespace GUI_Tesoreria.menus
 
         private void lblCuadroMando_Click(object sender, EventArgs e)
         {
-            DevComponents.DotNetBar.MessageBoxEx.Show("En mantenimiento", VariablesMetodosEstaticos.encabezado,
-                MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            if (this.btnCaja.Enabled == true)
+            {
+                this.Hide();
+                menus.frmMenuGestion caja = new menus.frmMenuGestion();
+                caja.Show();
+            }
         }
 
         private void lblReporteIngresos_Click(object sender, EventArgs e)

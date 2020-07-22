@@ -66,6 +66,7 @@ namespace GUI_Tesoreria.control
                     txtPwd1.Focus();
                     return;
                 }
+
                 dSet = obtieneUsuario("usp_Validar_Usuario", this.txtUser.Text.ToString());
 
                 bool FLG_VIGENTE = false;

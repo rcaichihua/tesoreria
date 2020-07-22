@@ -103,6 +103,16 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap altadireccion {
+            get {
+                object obj = ResourceManager.GetObject("altadireccion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap anular {
             get {
                 object obj = ResourceManager.GetObject("anular", resourceCulture);
@@ -156,6 +166,26 @@ namespace GUI_Tesoreria.Properties {
         internal static System.Drawing.Bitmap cancelardoc {
             get {
                 object obj = ResourceManager.GetObject("cancelardoc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap canevaro {
+            get {
+                object obj = ResourceManager.GetObject("canevaro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cementerio {
+            get {
+                object obj = ResourceManager.GetObject("cementerio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +376,16 @@ namespace GUI_Tesoreria.Properties {
         internal static System.Drawing.Bitmap imprimirD {
             get {
                 object obj = ResourceManager.GetObject("imprimirD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inmobiliaria {
+            get {
+                object obj = ResourceManager.GetObject("inmobiliaria", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
