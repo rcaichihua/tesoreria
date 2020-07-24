@@ -891,6 +891,12 @@
     <Compile Include="Contabilidad\frmRegDep.Designer.cs">
       <DependentUpon>frmRegDep.cs</DependentUpon>
     </Compile>
+    <Compile Include="control\frmInicioSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\frmInicioSesion.Designer.cs">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="control\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1797,6 +1803,9 @@
     <EmbeddedResource Include="Contabilidad\frmRegDep.resx">
       <DependentUpon>frmRegDep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="control\frmInicioSesion.resx">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="control\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -2098,6 +2107,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\canevaro.png" />
+    <None Include="Resources\altadireccion.png" />
+    <None Include="Resources\inmobiliaria.png" />
+    <None Include="Resources\icons8_business_buildings_32.png" />
+    <None Include="Resources\icons8_business_buildings_16.png" />
+    <None Include="Resources\icons8_business_buildings.ico" />
+    <None Include="Resources\cementerio.png" />
     <None Include="Resources\inmobiliaria.jpg" />
     <None Include="Resources\canevaro.jpg" />
     <None Include="Resources\altadireccion.jpg" />

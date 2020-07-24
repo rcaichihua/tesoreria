@@ -103,9 +103,9 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap altadireccion {
+        internal static System.Drawing.Bitmap altadireccion1 {
             get {
-                object obj = ResourceManager.GetObject("altadireccion", resourceCulture);
+                object obj = ResourceManager.GetObject("altadireccion1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap canevaro {
+        internal static System.Drawing.Bitmap canevaro1 {
             get {
-                object obj = ResourceManager.GetObject("canevaro", resourceCulture);
+                object obj = ResourceManager.GetObject("canevaro1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cementerio {
+        internal static System.Drawing.Bitmap cementerio1 {
             get {
-                object obj = ResourceManager.GetObject("cementerio", resourceCulture);
+                object obj = ResourceManager.GetObject("cementerio1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -371,6 +371,36 @@ namespace GUI_Tesoreria.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icons8_business_buildings {
+            get {
+                object obj = ResourceManager.GetObject("icons8_business_buildings", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_business_buildings_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_business_buildings_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_business_buildings_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_business_buildings_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap imprimirD {
@@ -383,9 +413,9 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap inmobiliaria {
+        internal static System.Drawing.Bitmap inmobiliaria1 {
             get {
-                object obj = ResourceManager.GetObject("inmobiliaria", resourceCulture);
+                object obj = ResourceManager.GetObject("inmobiliaria1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

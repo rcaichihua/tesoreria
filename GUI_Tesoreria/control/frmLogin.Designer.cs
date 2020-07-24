@@ -94,7 +94,7 @@
             // 
             this.Label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label7.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Label7.Location = new System.Drawing.Point(2, 11);
+            this.Label7.Location = new System.Drawing.Point(6, 16);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(288, 35);
             this.Label7.TabIndex = 36;
@@ -192,7 +192,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 369);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(822, 369);
             this.Controls.Add(this.GroupBox4);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.BtnSalir);
