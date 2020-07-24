@@ -37,5 +37,10 @@ namespace GUI_Tesoreria.menus
             Dispose(true);
             Application.Exit();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
