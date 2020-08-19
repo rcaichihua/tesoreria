@@ -40,6 +40,7 @@
             this.txtMes = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.label2 = new System.Windows.Forms.Label();
             this.gbDiario.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -178,11 +179,23 @@
             this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(9, 273);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Crear una carpeta en C:\\tmp\\";
+            // 
             // frmMigraDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 273);
+            this.ClientSize = new System.Drawing.Size(265, 292);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.lblCantidadProcesos);
             this.Controls.Add(this.progressbar);
@@ -216,5 +229,6 @@
         internal System.Windows.Forms.TextBox txtMes;
         internal System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        internal System.Windows.Forms.Label label2;
     }
 }

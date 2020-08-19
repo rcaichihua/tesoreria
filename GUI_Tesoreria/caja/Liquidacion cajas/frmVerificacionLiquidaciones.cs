@@ -402,9 +402,19 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
             if (Convert.ToInt32(cboPrograma.SelectedValue) == 3 || Convert.ToInt32(cboPrograma.SelectedValue)==4 )
             {
+                string procedure = "";
+                
+                if(cboPrograma.SelectedValue.ToString()=="3")
+                {
+                    procedure = "usp_recibo_ingreso_teso_cuenta_empresarial";
+                }
+                else
+                {
+                    procedure = "usp_recibo_ingreso_teso_cuenta_empresarial_";
+                }
                 if (dtpFechaLiqDesde.Value.Year > 2019)
                 {                 //dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
-                    dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso_cuenta_empresarial_", cboPrograma.SelectedValue,
+                    dtsRecibo = cn.TraerDataset(procedure, cboPrograma.SelectedValue,
                         dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
 
                     if (dtsRecibo.Tables[0].Rows.Count == 0)
