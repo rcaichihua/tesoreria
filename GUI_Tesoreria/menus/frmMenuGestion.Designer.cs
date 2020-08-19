@@ -33,14 +33,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnInmobiliaria = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAltaDireccion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnCementerio = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCanevaro = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -128,29 +128,29 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.button4);
+            this.splitContainer2.Panel1.Controls.Add(this.btnInmobiliaria);
             this.splitContainer2.Panel1.Controls.Add(this.pictureBox2);
             this.splitContainer2.Panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.button2);
+            this.splitContainer2.Panel2.Controls.Add(this.btnAltaDireccion);
             this.splitContainer2.Panel2.Controls.Add(this.pictureBox1);
             this.splitContainer2.Size = new System.Drawing.Size(650, 232);
             this.splitContainer2.SplitterDistance = 321;
             this.splitContainer2.TabIndex = 0;
             // 
-            // button4
+            // btnInmobiliaria
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(69, 195);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(191, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "&Alta Dirección";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnInmobiliaria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInmobiliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInmobiliaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInmobiliaria.Location = new System.Drawing.Point(69, 195);
+            this.btnInmobiliaria.Name = "btnInmobiliaria";
+            this.btnInmobiliaria.Size = new System.Drawing.Size(191, 23);
+            this.btnInmobiliaria.TabIndex = 3;
+            this.btnInmobiliaria.Text = "&Inmobiliaria";
+            this.btnInmobiliaria.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -163,18 +163,18 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // button2
+            // btnAltaDireccion
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(58, 195);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(191, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "&Alta Dirección";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAltaDireccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAltaDireccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAltaDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAltaDireccion.Location = new System.Drawing.Point(58, 195);
+            this.btnAltaDireccion.Name = "btnAltaDireccion";
+            this.btnAltaDireccion.Size = new System.Drawing.Size(191, 23);
+            this.btnAltaDireccion.TabIndex = 1;
+            this.btnAltaDireccion.Text = "&Alta Dirección";
+            this.btnAltaDireccion.UseVisualStyleBackColor = true;
+            this.btnAltaDireccion.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox1
             // 
@@ -195,28 +195,28 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.button5);
+            this.splitContainer3.Panel1.Controls.Add(this.btnCementerio);
             this.splitContainer3.Panel1.Controls.Add(this.pictureBox3);
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.button3);
+            this.splitContainer3.Panel2.Controls.Add(this.btnCanevaro);
             this.splitContainer3.Panel2.Controls.Add(this.pictureBox4);
             this.splitContainer3.Size = new System.Drawing.Size(650, 232);
             this.splitContainer3.SplitterDistance = 321;
             this.splitContainer3.TabIndex = 0;
             // 
-            // button5
+            // btnCementerio
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(69, 194);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(191, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "&Alta Dirección";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCementerio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCementerio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCementerio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCementerio.Location = new System.Drawing.Point(69, 194);
+            this.btnCementerio.Name = "btnCementerio";
+            this.btnCementerio.Size = new System.Drawing.Size(191, 23);
+            this.btnCementerio.TabIndex = 2;
+            this.btnCementerio.Text = "&Cementerio";
+            this.btnCementerio.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
@@ -230,17 +230,17 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
-            // button3
+            // btnCanevaro
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(58, 194);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(191, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "&Alta Dirección";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCanevaro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCanevaro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCanevaro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanevaro.Location = new System.Drawing.Point(58, 194);
+            this.btnCanevaro.Name = "btnCanevaro";
+            this.btnCanevaro.Size = new System.Drawing.Size(191, 23);
+            this.btnCanevaro.TabIndex = 2;
+            this.btnCanevaro.Text = "&Canevaro";
+            this.btnCanevaro.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
@@ -297,9 +297,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnInmobiliaria;
+        private System.Windows.Forms.Button btnAltaDireccion;
+        private System.Windows.Forms.Button btnCementerio;
+        private System.Windows.Forms.Button btnCanevaro;
     }
 }

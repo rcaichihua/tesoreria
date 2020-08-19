@@ -61,17 +61,19 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(163, 138);
+            this.pictureBox1.Image = global::GUI_Tesoreria.Properties.Resources.jefe1;
+            this.pictureBox1.Location = new System.Drawing.Point(151, 138);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 118);
+            this.pictureBox1.Size = new System.Drawing.Size(120, 118);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
             // txtPwd1
             // 
-            this.txtPwd1.Location = new System.Drawing.Point(141, 273);
+            this.txtPwd1.Location = new System.Drawing.Point(140, 262);
             this.txtPwd1.Name = "txtPwd1";
-            this.txtPwd1.Size = new System.Drawing.Size(140, 20);
+            this.txtPwd1.Size = new System.Drawing.Size(142, 20);
             this.txtPwd1.TabIndex = 27;
             this.txtPwd1.UseSystemPasswordChar = true;
             // 
@@ -80,8 +82,8 @@
             this.Label2.AutoSize = true;
             this.Label2.BackColor = System.Drawing.Color.Transparent;
             this.Label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Label2.Location = new System.Drawing.Point(62, 275);
+            this.Label2.ForeColor = System.Drawing.Color.White;
+            this.Label2.Location = new System.Drawing.Point(61, 264);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(73, 15);
             this.Label2.TabIndex = 28;
@@ -98,7 +100,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PBFoto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "...:::Inicio Sesión:::...";

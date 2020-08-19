@@ -29,7 +29,7 @@ namespace GUI_Tesoreria
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             databasepcker.SetConnctionString();
-                        Application.Run(new control.frmLogin());
+                        Application.Run(new control.frmInicioSesion());
             //Application.Run(new Contabilidad.frmGeneracionCuentasContables());
         }
     }
