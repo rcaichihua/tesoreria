@@ -228,64 +228,14 @@ namespace GUI_Tesoreria.control
                 }
                 //davy
                 VariablesMetodosEstaticos.tiene_mac = true;
-                //quitar luego
-                //cementerio
-                //VariablesMetodosEstaticos.mac_pc = "6045CB6EFCAA";
-                //canevaro
-                //VariablesMetodosEstaticos.mac_pc = "90FBA6349645";
-                //central
-                //VariablesMetodosEstaticos.mac_pc = "107b441ae989";
-                //TERE
-                //VariablesMetodosEstaticos.mac_pc = "90FBA6349604";
-                //ROSA
-                //VariablesMetodosEstaticos.mac_pc = "90FBA6349622";
 
                 VariablesMetodosEstaticos.host_user = Dns.GetHostName();
-                /*
-                IPAddress[] hostIPs = Dns.GetHostAddresses(VariablesMetodosEstaticos.host_user);
-                string Ip;
-                Ip = "";
 
-                for (int i = 0; i < hostIPs.Length; i++)
-                {
-                    //Ip = hostIPs[i].ToString();
-                    //if (VariablesMetodosEstaticos.ip_user.ToString().Substring(0,7)=="192.168") break;
-
-                    Ip = hostIPs[i].ToString();
-
-                    if (Ip.Length - 1 < 9)
-                    {
-                        if (Ip.Substring(0, 8) == "192.168.") break;
-                    }
-                    else if (Ip.Length - 1 < 8)
-                    {
-                        if (Ip.Substring(0, 7) == "192.168") break;
-                    }
-                    else if (Ip.Length - 1 < 7)
-                    {
-                        if (Ip.Substring(0, 6) == "192.16") break;
-                    }
-                    else if (Ip.Length == 0)
-                    {
-
-                    }
-                    else
-                    {
-                        if (Ip.Substring(0, 8) == "192.168.") break;
-                    }
-                }
-                */
                 VariablesMetodosEstaticos.ip_user = "192.168.1.0";
-                //DataSet dtsXML = new DataSet();
-                //VariablesMetodosEstaticos.encabezado = "...:::S I S T E M A  T E S O R E R I A:::...";
-                //dtsXML.ReadXml(varglo.RUTA_XML + "ConfiguracionServidor.xml");
 
-                //cn.TraerServidor(dtsXML.Tables[0].Rows[0][0].ToString(), dtsXML.Tables[0].Rows[0][1].ToString(),
-                //    dtsXML.Tables[0].Rows[0][2].ToString(), dtsXML.Tables[0].Rows[0][3].ToString());
                 cn.TraerServidorSisIngresos(Program.Server, Program.database, Program.dbUsername, Program.dbPassword);
                 cn.TraerServidorSGI(Program.Server, Program.database2, Program.dbUsername2, Program.dbPassword2);
-                //cn.TraerServidor();
-                //cn.TraerServidorSGI();
+
                 CargarAnioFiscal();
             }
             catch (Exception ex)

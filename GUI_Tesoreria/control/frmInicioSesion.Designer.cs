@@ -34,6 +34,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtPwd1 = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
+            this.btnIngresar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +64,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI_Tesoreria.Properties.Resources.jefe1;
-            this.pictureBox1.Location = new System.Drawing.Point(151, 138);
+            this.pictureBox1.Location = new System.Drawing.Point(157, 138);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(120, 118);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -71,11 +73,12 @@
             // 
             // txtPwd1
             // 
-            this.txtPwd1.Location = new System.Drawing.Point(140, 262);
+            this.txtPwd1.Location = new System.Drawing.Point(138, 262);
             this.txtPwd1.Name = "txtPwd1";
-            this.txtPwd1.Size = new System.Drawing.Size(142, 20);
+            this.txtPwd1.Size = new System.Drawing.Size(156, 20);
             this.txtPwd1.TabIndex = 27;
             this.txtPwd1.UseSystemPasswordChar = true;
+            this.txtPwd1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPwd1_KeyPress);
             // 
             // Label2
             // 
@@ -83,30 +86,59 @@
             this.Label2.BackColor = System.Drawing.Color.Transparent;
             this.Label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.Color.White;
-            this.Label2.Location = new System.Drawing.Point(61, 264);
+            this.Label2.Location = new System.Drawing.Point(59, 264);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(73, 15);
             this.Label2.TabIndex = 28;
             this.Label2.Text = "Contraseña";
+            // 
+            // btnIngresar
+            // 
+            this.btnIngresar.Image = global::GUI_Tesoreria.Properties.Resources.ingresar;
+            this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngresar.Location = new System.Drawing.Point(126, 288);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(86, 49);
+            this.btnIngresar.TabIndex = 29;
+            this.btnIngresar.Text = "&Ingresar";
+            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::GUI_Tesoreria.Properties.Resources.cancelar_32_32;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(217, 288);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(86, 49);
+            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(219)))));
-            this.ClientSize = new System.Drawing.Size(428, 335);
+            this.ClientSize = new System.Drawing.Size(428, 349);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPwd1);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PBFoto);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "...:::Inicio Sesión:::...";
+            this.Load += new System.EventHandler(this.frmInicioSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -121,5 +153,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtPwd1;
         internal System.Windows.Forms.Label Label2;
+        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

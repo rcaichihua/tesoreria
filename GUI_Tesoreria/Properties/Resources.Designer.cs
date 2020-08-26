@@ -163,6 +163,16 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancelar_32_32 {
+            get {
+                object obj = ResourceManager.GetObject("cancelar_32_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancelardoc {
             get {
                 object obj = ResourceManager.GetObject("cancelardoc", resourceCulture);
@@ -406,6 +416,16 @@ namespace GUI_Tesoreria.Properties {
         internal static System.Drawing.Bitmap imprimirD {
             get {
                 object obj = ResourceManager.GetObject("imprimirD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ingresar {
+            get {
+                object obj = ResourceManager.GetObject("ingresar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

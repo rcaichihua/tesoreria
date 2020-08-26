@@ -2107,6 +2107,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\cancelar_32_32.png" />
+    <None Include="Resources\ingresar.png" />
     <None Include="Resources\jefe2.png" />
     <None Include="Resources\jefe1.png" />
     <None Include="Resources\canevaro.png" />
