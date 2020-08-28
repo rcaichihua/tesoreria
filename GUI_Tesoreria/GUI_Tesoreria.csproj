@@ -1117,6 +1117,12 @@
       <DependentUpon>rptIngresosPorCajero.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Gestion\frmGestionListaLiquidaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion\frmGestionListaLiquidaciones.Designer.cs">
+      <DependentUpon>frmGestionListaLiquidaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeyStateInfo.cs" />
     <Compile Include="mantenimiento\Contabilidad\frmMantenimientoCtaContable.cs">
       <SubType>Form</SubType>
@@ -1919,6 +1925,9 @@
     <EmbeddedResource Include="Gerencia\Reportes\rptIngresosPorCajero.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIngresosPorCajero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion\frmGestionListaLiquidaciones.resx">
+      <DependentUpon>frmGestionListaLiquidaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mantenimiento\Contabilidad\frmMantenimientoCtaContable.resx">
       <DependentUpon>frmMantenimientoCtaContable.cs</DependentUpon>

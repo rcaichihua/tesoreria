@@ -42,5 +42,20 @@ namespace GUI_Tesoreria.menus
         {
 
         }
+
+        private void btnInmobiliaria_Click(object sender, EventArgs e)
+        {
+            this.Height = 435;
+            this.Hide();
+
+            Gestion.frmGestionListaLiquidaciones m = new Gestion.frmGestionListaLiquidaciones();
+            m.ProgramaId = 3;//inmobiliaria
+            m.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            btnInmobiliaria_Click(sender, e);
+        }
     }
 }

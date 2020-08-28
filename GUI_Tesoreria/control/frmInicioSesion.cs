@@ -131,7 +131,7 @@ namespace GUI_Tesoreria.control
                             this.Height = 435;
                             this.Hide();
 
-                            menus.frmMenu m = new menus.frmMenu();
+                            menus.frmMenuGestion m = new menus.frmMenuGestion();
                             m.Show();
                         }
                     }

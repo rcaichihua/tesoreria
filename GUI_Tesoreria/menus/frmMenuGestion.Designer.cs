@@ -78,6 +78,7 @@
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -151,6 +152,7 @@
             this.btnInmobiliaria.TabIndex = 3;
             this.btnInmobiliaria.Text = "&Inmobiliaria";
             this.btnInmobiliaria.UseVisualStyleBackColor = true;
+            this.btnInmobiliaria.Click += new System.EventHandler(this.btnInmobiliaria_Click);
             // 
             // pictureBox2
             // 
@@ -162,6 +164,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnAltaDireccion
             // 
