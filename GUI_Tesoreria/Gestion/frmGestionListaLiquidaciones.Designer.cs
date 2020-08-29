@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvListadoLiquidaciones = new System.Windows.Forms.DataGridView();
             this.idLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,9 +75,10 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.GBOpciones = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
             this.btnVerReciboCaja = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
+            this.btnReciboIngreso = new System.Windows.Forms.Button();
+            this.chkcuentas = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoLiquidaciones)).BeginInit();
             this.GroupBox3.SuspendLayout();
@@ -119,14 +120,14 @@
             this.TotalRecibo,
             this.observaciones,
             this.estado});
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListadoLiquidaciones.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListadoLiquidaciones.DefaultCellStyle = dataGridViewCellStyle45;
             this.dgvListadoLiquidaciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListadoLiquidaciones.GridColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvListadoLiquidaciones.Location = new System.Drawing.Point(3, 17);
@@ -141,8 +142,8 @@
             // idLiquidacion
             // 
             this.idLiquidacion.DataPropertyName = "idLiquidacion";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.idLiquidacion.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.idLiquidacion.DefaultCellStyle = dataGridViewCellStyle37;
             this.idLiquidacion.HeaderText = "ID LIQ";
             this.idLiquidacion.Name = "idLiquidacion";
             this.idLiquidacion.ReadOnly = true;
@@ -151,8 +152,8 @@
             // numeroLiquidacion
             // 
             this.numeroLiquidacion.DataPropertyName = "numeroLiquidacion";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numeroLiquidacion.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numeroLiquidacion.DefaultCellStyle = dataGridViewCellStyle38;
             this.numeroLiquidacion.HeaderText = "Nº DE LIQ";
             this.numeroLiquidacion.Name = "numeroLiquidacion";
             this.numeroLiquidacion.ReadOnly = true;
@@ -178,8 +179,8 @@
             // fechaLiquidacion
             // 
             this.fechaLiquidacion.DataPropertyName = "fechaLiquidacion";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fechaLiquidacion.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fechaLiquidacion.DefaultCellStyle = dataGridViewCellStyle39;
             this.fechaLiquidacion.HeaderText = "FECHA LIQ";
             this.fechaLiquidacion.Name = "fechaLiquidacion";
             this.fechaLiquidacion.ReadOnly = true;
@@ -188,8 +189,8 @@
             // fechaCajaOrigen
             // 
             this.fechaCajaOrigen.DataPropertyName = "fechaCajaOrigen";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fechaCajaOrigen.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fechaCajaOrigen.DefaultCellStyle = dataGridViewCellStyle40;
             this.fechaCajaOrigen.HeaderText = "FECHA CAJA";
             this.fechaCajaOrigen.Name = "fechaCajaOrigen";
             this.fechaCajaOrigen.ReadOnly = true;
@@ -198,9 +199,9 @@
             // totalIngresoCaja
             // 
             this.totalIngresoCaja.DataPropertyName = "totalIngresoCaja";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "N2";
-            this.totalIngresoCaja.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle41.Format = "N2";
+            this.totalIngresoCaja.DefaultCellStyle = dataGridViewCellStyle41;
             this.totalIngresoCaja.HeaderText = "TOTAL CAJA";
             this.totalIngresoCaja.Name = "totalIngresoCaja";
             this.totalIngresoCaja.ReadOnly = true;
@@ -208,9 +209,9 @@
             // diferenciaDeposito
             // 
             this.diferenciaDeposito.DataPropertyName = "TotalDeposito";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.Format = "N2";
-            this.diferenciaDeposito.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle42.Format = "N2";
+            this.diferenciaDeposito.DefaultCellStyle = dataGridViewCellStyle42;
             this.diferenciaDeposito.HeaderText = "TOTAL DEPOSITO";
             this.diferenciaDeposito.Name = "diferenciaDeposito";
             this.diferenciaDeposito.ReadOnly = true;
@@ -218,9 +219,9 @@
             // TotalRecibo
             // 
             this.TotalRecibo.DataPropertyName = "TotalRecibo";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.Format = "N2";
-            this.TotalRecibo.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle43.Format = "N2";
+            this.TotalRecibo.DefaultCellStyle = dataGridViewCellStyle43;
             this.TotalRecibo.HeaderText = "TOTAL RECIBOS";
             this.TotalRecibo.Name = "TotalRecibo";
             this.TotalRecibo.ReadOnly = true;
@@ -235,8 +236,8 @@
             // estado
             // 
             this.estado.DataPropertyName = "estado";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.estado.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.estado.DefaultCellStyle = dataGridViewCellStyle44;
             this.estado.HeaderText = "ESTADO";
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
@@ -348,6 +349,7 @@
             this.BtnBuscar.Text = "&Buscar";
             this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // GBEstadoConvenio
             // 
@@ -357,6 +359,7 @@
             this.GBEstadoConvenio.Controls.Add(this.RBTodos);
             this.GBEstadoConvenio.Controls.Add(this.RBAnulados);
             this.GBEstadoConvenio.Controls.Add(this.RBActivos);
+            this.GBEstadoConvenio.Enabled = false;
             this.GBEstadoConvenio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBEstadoConvenio.ForeColor = System.Drawing.Color.Maroon;
             this.GBEstadoConvenio.Location = new System.Drawing.Point(837, 44);
@@ -389,14 +392,12 @@
             // RBTodos
             // 
             this.RBTodos.AutoSize = true;
-            this.RBTodos.Checked = true;
             this.RBTodos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RBTodos.ForeColor = System.Drawing.Color.Navy;
             this.RBTodos.Location = new System.Drawing.Point(120, 16);
             this.RBTodos.Name = "RBTodos";
             this.RBTodos.Size = new System.Drawing.Size(59, 17);
             this.RBTodos.TabIndex = 1;
-            this.RBTodos.TabStop = true;
             this.RBTodos.Text = "Todos";
             this.RBTodos.UseVisualStyleBackColor = true;
             // 
@@ -415,12 +416,14 @@
             // RBActivos
             // 
             this.RBActivos.AutoSize = true;
+            this.RBActivos.Checked = true;
             this.RBActivos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RBActivos.ForeColor = System.Drawing.Color.Navy;
             this.RBActivos.Location = new System.Drawing.Point(6, 16);
             this.RBActivos.Name = "RBActivos";
             this.RBActivos.Size = new System.Drawing.Size(67, 17);
             this.RBActivos.TabIndex = 4;
+            this.RBActivos.TabStop = true;
             this.RBActivos.Text = "Activos";
             this.RBActivos.UseVisualStyleBackColor = true;
             // 
@@ -529,8 +532,8 @@
             // GBOpciones
             // 
             this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
+            this.GBOpciones.Controls.Add(this.btnReciboIngreso);
             this.GBOpciones.Controls.Add(this.btnCancelar);
-            this.GBOpciones.Controls.Add(this.btnAnular);
             this.GBOpciones.Controls.Add(this.btnVerReciboCaja);
             this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBOpciones.Location = new System.Drawing.Point(916, 111);
@@ -557,24 +560,6 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // btnAnular
-            // 
-            this.btnAnular.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAnular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnular.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.ForeColor = System.Drawing.Color.Navy;
-            this.btnAnular.Image = global::GUI_Tesoreria.Properties.Resources.eliminarV;
-            this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAnular.Location = new System.Drawing.Point(8, 17);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(90, 52);
-            this.btnAnular.TabIndex = 148;
-            this.btnAnular.Text = "&Anular";
-            this.btnAnular.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAnular.UseVisualStyleBackColor = false;
-            // 
             // btnVerReciboCaja
             // 
             this.btnVerReciboCaja.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -584,7 +569,7 @@
             this.btnVerReciboCaja.ForeColor = System.Drawing.Color.Navy;
             this.btnVerReciboCaja.Image = global::GUI_Tesoreria.Properties.Resources.guardarDoc;
             this.btnVerReciboCaja.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnVerReciboCaja.Location = new System.Drawing.Point(8, 75);
+            this.btnVerReciboCaja.Location = new System.Drawing.Point(8, 174);
             this.btnVerReciboCaja.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnVerReciboCaja.Name = "btnVerReciboCaja";
             this.btnVerReciboCaja.Size = new System.Drawing.Size(90, 68);
@@ -609,11 +594,40 @@
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblTitulo.Click += new System.EventHandler(this.LblTitulo_Click);
             // 
+            // btnReciboIngreso
+            // 
+            this.btnReciboIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReciboIngreso.ForeColor = System.Drawing.Color.Navy;
+            this.btnReciboIngreso.Image = global::GUI_Tesoreria.Properties.Resources.nuevodoc;
+            this.btnReciboIngreso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReciboIngreso.Location = new System.Drawing.Point(8, 17);
+            this.btnReciboIngreso.Name = "btnReciboIngreso";
+            this.btnReciboIngreso.Size = new System.Drawing.Size(90, 61);
+            this.btnReciboIngreso.TabIndex = 149;
+            this.btnReciboIngreso.Text = "&Recibo de Ingreso";
+            this.btnReciboIngreso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReciboIngreso.UseVisualStyleBackColor = true;
+            this.btnReciboIngreso.Click += new System.EventHandler(this.btnReciboIngreso_Click);
+            // 
+            // chkcuentas
+            // 
+            this.chkcuentas.AutoSize = true;
+            this.chkcuentas.Checked = true;
+            this.chkcuentas.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkcuentas.Location = new System.Drawing.Point(12, 511);
+            this.chkcuentas.Name = "chkcuentas";
+            this.chkcuentas.Size = new System.Drawing.Size(285, 17);
+            this.chkcuentas.TabIndex = 171;
+            this.chkcuentas.Text = "Códigos Contable - PLAN CONTABLE EMPRESARIAL";
+            this.chkcuentas.UseVisualStyleBackColor = true;
+            this.chkcuentas.Visible = false;
+            // 
             // frmGestionListaLiquidaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 522);
+            this.Controls.Add(this.chkcuentas);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.BtnBuscar);
@@ -637,6 +651,7 @@
             this.GroupBox1.PerformLayout();
             this.GBOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -680,8 +695,9 @@
         internal System.Windows.Forms.TextBox TxtNombre;
         internal System.Windows.Forms.GroupBox GBOpciones;
         internal System.Windows.Forms.Button btnCancelar;
-        internal System.Windows.Forms.Button btnAnular;
         internal System.Windows.Forms.Button btnVerReciboCaja;
         internal System.Windows.Forms.Label LblTitulo;
+        private System.Windows.Forms.Button btnReciboIngreso;
+        private System.Windows.Forms.CheckBox chkcuentas;
     }
 }

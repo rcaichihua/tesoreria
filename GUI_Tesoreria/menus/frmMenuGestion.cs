@@ -49,7 +49,7 @@ namespace GUI_Tesoreria.menus
             this.Hide();
 
             Gestion.frmGestionListaLiquidaciones m = new Gestion.frmGestionListaLiquidaciones();
-            m.ProgramaId = 3;//inmobiliaria
+            m._ProgramaId = 3;//inmobiliaria
             m.Show();
         }
 
