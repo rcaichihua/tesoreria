@@ -51,7 +51,7 @@
             this.crvReportes.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvReportes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crvReportes.Location = new System.Drawing.Point(0, 0);
-            this.crvReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.crvReportes.Margin = new System.Windows.Forms.Padding(2);
             this.crvReportes.Name = "crvReportes";
             this.crvReportes.SelectionFormula = "";
             this.crvReportes.Size = new System.Drawing.Size(733, 488);
@@ -69,7 +69,7 @@
             this.Panel1.Controls.Add(this.dtpDesde);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel1.Location = new System.Drawing.Point(0, 0);
-            this.Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(733, 46);
             this.Panel1.TabIndex = 91;
@@ -79,7 +79,7 @@
             this.dtpHasta.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHasta.Location = new System.Drawing.Point(407, 17);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(96, 20);
             this.dtpHasta.TabIndex = 86;
@@ -90,10 +90,13 @@
             this.btnImprimir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.Location = new System.Drawing.Point(512, 14);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(26, 23);
+            this.btnImprimir.Size = new System.Drawing.Size(97, 23);
             this.btnImprimir.TabIndex = 76;
+            this.btnImprimir.Text = "&Ver Reporte";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -128,7 +131,7 @@
             this.dtpDesde.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDesde.Location = new System.Drawing.Point(260, 18);
-            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(96, 20);
             this.dtpDesde.TabIndex = 85;
@@ -137,7 +140,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -160,7 +163,7 @@
             this.ClientSize = new System.Drawing.Size(733, 537);
             this.Controls.Add(this.splitContainer1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmReporteIngresoDiario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReporteProceso";

@@ -18,6 +18,8 @@ namespace GUI_Tesoreria
         private DataTable dtDatosReporte2;
         private static frmReporteIngresoDiario frmInstance = null;
         private CNegocio cn = new CNegocio();
+        public DateTime _Desde { get; set; }
+        public DateTime _Hasta { get; set; }
         public int programaId = 0;
 
         NumLetra Letras = new NumLetra();
@@ -40,13 +42,17 @@ namespace GUI_Tesoreria
         {
             if (programaId == 0)
             {
+                dtpDesde.Value = _Desde;
+                dtpHasta.Value = _Hasta;
+
                 if (tipo_reporte == "R")
                 {
                     programaId = VariablesMetodosEstaticos.idcajausuario;
                 }
-                else //if (tipo_reporte=="M")
+                else
                 {
-                    programaId = VariablesMetodosEstaticos.id_programa;
+                    programaId = 4;
+                    btnImprimir_Click(sender, e);
                 }
             }
         }

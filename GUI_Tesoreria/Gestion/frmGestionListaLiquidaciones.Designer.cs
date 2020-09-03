@@ -55,6 +55,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotalIngresoCaja = new System.Windows.Forms.TextBox();
+            this.LblNombre = new System.Windows.Forms.Label();
+            this.TxtCodigoContribuyente = new System.Windows.Forms.TextBox();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
+            this.txtNroLiquidacion = new System.Windows.Forms.TextBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.txtTotalDeposito = new System.Windows.Forms.TextBox();
             this.BtnBuscar = new System.Windows.Forms.Button();
@@ -69,14 +73,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.txtNroLiquidacion = new System.Windows.Forms.TextBox();
-            this.TxtCodigoContribuyente = new System.Windows.Forms.TextBox();
-            this.LblNombre = new System.Windows.Forms.Label();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
             this.GBOpciones = new System.Windows.Forms.GroupBox();
             this.btnReciboIngreso = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnVerReciboCaja = new System.Windows.Forms.Button();
+            this.btnLiquidaciónCementerio = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.chkcuentas = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
@@ -313,6 +313,53 @@
             this.txtTotalIngresoCaja.TabIndex = 89;
             this.txtTotalIngresoCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // LblNombre
+            // 
+            this.LblNombre.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombre.ForeColor = System.Drawing.Color.Navy;
+            this.LblNombre.Location = new System.Drawing.Point(322, 18);
+            this.LblNombre.Name = "LblNombre";
+            this.LblNombre.Size = new System.Drawing.Size(34, 15);
+            this.LblNombre.TabIndex = 87;
+            this.LblNombre.Text = "Nro. Liquidación  -       Programa :";
+            this.LblNombre.Visible = false;
+            // 
+            // TxtCodigoContribuyente
+            // 
+            this.TxtCodigoContribuyente.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtCodigoContribuyente.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigoContribuyente.ForeColor = System.Drawing.Color.Maroon;
+            this.TxtCodigoContribuyente.Location = new System.Drawing.Point(256, 12);
+            this.TxtCodigoContribuyente.Name = "TxtCodigoContribuyente";
+            this.TxtCodigoContribuyente.ReadOnly = true;
+            this.TxtCodigoContribuyente.Size = new System.Drawing.Size(31, 21);
+            this.TxtCodigoContribuyente.TabIndex = 115;
+            this.TxtCodigoContribuyente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtCodigoContribuyente.Visible = false;
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtNombre.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.TxtNombre.ForeColor = System.Drawing.Color.Maroon;
+            this.TxtNombre.Location = new System.Drawing.Point(293, 12);
+            this.TxtNombre.MaxLength = 4000;
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(23, 21);
+            this.TxtNombre.TabIndex = 86;
+            this.TxtNombre.Visible = false;
+            // 
+            // txtNroLiquidacion
+            // 
+            this.txtNroLiquidacion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtNroLiquidacion.ForeColor = System.Drawing.Color.Maroon;
+            this.txtNroLiquidacion.Location = new System.Drawing.Point(235, 12);
+            this.txtNroLiquidacion.Name = "txtNroLiquidacion";
+            this.txtNroLiquidacion.Size = new System.Drawing.Size(15, 21);
+            this.txtNroLiquidacion.TabIndex = 116;
+            this.txtNroLiquidacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNroLiquidacion.Visible = false;
+            // 
             // Label1
             // 
             this.Label1.AutoSize = true;
@@ -456,7 +503,7 @@
             this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 118;
             this.label8.Text = "Hasta";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
@@ -467,7 +514,7 @@
             this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 118;
             this.label5.Text = "Desde";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dtpFechaHasta
             // 
@@ -485,58 +532,12 @@
             this.dtpFechaDesde.Size = new System.Drawing.Size(116, 20);
             this.dtpFechaDesde.TabIndex = 117;
             // 
-            // txtNroLiquidacion
-            // 
-            this.txtNroLiquidacion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.txtNroLiquidacion.ForeColor = System.Drawing.Color.Maroon;
-            this.txtNroLiquidacion.Location = new System.Drawing.Point(235, 12);
-            this.txtNroLiquidacion.Name = "txtNroLiquidacion";
-            this.txtNroLiquidacion.Size = new System.Drawing.Size(15, 21);
-            this.txtNroLiquidacion.TabIndex = 116;
-            this.txtNroLiquidacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TxtCodigoContribuyente
-            // 
-            this.TxtCodigoContribuyente.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TxtCodigoContribuyente.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCodigoContribuyente.ForeColor = System.Drawing.Color.Maroon;
-            this.TxtCodigoContribuyente.Location = new System.Drawing.Point(256, 12);
-            this.TxtCodigoContribuyente.Name = "TxtCodigoContribuyente";
-            this.TxtCodigoContribuyente.ReadOnly = true;
-            this.TxtCodigoContribuyente.Size = new System.Drawing.Size(31, 21);
-            this.TxtCodigoContribuyente.TabIndex = 115;
-            this.TxtCodigoContribuyente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtCodigoContribuyente.Visible = false;
-            // 
-            // LblNombre
-            // 
-            this.LblNombre.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombre.ForeColor = System.Drawing.Color.Navy;
-            this.LblNombre.Location = new System.Drawing.Point(322, 18);
-            this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(34, 15);
-            this.LblNombre.TabIndex = 87;
-            this.LblNombre.Text = "Nro. Liquidación  -       Programa :";
-            this.LblNombre.Visible = false;
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtNombre.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.TxtNombre.ForeColor = System.Drawing.Color.Maroon;
-            this.TxtNombre.Location = new System.Drawing.Point(293, 12);
-            this.TxtNombre.MaxLength = 4000;
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(23, 21);
-            this.TxtNombre.TabIndex = 86;
-            this.TxtNombre.Visible = false;
-            // 
             // GBOpciones
             // 
             this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
             this.GBOpciones.Controls.Add(this.btnReciboIngreso);
             this.GBOpciones.Controls.Add(this.btnRegresar);
-            this.GBOpciones.Controls.Add(this.btnVerReciboCaja);
+            this.GBOpciones.Controls.Add(this.btnLiquidaciónCementerio);
             this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBOpciones.Location = new System.Drawing.Point(916, 111);
             this.GBOpciones.Name = "GBOpciones";
@@ -579,23 +580,24 @@
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // btnVerReciboCaja
+            // btnLiquidaciónCementerio
             // 
-            this.btnVerReciboCaja.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVerReciboCaja.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerReciboCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerReciboCaja.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerReciboCaja.ForeColor = System.Drawing.Color.Navy;
-            this.btnVerReciboCaja.Image = global::GUI_Tesoreria.Properties.Resources.guardarDoc;
-            this.btnVerReciboCaja.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnVerReciboCaja.Location = new System.Drawing.Point(8, 99);
-            this.btnVerReciboCaja.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnVerReciboCaja.Name = "btnVerReciboCaja";
-            this.btnVerReciboCaja.Size = new System.Drawing.Size(90, 68);
-            this.btnVerReciboCaja.TabIndex = 147;
-            this.btnVerReciboCaja.Text = "&Ver Recibos de Caja";
-            this.btnVerReciboCaja.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnVerReciboCaja.UseVisualStyleBackColor = false;
+            this.btnLiquidaciónCementerio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLiquidaciónCementerio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLiquidaciónCementerio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLiquidaciónCementerio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLiquidaciónCementerio.ForeColor = System.Drawing.Color.Navy;
+            this.btnLiquidaciónCementerio.Image = global::GUI_Tesoreria.Properties.Resources.guardarDoc;
+            this.btnLiquidaciónCementerio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnLiquidaciónCementerio.Location = new System.Drawing.Point(8, 99);
+            this.btnLiquidaciónCementerio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLiquidaciónCementerio.Name = "btnLiquidaciónCementerio";
+            this.btnLiquidaciónCementerio.Size = new System.Drawing.Size(90, 78);
+            this.btnLiquidaciónCementerio.TabIndex = 147;
+            this.btnLiquidaciónCementerio.Text = "&Reporte Liquidación Cementerio";
+            this.btnLiquidaciónCementerio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLiquidaciónCementerio.UseVisualStyleBackColor = false;
+            this.btnLiquidaciónCementerio.Click += new System.EventHandler(this.btnLiquidaciónCementerio_Click);
             // 
             // LblTitulo
             // 
@@ -700,7 +702,7 @@
         internal System.Windows.Forms.TextBox TxtNombre;
         internal System.Windows.Forms.GroupBox GBOpciones;
         internal System.Windows.Forms.Button btnRegresar;
-        internal System.Windows.Forms.Button btnVerReciboCaja;
+        internal System.Windows.Forms.Button btnLiquidaciónCementerio;
         internal System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.Button btnReciboIngreso;
         private System.Windows.Forms.CheckBox chkcuentas;

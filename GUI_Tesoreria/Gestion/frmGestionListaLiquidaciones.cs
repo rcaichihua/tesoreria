@@ -17,6 +17,7 @@ namespace GUI_Tesoreria.Gestion
             InitializeComponent();
         }
         CNegocio cn = new CNegocio();
+        DataTable dtDatosReporte;
 
         public int _ProgramaId { get; set; }
 
@@ -30,18 +31,22 @@ namespace GUI_Tesoreria.Gestion
             if (_ProgramaId == 3)
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS INMOBILIARIA   :::";
+                btnLiquidaciónCementerio.Visible = false;
             }
             else if (_ProgramaId == 1)
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS ALTA DIRECCION   :::";
+                btnLiquidaciónCementerio.Visible = false;
             }
             else if (_ProgramaId == 4)
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS CEMENTERIO   :::";
+                btnLiquidaciónCementerio.Visible = true;
             }
             else if (_ProgramaId == 2)
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS ALBERGUES   :::";
+                btnLiquidaciónCementerio.Visible = false;
             }
 
             dtpFechaDesde.Value = new DateTime(DateTime.Now.Year,DateTime.Now.Month,1);
@@ -227,6 +232,26 @@ namespace GUI_Tesoreria.Gestion
                 {
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void btnLiquidaciónCementerio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dgvListadoLiquidaciones.CurrentRow == null) return;
+
+                int index = 0;
+                index = this.dgvListadoLiquidaciones.CurrentRow.Index;
+
+                frmReporteIngresoDiario _frmReporteProceso = new frmReporteIngresoDiario();
+                _frmReporteProceso.tipo_reporte = "M";
+                _frmReporteProceso._Desde = Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[5].Value);
+                _frmReporteProceso._Hasta = Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[5].Value);
+                _frmReporteProceso.ShowDialog();
+            }
+            catch (Exception)
+            {
             }
         }
     }
