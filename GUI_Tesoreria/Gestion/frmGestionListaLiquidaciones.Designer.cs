@@ -79,6 +79,7 @@
             this.btnLiquidaciónCementerio = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.chkcuentas = new System.Windows.Forms.CheckBox();
+            this.btnListadoContable = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoLiquidaciones)).BeginInit();
             this.GroupBox3.SuspendLayout();
@@ -535,6 +536,7 @@
             // GBOpciones
             // 
             this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
+            this.GBOpciones.Controls.Add(this.btnListadoContable);
             this.GBOpciones.Controls.Add(this.btnReciboIngreso);
             this.GBOpciones.Controls.Add(this.btnRegresar);
             this.GBOpciones.Controls.Add(this.btnLiquidaciónCementerio);
@@ -589,7 +591,7 @@
             this.btnLiquidaciónCementerio.ForeColor = System.Drawing.Color.Navy;
             this.btnLiquidaciónCementerio.Image = global::GUI_Tesoreria.Properties.Resources.guardarDoc;
             this.btnLiquidaciónCementerio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLiquidaciónCementerio.Location = new System.Drawing.Point(8, 99);
+            this.btnLiquidaciónCementerio.Location = new System.Drawing.Point(8, 236);
             this.btnLiquidaciónCementerio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLiquidaciónCementerio.Name = "btnLiquidaciónCementerio";
             this.btnLiquidaciónCementerio.Size = new System.Drawing.Size(90, 78);
@@ -627,6 +629,22 @@
             this.chkcuentas.Text = "Códigos Contable - PLAN CONTABLE EMPRESARIAL";
             this.chkcuentas.UseVisualStyleBackColor = true;
             this.chkcuentas.Visible = false;
+            // 
+            // btnListadoContable
+            // 
+            this.btnListadoContable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListadoContable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListadoContable.ForeColor = System.Drawing.Color.Navy;
+            this.btnListadoContable.Image = global::GUI_Tesoreria.Properties.Resources.reporte;
+            this.btnListadoContable.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnListadoContable.Location = new System.Drawing.Point(8, 99);
+            this.btnListadoContable.Name = "btnListadoContable";
+            this.btnListadoContable.Size = new System.Drawing.Size(90, 73);
+            this.btnListadoContable.TabIndex = 150;
+            this.btnListadoContable.Text = "&Listado Contable Tesoreria";
+            this.btnListadoContable.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnListadoContable.UseVisualStyleBackColor = false;
+            this.btnListadoContable.Click += new System.EventHandler(this.btnListadoContable_Click);
             // 
             // frmGestionListaLiquidaciones
             // 
@@ -706,5 +724,6 @@
         internal System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.Button btnReciboIngreso;
         private System.Windows.Forms.CheckBox chkcuentas;
+        private System.Windows.Forms.Button btnListadoContable;
     }
 }
