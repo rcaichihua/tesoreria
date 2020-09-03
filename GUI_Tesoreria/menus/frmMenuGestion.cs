@@ -57,5 +57,50 @@ namespace GUI_Tesoreria.menus
         {
             btnInmobiliaria_Click(sender, e);
         }
+
+        private void btnAltaDireccion_Click(object sender, EventArgs e)
+        {
+            this.Height = 435;
+            this.Hide();
+
+            Gestion.frmGestionListaLiquidaciones m = new Gestion.frmGestionListaLiquidaciones();
+            m._ProgramaId = 1;//Alta direccion
+            m.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            btnAltaDireccion_Click(sender, e);
+        }
+
+        private void btnCementerio_Click(object sender, EventArgs e)
+        {
+            this.Height = 435;
+            this.Hide();
+
+            Gestion.frmGestionListaLiquidaciones m = new Gestion.frmGestionListaLiquidaciones();
+            m._ProgramaId = 4;//Cementerio
+            m.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            btnCementerio_Click(sender, e);
+        }
+
+        private void btnCanevaro_Click(object sender, EventArgs e)
+        {
+            this.Height = 435;
+            this.Hide();
+
+            Gestion.frmGestionListaLiquidaciones m = new Gestion.frmGestionListaLiquidaciones();
+            m._ProgramaId = 2;//albergues
+            m.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            btnCanevaro_Click(sender, e);
+        }
     }
 }

@@ -31,6 +31,20 @@ namespace GUI_Tesoreria.Gestion
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS INMOBILIARIA   :::";
             }
+            else if (_ProgramaId == 1)
+            {
+                LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS ALTA DIRECCION   :::";
+            }
+            else if (_ProgramaId == 4)
+            {
+                LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS CEMENTERIO   :::";
+            }
+            else if (_ProgramaId == 2)
+            {
+                LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS ALBERGUES   :::";
+            }
+
+            dtpFechaDesde.Value = new DateTime(DateTime.Now.Year,DateTime.Now.Month,1);
         }
 
         private void btnReciboIngreso_Click(object sender, EventArgs e)
@@ -44,10 +58,10 @@ namespace GUI_Tesoreria.Gestion
 
             if (_ProgramaId == 3 || _ProgramaId == 4)
             {
-                if (Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[3].Value.ToString()).Year > 2019)
+                if (Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[4].Value.ToString()).Year > 2019)
                 {                 //dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", cboPrograma.SelectedValue,dtpFechaLiqDesde.Value.ToString("yyyyMMdd"));
                     dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso_cuenta_empresarial_", _ProgramaId,
-                        Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[3].Value.ToString()).ToString("yyyyMMdd"));
+                        Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[4].Value.ToString()).ToString("yyyyMMdd"));
 
                     if (dtsRecibo.Tables[0].Rows.Count == 0)
                     {
@@ -59,7 +73,7 @@ namespace GUI_Tesoreria.Gestion
                 else
                 {
                     dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", _ProgramaId,
-                    Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[3].Value.ToString()).ToString("yyyyMMdd"));
+                    Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[4].Value.ToString()).ToString("yyyyMMdd"));
 
                     if (dtsRecibo.Tables[0].Rows.Count == 0)
                     {
@@ -93,10 +107,10 @@ namespace GUI_Tesoreria.Gestion
             }
             else
             {
-                if (Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[3].Value.ToString()).Year > 2019)
+                if (Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[4].Value.ToString()).Year > 2019)
                 {
                     dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso_cuenta_empresarial_", _ProgramaId,
-                    Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[3].Value.ToString()).ToString("yyyyMMdd"));
+                    Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[4].Value.ToString()).ToString("yyyyMMdd"));
 
                     if (dtsRecibo.Tables[0].Rows.Count == 0)
                     {
@@ -108,7 +122,7 @@ namespace GUI_Tesoreria.Gestion
                 else
                 {
                     dtsRecibo = cn.TraerDataset("usp_recibo_ingreso_teso", _ProgramaId,
-                    Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[3].Value.ToString()).ToString("yyyyMMdd"));
+                    Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[4].Value.ToString()).ToString("yyyyMMdd"));
 
                     if (dtsRecibo.Tables[0].Rows.Count == 0)
                     {
@@ -154,7 +168,7 @@ namespace GUI_Tesoreria.Gestion
         {
             DataTable dtResultado = new DataTable();
             dtResultado = cn.TraerDataset("USP_BUSCA_LIQUIDACION", null,
-                TxtNombre.Text.Trim() == "" ? null : TxtNombre.Text.Trim(),
+                (_ProgramaId ==3 ? "INMOBILIARIA" : (_ProgramaId == 1 ? "DIRECCI" : (_ProgramaId == 4 ? "CEMENTERIO" : (_ProgramaId == 2 ? "ALBERGUE" : (null))))),
                 dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"),
                 RBActivos.Checked ? "1" : (RBAnulados.Checked ? "0" : null)).Tables[0];
 
@@ -181,6 +195,37 @@ namespace GUI_Tesoreria.Gestion
                     txtTotalIngresoCaja.Text = TotalCaja.ToString("###,###,##0.00");
                     txtTotalDeposito.Text = TotalDeposito.ToString("###,###,##0.00");
                     lblNroLiquidaciones.Text = dgvListadoLiquidaciones.Rows.Count.ToString();
+                }
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            varGlobales.verificaCierre = true;
+            this.Close();
+            menus.frmMenuGestion menu = new menus.frmMenuGestion();
+            menu.Show();
+        }
+
+        private void frmGestionListaLiquidaciones_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (varGlobales.verificaCierre == false)
+            {
+                string message = "Esta seguro que desea salir del Sistema?";
+                string caption = "...:::Salir del Sistema:::...";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                result = DevComponents.DotNetBar.MessageBoxEx.Show(message, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Dispose(true);
+                    Application.Exit();
+                }
+                else if (varGlobales.verificaCierre == false)
+                {
+                    e.Cancel = true;
                 }
             }
         }

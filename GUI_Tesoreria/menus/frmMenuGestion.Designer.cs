@@ -177,7 +177,7 @@
             this.btnAltaDireccion.TabIndex = 1;
             this.btnAltaDireccion.Text = "&Alta Dirección";
             this.btnAltaDireccion.UseVisualStyleBackColor = true;
-            this.btnAltaDireccion.Click += new System.EventHandler(this.button2_Click);
+            this.btnAltaDireccion.Click += new System.EventHandler(this.btnAltaDireccion_Click);
             // 
             // pictureBox1
             // 
@@ -189,6 +189,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // splitContainer3
             // 
@@ -220,6 +221,7 @@
             this.btnCementerio.TabIndex = 2;
             this.btnCementerio.Text = "&Cementerio";
             this.btnCementerio.UseVisualStyleBackColor = true;
+            this.btnCementerio.Click += new System.EventHandler(this.btnCementerio_Click);
             // 
             // pictureBox3
             // 
@@ -232,6 +234,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // btnCanevaro
             // 
@@ -244,6 +247,7 @@
             this.btnCanevaro.TabIndex = 2;
             this.btnCanevaro.Text = "&Canevaro";
             this.btnCanevaro.UseVisualStyleBackColor = true;
+            this.btnCanevaro.Click += new System.EventHandler(this.btnCanevaro_Click);
             // 
             // pictureBox4
             // 
@@ -255,6 +259,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // frmMenuGestion
             // 
