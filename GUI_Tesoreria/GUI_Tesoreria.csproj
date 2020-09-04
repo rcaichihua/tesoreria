@@ -71,10 +71,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7AF57FE5E4D99C8D15D9825BB1789EFCA25F924D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FB9A106B194CAC189803EAFECE9E704E4B831247</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>GUI_Tesoreria_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>GUI_Tesoreria_4_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -2062,6 +2062,7 @@
     </EmbeddedResource>
     <None Include="GUI_Tesoreria_1_TemporaryKey.pfx" />
     <None Include="GUI_Tesoreria_2_TemporaryKey.pfx" />
+    <None Include="GUI_Tesoreria_4_TemporaryKey.pfx" />
     <None Include="GUI_Tesoreria_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
