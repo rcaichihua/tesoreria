@@ -16,7 +16,7 @@ namespace GUI_Tesoreria.DGAI
         private static frmGeneraLiquidacionDGAI frmInstance = null;
         private CNegocio cn = new CNegocio();
         private string nro_liquidacion = "0000000";
-        private decimal saldoRecibo = 0.00m;
+        //private decimal saldoRecibo = 0.00m;
         DataTable dtBusqLiq;
         public static frmGeneraLiquidacionDGAI Instance()
         {

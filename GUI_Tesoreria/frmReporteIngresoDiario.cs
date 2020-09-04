@@ -51,7 +51,14 @@ namespace GUI_Tesoreria
                 }
                 else
                 {
-                    programaId = 4;
+                    if (tipo_reporte == "D")
+                    {
+                        programaId = 3;
+                    }
+                    else
+                    {
+                        programaId = 4;
+                    }
                     btnImprimir_Click(sender, e);
                 }
             }

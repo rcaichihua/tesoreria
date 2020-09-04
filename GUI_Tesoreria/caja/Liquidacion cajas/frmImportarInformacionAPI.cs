@@ -537,25 +537,25 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
         private void btnReporteIngresos_Click(object sender, EventArgs e)
         {
-                DataSet dtsReporteIngresos = new DataSet();
-                frmReporte winReport = new frmReporte();
+            //    DataSet dtsReporteIngresos = new DataSet();
+            //    frmReporte winReport = new frmReporte();
 
-            dtsReporteIngresos = cn.TraerDataset("USP_LLENA_LIQUIDACION_INMOBILIARIA2",
-                    dtpFechaCaja.Value.ToString("yyyyMMdd"));
+            //dtsReporteIngresos = cn.TraerDataset("USP_LLENA_LIQUIDACION_INMOBILIARIA2",
+            //        dtpFechaCaja.Value.ToString("yyyyMMdd"));
 
-                if (dtsReporteIngresos.Tables[0].Rows.Count <= 0)
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
-                          MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+            //    if (dtsReporteIngresos.Tables[0].Rows.Count <= 0)
+            //    {
+            //        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
+            //              MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        return;
+            //    }
 
-                Reportes.rptReporteDeIngresos rptRecibo = new Reportes.rptReporteDeIngresos();
-                rptRecibo.SetDataSource(dtsReporteIngresos.Tables[0]);
-                winReport.crvReportes.ReportSource = rptRecibo;
+            //    Reportes.rptReporteDeIngresos rptRecibo = new Reportes.rptReporteDeIngresos();
+            //    rptRecibo.SetDataSource(dtsReporteIngresos.Tables[0]);
+            //    winReport.crvReportes.ReportSource = rptRecibo;
 
-                winReport.WindowState = FormWindowState.Maximized;
-                winReport.ShowDialog();
+            //    winReport.WindowState = FormWindowState.Maximized;
+            //    winReport.ShowDialog();
         }
     }
 }

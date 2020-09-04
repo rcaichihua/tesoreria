@@ -13,7 +13,7 @@ namespace GUI_Tesoreria.DGAI
     public partial class frmIngresoVouchersDGAI : DevComponents.DotNetBar.Metro.MetroForm//Form
     {
         CNegocio cn = new CNegocio();
-        DataTable dtResu;
+        //DataTable dtResu;
         public int idCajeroIngresoVouchers { get; set; }
         public int idCobradorDGAI { get; set; }
         public DateTime fechaLiquidacionDGAI { get; set; } //aqui se maneja dos fecha -> fecha liqDGAI(cuanod lo ingresaron en DGAI) y fecha liq(AD) cuanod lo registraron en Alta Direccion

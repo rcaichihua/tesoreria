@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BL_Tesoreria;
+using GUI_Tesoreria.Gerencia;
 
 namespace GUI_Tesoreria.Gestion
 {
@@ -17,7 +18,7 @@ namespace GUI_Tesoreria.Gestion
             InitializeComponent();
         }
         CNegocio cn = new CNegocio();
-        DataTable dtDatosReporte;
+        //DataTable dtDatosReporte;
 
         public int _ProgramaId { get; set; }
 
@@ -32,21 +33,33 @@ namespace GUI_Tesoreria.Gestion
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS INMOBILIARIA   :::";
                 btnLiquidaciónCementerio.Visible = false;
+                btnLiquidacionInmobiliaria.Visible = true;
+                btnIngresoCanevaro.Visible = false;
+                btnIngresosCaja.Visible = false;
             }
             else if (_ProgramaId == 1)
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS ALTA DIRECCION   :::";
                 btnLiquidaciónCementerio.Visible = false;
+                btnLiquidacionInmobiliaria.Visible = false;
+                btnIngresoCanevaro.Visible = false;
+                btnIngresosCaja.Visible = true;
             }
             else if (_ProgramaId == 4)
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS CEMENTERIO   :::";
                 btnLiquidaciónCementerio.Visible = true;
+                btnLiquidacionInmobiliaria.Visible = false;
+                btnIngresoCanevaro.Visible = false;
+                btnIngresosCaja.Visible = true;
             }
             else if (_ProgramaId == 2)
             {
                 LblTitulo.Text = ":::   LIQUIDACIONES EMITIDAS ALBERGUES   :::";
                 btnLiquidaciónCementerio.Visible = false;
+                btnLiquidacionInmobiliaria.Visible = false;
+                btnIngresoCanevaro.Visible = true;
+                btnIngresosCaja.Visible = true;
             }
 
             dtpFechaDesde.Value = new DateTime(DateTime.Now.Year,DateTime.Now.Month,1);
@@ -233,6 +246,11 @@ namespace GUI_Tesoreria.Gestion
                     e.Cancel = true;
                 }
             }
+            else
+            {
+                Dispose(true);
+                Application.Exit();
+            }
         }
 
         private void btnLiquidaciónCementerio_Click(object sender, EventArgs e)
@@ -257,106 +275,151 @@ namespace GUI_Tesoreria.Gestion
 
         private void btnListadoContable_Click(object sender, EventArgs e)
         {
-                DataSet dtsListadoContable = new DataSet();
-                DataSet dtsListadoContableNegativo = new DataSet();
-                frmReporte winReport = new frmReporte();
+            if (this.dgvListadoLiquidaciones.CurrentRow == null) return;
 
-                if (dtpFechaDesde.Value.Year < 2020)
+            DataSet dtsListadoContable = new DataSet();
+            DataSet dtsListadoContableNegativo = new DataSet();
+            frmReporte winReport = new frmReporte();
+
+            if (dtpFechaDesde.Value.Year < 2020)
+            {
+                dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable_new",
+                    dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"), _ProgramaId);
+
+                if (dtsListadoContable.Tables[0].Rows.Count > 0)
                 {
-                    dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable_new",
-                        dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"), _ProgramaId);
-
-                    if (dtsListadoContable.Tables[0].Rows.Count > 0)
+                    if (chkcuentas.Checked)
                     {
-                        if (chkcuentas.Checked)
+                        DataTable dtCuenta;
+
+                        foreach (DataRow item in dtsListadoContable.Tables[0].Rows)
                         {
-                            DataTable dtCuenta;
+                            dtCuenta = new DataTable();
 
-                            foreach (DataRow item in dtsListadoContable.Tables[0].Rows)
+                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
+
+                            if (dtCuenta.Rows.Count <= 0)
                             {
-                                dtCuenta = new DataTable();
-
-                                dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
-
-                                if (dtCuenta.Rows.Count <= 0)
-                                {
-                                    item[2] = "S/CTA";
-                                    item[3] = "S/NOMBRE";
-                                }
-                                else
-                                {
-                                    item[2] = dtCuenta.Rows[0][0];
-                                    item[3] = dtCuenta.Rows[0][1];
-                                }
+                                item[2] = "S/CTA";
+                                item[3] = "S/NOMBRE";
+                            }
+                            else
+                            {
+                                item[2] = dtCuenta.Rows[0][0];
+                                item[3] = dtCuenta.Rows[0][1];
                             }
                         }
                     }
+                }
 
-                    dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
-                        dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"), _ProgramaId);
+                dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
+                    dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"), _ProgramaId);
 
-                    if (dtsListadoContableNegativo.Tables[0].Rows.Count > 0)
+                if (dtsListadoContableNegativo.Tables[0].Rows.Count > 0)
+                {
+                    if (chkcuentas.Checked)
                     {
-                        if (chkcuentas.Checked)
+                        DataTable dtCuenta;
+
+                        foreach (DataRow item in dtsListadoContableNegativo.Tables[0].Rows)
                         {
-                            DataTable dtCuenta;
+                            dtCuenta = new DataTable();
 
-                            foreach (DataRow item in dtsListadoContableNegativo.Tables[0].Rows)
+                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
+
+                            if (dtCuenta.Rows.Count <= 0)
                             {
-                                dtCuenta = new DataTable();
-
-                                dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
-
-                                if (dtCuenta.Rows.Count <= 0)
-                                {
-                                    item[2] = "S/CTA";
-                                    item[3] = "S/NOMBRE";
-                                }
-                                else
-                                {
-                                    item[2] = dtCuenta.Rows[0][0];
-                                    item[3] = dtCuenta.Rows[0][1];
-                                }
+                                item[2] = "S/CTA";
+                                item[3] = "S/NOMBRE";
+                            }
+                            else
+                            {
+                                item[2] = dtCuenta.Rows[0][0];
+                                item[3] = dtCuenta.Rows[0][1];
                             }
                         }
                     }
-
-                    if (dtsListadoContable.Tables[0].Rows.Count <= 0)
-                    {
-                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
                 }
-                else
+
+                if (dtsListadoContable.Tables[0].Rows.Count <= 0)
                 {
-                    dtsListadoContable = cn.TraerDataset("usp_listado_contable_cuenta_empresarial_rango"
-                        , _ProgramaId, dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"));
-
-                    dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
-                        dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"), _ProgramaId);
-
-
-                    dtsListadoContableNegativo.AcceptChanges();
-
-                    foreach (DataRow row in dtsListadoContableNegativo.Tables[0].Rows)
-                    {
-                        // If this row is offensive then
-                        row.Delete();
-                    }
+                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
+            }
+            else
+            {
+                dtsListadoContable = cn.TraerDataset("usp_listado_contable_cuenta_empresarial_rango"
+                    , _ProgramaId, dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"));
 
-                caja.Reportes.rptListadoContable rptRecibo = new caja.Reportes.rptListadoContable();
+                dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
+                    dtpFechaDesde.Value.ToString("yyyyMMdd"), dtpFechaHasta.Value.ToString("yyyyMMdd"), _ProgramaId);
 
-                rptRecibo.Subreports[0].Database.Tables[0].SetDataSource(dtsListadoContableNegativo.Tables[0]);
 
-                rptRecibo.SetDataSource(dtsListadoContable.Tables[0]);
-                rptRecibo.SetParameterValue("@desde", dtpFechaDesde.Value.ToString("dd/MM/yyyy"));
-                rptRecibo.SetParameterValue("@hasta", dtpFechaHasta.Value.ToString("dd/MM/yyyy"));
-                winReport.crvReportes.ReportSource = rptRecibo;
+                dtsListadoContableNegativo.AcceptChanges();
 
-                winReport.WindowState = FormWindowState.Maximized;
-                winReport.ShowDialog();
+                foreach (DataRow row in dtsListadoContableNegativo.Tables[0].Rows)
+                {
+                    // If this row is offensive then
+                    row.Delete();
+                }
+            }
+
+            caja.Reportes.rptListadoContable rptRecibo = new caja.Reportes.rptListadoContable();
+
+            rptRecibo.Subreports[0].Database.Tables[0].SetDataSource(dtsListadoContableNegativo.Tables[0]);
+
+            rptRecibo.SetDataSource(dtsListadoContable.Tables[0]);
+            rptRecibo.SetParameterValue("@desde", dtpFechaDesde.Value.ToString("dd/MM/yyyy"));
+            rptRecibo.SetParameterValue("@hasta", dtpFechaHasta.Value.ToString("dd/MM/yyyy"));
+            winReport.crvReportes.ReportSource = rptRecibo;
+
+            winReport.WindowState = FormWindowState.Maximized;
+            winReport.ShowDialog();
+        }
+
+        private void btnIngresoCanevaro_Click(object sender, EventArgs e)
+        {
+            if (this.dgvListadoLiquidaciones.CurrentRow == null) return;
+
+            int index = 0;
+            index = this.dgvListadoLiquidaciones.CurrentRow.Index;
+
+            frmReporteIngresoDiario _frmReporteProceso = new frmReporteIngresoDiario();
+            _frmReporteProceso.tipo_reporte = "D";
+            _frmReporteProceso._Desde = Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[5].Value);
+            _frmReporteProceso._Hasta = Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[5].Value);
+            _frmReporteProceso.ShowDialog();
+        }
+
+        private void btnLiquidacionInmobiliaria_Click(object sender, EventArgs e)
+        {
+            if (this.dgvListadoLiquidaciones.CurrentRow == null) return;
+
+            int index = 0;
+            index = this.dgvListadoLiquidaciones.CurrentRow.Index;
+
+            DataSet dtListadoVouchers = new DataSet();
+            dtListadoVouchers = cn.TraerDataset("USP_LIQUIDACION", Convert.ToDateTime(this.dgvListadoLiquidaciones.Rows[index].Cells[4].Value.ToString()).ToString("yyyyMMdd"));
+
+            if (dtListadoVouchers.Tables[0].Rows.Count <= 0)
+            {
+                MessageBox.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            frmReporte win = new frmReporte();
+
+            win.dtR = dtListadoVouchers.Tables[0];
+            win.TipoReporteLiquidacion = "LI";
+            win.Show();
+        }
+
+        private void btnIngresosCaja_Click(object sender, EventArgs e)
+        {
+            frmListadoRecibosPrograma _frmListadoRecibosPrograma = new frmListadoRecibosPrograma();
+            _frmListadoRecibosPrograma._ProgramaId = _ProgramaId;
+            _frmListadoRecibosPrograma.Show();
         }
     }
 }

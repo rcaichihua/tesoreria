@@ -42,7 +42,7 @@ namespace GUI_Tesoreria.caja
                     this.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 
             }

@@ -193,8 +193,8 @@ namespace GUI_Tesoreria.Contabilidad.Diario
             try
             {
                 int dato;
-                int I;
-                I = 0;
+                //int I;
+                //I = 0;
                 try
                 {
                     if (!int.TryParse(txtMes.Text, out dato))

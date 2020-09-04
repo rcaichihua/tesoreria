@@ -51,7 +51,7 @@ namespace GUI_Tesoreria.canevaro
                 cboAFiscal.DisplayMember = "intAFDescripcionAnno";
                 cboAFiscal.ValueMember = "intAFID";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

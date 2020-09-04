@@ -22,6 +22,7 @@ namespace GUI_Tesoreria.Gerencia
         private static frmListadoRecibosPrograma frmInstance = null;
         public Boolean autoziza = false;
         public int cajeroIngreso = 0;
+        public int _ProgramaId { get; set; }
 
         public frmListadoRecibosPrograma()
         {
@@ -39,38 +40,11 @@ namespace GUI_Tesoreria.Gerencia
 
         private void frmListadoRecibosPrograma_Load(object sender, EventArgs e)
         {
-            var dt = new DataTable();
-            try
-            {
-                dt = cn.TraerDataset("usp_select_programa").Tables[0];
-                cboPrograma.DataSource = dt;
-                cboPrograma.DisplayMember = "varProDescripcion";
-                cboPrograma.ValueMember = "intProId";
-            }
-            catch (Exception ex)
-            {
-                DevComponents.DotNetBar.MessageBoxEx.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
-
-            if (cajeroIngreso == 0)
-            {
-                cajeroIngreso = VariablesMetodosEstaticos.idcajausuario;
-            }
-
             CargarGrilla();
-
         }
 
         private void CargarGrilla()
         {
-            if (cboPrograma.SelectedIndex == 0)
-            {
-                DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un programa.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cboPrograma.Focus();
-                return;
-            }
-
             try
             {
                 dsDatos = new DataSet();
@@ -85,7 +59,7 @@ namespace GUI_Tesoreria.Gerencia
                     , txtNrorecibo.Text.Trim() == string.Empty ? 0 : Convert.ToInt32(txtNrorecibo.Text.Trim())
                     , 0, 0, idCliente, TxtNombre.Text.Trim(), "", "",
                     Convert.ToDateTime(dtpFechaDesde.Value.ToShortDateString()), 0, 0, 0, ""
-                    , cboPrograma.SelectedValue, estado, Convert.ToDateTime(dtpFechaHasta.Value.ToShortDateString()));
+                    , _ProgramaId, estado, Convert.ToDateTime(dtpFechaHasta.Value.ToShortDateString()));
 
                 dgvRecibos.DataSource = dsDatos.Tables[0];
 
@@ -320,10 +294,9 @@ namespace GUI_Tesoreria.Gerencia
         {
             dsDatos = new DataSet();
 
-            if (cboPrograma.SelectedIndex == 0)
+            if (_ProgramaId == 0)
             {
                 DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un programa.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cboPrograma.Focus();
                 return dsDatos;
             }
 
@@ -340,7 +313,7 @@ namespace GUI_Tesoreria.Gerencia
                     , txtNrorecibo.Text.Trim() == string.Empty ? 0 : Convert.ToInt32(txtNrorecibo.Text.Trim())
                     , 0, 0, idCliente, TxtNombre.Text.Trim(), "", "",
                     Convert.ToDateTime(dtpFechaDesde.Value.ToShortDateString()), 0, 0, 0, ""
-                    , cboPrograma.SelectedValue, estado, Convert.ToDateTime(dtpFechaHasta.Value.ToShortDateString()));
+                    , _ProgramaId, estado, Convert.ToDateTime(dtpFechaHasta.Value.ToShortDateString()));
 
                 return dsDatos;
 

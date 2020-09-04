@@ -155,8 +155,8 @@ namespace GUI_Tesoreria.Deposito
             try
             {
                 int dato;
-                int I;
-                I = 0;
+                //int I;
+                //I = 0;
                 try
                 {
                     if (!int.TryParse(txtMes.Text, out dato))

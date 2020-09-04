@@ -30,8 +30,8 @@ namespace GUI_Tesoreria.caja.Contable
             frmReporte winReport = new frmReporte();
 
             int dato;
-            int I;
-            I = 0;
+            //int I;
+            //I = 0;
 
             if (!int.TryParse(txtMes.Text, out dato))
             {

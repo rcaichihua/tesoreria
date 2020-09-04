@@ -193,6 +193,16 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cane_32_32 {
+            get {
+                object obj = ResourceManager.GetObject("cane_32_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap canevaro1 {
             get {
                 object obj = ResourceManager.GetObject("canevaro1", resourceCulture);
@@ -206,6 +216,16 @@ namespace GUI_Tesoreria.Properties {
         internal static System.Drawing.Bitmap cementerio1 {
             get {
                 object obj = ResourceManager.GetObject("cementerio1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cemetery_32_32 {
+            get {
+                object obj = ResourceManager.GetObject("cemetery_32_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -436,6 +456,26 @@ namespace GUI_Tesoreria.Properties {
         internal static System.Drawing.Bitmap ingresar {
             get {
                 object obj = ResourceManager.GetObject("ingresar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ingreso_caja_32_32 {
+            get {
+                object obj = ResourceManager.GetObject("Ingreso_caja_32_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inmo_32_32 {
+            get {
+                object obj = ResourceManager.GetObject("inmo_32_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

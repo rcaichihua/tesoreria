@@ -105,8 +105,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                 return;
             }
 
-            int id_Liq;
-            id_Liq = 0;
+            //int id_Liq;
+            //id_Liq = 0;
             DataTable dt = new DataTable();
 
             dt = cn.TraerDataset("usp_ListaLiquidaciones", dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue).Tables[0];

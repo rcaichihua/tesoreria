@@ -78,10 +78,10 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
 
                 if (!Validar()) return;
                 String fechaRec = "";
-                String concat,concat1;
+                String concat/*,concat1*/;
 
                 concat = ", FCH_EMI=" + FechaLiquidacion + "";
-                concat1 = ",FCH_EMI";
+                //concat1 = ",FCH_EMI";
 
                 fechaRec = FechaLiquidacion;
 

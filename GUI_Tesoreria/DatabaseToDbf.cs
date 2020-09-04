@@ -72,7 +72,7 @@ namespace GUI_Tesoreria
                 // Se ha llegado hasta aquí, se supone que está todo bien
                 retVal = true;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 retVal = false;
             }

@@ -143,8 +143,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         private void btnExportar_Click(object sender, EventArgs e)
         {
             string idTipo;
-            string PROG_COD;
-            PROG_COD = "";
+            //string PROG_COD;
+            //PROG_COD = "";
             idTipo = "";
 
             if (Convert.ToInt16(_Fuente)<1 && Convert.ToInt16(_Fuente) >4)

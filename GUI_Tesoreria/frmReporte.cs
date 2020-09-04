@@ -78,6 +78,16 @@ namespace GUI_Tesoreria
                 rpt.SetDataSource(dtR);
                 crvReportes.ReportSource = rpt;
             }
+            else if (TipoReporteLiquidacion == "LI")
+            {
+                caja.Reportes.rptLiquidacion rptRecibo = new caja.Reportes.rptLiquidacion();
+
+                rptRecibo.Subreports[0].Database.Tables[0].SetDataSource(dtR);
+
+                rptRecibo.SetDataSource(dtR);
+
+                crvReportes.ReportSource = rptRecibo;
+            }
         }
     }
 }

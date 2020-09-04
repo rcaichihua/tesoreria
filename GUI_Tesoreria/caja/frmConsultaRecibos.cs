@@ -20,6 +20,7 @@ namespace GUI_Tesoreria.caja
         private static frmConsultaRecibos frmInstance = null;
         public Boolean autoziza = false;
         public int cajeroIngreso { get; set; }
+        public int _ProgramaId { get; set; }
         //public int cajeroIngreso = 0;
 
         public frmConsultaRecibos()

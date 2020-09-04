@@ -71,10 +71,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7AF57FE5E4D99C8D15D9825BB1789EFCA25F924D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D83AFD6EA17872453E7FF9BE4B48AE6FB5E3BEF1</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>GUI_Tesoreria_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>GUI_Tesoreria_3_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -516,6 +516,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptIngresosInmobiliaria.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="caja\Reportes\rptLiquidacion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLiquidacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="caja\Reportes\rptLiquidacionxDiaCementerio.cs">
@@ -1598,6 +1604,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIngresosInmobiliaria.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\Reportes\rptLiquidacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLiquidacion.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\Reportes\rptLiquidacionxDiaCementerio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLiquidacionxDiaCementerio.cs</LastGenOutput>
@@ -2071,6 +2081,7 @@
     </EmbeddedResource>
     <None Include="GUI_Tesoreria_1_TemporaryKey.pfx" />
     <None Include="GUI_Tesoreria_2_TemporaryKey.pfx" />
+    <None Include="GUI_Tesoreria_3_TemporaryKey.pfx" />
     <None Include="GUI_Tesoreria_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -2116,6 +2127,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\Ingreso_caja_32_32.png" />
+    <None Include="Resources\inmo_32_32.png" />
+    <None Include="Resources\cane_32_32.png" />
+    <None Include="Resources\cemetery_32_32.png" />
     <None Include="Resources\back_32_32.png" />
     <None Include="Resources\cancelar_32_32.png" />
     <None Include="Resources\ingresar.png" />

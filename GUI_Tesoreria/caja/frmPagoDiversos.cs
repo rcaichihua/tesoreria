@@ -1068,7 +1068,7 @@ namespace GUI_Tesoreria.caja
                             MessageBoxIcon.Warning);
                     }
 	        }
-	        catch (Exception ex)
+	        catch (Exception)
 	            {
 
 	            }
