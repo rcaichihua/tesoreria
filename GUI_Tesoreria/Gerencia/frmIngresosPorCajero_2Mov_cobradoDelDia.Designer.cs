@@ -44,10 +44,7 @@
             this.cboPrograma = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.GBSolicitante = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtFechaSistemaHastaC = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtFechaSistemaDesdeC = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
@@ -74,6 +71,9 @@
             this.IGVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTALING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NROPAGOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,9 +95,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.BtnBuscar);
-            this.splitContainer1.Panel1.Controls.Add(this.cboPrograma);
-            this.splitContainer1.Panel1.Controls.Add(this.label8);
             this.splitContainer1.Panel1.Controls.Add(this.GBSolicitante);
             // 
             // splitContainer1.Panel2
@@ -107,19 +104,19 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.GBDatosRubros);
             this.splitContainer1.Size = new System.Drawing.Size(873, 523);
-            this.splitContainer1.SplitterDistance = 106;
+            this.splitContainer1.SplitterDistance = 74;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 27;
             // 
             // BtnBuscar
             // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
             this.BtnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("BtnBuscar.Image")));
             this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBuscar.Location = new System.Drawing.Point(328, 63);
+            this.BtnBuscar.Location = new System.Drawing.Point(335, 12);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(66, 36);
             this.BtnBuscar.TabIndex = 122;
@@ -133,29 +130,33 @@
             this.cboPrograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPrograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPrograma.FormattingEnabled = true;
-            this.cboPrograma.Location = new System.Drawing.Point(88, 70);
+            this.cboPrograma.Location = new System.Drawing.Point(407, 17);
             this.cboPrograma.Name = "cboPrograma";
-            this.cboPrograma.Size = new System.Drawing.Size(234, 23);
+            this.cboPrograma.Size = new System.Drawing.Size(40, 23);
             this.cboPrograma.TabIndex = 121;
+            this.cboPrograma.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label8.Location = new System.Drawing.Point(12, 73);
+            this.label8.Location = new System.Drawing.Point(379, 59);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 15);
             this.label8.TabIndex = 120;
             this.label8.Text = "Programa";
+            this.label8.Visible = false;
             // 
             // GBSolicitante
             // 
             this.GBSolicitante.BackColor = System.Drawing.Color.Transparent;
+            this.GBSolicitante.Controls.Add(this.cboPrograma);
+            this.GBSolicitante.Controls.Add(this.BtnBuscar);
             this.GBSolicitante.Controls.Add(this.label6);
-            this.GBSolicitante.Controls.Add(this.txtFechaSistemaHastaC);
+            this.GBSolicitante.Controls.Add(this.dtpHasta);
+            this.GBSolicitante.Controls.Add(this.dtpFechaDesde);
             this.GBSolicitante.Controls.Add(this.label7);
-            this.GBSolicitante.Controls.Add(this.txtFechaSistemaDesdeC);
             this.GBSolicitante.Controls.Add(this.Label2);
             this.GBSolicitante.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBSolicitante.ForeColor = System.Drawing.Color.Maroon;
@@ -165,30 +166,6 @@
             this.GBSolicitante.TabIndex = 3;
             this.GBSolicitante.TabStop = false;
             this.GBSolicitante.Text = "Filtro por fecha";
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(322, 13);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(440, 38);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "INGRESOS POR CAJA \r\nBENEFICENCIA DE LIMA";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtFechaSistemaHastaC
-            // 
-            this.txtFechaSistemaHastaC.BackColor = System.Drawing.Color.White;
-            this.txtFechaSistemaHastaC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFechaSistemaHastaC.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaSistemaHastaC.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtFechaSistemaHastaC.Location = new System.Drawing.Point(229, 20);
-            this.txtFechaSistemaHastaC.Name = "txtFechaSistemaHastaC";
-            this.txtFechaSistemaHastaC.ReadOnly = true;
-            this.txtFechaSistemaHastaC.Size = new System.Drawing.Size(91, 21);
-            this.txtFechaSistemaHastaC.TabIndex = 26;
-            this.txtFechaSistemaHastaC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -200,19 +177,6 @@
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 25;
             this.label7.Text = "Hasta :";
-            // 
-            // txtFechaSistemaDesdeC
-            // 
-            this.txtFechaSistemaDesdeC.BackColor = System.Drawing.Color.White;
-            this.txtFechaSistemaDesdeC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFechaSistemaDesdeC.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaSistemaDesdeC.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtFechaSistemaDesdeC.Location = new System.Drawing.Point(70, 20);
-            this.txtFechaSistemaDesdeC.Name = "txtFechaSistemaDesdeC";
-            this.txtFechaSistemaDesdeC.ReadOnly = true;
-            this.txtFechaSistemaDesdeC.Size = new System.Drawing.Size(91, 21);
-            this.txtFechaSistemaDesdeC.TabIndex = 26;
-            this.txtFechaSistemaDesdeC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Label2
             // 
@@ -227,6 +191,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtImporte);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtTotal);
@@ -237,7 +202,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtIgv);
             this.groupBox2.Controls.Add(this.LblTotal);
-            this.groupBox2.Location = new System.Drawing.Point(212, 321);
+            this.groupBox2.Location = new System.Drawing.Point(209, 354);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -367,24 +332,26 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Navy;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalir.Location = new System.Drawing.Point(789, 328);
+            this.btnSalir.Location = new System.Drawing.Point(795, 377);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(72, 58);
             this.btnSalir.TabIndex = 96;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.BtnImprimir);
-            this.groupBox1.Location = new System.Drawing.Point(9, 321);
+            this.groupBox1.Location = new System.Drawing.Point(6, 354);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -409,6 +376,7 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnImprimir
@@ -436,7 +404,7 @@
             this.GBDatosRubros.Controls.Add(this.dgvIngresosxCajero);
             this.GBDatosRubros.Location = new System.Drawing.Point(3, 3);
             this.GBDatosRubros.Name = "GBDatosRubros";
-            this.GBDatosRubros.Size = new System.Drawing.Size(867, 312);
+            this.GBDatosRubros.Size = new System.Drawing.Size(867, 346);
             this.GBDatosRubros.TabIndex = 115;
             this.GBDatosRubros.TabStop = false;
             // 
@@ -480,7 +448,7 @@
             this.dgvIngresosxCajero.RowHeadersVisible = false;
             this.dgvIngresosxCajero.RowHeadersWidth = 10;
             this.dgvIngresosxCajero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIngresosxCajero.Size = new System.Drawing.Size(861, 293);
+            this.dgvIngresosxCajero.Size = new System.Drawing.Size(861, 327);
             this.dgvIngresosxCajero.TabIndex = 4;
             // 
             // CODIGO
@@ -576,6 +544,35 @@
             this.NROPAGOS.ReadOnly = true;
             this.NROPAGOS.Width = 70;
             // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(228, 19);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(102, 21);
+            this.dtpHasta.TabIndex = 121;
+            // 
+            // dtpFechaDesde
+            // 
+            this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaDesde.Location = new System.Drawing.Point(74, 19);
+            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFechaDesde.Name = "dtpFechaDesde";
+            this.dtpFechaDesde.Size = new System.Drawing.Size(102, 21);
+            this.dtpFechaDesde.TabIndex = 122;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(408, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(444, 38);
+            this.label6.TabIndex = 123;
+            this.label6.Text = "INGRESOS DIARIO INMOBILIARIA POR CAJERO";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmIngresosPorCajero_2Mov_cobradoDelDia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,12 +582,13 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmIngresosPorCajero_2Mov_cobradoDelDia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "...:::Movimientos cobrados del día:::...";
             this.Load += new System.EventHandler(this.frmIngresosPorCajero_2Mov_cobradoDelDia_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -609,7 +607,6 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         internal System.Windows.Forms.GroupBox GBSolicitante;
-        internal System.Windows.Forms.TextBox txtFechaSistemaDesdeC;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.GroupBox GBDatosRubros;
         internal System.Windows.Forms.DataGridView dgvIngresosxCajero;
@@ -628,8 +625,6 @@
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label6;
-        internal System.Windows.Forms.TextBox txtFechaSistemaHastaC;
         internal System.Windows.Forms.Label label7;
         internal System.Windows.Forms.ComboBox cboPrograma;
         internal System.Windows.Forms.Label label8;
@@ -642,5 +637,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IGVING;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTALING;
         private System.Windows.Forms.DataGridViewTextBoxColumn NROPAGOS;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.DateTimePicker dtpFechaDesde;
+        private System.Windows.Forms.Label label6;
     }
 }

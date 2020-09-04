@@ -70,8 +70,8 @@ namespace GUI_Tesoreria.Gerencia
                 if (this.Text == "...:::Ingreso por Programa diario:::...")//ingreso por cajero
                 {
                     Gerencia.frmIngresosPorCajero_2Mov_cobradoDelDia winResIngCajero = new Gerencia.frmIngresosPorCajero_2Mov_cobradoDelDia();
-                    winResIngCajero.FechaReporteDesde = dtpFechaDesde.Value.ToShortDateString();
-                    winResIngCajero.FechaReporteHasta = dtpHasta.Value.ToShortDateString();
+                    winResIngCajero.FechaReporteDesde = dtpFechaDesde.Value;
+                    winResIngCajero.FechaReporteHasta = dtpHasta.Value;
                     winResIngCajero.ShowDialog();
                 }
             }

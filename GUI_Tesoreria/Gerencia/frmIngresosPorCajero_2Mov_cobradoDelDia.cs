@@ -13,13 +13,13 @@ namespace GUI_Tesoreria.Gerencia
     public partial class frmIngresosPorCajero_2Mov_cobradoDelDia : DevComponents.DotNetBar.Metro.MetroForm//Form
     {
         CNegocio cn = new CNegocio();
-        public string FechaReporteDesde { get; set; }
-        public string FechaReporteHasta { get; set; }
+        public DateTime FechaReporteDesde { get; set; }
+        public DateTime FechaReporteHasta { get; set; }
         public bool porDia { get; set; }
         DataTable dtIngCajeros;
         DataTable dtIngCajerosSGI;
         DataTable dtUnion;
-
+        public int _ProgramaId { get; set; }
 
         public frmIngresosPorCajero_2Mov_cobradoDelDia()
         {
@@ -34,8 +34,9 @@ namespace GUI_Tesoreria.Gerencia
         private void frmIngresosPorCajero_2Mov_cobradoDelDia_Load(object sender, EventArgs e)
         {
             cargarPrograma();
-            txtFechaSistemaDesdeC.Text = FechaReporteDesde;
-            txtFechaSistemaHastaC.Text = FechaReporteHasta;
+            cboPrograma.SelectedValue = _ProgramaId;
+            dtpFechaDesde.Value = FechaReporteDesde;
+            dtpHasta.Value = FechaReporteHasta;
             BtnBuscar_Click(sender, e);
             sumarColumnas();
         }
@@ -63,11 +64,11 @@ namespace GUI_Tesoreria.Gerencia
             
             if (cboPrograma.Text != cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
-                dtIngCajeros = cn.TraerDataset("usp_select_ingreso_x_cajero", Convert.ToDateTime(txtFechaSistemaDesdeC.Text), Convert.ToDateTime(txtFechaSistemaHastaC.Text), porDia ? "S" : "N", cboPrograma.SelectedValue).Tables[0];
+                dtIngCajeros = cn.TraerDataset("usp_select_ingreso_x_cajero", dtpFechaDesde.Value, dtpHasta.Value, porDia ? "S" : "N", cboPrograma.SelectedValue).Tables[0];
             }
             if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
-                dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_POR_CAJERO_REPORTE",Convert.ToDateTime(txtFechaSistemaDesdeC.Text),Convert.ToDateTime(txtFechaSistemaHastaC.Text)).Tables[0];
+                dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_POR_CAJERO_REPORTE",dtpFechaDesde.Value,dtpHasta.Value).Tables[0];
             }
             if (dtIngCajeros.Rows.Count == 0)
             {
@@ -165,7 +166,7 @@ namespace GUI_Tesoreria.Gerencia
             //
             if (cboPrograma.Text != cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
-                dtIngCajeros = cn.TraerDataset("usp_select_cantidad_pagos_por_tipo", Convert.ToDateTime(txtFechaSistemaDesdeC.Text), Convert.ToDateTime(txtFechaSistemaHastaC.Text),cboPrograma.SelectedValue).Tables[0];
+                dtIngCajeros = cn.TraerDataset("usp_select_cantidad_pagos_por_tipo", dtpFechaDesde.Value,dtpHasta.Value,cboPrograma.SelectedValue).Tables[0];
             }
             if (cboPrograma.SelectedIndex == 0 || cboPrograma.Text == cn.EjecutarSqlDTS("(SELECT varProDescripcion FROM programa WHERE intProId=3)").Tables[0].Rows[0][0].ToString())
             {
@@ -185,8 +186,8 @@ namespace GUI_Tesoreria.Gerencia
                                                         "INNER join sisinmueble.dbo.USUARIO usuario11_ on comprobant0_.IDUSUARIO=usuario11_.IDUSUARIO  " +
                                                         "left outer join sisinmueble.dbo.COMPROBANTEPAGO comprobant12_ on comprobant0_.IDNOTADEBITO=comprobant12_.IDCOMPROBANTE  " +
                                                         "where 1=1 and " +
-                                                        " CONVERT(DATETIME,CONVERT(VARCHAR(10),comprobant0_.FECHACANCELACION,103)) >='" + txtFechaSistemaDesdeC.Text +
-                                                        "' and CONVERT(DATETIME,CONVERT(VARCHAR(10),comprobant0_.FECHACANCELACION,103)) <= '" + txtFechaSistemaHastaC.Text + "'  " +
+                                                        " CONVERT(DATETIME,CONVERT(VARCHAR(10),comprobant0_.FECHACANCELACION,103)) >='" + dtpFechaDesde.Value.ToString("dd/MM/yyyy") +
+                                                        "' and CONVERT(DATETIME,CONVERT(VARCHAR(10),comprobant0_.FECHACANCELACION,103)) <= '" + dtpHasta.Value.ToString("dd/MM/yyyy") + "'  " +
                                                         "and tipodocu8_.IDTIPODOCU<>'00' and 1=1 AND comprobant0_.SIANULADO=0 " +
                                                         "group by comprobant0_.IDTIPOPAGO,tipopago10_.TIP_PAGO").Tables[0];
             }
@@ -211,8 +212,8 @@ namespace GUI_Tesoreria.Gerencia
             rptIngresos.Subreports[0].Database.Tables[0].SetDataSource(dtUnion);
 
             rptIngresos.SetDataSource(dgvIngresosxCajero.DataSource);
-            rptIngresos.SetParameterValue("@FechaDesde", txtFechaSistemaDesdeC.Text.ToString());
-            rptIngresos.SetParameterValue("@FechaHasta", txtFechaSistemaHastaC.Text.ToString());
+            rptIngresos.SetParameterValue("@FechaDesde", dtpFechaDesde.Value.ToString("dd/MM/yyyy"));
+            rptIngresos.SetParameterValue("@FechaHasta", dtpHasta.Value.ToString("dd/MM/yyyy"));
             win.crvReportes.ReportSource = rptIngresos;
 
             win.WindowState = FormWindowState.Maximized;

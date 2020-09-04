@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresosPorPrograma_2Mov_cobradoDelDia));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,12 +38,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresosPorPrograma_2Mov_cobradoDelDia));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.GBSolicitante = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtFechaSistemaHastaC = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtFechaSistemaDesdeC = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
@@ -71,6 +69,9 @@
             this.IGVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTALING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NROPAGOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.BtnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -108,10 +109,11 @@
             // GBSolicitante
             // 
             this.GBSolicitante.BackColor = System.Drawing.Color.Transparent;
+            this.GBSolicitante.Controls.Add(this.BtnBuscar);
+            this.GBSolicitante.Controls.Add(this.dtpHasta);
             this.GBSolicitante.Controls.Add(this.label6);
-            this.GBSolicitante.Controls.Add(this.txtFechaSistemaHastaC);
+            this.GBSolicitante.Controls.Add(this.dtpFechaDesde);
             this.GBSolicitante.Controls.Add(this.label7);
-            this.GBSolicitante.Controls.Add(this.txtFechaSistemaDesdeC);
             this.GBSolicitante.Controls.Add(this.Label2);
             this.GBSolicitante.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBSolicitante.ForeColor = System.Drawing.Color.Maroon;
@@ -124,27 +126,14 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(322, 13);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(402, 13);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(440, 38);
+            this.label6.Size = new System.Drawing.Size(444, 38);
             this.label6.TabIndex = 27;
-            this.label6.Text = "INGRESOS POR PROGRAMA \r\nBENEFICENCIA DE LIMA";
+            this.label6.Text = "INGRESOS DIARIO INMOBILIARIA POR CAJERO";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtFechaSistemaHastaC
-            // 
-            this.txtFechaSistemaHastaC.BackColor = System.Drawing.Color.White;
-            this.txtFechaSistemaHastaC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFechaSistemaHastaC.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaSistemaHastaC.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtFechaSistemaHastaC.Location = new System.Drawing.Point(229, 20);
-            this.txtFechaSistemaHastaC.Name = "txtFechaSistemaHastaC";
-            this.txtFechaSistemaHastaC.ReadOnly = true;
-            this.txtFechaSistemaHastaC.Size = new System.Drawing.Size(91, 21);
-            this.txtFechaSistemaHastaC.TabIndex = 26;
-            this.txtFechaSistemaHastaC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -156,19 +145,6 @@
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 25;
             this.label7.Text = "Hasta :";
-            // 
-            // txtFechaSistemaDesdeC
-            // 
-            this.txtFechaSistemaDesdeC.BackColor = System.Drawing.Color.White;
-            this.txtFechaSistemaDesdeC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFechaSistemaDesdeC.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaSistemaDesdeC.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtFechaSistemaDesdeC.Location = new System.Drawing.Point(70, 20);
-            this.txtFechaSistemaDesdeC.Name = "txtFechaSistemaDesdeC";
-            this.txtFechaSistemaDesdeC.ReadOnly = true;
-            this.txtFechaSistemaDesdeC.Size = new System.Drawing.Size(91, 21);
-            this.txtFechaSistemaDesdeC.TabIndex = 26;
-            this.txtFechaSistemaDesdeC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Label2
             // 
@@ -365,6 +341,8 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnImprimir
             // 
@@ -530,6 +508,36 @@
             this.NROPAGOS.ReadOnly = true;
             this.NROPAGOS.Width = 70;
             // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(228, 20);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(102, 21);
+            this.dtpHasta.TabIndex = 119;
+            // 
+            // dtpFechaDesde
+            // 
+            this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaDesde.Location = new System.Drawing.Point(74, 20);
+            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFechaDesde.Name = "dtpFechaDesde";
+            this.dtpFechaDesde.Size = new System.Drawing.Size(102, 21);
+            this.dtpFechaDesde.TabIndex = 120;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Navy;
+            this.BtnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("BtnBuscar.Image")));
+            this.BtnBuscar.Location = new System.Drawing.Point(335, 18);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(62, 23);
+            this.BtnBuscar.TabIndex = 121;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            // 
             // frmIngresosPorPrograma_2Mov_cobradoDelDia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,7 +549,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmIngresosPorPrograma_2Mov_cobradoDelDia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "...:::Ingresos por programa:::...";
+            this.Text = "...:::Ingresos:::...";
             this.Load += new System.EventHandler(this.frmIngresosPorCajero_2Mov_cobradoDelDia_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -562,7 +570,6 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         internal System.Windows.Forms.GroupBox GBSolicitante;
-        internal System.Windows.Forms.TextBox txtFechaSistemaDesdeC;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.GroupBox GBDatosRubros;
         internal System.Windows.Forms.DataGridView dgvIngresosxCajero;
@@ -582,7 +589,6 @@
         internal System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
-        internal System.Windows.Forms.TextBox txtFechaSistemaHastaC;
         internal System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRECAJERO;
@@ -592,5 +598,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IGVING;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTALING;
         private System.Windows.Forms.DataGridViewTextBoxColumn NROPAGOS;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.DateTimePicker dtpFechaDesde;
+        internal System.Windows.Forms.Button BtnBuscar;
     }
 }

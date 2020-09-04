@@ -14,8 +14,9 @@ namespace GUI_Tesoreria.Gerencia
     {
         CNegocio cn = new CNegocio();
         public DataTable datosIngCajero;
-        public string FechaReporteDesde { get; set; }
-        public string FechaReporteHasta { get; set; }
+        public DateTime FechaReporteDesde { get; set; }
+        public DateTime FechaReporteHasta { get; set; }
+        public int _ProgramaId { get; set; }
 
         public frmIngresosPorPrograma_2Mov_cobradoDelDia()
         {
@@ -30,8 +31,8 @@ namespace GUI_Tesoreria.Gerencia
         private void frmIngresosPorCajero_2Mov_cobradoDelDia_Load(object sender, EventArgs e)
         {
             dgvIngresosxCajero.DataSource = datosIngCajero;
-            txtFechaSistemaDesdeC.Text = FechaReporteDesde;
-            txtFechaSistemaHastaC.Text = FechaReporteHasta;
+            dtpFechaDesde.Value = FechaReporteDesde;
+            dtpHasta.Value = FechaReporteHasta;
             sumarColumnas();
         }
         private void sumarColumnas()
@@ -70,17 +71,22 @@ namespace GUI_Tesoreria.Gerencia
             Gerencia.Reportes.rptIngresosPorCajero rptIngresos = new Gerencia.Reportes.rptIngresosPorCajero();
 
             dtDatosReporte = new DataTable();
-            dtDatosReporte = cn.TraerDataset("usp_select_cantidad_pagos_por_tipo",Convert.ToDateTime(txtFechaSistemaDesdeC.Text)
-                ,Convert.ToDateTime(txtFechaSistemaHastaC.Text),0).Tables[0];
+            dtDatosReporte = cn.TraerDataset("usp_select_cantidad_pagos_por_tipo",dtpFechaDesde.Value
+                ,dtpHasta.Value,0).Tables[0];
             rptIngresos.Subreports[0].Database.Tables[0].SetDataSource(dtDatosReporte);
 
             rptIngresos.SetDataSource(datosIngCajero);
-            rptIngresos.SetParameterValue("@FechaDesde", txtFechaSistemaDesdeC.Text.ToString());
-            rptIngresos.SetParameterValue("@FechaHasta", txtFechaSistemaHastaC.Text.ToString());
+            rptIngresos.SetParameterValue("@FechaDesde", dtpFechaDesde.Value.ToString("dd/MM/yyyy"));
+            rptIngresos.SetParameterValue("@FechaHasta", dtpHasta.Value.ToString("dd/MM/yyyy"));
             win.crvReportes.ReportSource = rptIngresos;
 
             win.WindowState = FormWindowState.Maximized;
             win.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

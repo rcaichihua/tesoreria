@@ -35,7 +35,8 @@ namespace GUI_Tesoreria.Gestion
                 btnLiquidaciónCementerio.Visible = false;
                 btnLiquidacionInmobiliaria.Visible = true;
                 btnIngresoCanevaro.Visible = false;
-                btnIngresosCaja.Visible = false;
+                btnIngresosCaja.Visible = true;
+                btnIngresosCaja.Text = "Ing. X Cajero";
             }
             else if (_ProgramaId == 1)
             {
@@ -412,11 +413,89 @@ namespace GUI_Tesoreria.Gestion
 
         private void btnIngresosCaja_Click(object sender, EventArgs e)
         {
-            frmListadoRecibosPrograma _frmListadoRecibosPrograma = new frmListadoRecibosPrograma();
-            _frmListadoRecibosPrograma._Desde = dtpFechaDesde.Value;
-            _frmListadoRecibosPrograma._Hasta = dtpFechaHasta.Value;
-            _frmListadoRecibosPrograma._ProgramaId = _ProgramaId;
-            _frmListadoRecibosPrograma.Show();
+            if (_ProgramaId != 3)
+            {
+                frmListadoRecibosPrograma _frmListadoRecibosPrograma = new frmListadoRecibosPrograma();
+                _frmListadoRecibosPrograma._Desde = dtpFechaDesde.Value;
+                _frmListadoRecibosPrograma._Hasta = dtpFechaHasta.Value;
+                _frmListadoRecibosPrograma._ProgramaId = _ProgramaId;
+                _frmListadoRecibosPrograma.Show();
+            }
+            else
+            {
+                DataTable dtIngCajeros = new DataTable();
+                DataTable dtIngCajerosSGI = new DataTable();
+                DataTable dtUnion = new DataTable();
+
+                if (this.Text != "...:::Ingreso por Programa:::...")//ingreso por cajero
+                {
+                    Gerencia.frmIngresosPorCajero_2Mov_cobradoDelDia winResIngCajero = new Gerencia.frmIngresosPorCajero_2Mov_cobradoDelDia();
+                    winResIngCajero.FechaReporteDesde = dtpFechaDesde.Value;
+                    winResIngCajero.FechaReporteHasta = dtpFechaHasta.Value;
+                    winResIngCajero._ProgramaId = 3;
+                    winResIngCajero.ShowDialog();
+                }
+                else
+                {
+                    dtIngCajeros = cn.TraerDataset("usp_select_ingreso_x_programa", dtpFechaDesde.Value.ToShortDateString(), dtpFechaHasta.Value.ToShortDateString()).Tables[0];
+
+                    dtIngCajerosSGI = cn.TraerDataset("USP_INMOBILIARIA_INGRESO_TOTAL", dtpFechaDesde.Value.ToShortDateString(), dtpFechaHasta.Value.ToShortDateString()).Tables[0];
+
+                    if (dtIngCajeros.Rows.Count == 0 && dtIngCajerosSGI.Rows.Count != 0)
+                    {
+                        dtUnion = Union(dtIngCajerosSGI, dtIngCajeros);
+                    }
+                    if (dtIngCajeros.Rows.Count != 0 && dtIngCajerosSGI.Rows.Count == 0)
+                    {
+                        dtUnion = Union(dtIngCajeros, dtIngCajerosSGI);
+                    }
+                    if (dtIngCajeros.Rows.Count != 0 && dtIngCajerosSGI.Rows.Count != 0)
+                    {
+                        dtUnion = Union(dtIngCajeros, dtIngCajerosSGI);
+                    }
+                    if (dtUnion.Rows.Count <= 0)
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    Gerencia.frmIngresosPorPrograma_2Mov_cobradoDelDia winResIngCajero = new Gerencia.frmIngresosPorPrograma_2Mov_cobradoDelDia();
+                    winResIngCajero.datosIngCajero = Union(dtIngCajeros, dtIngCajerosSGI);
+                    winResIngCajero.FechaReporteDesde = dtpFechaDesde.Value;
+                    winResIngCajero.FechaReporteHasta = dtpFechaHasta.Value;
+                    winResIngCajero._ProgramaId = 3;
+                    winResIngCajero.ShowDialog();
+                }
+            }
+        }
+
+        public static DataTable Union(DataTable First, DataTable Second)
+        {
+
+            DataTable table = new DataTable("Union");
+
+            DataColumn[] newcolumns = new DataColumn[First.Columns.Count];
+
+            for (int i = 0; i < First.Columns.Count; i++)
+            {
+                newcolumns[i] = new DataColumn(
+                First.Columns[i].ColumnName, First.Columns[i].DataType);
+            }
+
+            table.Columns.AddRange(newcolumns);
+            table.BeginLoadData();
+
+            foreach (DataRow row in First.Rows)
+            {
+                table.LoadDataRow(row.ItemArray, true);
+            }
+
+            foreach (DataRow row in Second.Rows)
+            {
+                table.LoadDataRow(row.ItemArray, true);
+            }
+
+            table.EndLoadData();
+            return table;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
