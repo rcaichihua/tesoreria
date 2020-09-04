@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuGestion));
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,6 +41,7 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.btnCementerio = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Salir = new System.Windows.Forms.Button();
             this.btnCanevaro = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -204,6 +206,7 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.Salir);
             this.splitContainer3.Panel2.Controls.Add(this.btnCanevaro);
             this.splitContainer3.Panel2.Controls.Add(this.pictureBox4);
             this.splitContainer3.Size = new System.Drawing.Size(650, 232);
@@ -236,6 +239,21 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
+            // Salir
+            // 
+            this.Salir.BackColor = System.Drawing.Color.White;
+            this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Salir.Image = ((System.Drawing.Image)(resources.GetObject("Salir.Image")));
+            this.Salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Salir.Location = new System.Drawing.Point(260, 184);
+            this.Salir.Name = "Salir";
+            this.Salir.Size = new System.Drawing.Size(62, 45);
+            this.Salir.TabIndex = 6;
+            this.Salir.Text = "&Salir";
+            this.Salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Salir.UseVisualStyleBackColor = false;
+            this.Salir.Click += new System.EventHandler(this.Salir_Click);
+            // 
             // btnCanevaro
             // 
             this.btnCanevaro.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -245,7 +263,7 @@
             this.btnCanevaro.Name = "btnCanevaro";
             this.btnCanevaro.Size = new System.Drawing.Size(191, 23);
             this.btnCanevaro.TabIndex = 2;
-            this.btnCanevaro.Text = "&Canevaro";
+            this.btnCanevaro.Text = "&Albergues";
             this.btnCanevaro.UseVisualStyleBackColor = true;
             this.btnCanevaro.Click += new System.EventHandler(this.btnCanevaro_Click);
             // 
@@ -309,5 +327,6 @@
         private System.Windows.Forms.Button btnAltaDireccion;
         private System.Windows.Forms.Button btnCementerio;
         private System.Windows.Forms.Button btnCanevaro;
+        internal System.Windows.Forms.Button Salir;
     }
 }

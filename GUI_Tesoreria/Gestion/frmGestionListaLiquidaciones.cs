@@ -246,11 +246,6 @@ namespace GUI_Tesoreria.Gestion
                     e.Cancel = true;
                 }
             }
-            else
-            {
-                Dispose(true);
-                Application.Exit();
-            }
         }
 
         private void btnLiquidaciónCementerio_Click(object sender, EventArgs e)
@@ -418,8 +413,16 @@ namespace GUI_Tesoreria.Gestion
         private void btnIngresosCaja_Click(object sender, EventArgs e)
         {
             frmListadoRecibosPrograma _frmListadoRecibosPrograma = new frmListadoRecibosPrograma();
+            _frmListadoRecibosPrograma._Desde = dtpFechaDesde.Value;
+            _frmListadoRecibosPrograma._Hasta = dtpFechaHasta.Value;
             _frmListadoRecibosPrograma._ProgramaId = _ProgramaId;
             _frmListadoRecibosPrograma.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Dispose(true);
+            Application.Exit();
         }
     }
 }

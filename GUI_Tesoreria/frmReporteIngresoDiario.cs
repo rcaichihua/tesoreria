@@ -53,7 +53,7 @@ namespace GUI_Tesoreria
                 {
                     if (tipo_reporte == "D")
                     {
-                        programaId = 3;
+                        programaId = 2;
                     }
                     else
                     {

@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoRecibosPrograma));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
             this.lblNroRecibos = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,19 +47,6 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvRecibos = new System.Windows.Forms.DataGridView();
-            this.Id_ReciboCabecera = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serieRecibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero_Recibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cod_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Igv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GBEstadoConvenio = new System.Windows.Forms.GroupBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
@@ -82,6 +69,19 @@
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
+            this.Id_ReciboCabecera = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serieRecibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero_Recibo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Igv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecibos)).BeginInit();
@@ -220,14 +220,14 @@
             this.dgvRecibos.AllowUserToResizeColumns = false;
             this.dgvRecibos.AllowUserToResizeRows = false;
             this.dgvRecibos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecibos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRecibos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecibos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_ReciboCabecera,
@@ -243,14 +243,14 @@
             this.subTotal,
             this.Igv,
             this.Total});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRecibos.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRecibos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecibos.Location = new System.Drawing.Point(3, 16);
             this.dgvRecibos.Name = "dgvRecibos";
@@ -262,124 +262,6 @@
             this.dgvRecibos.TabIndex = 83;
             this.dgvRecibos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRecibos_CellFormatting);
             // 
-            // Id_ReciboCabecera
-            // 
-            this.Id_ReciboCabecera.DataPropertyName = "Id_ReciboCabecera";
-            this.Id_ReciboCabecera.HeaderText = "Id_ReciboCabecera";
-            this.Id_ReciboCabecera.Name = "Id_ReciboCabecera";
-            this.Id_ReciboCabecera.ReadOnly = true;
-            this.Id_ReciboCabecera.Visible = false;
-            this.Id_ReciboCabecera.Width = 103;
-            // 
-            // Id_Movimiento
-            // 
-            this.Id_Movimiento.DataPropertyName = "Id_Movimiento";
-            this.Id_Movimiento.HeaderText = "Id_Movimiento";
-            this.Id_Movimiento.Name = "Id_Movimiento";
-            this.Id_Movimiento.ReadOnly = true;
-            this.Id_Movimiento.Visible = false;
-            this.Id_Movimiento.Width = 101;
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 85;
-            // 
-            // concepto
-            // 
-            this.concepto.DataPropertyName = "concepto";
-            this.concepto.HeaderText = "concepto";
-            this.concepto.Name = "concepto";
-            this.concepto.ReadOnly = true;
-            this.concepto.Visible = false;
-            // 
-            // nombre_documento
-            // 
-            this.nombre_documento.DataPropertyName = "nombre_documento";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.nombre_documento.DefaultCellStyle = dataGridViewCellStyle23;
-            this.nombre_documento.HeaderText = "Documento";
-            this.nombre_documento.Name = "nombre_documento";
-            this.nombre_documento.ReadOnly = true;
-            this.nombre_documento.Width = 90;
-            // 
-            // serieRecibo
-            // 
-            this.serieRecibo.DataPropertyName = "serieRecibo";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.serieRecibo.DefaultCellStyle = dataGridViewCellStyle24;
-            this.serieRecibo.HeaderText = "Serie";
-            this.serieRecibo.Name = "serieRecibo";
-            this.serieRecibo.ReadOnly = true;
-            this.serieRecibo.Width = 70;
-            // 
-            // Numero_Recibo
-            // 
-            this.Numero_Recibo.DataPropertyName = "Numero_Recibo";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Numero_Recibo.DefaultCellStyle = dataGridViewCellStyle25;
-            this.Numero_Recibo.HeaderText = "Nº Recibo";
-            this.Numero_Recibo.Name = "Numero_Recibo";
-            this.Numero_Recibo.ReadOnly = true;
-            this.Numero_Recibo.Width = 85;
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "Fecha";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Fecha.DefaultCellStyle = dataGridViewCellStyle26;
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 85;
-            // 
-            // cod_cliente
-            // 
-            this.cod_cliente.DataPropertyName = "Dni_Ruc_ReciboCabecera";
-            this.cod_cliente.HeaderText = "Dni/RUC";
-            this.cod_cliente.Name = "cod_cliente";
-            this.cod_cliente.ReadOnly = true;
-            this.cod_cliente.Width = 112;
-            // 
-            // NombreCompleto_Cliente
-            // 
-            this.NombreCompleto_Cliente.DataPropertyName = "NombreCompleto_Cliente";
-            this.NombreCompleto_Cliente.HeaderText = "Cliente";
-            this.NombreCompleto_Cliente.Name = "NombreCompleto_Cliente";
-            this.NombreCompleto_Cliente.ReadOnly = true;
-            this.NombreCompleto_Cliente.Width = 220;
-            // 
-            // subTotal
-            // 
-            this.subTotal.DataPropertyName = "subTotal";
-            this.subTotal.HeaderText = "Sub Total";
-            this.subTotal.Name = "subTotal";
-            this.subTotal.ReadOnly = true;
-            this.subTotal.Width = 85;
-            // 
-            // Igv
-            // 
-            this.Igv.DataPropertyName = "igv";
-            this.Igv.HeaderText = "Igv";
-            this.Igv.Name = "Igv";
-            this.Igv.ReadOnly = true;
-            this.Igv.Width = 80;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "Total";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle27.Format = "N2";
-            dataGridViewCellStyle27.NullValue = "0";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle27;
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 85;
-            // 
             // GBEstadoConvenio
             // 
             this.GBEstadoConvenio.BackColor = System.Drawing.Color.Transparent;
@@ -388,12 +270,13 @@
             this.GBEstadoConvenio.Controls.Add(this.RBTodos);
             this.GBEstadoConvenio.Controls.Add(this.RBAnulados);
             this.GBEstadoConvenio.Controls.Add(this.RBActivos);
+            this.GBEstadoConvenio.Enabled = false;
             this.GBEstadoConvenio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBEstadoConvenio.ForeColor = System.Drawing.Color.Maroon;
-            this.GBEstadoConvenio.Location = new System.Drawing.Point(837, 45);
+            this.GBEstadoConvenio.Location = new System.Drawing.Point(812, 45);
             this.GBEstadoConvenio.MaximumSize = new System.Drawing.Size(303, 61);
             this.GBEstadoConvenio.Name = "GBEstadoConvenio";
-            this.GBEstadoConvenio.Size = new System.Drawing.Size(186, 61);
+            this.GBEstadoConvenio.Size = new System.Drawing.Size(198, 61);
             this.GBEstadoConvenio.TabIndex = 116;
             this.GBEstadoConvenio.TabStop = false;
             this.GBEstadoConvenio.Text = "Estado de Recibos";
@@ -420,14 +303,12 @@
             // RBTodos
             // 
             this.RBTodos.AutoSize = true;
-            this.RBTodos.Checked = true;
             this.RBTodos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RBTodos.ForeColor = System.Drawing.Color.Navy;
             this.RBTodos.Location = new System.Drawing.Point(120, 16);
             this.RBTodos.Name = "RBTodos";
             this.RBTodos.Size = new System.Drawing.Size(59, 17);
             this.RBTodos.TabIndex = 1;
-            this.RBTodos.TabStop = true;
             this.RBTodos.Text = "Todos";
             this.RBTodos.UseVisualStyleBackColor = true;
             this.RBTodos.CheckedChanged += new System.EventHandler(this.RBTodos_CheckedChanged);
@@ -448,12 +329,14 @@
             // RBActivos
             // 
             this.RBActivos.AutoSize = true;
+            this.RBActivos.Checked = true;
             this.RBActivos.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RBActivos.ForeColor = System.Drawing.Color.Navy;
             this.RBActivos.Location = new System.Drawing.Point(6, 16);
             this.RBActivos.Name = "RBActivos";
             this.RBActivos.Size = new System.Drawing.Size(67, 17);
             this.RBActivos.TabIndex = 4;
+            this.RBActivos.TabStop = true;
             this.RBActivos.Text = "Activos";
             this.RBActivos.UseVisualStyleBackColor = true;
             this.RBActivos.CheckedChanged += new System.EventHandler(this.RBActivos_CheckedChanged);
@@ -587,7 +470,7 @@
             this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBOpciones.Location = new System.Drawing.Point(942, 107);
             this.GBOpciones.Name = "GBOpciones";
-            this.GBOpciones.Size = new System.Drawing.Size(81, 399);
+            this.GBOpciones.Size = new System.Drawing.Size(68, 399);
             this.GBOpciones.TabIndex = 117;
             this.GBOpciones.TabStop = false;
             // 
@@ -598,7 +481,7 @@
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnExportar.Image = global::GUI_Tesoreria.Properties.Resources.generar;
-            this.btnExportar.Location = new System.Drawing.Point(6, 98);
+            this.btnExportar.Location = new System.Drawing.Point(4, 98);
             this.btnExportar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(59, 39);
@@ -616,7 +499,7 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
-            this.BtnSalir.Location = new System.Drawing.Point(6, 353);
+            this.BtnSalir.Location = new System.Drawing.Point(4, 353);
             this.BtnSalir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(59, 39);
@@ -634,7 +517,7 @@
             this.BtnImprimir.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnImprimir.ForeColor = System.Drawing.Color.Navy;
             this.BtnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("BtnImprimir.Image")));
-            this.BtnImprimir.Location = new System.Drawing.Point(6, 11);
+            this.BtnImprimir.Location = new System.Drawing.Point(4, 11);
             this.BtnImprimir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnImprimir.Name = "BtnImprimir";
             this.BtnImprimir.Size = new System.Drawing.Size(59, 81);
@@ -655,7 +538,7 @@
             this.LblTitulo.ForeColor = System.Drawing.Color.Navy;
             this.LblTitulo.Location = new System.Drawing.Point(12, 10);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(1011, 32);
+            this.LblTitulo.Size = new System.Drawing.Size(998, 32);
             this.LblTitulo.TabIndex = 115;
             this.LblTitulo.Text = ":::   RECIBOS DE CAJA EMITIDFOS  EMITIDOS  :::\r\n";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -677,11 +560,130 @@
             this.BtnBuscar.UseVisualStyleBackColor = false;
             this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
+            // Id_ReciboCabecera
+            // 
+            this.Id_ReciboCabecera.DataPropertyName = "Id_ReciboCabecera";
+            this.Id_ReciboCabecera.HeaderText = "Id_ReciboCabecera";
+            this.Id_ReciboCabecera.Name = "Id_ReciboCabecera";
+            this.Id_ReciboCabecera.ReadOnly = true;
+            this.Id_ReciboCabecera.Visible = false;
+            this.Id_ReciboCabecera.Width = 103;
+            // 
+            // Id_Movimiento
+            // 
+            this.Id_Movimiento.DataPropertyName = "Id_Movimiento";
+            this.Id_Movimiento.HeaderText = "Id_Movimiento";
+            this.Id_Movimiento.Name = "Id_Movimiento";
+            this.Id_Movimiento.ReadOnly = true;
+            this.Id_Movimiento.Visible = false;
+            this.Id_Movimiento.Width = 101;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Visible = false;
+            this.Estado.Width = 85;
+            // 
+            // concepto
+            // 
+            this.concepto.DataPropertyName = "concepto";
+            this.concepto.HeaderText = "concepto";
+            this.concepto.Name = "concepto";
+            this.concepto.ReadOnly = true;
+            this.concepto.Visible = false;
+            // 
+            // nombre_documento
+            // 
+            this.nombre_documento.DataPropertyName = "nombre_documento";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.nombre_documento.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nombre_documento.HeaderText = "Documento";
+            this.nombre_documento.Name = "nombre_documento";
+            this.nombre_documento.ReadOnly = true;
+            this.nombre_documento.Width = 90;
+            // 
+            // serieRecibo
+            // 
+            this.serieRecibo.DataPropertyName = "serieRecibo";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.serieRecibo.DefaultCellStyle = dataGridViewCellStyle3;
+            this.serieRecibo.HeaderText = "Serie";
+            this.serieRecibo.Name = "serieRecibo";
+            this.serieRecibo.ReadOnly = true;
+            this.serieRecibo.Width = 70;
+            // 
+            // Numero_Recibo
+            // 
+            this.Numero_Recibo.DataPropertyName = "Numero_Recibo";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Numero_Recibo.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Numero_Recibo.HeaderText = "Nº Recibo";
+            this.Numero_Recibo.Name = "Numero_Recibo";
+            this.Numero_Recibo.ReadOnly = true;
+            this.Numero_Recibo.Width = 85;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Fecha.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 85;
+            // 
+            // cod_cliente
+            // 
+            this.cod_cliente.DataPropertyName = "Dni_Ruc_ReciboCabecera";
+            this.cod_cliente.HeaderText = "Dni/RUC";
+            this.cod_cliente.Name = "cod_cliente";
+            this.cod_cliente.ReadOnly = true;
+            this.cod_cliente.Width = 90;
+            // 
+            // NombreCompleto_Cliente
+            // 
+            this.NombreCompleto_Cliente.DataPropertyName = "NombreCompleto_Cliente";
+            this.NombreCompleto_Cliente.HeaderText = "Cliente";
+            this.NombreCompleto_Cliente.Name = "NombreCompleto_Cliente";
+            this.NombreCompleto_Cliente.ReadOnly = true;
+            this.NombreCompleto_Cliente.Width = 220;
+            // 
+            // subTotal
+            // 
+            this.subTotal.DataPropertyName = "subTotal";
+            this.subTotal.HeaderText = "Sub Total";
+            this.subTotal.Name = "subTotal";
+            this.subTotal.ReadOnly = true;
+            this.subTotal.Width = 85;
+            // 
+            // Igv
+            // 
+            this.Igv.DataPropertyName = "igv";
+            this.Igv.HeaderText = "Igv";
+            this.Igv.Name = "Igv";
+            this.Igv.ReadOnly = true;
+            this.Igv.Width = 80;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 85;
+            // 
             // frmListadoRecibosPrograma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 511);
+            this.ClientSize = new System.Drawing.Size(1019, 511);
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.BtnBuscar);

@@ -54,9 +54,9 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(92, 75);
+            this.label1.Location = new System.Drawing.Point(56, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 60);
+            this.label1.Size = new System.Drawing.Size(244, 45);
             this.label1.TabIndex = 25;
             this.label1.Text = "Bienvenido(a)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,7 +64,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI_Tesoreria.Properties.Resources.jefe1;
-            this.pictureBox1.Location = new System.Drawing.Point(157, 138);
+            this.pictureBox1.Location = new System.Drawing.Point(118, 123);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(120, 118);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -73,9 +73,9 @@
             // 
             // txtPwd1
             // 
-            this.txtPwd1.Location = new System.Drawing.Point(138, 262);
+            this.txtPwd1.Location = new System.Drawing.Point(85, 262);
             this.txtPwd1.Name = "txtPwd1";
-            this.txtPwd1.Size = new System.Drawing.Size(156, 20);
+            this.txtPwd1.Size = new System.Drawing.Size(177, 20);
             this.txtPwd1.TabIndex = 27;
             this.txtPwd1.UseSystemPasswordChar = true;
             this.txtPwd1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPwd1_KeyPress);
@@ -86,7 +86,7 @@
             this.Label2.BackColor = System.Drawing.Color.Transparent;
             this.Label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.Color.White;
-            this.Label2.Location = new System.Drawing.Point(59, 264);
+            this.Label2.Location = new System.Drawing.Point(136, 244);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(73, 15);
             this.Label2.TabIndex = 28;
@@ -94,11 +94,14 @@
             // 
             // btnIngresar
             // 
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = global::GUI_Tesoreria.Properties.Resources.ingresar;
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(126, 288);
+            this.btnIngresar.Location = new System.Drawing.Point(74, 288);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(86, 49);
+            this.btnIngresar.Size = new System.Drawing.Size(96, 49);
             this.btnIngresar.TabIndex = 29;
             this.btnIngresar.Text = "&Ingresar";
             this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -107,11 +110,14 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = global::GUI_Tesoreria.Properties.Resources.cancelar_32_32;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(217, 288);
+            this.btnCancelar.Location = new System.Drawing.Point(176, 288);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(86, 49);
+            this.btnCancelar.Size = new System.Drawing.Size(96, 49);
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -123,7 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(219)))));
-            this.ClientSize = new System.Drawing.Size(428, 349);
+            this.ClientSize = new System.Drawing.Size(348, 349);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPwd1);

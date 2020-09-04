@@ -102,5 +102,11 @@ namespace GUI_Tesoreria.menus
         {
             btnCanevaro_Click(sender, e);
         }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            Dispose(true);
+            Application.Exit();
+        }
     }
 }

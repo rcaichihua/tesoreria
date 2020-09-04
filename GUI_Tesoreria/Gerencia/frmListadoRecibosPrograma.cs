@@ -23,6 +23,9 @@ namespace GUI_Tesoreria.Gerencia
         public Boolean autoziza = false;
         public int cajeroIngreso = 0;
         public int _ProgramaId { get; set; }
+        public DateTime _Desde { get; set; }
+        public DateTime _Hasta { get; set; }
+        public int _ProgramaId_ { get; set; }
 
         public frmListadoRecibosPrograma()
         {
@@ -40,7 +43,35 @@ namespace GUI_Tesoreria.Gerencia
 
         private void frmListadoRecibosPrograma_Load(object sender, EventArgs e)
         {
+            AnularAutocompletadoColumnas();
+
+            dtpFechaDesde.Value = _Desde;
+            dtpFechaHasta.Value = _Hasta;
+
+            if (_ProgramaId == 3)
+            {
+                LblTitulo.Text = ":::   RECIBOS DE CAJA EMITIDOS INMOBILIARIA :::";
+            }
+            else if (_ProgramaId == 1)
+            {
+                LblTitulo.Text = ":::   RECIBOS DE CAJA EMITIDOS ALTA DIRECCION  :::";
+            }
+            else if (_ProgramaId == 4)
+            {
+                LblTitulo.Text = ":::   RECIBOS DE CAJA EMITIDOS CEMENTERIO  :::";
+            }
+            else if (_ProgramaId == 2)
+            {
+                LblTitulo.Text = ":::   RECIBOS DE CAJA EMITIDFOS ALBERGUES  :::";
+            }
             CargarGrilla();
+        }
+
+        private void AnularAutocompletadoColumnas()
+        {
+            this.dgvRecibos.AutoGenerateColumns = false;
+            this.dgvRecibos.AutoGenerateColumns = false;
+            this.dgvRecibos.AutoGenerateColumns = false;
         }
 
         private void CargarGrilla()

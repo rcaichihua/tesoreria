@@ -323,6 +323,16 @@ namespace GUI_Tesoreria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit_32_32 {
+            get {
+                object obj = ResourceManager.GetObject("exit_32_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exit_32px {
             get {
                 object obj = ResourceManager.GetObject("exit_32px", resourceCulture);
@@ -387,6 +397,16 @@ namespace GUI_Tesoreria.Properties {
             get {
                 object obj = ResourceManager.GetObject("generarliquidacion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon gestionIngresos {
+            get {
+                object obj = ResourceManager.GetObject("gestionIngresos", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

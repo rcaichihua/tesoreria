@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.1.8\Sistemas\SIGEIN\</PublishUrl>
+    <PublishUrl>\\192.168.1.8\Sistemas\GESTIONING\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,12 +25,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\192.168.1.8\Sistemas\SIGEIN\</UpdateUrl>
-    <ProductName>Sistema de Gestion de Ingresos</ProductName>
+    <UpdateUrl>\\192.168.1.8\Sistemas\GESTIONING\</UpdateUrl>
+    <ProductName>Sistema de Ingresos</ProductName>
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>85</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -84,7 +84,7 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icons8_Workflow.ico</ApplicationIcon>
+    <ApplicationIcon>gestionIngresos1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -2127,6 +2127,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\gestionIngresos.ico" />
+    <None Include="Resources\exit_32_32.png" />
     <None Include="Resources\Ingreso_caja_32_32.png" />
     <None Include="Resources\inmo_32_32.png" />
     <None Include="Resources\cane_32_32.png" />
@@ -2234,6 +2236,8 @@
     <Content Include="FONDO\SESION.png" />
     <Content Include="FONDO\sin imagen.jpg" />
     <Content Include="FONDO\Sin título-1.png" />
+    <Content Include="gestionIngresos.ico" />
+    <Content Include="gestionIngresos1.ico" />
     <Content Include="icons8_Workflow.ico" />
     <Content Include="llave\DBSistemaIngresos.txt" />
     <None Include="Resources\reaperturar.png" />

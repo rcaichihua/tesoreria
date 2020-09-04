@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvListadoLiquidaciones = new System.Windows.Forms.DataGridView();
             this.idLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,11 +78,12 @@
             this.btnReciboIngreso = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnIngresosCaja = new System.Windows.Forms.Button();
-            this.btnLiquidacionInmobiliaria = new System.Windows.Forms.Button();
             this.btnIngresoCanevaro = new System.Windows.Forms.Button();
             this.btnLiquidaciónCementerio = new System.Windows.Forms.Button();
+            this.btnLiquidacionInmobiliaria = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.chkcuentas = new System.Windows.Forms.CheckBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoLiquidaciones)).BeginInit();
             this.GroupBox3.SuspendLayout();
@@ -124,14 +125,14 @@
             this.TotalRecibo,
             this.observaciones,
             this.estado});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListadoLiquidaciones.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListadoLiquidaciones.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvListadoLiquidaciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListadoLiquidaciones.GridColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvListadoLiquidaciones.Location = new System.Drawing.Point(3, 17);
@@ -146,8 +147,8 @@
             // idLiquidacion
             // 
             this.idLiquidacion.DataPropertyName = "idLiquidacion";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.idLiquidacion.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.idLiquidacion.DefaultCellStyle = dataGridViewCellStyle10;
             this.idLiquidacion.HeaderText = "ID LIQ";
             this.idLiquidacion.Name = "idLiquidacion";
             this.idLiquidacion.ReadOnly = true;
@@ -156,8 +157,8 @@
             // numeroLiquidacion
             // 
             this.numeroLiquidacion.DataPropertyName = "numeroLiquidacion";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numeroLiquidacion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numeroLiquidacion.DefaultCellStyle = dataGridViewCellStyle11;
             this.numeroLiquidacion.HeaderText = "Nº DE LIQ";
             this.numeroLiquidacion.Name = "numeroLiquidacion";
             this.numeroLiquidacion.ReadOnly = true;
@@ -183,8 +184,8 @@
             // fechaLiquidacion
             // 
             this.fechaLiquidacion.DataPropertyName = "fechaLiquidacion";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fechaLiquidacion.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fechaLiquidacion.DefaultCellStyle = dataGridViewCellStyle12;
             this.fechaLiquidacion.HeaderText = "FECHA LIQ";
             this.fechaLiquidacion.Name = "fechaLiquidacion";
             this.fechaLiquidacion.ReadOnly = true;
@@ -193,8 +194,8 @@
             // fechaCajaOrigen
             // 
             this.fechaCajaOrigen.DataPropertyName = "fechaCajaOrigen";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fechaCajaOrigen.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fechaCajaOrigen.DefaultCellStyle = dataGridViewCellStyle13;
             this.fechaCajaOrigen.HeaderText = "FECHA CAJA";
             this.fechaCajaOrigen.Name = "fechaCajaOrigen";
             this.fechaCajaOrigen.ReadOnly = true;
@@ -203,9 +204,9 @@
             // totalIngresoCaja
             // 
             this.totalIngresoCaja.DataPropertyName = "totalIngresoCaja";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            this.totalIngresoCaja.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.totalIngresoCaja.DefaultCellStyle = dataGridViewCellStyle14;
             this.totalIngresoCaja.HeaderText = "TOTAL CAJA";
             this.totalIngresoCaja.Name = "totalIngresoCaja";
             this.totalIngresoCaja.ReadOnly = true;
@@ -213,9 +214,9 @@
             // diferenciaDeposito
             // 
             this.diferenciaDeposito.DataPropertyName = "TotalDeposito";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            this.diferenciaDeposito.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            this.diferenciaDeposito.DefaultCellStyle = dataGridViewCellStyle15;
             this.diferenciaDeposito.HeaderText = "TOTAL DEPOSITO";
             this.diferenciaDeposito.Name = "diferenciaDeposito";
             this.diferenciaDeposito.ReadOnly = true;
@@ -223,9 +224,9 @@
             // TotalRecibo
             // 
             this.TotalRecibo.DataPropertyName = "TotalRecibo";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            this.TotalRecibo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            this.TotalRecibo.DefaultCellStyle = dataGridViewCellStyle16;
             this.TotalRecibo.HeaderText = "TOTAL RECIBOS";
             this.TotalRecibo.Name = "TotalRecibo";
             this.TotalRecibo.ReadOnly = true;
@@ -240,8 +241,8 @@
             // estado
             // 
             this.estado.DataPropertyName = "estado";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.estado.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.estado.DefaultCellStyle = dataGridViewCellStyle17;
             this.estado.HeaderText = "ESTADO";
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
@@ -623,23 +624,6 @@
             this.btnIngresosCaja.UseVisualStyleBackColor = false;
             this.btnIngresosCaja.Click += new System.EventHandler(this.btnIngresosCaja_Click);
             // 
-            // btnLiquidacionInmobiliaria
-            // 
-            this.btnLiquidacionInmobiliaria.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLiquidacionInmobiliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLiquidacionInmobiliaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLiquidacionInmobiliaria.ForeColor = System.Drawing.Color.Navy;
-            this.btnLiquidacionInmobiliaria.Image = global::GUI_Tesoreria.Properties.Resources.inmo_32_32;
-            this.btnLiquidacionInmobiliaria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLiquidacionInmobiliaria.Location = new System.Drawing.Point(8, 236);
-            this.btnLiquidacionInmobiliaria.Name = "btnLiquidacionInmobiliaria";
-            this.btnLiquidacionInmobiliaria.Size = new System.Drawing.Size(90, 78);
-            this.btnLiquidacionInmobiliaria.TabIndex = 151;
-            this.btnLiquidacionInmobiliaria.Text = "&Reporte Liquidación Inmobiliaria";
-            this.btnLiquidacionInmobiliaria.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnLiquidacionInmobiliaria.UseVisualStyleBackColor = false;
-            this.btnLiquidacionInmobiliaria.Click += new System.EventHandler(this.btnLiquidacionInmobiliaria_Click);
-            // 
             // btnIngresoCanevaro
             // 
             this.btnIngresoCanevaro.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -676,6 +660,23 @@
             this.btnLiquidaciónCementerio.UseVisualStyleBackColor = false;
             this.btnLiquidaciónCementerio.Click += new System.EventHandler(this.btnLiquidaciónCementerio_Click);
             // 
+            // btnLiquidacionInmobiliaria
+            // 
+            this.btnLiquidacionInmobiliaria.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLiquidacionInmobiliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLiquidacionInmobiliaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLiquidacionInmobiliaria.ForeColor = System.Drawing.Color.Navy;
+            this.btnLiquidacionInmobiliaria.Image = global::GUI_Tesoreria.Properties.Resources.inmo_32_32;
+            this.btnLiquidacionInmobiliaria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnLiquidacionInmobiliaria.Location = new System.Drawing.Point(8, 236);
+            this.btnLiquidacionInmobiliaria.Name = "btnLiquidacionInmobiliaria";
+            this.btnLiquidacionInmobiliaria.Size = new System.Drawing.Size(90, 78);
+            this.btnLiquidacionInmobiliaria.TabIndex = 151;
+            this.btnLiquidacionInmobiliaria.Text = "&Reporte Liquidación Inmobiliaria";
+            this.btnLiquidacionInmobiliaria.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLiquidacionInmobiliaria.UseVisualStyleBackColor = false;
+            this.btnLiquidacionInmobiliaria.Click += new System.EventHandler(this.btnLiquidacionInmobiliaria_Click);
+            // 
             // LblTitulo
             // 
             this.LblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -705,11 +706,26 @@
             this.chkcuentas.UseVisualStyleBackColor = true;
             this.chkcuentas.Visible = false;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.White;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Image = global::GUI_Tesoreria.Properties.Resources.exit_32_32;
+            this.btnSalir.Location = new System.Drawing.Point(985, 9);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(38, 32);
+            this.btnSalir.TabIndex = 172;
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmGestionListaLiquidaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 522);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.chkcuentas);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.GroupBox3);
@@ -719,7 +735,7 @@
             this.Controls.Add(this.GBOpciones);
             this.Controls.Add(this.LblTitulo);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "frmGestionListaLiquidaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -787,5 +803,6 @@
         private System.Windows.Forms.Button btnIngresoCanevaro;
         private System.Windows.Forms.Button btnLiquidacionInmobiliaria;
         private System.Windows.Forms.Button btnIngresosCaja;
+        internal System.Windows.Forms.Button btnSalir;
     }
 }

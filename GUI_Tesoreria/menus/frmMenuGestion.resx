@@ -117,4 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Salir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        XgAAAF4B+NkP+QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEpSURBVEhLlZUx
+        bgIxEEVXCoQTcDQ6GvocITdJnSBoQVyCm0RKnXTOn5VtPN9/hHekh7TP82fkgt0JlRZyBwewTilNz7Di
+        AaMc1EDGioOj3NVAxoqD32Cnmo2mD4+6p8UFiDPYikDt4TOFCwi62zRneHR+D97AC3k3UEKByP9m/wXq
+        EqsaiCjNORD5v+bsCOYlVkWG0KDItwuME1gBJyU0KPK8wPgAneygQZFXC35AJztoUOTVgk/QyQ4aFHle
+        cAMb4KSEBkW+XXAFm+wfgQgaFPmy4AJeG/8IRJTmHIi8/YvfQR2evR+moID0ES4QQQHpI6x2wF5qNTjI
+        2Pdg/sFrGdjruR3wjLEvmnsYu82yb3InxG24ZwlSGqh6Gz5bgpQF1HwbdTZGmv4BP+YVAlL0kjMAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
 </root>
