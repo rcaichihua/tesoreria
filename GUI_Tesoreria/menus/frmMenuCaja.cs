@@ -230,6 +230,9 @@ namespace GUI_Tesoreria.menus
             frmReporteIngresoDiario _frmReporteProceso = null;
             _frmReporteProceso = frmReporteIngresoDiario.Instance();
             _frmReporteProceso.tipo_reporte = "R";
+            _frmReporteProceso.CajeroId = Convert.ToInt32(cn.EjecutarSqlDTS("select b.Id_Caja_Usuario from usuario a inner join tb_Caja_Usuario b on a.intUsuId=b.intUsuId " + 
+                "inner join sucursal c on c.intSuID=a.intSuID where c.intProId = "+ VariablesMetodosEstaticos.id_programa + " and a.bitUsuEstado = 1 AND A.intUsuId = "+ 
+                VariablesMetodosEstaticos.id_user + "").Tables[0].Rows[0][0].ToString());
             _frmReporteProceso.MdiParent = this;
             _frmReporteProceso.Show();
         }

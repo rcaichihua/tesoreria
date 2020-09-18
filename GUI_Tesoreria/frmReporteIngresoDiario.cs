@@ -19,6 +19,7 @@ namespace GUI_Tesoreria
         private static frmReporteIngresoDiario frmInstance = null;
         private CNegocio cn = new CNegocio();
         public int programaId = 0;
+        public int CajeroId { get; set; }
 
         NumLetra Letras = new NumLetra();
 
@@ -67,14 +68,16 @@ namespace GUI_Tesoreria
                     dtDatosReporte = new DataTable();
                     dtDatosReporte2 = new DataTable();
 
-                    if (VariablesMetodosEstaticos.id_programa == 1)
+                    if (cn.EjecutarSqlDTS("SELECT intProId FROM sucursal WHERE intSuID IN (SELECT intSuID FROM usuario WHERE intUsuId=(SELECT intUsuId FROM tb_Caja_Usuario WHERE Id_Caja_Usuario="+ CajeroId + "))").Tables[0].Rows[0][0].ToString() == "1")
                     {
                         dtDatosReporte = cn.TraerDataset("usp_r_tb_recibocabecera", 1, 0, dtpDesde.Value.ToShortDateString()
                                                         , dtpHasta.Value.ToShortDateString(), programaId, 1).Tables[0];
 
                         dtDatosReporte2 = cn.TraerDataset("usp_reporte_ingresos_rubro_general_", null, dtpDesde.Value.ToString("yyyyMMdd")
-                                                        , dtpHasta.Value.ToString("yyyyMMdd"), VariablesMetodosEstaticos.id_programa,VariablesMetodosEstaticos.id_user).Tables[0];
-
+                                                        , dtpHasta.Value.ToString("yyyyMMdd"), 
+                                                        cn.EjecutarSqlDTS("SELECT intProId FROM sucursal WHERE intSuID IN (SELECT intSuID FROM usuario " + 
+                                                        "WHERE intUsuId=(SELECT intUsuId FROM tb_Caja_Usuario WHERE Id_Caja_Usuario=" + CajeroId + "))").Tables[0].Rows[0][0].ToString(), 
+                                                        CajeroId/*VariablesMetodosEstaticos.id_user*/).Tables[0];
 
                         if (dtDatosReporte.Rows.Count > 0)
                         {
@@ -203,7 +206,7 @@ namespace GUI_Tesoreria
                     return;
                 }
             }
-            catch (Exception)
+            catch (Exception EX)
             {
             }
         }

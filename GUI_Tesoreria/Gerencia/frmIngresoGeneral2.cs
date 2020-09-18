@@ -45,6 +45,7 @@ namespace GUI_Tesoreria.Gerencia
                 frmReporteIngresoDiario win = new frmReporteIngresoDiario();
                 win.programaId = Convert.ToInt16(cboCajero.SelectedValue.ToString());
                 win.tipo_reporte = Tipo_Reporte_y;
+                win.CajeroId = Convert.ToInt32(this.cboCajero.SelectedValue);
                 win.ShowDialog();
             }
             if (TipoReporte == "consulta")
