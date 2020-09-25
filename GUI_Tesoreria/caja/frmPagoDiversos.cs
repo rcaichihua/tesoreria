@@ -863,7 +863,7 @@ namespace GUI_Tesoreria.caja
             _filaCabecera["numero"] = txtNro.Text.Trim() != string.Empty ? txtNro.Text.Trim() : null;
             _filaCabecera["letraJardin"] = txtLetra.Text.Trim() != string.Empty ? txtLetra.Text.Trim() : null;
             _filaCabecera["ReciboCementerio"] = VariablesMetodosEstaticos.id_programa == 4 ? cboCementerio.Text.ToUpper() : "";// cboCementerio.SelectedIndex == 0 ? null : cboCementerio.Text.ToUpper();//ReciboCementerio;
-            _filaCabecera["CodigoDetraccion"] = cboTasaDetraccion.SelectedValue.ToString();
+            _filaCabecera["CodigoDetraccion"] = VariablesMetodosEstaticos.id_programa == 4 ? (chkDetraccion.Checked ? "022" : "") : cboTasaDetraccion.SelectedValue.ToString();
             _filaCabecera["MontoDetraccion"] = txtMontoDetraccion.Text.Trim()==string.Empty ? 0.00m: Convert.ToDecimal(txtMontoDetraccion.Text.Trim());
             _filaCabecera["FechaCancelacion"] = Convert.ToInt32(cboModalidadPago.SelectedValue)!=19 ? Convert.ToDateTime(txtFecha.Text) : dtpFechaCancelacion.Value.Date;
             cabeceraRecibo.Rows.Add(_filaCabecera);
@@ -2087,9 +2087,9 @@ namespace GUI_Tesoreria.caja
         {
             try
             {
-                int id=0;
+                int id = 0;
                 id = Convert.ToInt32(cboComprobante.SelectedValue);
-                if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa==4)
+                if (VariablesMetodosEstaticos.id_programa == 1 || VariablesMetodosEstaticos.id_programa == 4)
                 {
                     if (id == 3)
                     {
@@ -2100,6 +2100,15 @@ namespace GUI_Tesoreria.caja
                         txtMontoDetraccion.Clear();
                         txtMontoDetraccion.Text = "0.00";
                         txtMontoDetraccion.Enabled = false;
+                        chkDetraccion.Checked = false;
+                        chkDetraccion.Visible = false;
+
+                        txtMontoDetraccion.Visible = false;
+                        gbDetraccion.Controls.Add(txtMontoDetraccion);
+                        txtMontoDetraccion.Left = 746;
+                        txtMontoDetraccion.Top = 15;
+
+                        this.Refresh();
                     }
                     else if (id == 1)
                     {
@@ -2110,6 +2119,13 @@ namespace GUI_Tesoreria.caja
                         txtMontoDetraccion.Clear();
                         txtMontoDetraccion.Text = "0.00";
                         txtMontoDetraccion.Enabled = true;
+                        chkDetraccion.Checked = false;
+                        chkDetraccion.Visible = false;
+
+                        txtMontoDetraccion.Visible = false;
+                        gbDetraccion.Controls.Add(txtMontoDetraccion);
+                        txtMontoDetraccion.Left = 746;
+                        txtMontoDetraccion.Top = 15;
                     }
                     else if (id == 2)
                     {
@@ -2120,6 +2136,44 @@ namespace GUI_Tesoreria.caja
                         txtMontoDetraccion.Clear();
                         txtMontoDetraccion.Text = "0.00";
                         txtMontoDetraccion.Enabled = true;
+                        if (VariablesMetodosEstaticos.id_programa == 4)
+                        {
+                            chkDetraccion.Checked = false;
+                            chkDetraccion.Visible = true;
+
+                            txtMontoDetraccion.Visible = true;
+                            GBGlosa.Controls.Add(txtMontoDetraccion);
+                            txtMontoDetraccion.Left = 4;
+                            txtMontoDetraccion.Top = 75;
+
+                            this.Refresh();
+                        }
+                        else
+                        {
+                            chkDetraccion.Checked = false;
+                            chkDetraccion.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        chkDetraccion.Checked = false;
+                        chkDetraccion.Visible = false;
+
+                        txtMontoDetraccion.Visible = false;
+                        gbDetraccion.Controls.Add(txtMontoDetraccion);
+                        txtMontoDetraccion.Left = 746;
+                        txtMontoDetraccion.Top = 15;
+
+                        label18.Visible = false;
+                        dtpFechaCancelacion.Visible = false;
+                        gbDetraccion.Controls.Add(label18);
+                        gbDetraccion.Controls.Add(dtpFechaCancelacion);
+                        label18.Left = 68;
+                        label18.Top = 42;
+                        dtpFechaCancelacion.Left = 183;
+                        dtpFechaCancelacion.Top = 38;
+
+                        this.Refresh();
                     }
                 }
             }
@@ -2560,6 +2614,41 @@ namespace GUI_Tesoreria.caja
         private void dtpFechaCancelacion_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void chkDetraccion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDetraccion.Checked)
+            {
+                txtMontoDetraccion.Text = (0.12m * (Convert.ToDecimal(txtPrecioVentaC.Text))).ToString("##,##0.00");
+            }
+            else
+            {
+                txtMontoDetraccion.Text = "0.00";
+            }
+        }
+
+        private void cboTasaDetraccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            id = Convert.ToInt32(cboComprobante.SelectedValue);
+
+            if (VariablesMetodosEstaticos.id_programa == 1 && id == 2)
+            {
+                if (Convert.ToInt32(cboTasaDetraccion.SelectedValue) != 0)
+                {
+                    txtMontoDetraccion.Text = (0.12m * (Convert.ToDecimal(txtPrecioVentaC.Text))).ToString("##,##0.00");
+                }
+                else
+                {
+                    txtMontoDetraccion.Text = "0.00";
+                }
+            }
+            else
+            {
+                txtMontoDetraccion.Text = "0.00";
+            }
         }
     }
 }
