@@ -302,75 +302,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         row.Delete();
                     }
                 }
-                /*DataSet dtsListadoContableNegativo = new DataSet();
 
-                frmReporte winReport = new frmReporte();
-
-                dtsListadoContable = cn.TraerDataset("usp_ListaLiquidaciones_contable_new", 
-                    dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
-
-                if (dtsListadoContable.Tables[0].Rows.Count > 0)
-                {
-                    if (chkcuentas.Checked)
-                    {
-                        DataTable dtCuenta;
-
-                        foreach (DataRow item in dtsListadoContable.Tables[0].Rows)
-                        {
-                            dtCuenta = new DataTable();
-
-                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
-
-                            if (dtCuenta.Rows.Count <= 0)
-                            {
-                                item[2] = "S/CTA";
-                                item[3] = "S/NOMBRE";
-                            }
-                            else
-                            {
-                                item[2] = dtCuenta.Rows[0][0];
-                                item[3] = dtCuenta.Rows[0][1];
-                            }
-                        }
-                    }
-                }
-
-                dtsListadoContableNegativo = cn.TraerDataset("usp_ListaLiquidaciones_contable_negativo_new",
-                    dtpFechaLiqDesde.Value.ToString("yyyyMMdd"), dtpFechaLiqHasta.Value.ToString("yyyyMMdd"), cboPrograma.SelectedValue);
-
-                if(dtsListadoContableNegativo.Tables[0].Rows.Count > 0)
-                {
-                    if (chkcuentas.Checked)
-                    {
-                        DataTable dtCuenta;
-
-                        foreach (DataRow item in dtsListadoContableNegativo.Tables[0].Rows)
-                        {
-                            dtCuenta = new DataTable();
-
-                            dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[2] + "'").Tables[0];
-
-                            if (dtCuenta.Rows.Count <= 0)
-                            {
-                                item[2] = "S/CTA";
-                                item[3] = "S/NOMBRE";
-                            }
-                            else
-                            {
-                                item[2] = dtCuenta.Rows[0][0];
-                                item[3] = dtCuenta.Rows[0][1];
-                            }
-                        }
-                    }
-                }
-
-                if (dtsListadoContable.Tables[0].Rows.Count <= 0)
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado,
-                          MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }*/
-                
+                dtsListadoContableNegativo.AcceptChanges();
 
                 Reportes.rptListadoContable rptRecibo = new Reportes.rptListadoContable();
 

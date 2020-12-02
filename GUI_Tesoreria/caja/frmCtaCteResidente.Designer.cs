@@ -42,6 +42,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GBDatosRubros = new System.Windows.Forms.GroupBox();
             this.dgvCta = new System.Windows.Forms.DataGridView();
+            this.idCta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aFiscal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mesDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importeDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dscto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Acuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoPago = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,18 +70,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.btnImprimie = new System.Windows.Forms.Button();
-            this.idCta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aFiscal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mesDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importeDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dscto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Acuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPago = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GBDatosRubros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCta)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -138,6 +138,144 @@
             this.dgvCta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCta_KeyPress);
             this.dgvCta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvCta_MouseDown);
             // 
+            // idCta
+            // 
+            this.idCta.DataPropertyName = "ctacteResidenteId";
+            this.idCta.HeaderText = "idCta";
+            this.idCta.Name = "idCta";
+            this.idCta.ReadOnly = true;
+            this.idCta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idCta.Visible = false;
+            // 
+            // aFiscal
+            // 
+            this.aFiscal.DataPropertyName = "afiscaldeuda";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.aFiscal.DefaultCellStyle = dataGridViewCellStyle2;
+            this.aFiscal.HeaderText = "Año";
+            this.aFiscal.Name = "aFiscal";
+            this.aFiscal.ReadOnly = true;
+            this.aFiscal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.aFiscal.Width = 65;
+            // 
+            // mesDeuda
+            // 
+            this.mesDeuda.DataPropertyName = "mesdeuda";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.mesDeuda.DefaultCellStyle = dataGridViewCellStyle3;
+            this.mesDeuda.HeaderText = "Mes";
+            this.mesDeuda.Name = "mesDeuda";
+            this.mesDeuda.ReadOnly = true;
+            this.mesDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mesDeuda.Width = 80;
+            // 
+            // nombreDeuda
+            // 
+            this.nombreDeuda.DataPropertyName = "nombredeuda";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.nombreDeuda.DefaultCellStyle = dataGridViewCellStyle4;
+            this.nombreDeuda.HeaderText = "Tipo";
+            this.nombreDeuda.Name = "nombreDeuda";
+            this.nombreDeuda.ReadOnly = true;
+            this.nombreDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.nombreDeuda.Width = 120;
+            // 
+            // importeDeuda
+            // 
+            this.importeDeuda.DataPropertyName = "importeDeuda";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.importeDeuda.DefaultCellStyle = dataGridViewCellStyle5;
+            this.importeDeuda.HeaderText = "Deuda Parcial";
+            this.importeDeuda.Name = "importeDeuda";
+            this.importeDeuda.ReadOnly = true;
+            this.importeDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.importeDeuda.Width = 80;
+            // 
+            // mora
+            // 
+            this.mora.DataPropertyName = "mora";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.mora.DefaultCellStyle = dataGridViewCellStyle6;
+            this.mora.HeaderText = "Mora";
+            this.mora.Name = "mora";
+            this.mora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mora.Width = 65;
+            // 
+            // dscto
+            // 
+            this.dscto.DataPropertyName = "dscto";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Format = "N2";
+            this.dscto.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dscto.HeaderText = "Dscto";
+            this.dscto.Name = "dscto";
+            this.dscto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dscto.Width = 65;
+            // 
+            // TotalDeuda
+            // 
+            this.TotalDeuda.DataPropertyName = "totalDeuda";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Format = "N2";
+            this.TotalDeuda.DefaultCellStyle = dataGridViewCellStyle8;
+            this.TotalDeuda.HeaderText = "Deuda Total";
+            this.TotalDeuda.Name = "TotalDeuda";
+            this.TotalDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TotalDeuda.Width = 90;
+            // 
+            // Acuenta
+            // 
+            this.Acuenta.DataPropertyName = "acuenta";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.Format = "n2";
+            this.Acuenta.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Acuenta.HeaderText = "Acuenta";
+            this.Acuenta.Name = "Acuenta";
+            this.Acuenta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Acuenta.Width = 65;
+            // 
+            // TipoPago
+            // 
+            this.TipoPago.DataPropertyName = "tipoPago";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.TipoPago.DefaultCellStyle = dataGridViewCellStyle10;
+            this.TipoPago.HeaderText = "Tipo Pago";
+            this.TipoPago.Name = "TipoPago";
+            this.TipoPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TipoPago.Width = 90;
+            // 
+            // seleccion
+            // 
+            this.seleccion.DataPropertyName = "selecciona";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.NullValue = false;
+            this.seleccion.DefaultCellStyle = dataGridViewCellStyle11;
+            this.seleccion.FalseValue = "0";
+            this.seleccion.HeaderText = "Select";
+            this.seleccion.IndeterminateValue = "0";
+            this.seleccion.Name = "seleccion";
+            this.seleccion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccion.TrueValue = "1";
+            this.seleccion.Width = 60;
+            // 
+            // fechaVencimiento
+            // 
+            this.fechaVencimiento.DataPropertyName = "fechaVencimiento";
+            this.fechaVencimiento.HeaderText = "fechaVencimiento";
+            this.fechaVencimiento.Name = "fechaVencimiento";
+            this.fechaVencimiento.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label3);
@@ -181,22 +319,6 @@
             // 
             this.cboDesde.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDesde.FormattingEnabled = true;
-            this.cboDesde.Items.AddRange(new object[] {
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020"});
             this.cboDesde.Location = new System.Drawing.Point(57, 18);
             this.cboDesde.Margin = new System.Windows.Forms.Padding(2);
             this.cboDesde.Name = "cboDesde";
@@ -207,21 +329,6 @@
             // 
             this.cboHasta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHasta.FormattingEnabled = true;
-            this.cboHasta.Items.AddRange(new object[] {
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020"});
             this.cboHasta.Location = new System.Drawing.Point(170, 18);
             this.cboHasta.Margin = new System.Windows.Forms.Padding(2);
             this.cboHasta.Name = "cboHasta";
@@ -386,144 +493,6 @@
             this.btnImprimie.Text = "&Imprimir";
             this.btnImprimie.UseVisualStyleBackColor = false;
             this.btnImprimie.Click += new System.EventHandler(this.btnImprimie_Click);
-            // 
-            // idCta
-            // 
-            this.idCta.DataPropertyName = "ctacteResidenteId";
-            this.idCta.HeaderText = "idCta";
-            this.idCta.Name = "idCta";
-            this.idCta.ReadOnly = true;
-            this.idCta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.idCta.Visible = false;
-            // 
-            // aFiscal
-            // 
-            this.aFiscal.DataPropertyName = "afiscaldeuda";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.aFiscal.DefaultCellStyle = dataGridViewCellStyle2;
-            this.aFiscal.HeaderText = "Año";
-            this.aFiscal.Name = "aFiscal";
-            this.aFiscal.ReadOnly = true;
-            this.aFiscal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.aFiscal.Width = 65;
-            // 
-            // mesDeuda
-            // 
-            this.mesDeuda.DataPropertyName = "mesdeuda";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.mesDeuda.DefaultCellStyle = dataGridViewCellStyle3;
-            this.mesDeuda.HeaderText = "Mes";
-            this.mesDeuda.Name = "mesDeuda";
-            this.mesDeuda.ReadOnly = true;
-            this.mesDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mesDeuda.Width = 80;
-            // 
-            // nombreDeuda
-            // 
-            this.nombreDeuda.DataPropertyName = "nombredeuda";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.nombreDeuda.DefaultCellStyle = dataGridViewCellStyle4;
-            this.nombreDeuda.HeaderText = "Tipo";
-            this.nombreDeuda.Name = "nombreDeuda";
-            this.nombreDeuda.ReadOnly = true;
-            this.nombreDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.nombreDeuda.Width = 120;
-            // 
-            // importeDeuda
-            // 
-            this.importeDeuda.DataPropertyName = "importeDeuda";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.importeDeuda.DefaultCellStyle = dataGridViewCellStyle5;
-            this.importeDeuda.HeaderText = "Deuda Parcial";
-            this.importeDeuda.Name = "importeDeuda";
-            this.importeDeuda.ReadOnly = true;
-            this.importeDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.importeDeuda.Width = 80;
-            // 
-            // mora
-            // 
-            this.mora.DataPropertyName = "mora";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.mora.DefaultCellStyle = dataGridViewCellStyle6;
-            this.mora.HeaderText = "Mora";
-            this.mora.Name = "mora";
-            this.mora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mora.Width = 65;
-            // 
-            // dscto
-            // 
-            this.dscto.DataPropertyName = "dscto";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Format = "N2";
-            this.dscto.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dscto.HeaderText = "Dscto";
-            this.dscto.Name = "dscto";
-            this.dscto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dscto.Width = 65;
-            // 
-            // TotalDeuda
-            // 
-            this.TotalDeuda.DataPropertyName = "totalDeuda";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Format = "N2";
-            this.TotalDeuda.DefaultCellStyle = dataGridViewCellStyle8;
-            this.TotalDeuda.HeaderText = "Deuda Total";
-            this.TotalDeuda.Name = "TotalDeuda";
-            this.TotalDeuda.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.TotalDeuda.Width = 90;
-            // 
-            // Acuenta
-            // 
-            this.Acuenta.DataPropertyName = "acuenta";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Format = "n2";
-            this.Acuenta.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Acuenta.HeaderText = "Acuenta";
-            this.Acuenta.Name = "Acuenta";
-            this.Acuenta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Acuenta.Width = 65;
-            // 
-            // TipoPago
-            // 
-            this.TipoPago.DataPropertyName = "tipoPago";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.TipoPago.DefaultCellStyle = dataGridViewCellStyle10;
-            this.TipoPago.HeaderText = "Tipo Pago";
-            this.TipoPago.Name = "TipoPago";
-            this.TipoPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TipoPago.Width = 90;
-            // 
-            // seleccion
-            // 
-            this.seleccion.DataPropertyName = "selecciona";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.NullValue = false;
-            this.seleccion.DefaultCellStyle = dataGridViewCellStyle11;
-            this.seleccion.FalseValue = "0";
-            this.seleccion.HeaderText = "Select";
-            this.seleccion.IndeterminateValue = "0";
-            this.seleccion.Name = "seleccion";
-            this.seleccion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.seleccion.TrueValue = "1";
-            this.seleccion.Width = 60;
-            // 
-            // fechaVencimiento
-            // 
-            this.fechaVencimiento.DataPropertyName = "fechaVencimiento";
-            this.fechaVencimiento.HeaderText = "fechaVencimiento";
-            this.fechaVencimiento.Name = "fechaVencimiento";
-            this.fechaVencimiento.Visible = false;
             // 
             // frmCtaCteResidente
             // 

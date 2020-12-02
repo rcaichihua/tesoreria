@@ -164,13 +164,19 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             //PROGRAMAS.
             if (Tabla.Length < 5)
             {
-                
+                if (!verificaDuplicidad())
+                {
+                    MessageBox.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesGlobales.NombreMensajes,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return;
+                }
                 //if (Existe_ == true)
                 //{
                 //    DevComponents.DotNetBar.MessageBoxEx.Show("Este voucher ya se encuentra generado dentro de una liquidación y no se puede modificar.", VariablesMetodosEstaticos.encabezado,
                 //                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //    return;
                 //}
+
                 dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, cboConcepto.SelectedValue,
                 cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
                 Convert.ToDecimal(txtTipoCambio.Text), txtNumDocumento.Text.Trim(),
@@ -195,10 +201,24 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             }
             else
             {
+                if (!verificaDuplicidad())
+                {
+                    if ((DevComponents.DotNetBar.MessageBoxEx.Show("¿Esta seguro de registrar el VOUCHER?"+Environment.NewLine + Environment.NewLine+
+                        "Al parecer el documento ya existe, si lo esta editando se va a actualizar,"+Environment.NewLine+
+                        "si lo esta registrando como NUEVO entonces se va a duplicar.", VariablesMetodosEstaticos.encabezado,
+                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No))
+                    {
+                        return;
+                    }
+                        //MessageBox.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesGlobales.NombreMensajes,
+                        //    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    //return;
+                }
+
                 //AQUI ENTRA PORQUE LA VARIABLE TABLA ESTA LLENA Y CON ESA TABLA SE PUEDE SABER A QUE TABLA SE VA A MODIFICAR.
                 dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, 
                     cboConcepto.SelectedValue,
-                cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
+                cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Math.Round(Convert.ToDecimal(txtImportePago.Text),2,MidpointRounding.AwayFromZero),
                 Convert.ToDecimal(txtTipoCambio.Text), txtNumDocumento.Text.Trim(),
                 txtObservacionesPago.Text, VariablesMetodosEstaticos.varNombreUser,
                 VariablesMetodosEstaticos.ip_user + '/' + VariablesMetodosEstaticos.host_user, caja, 
@@ -219,6 +239,31 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     //this.Close();
                 }
             }
+        }
+
+        bool verificaDuplicidad()
+        {
+            bool rspta;
+            rspta = false;
+
+            DataTable dtTotalRepetido = new DataTable();
+            dtTotalRepetido = cn.TraerDataset("usp_verifica_duplicidad_voucher_general",Tabla
+                , txtNumDocumento.Text.Trim().ToUpper(), cboEntidadFinanciera.SelectedValue,
+                cboConcepto.SelectedValue,dtpFechaPago.Value.ToString("yyyyMMdd"),Convert.ToDecimal(txtTotalCambioDolar.Text)).Tables[0];
+            if (dtTotalRepetido.Rows.Count > 0)
+            {
+                MessageBox.Show("El documento ya se ingreso como " + cboConcepto.Text.ToUpper() +
+                    " con el importe de " + dtTotalRepetido.Rows[0][0].ToString() + "." +
+                    Environment.NewLine + "ingrese el vocher bajo otro CONCEPTO para que se pueda registrar.",
+                    VariablesGlobales.NombreMensajes,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                rspta = false;
+            }
+            else
+            {
+                rspta = true;
+            }
+            return rspta;
         }
 
         bool Validar()

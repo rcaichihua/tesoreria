@@ -377,6 +377,24 @@ namespace GUI_Tesoreria.caja
                 btnOk.Enabled = false;
             }
 
+            CargarAnio();
+        }
+
+        private void CargarAnio()
+        {
+            try
+            {
+                cboDesde.DataSource = cn.TraerDataset("usp_select_anio", 1).Tables[0];
+                cboDesde.DisplayMember = "intAFDescripcionAnno";
+                cboDesde.ValueMember = "intAFDescripcionAnno";
+
+                cboHasta.DataSource = cn.TraerDataset("usp_select_anio", 1).Tables[0];
+                cboHasta.DisplayMember = "intAFDescripcionAnno";
+                cboHasta.ValueMember = "intAFDescripcionAnno";
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private void btnImprimie_Click(object sender, EventArgs e)

@@ -863,7 +863,7 @@ namespace GUI_Tesoreria.caja
             _filaCabecera["numero"] = txtNro.Text.Trim() != string.Empty ? txtNro.Text.Trim() : null;
             _filaCabecera["letraJardin"] = txtLetra.Text.Trim() != string.Empty ? txtLetra.Text.Trim() : null;
             _filaCabecera["ReciboCementerio"] = VariablesMetodosEstaticos.id_programa == 4 ? cboCementerio.Text.ToUpper() : "";// cboCementerio.SelectedIndex == 0 ? null : cboCementerio.Text.ToUpper();//ReciboCementerio;
-            _filaCabecera["CodigoDetraccion"] = VariablesMetodosEstaticos.id_programa == 4 ? (chkDetraccion.Checked ? "022" : "") : cboTasaDetraccion.SelectedValue.ToString();
+            _filaCabecera["CodigoDetraccion"] = VariablesMetodosEstaticos.id_programa == 4 ? (chkDetraccion.Checked ? "022" : "000") : cboTasaDetraccion.SelectedValue.ToString();
             _filaCabecera["MontoDetraccion"] = txtMontoDetraccion.Text.Trim()==string.Empty ? 0.00m: Convert.ToDecimal(txtMontoDetraccion.Text.Trim());
             _filaCabecera["FechaCancelacion"] = Convert.ToInt32(cboModalidadPago.SelectedValue)!=19 ? Convert.ToDateTime(txtFecha.Text) : dtpFechaCancelacion.Value.Date;
             cabeceraRecibo.Rows.Add(_filaCabecera);

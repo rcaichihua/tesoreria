@@ -49,14 +49,14 @@ namespace GUI_Tesoreria.canevaro
                     txtImporte.Focus();
                     return;
                 }
-                if (cboAnio.SelectedIndex == -1)
+                if (cboAnio.SelectedIndex == -1 || string.IsNullOrEmpty(cboAnio.Text.Trim()))
                 {
                     DevComponents.DotNetBar.MessageBoxEx.Show("Seleccione un año válido", "Aplicacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cboAnio.Focus();
                     return;
                 }
 
-                if ((DevComponents.DotNetBar.MessageBoxEx.Show("Se generara el estado de cuenta corriente del año  seleccionado. ¿Desea continuar?", VariablesMetodosEstaticos.encabezado,
+                if ((DevComponents.DotNetBar.MessageBoxEx.Show("Se va a generar el estado de cuenta corriente del año " + cboAnio.Text +". ¿Desea continuar?", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                 {
                     resultadoGenera = Convert.ToInt32(cn.TraerDataset("usp_genera_ctacte_residente", IdResidente,
@@ -82,6 +82,23 @@ namespace GUI_Tesoreria.canevaro
             }
         }
 
+        private void frmGenerarCtaCte_Load(object sender, EventArgs e)
+        {
+            cargarAnio();
+        }
+
+        private void cargarAnio()
+        {
+            try
+            {
+                cboAnio.DataSource = cn.TraerDataset("usp_select_anio", 1).Tables[0];
+                cboAnio.DisplayMember = "intAFDescripcionAnno";
+                cboAnio.ValueMember = "intAFDescripcionAnno";
+            }
+            catch (Exception)
+            {
+            }
+        }
         //private void rdbPriSeme_CheckedChanged(object sender, EventArgs e)
         //{
         //    gb1.Visible = true;
