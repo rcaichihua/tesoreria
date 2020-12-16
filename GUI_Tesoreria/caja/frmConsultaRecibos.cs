@@ -289,7 +289,6 @@ namespace GUI_Tesoreria.caja
                 {
                 if (dgvRecibos.RowCount > 0)
                 {
-                    frmExtornarRecibo winExt = new frmExtornarRecibo();
                     int index = 0;
                     index = dgvRecibos.CurrentRow.Index;
 
@@ -352,6 +351,8 @@ namespace GUI_Tesoreria.caja
                         winAutoriza.ShowDialog();
                         if (autoziza == true)
                         {
+                            frmExtornarRecibo winExt = new frmExtornarRecibo();
+
                             winExt.id_reciboCabecera = Convert.ToInt32(dgvRecibos.Rows[index].Cells["id_reciboCabecera"].Value);
                             winExt.totalExtorno = Convert.ToDecimal(dgvRecibos.Rows[index].Cells["total"].Value);
                             winExt.nombreClienteExtorno = dgvRecibos.Rows[index].Cells["NombreCompleto_Cliente"].Value.ToString();

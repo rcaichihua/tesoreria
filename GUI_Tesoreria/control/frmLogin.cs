@@ -96,6 +96,9 @@ namespace GUI_Tesoreria.control
                     byte[] passwordBytes = GetPasswordBytes();
 
 
+
+
+
                     if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
                     //if(1==1)
                     {
