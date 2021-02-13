@@ -556,5 +556,13 @@ namespace GUI_Tesoreria.menus
             _frmVerif.MdiParent = this;
             _frmVerif.Show();
         }
+
+        private void m_1_2_5_Click(object sender, EventArgs e)
+        {
+            canevaro.frmBusquedaCtaResidente _frmBusquedaCtaResidente = null;
+            _frmBusquedaCtaResidente = canevaro.frmBusquedaCtaResidente.Instance();
+            _frmBusquedaCtaResidente.MdiParent = this;
+            _frmBusquedaCtaResidente.Show();
+        }
     }
 }

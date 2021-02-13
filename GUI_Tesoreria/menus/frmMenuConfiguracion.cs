@@ -383,7 +383,7 @@ namespace GUI_Tesoreria.menus
 
         private void cuentasContableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VariablesMetodosEstaticos.AnioFiscal < 2020)
+            if (VariablesMetodosEstaticos.AnioFiscal < 2021)
             {
                 mantenimiento.frmMantenimientoCtaContable _frmMantenimientoCtaContable = null;
                 _frmMantenimientoCtaContable = mantenimiento.frmMantenimientoCtaContable.Instance();

@@ -63,6 +63,8 @@ namespace BL_Tesoreria
                 return objx.TraerDataset(ProcedimientoAlmacenado, Argumentos);
             }
             catch (Exception ex) { throw ex; }
+
+
         }
 
         public int EjecutarSP(string ProcedimientoAlmacenado, params object[] Argumentos)
@@ -156,6 +158,15 @@ namespace BL_Tesoreria
             try
             {
                 return objx.IngresaRecibo(ProcedimientoAlmacenado, estado, dtCabecera, dtCabeceraDetalle, modalidadPago);
+            }
+            catch (Exception) { throw; }
+        }
+
+        public DataSet GeneraCuotasRecibosCaja(string ProcedimientoAlmacenado, DataTable dtDetalleCuotas)
+        {
+            try
+            {
+                return objx.GeneraCuotasRecibosCaja(ProcedimientoAlmacenado, dtDetalleCuotas);
             }
             catch (Exception) { throw; }
         }

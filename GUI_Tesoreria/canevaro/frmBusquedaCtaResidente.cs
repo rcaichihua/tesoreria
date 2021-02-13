@@ -49,6 +49,7 @@ namespace GUI_Tesoreria.canevaro
             winCtaResi.binv = true;
             winCtaResi.idResidente = Convert.ToInt32(txtCodigo.Text);
             winCtaResi.nombreResidente = txtNombre.Text;
+            winCtaResi.Ubicacion = txtubicacion.Text;
             winCtaResi.ShowDialog();
         }
 
@@ -123,6 +124,7 @@ namespace GUI_Tesoreria.canevaro
             {
                 txtCodigo.Text = dgvResultado.CurrentRow.Cells[0].Value.ToString();
                 txtNombre.Text = dgvResultado.CurrentRow.Cells[1].Value.ToString();
+                txtubicacion.Text = dgvResultado.CurrentRow.Cells[2].Value.ToString();
                 dgvResultado.Visible = false;
             }
             catch (Exception)

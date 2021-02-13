@@ -30,7 +30,7 @@
     <MinimumRequiredVersion>1.0.0.49</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>96</ApplicationRevision>
+    <ApplicationRevision>99</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -340,6 +340,12 @@
     </Compile>
     <Compile Include="caja\frmModificacionModalidadPago.Designer.cs">
       <DependentUpon>frmModificacionModalidadPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="caja\frmPagoCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caja\frmPagoCuotas.Designer.cs">
+      <DependentUpon>frmPagoCuotas.cs</DependentUpon>
     </Compile>
     <Compile Include="caja\frmPagoDiversos.cs">
       <SubType>Form</SubType>
@@ -1498,6 +1504,9 @@
     <EmbeddedResource Include="caja\frmModificacionModalidadPago.resx">
       <DependentUpon>frmModificacionModalidadPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="caja\frmPagoCuotas.resx">
+      <DependentUpon>frmPagoCuotas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="caja\frmPagoDiversos.resx">
       <DependentUpon>frmPagoDiversos.cs</DependentUpon>
     </EmbeddedResource>
@@ -2117,6 +2126,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\sigma_32_32.png" />
     <None Include="Resources\inmobiliaria.jpg" />
     <None Include="Resources\canevaro.jpg" />
     <None Include="Resources\altadireccion.jpg" />
@@ -2265,22 +2275,22 @@
   <ItemGroup>
     <PublishFile Include="log4net">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="stdole">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

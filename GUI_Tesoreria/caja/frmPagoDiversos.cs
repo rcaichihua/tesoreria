@@ -2650,6 +2650,29 @@ namespace GUI_Tesoreria.caja
                 txtMontoDetraccion.Text = "0.00";
             }
         }
+
+        private void btnCuotas_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(cboModalidadPago.SelectedValue)==19)
+            {
+                if (Convert.ToDecimal(txtPrecioVentaC.Text )!= 0.00m)
+                {
+                    frmPagoCuotas WinCuotas = new frmPagoCuotas();
+                    WinCuotas._ImporteDocumento = Convert.ToDecimal(txtPrecioVentaC.Text);
+                    WinCuotas.ShowDialog();
+                }
+                else
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("El cuadro de detalle de Items debe tener al menos un Item.", VariablesMetodosEstaticos.encabezado,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                }
+            }
+            else
+            {
+                DevComponents.DotNetBar.MessageBoxEx.Show("Debe seleccionar Modalidad - PENDIENTE DE COBRO-.", VariablesMetodosEstaticos.encabezado,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            }
+        }
     }
 }
 

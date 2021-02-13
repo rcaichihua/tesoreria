@@ -195,7 +195,9 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     dsResultado = cn.TraerDataset("usp_consultaLiquidaciones",
                         Convert.ToDateTime(mtbFechaLiquidacion.Text).ToString("yyyyMMdd"),
                         Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),
-                        cboFuenteIngreso.SelectedValue,VariablesMetodosEstaticos.intAnnioActual.ToString(),caja);
+                        cboFuenteIngreso.SelectedValue,
+                        VariablesMetodosEstaticos.intAnnioActual.ToString(),
+                        caja);
                     if (dsResultado.Tables[0].Rows.Count* dsResultado.Tables[1].Rows.Count > 0)
                     {
                         txtSubTotalCaja.Text = Convert.ToDecimal(dsResultado.Tables[0].Rows[0][1]).ToString("###,###,##0.00");

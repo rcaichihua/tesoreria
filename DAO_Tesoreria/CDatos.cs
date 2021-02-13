@@ -288,6 +288,26 @@ namespace DAO_Tesoreria
                 }
             }
         }
+
+        public DataSet GeneraCuotasRecibosCaja(string ProcedimientoAlmacenado, DataTable dtDetalleCuotas)
+        {
+            using (var cn = new SqlConnection(conectar.conexionXml))
+            {
+                using (var mComando = new SqlCommand(ProcedimientoAlmacenado, cn))
+                {
+                    var mDataset = new DataSet();
+                    cn.Open();
+                    mComando.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tvpParam1 = mComando.Parameters.AddWithValue("@detalleCuotasParaCaja", dtDetalleCuotas);
+                    tvpParam1.SqlDbType = SqlDbType.Structured;
+
+                    new SqlDataAdapter(mComando).Fill(mDataset);
+
+                    return mDataset;
+                }
+            }
+        }
         public DataSet IngresarLiquiApi(string ProcedimientoAlmacenado, int nroLiq, string usu, string pc, DataTable dtLiqui,int idLiq)
         {
             using (var cn = new SqlConnection(conectar.conexionXml))

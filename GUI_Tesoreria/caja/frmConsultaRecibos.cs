@@ -29,7 +29,7 @@ namespace GUI_Tesoreria.caja
 
         public static frmConsultaRecibos Instance()
         {
-            if (((frmInstance == null) || (frmInstance.IsDisposed == true)))
+            if (((frmInstance == null) || (frmInstance.IsDisposed == true )))
             {
                 frmInstance = new frmConsultaRecibos();
             }
@@ -430,5 +430,56 @@ namespace GUI_Tesoreria.caja
                 BtnBuscarContribuyente_Click(sender, e);
             }
         }
+
+        private void btnCuotas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvRecibos.RowCount > 0)
+                {
+                    int index = 0;
+                    index = dgvRecibos.CurrentRow.Index;
+
+                    if (dgvRecibos.Rows[index].Cells["Estado"].Value.ToString() == "EXTORNADO")
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El documento ya se encuentra Extornado", VariablesMetodosEstaticos.encabezado,
+                               MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    DataTable dtResuConsulta = new DataTable();
+                    dtResuConsulta = cn.EjecutarSqlDTS("select FechaRecibo_ReciboCabecera,FechaCancelacion,cod_mod_Pago " +
+                        "from tb_ReciboCabecera where ReciboID = " + Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value) + "").Tables[0];
+
+                    if (dtResuConsulta.Rows[0][2].ToString() != "19")
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("No se puede editar documentos que no sean PENDIENTES DE COBRO.", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (Convert.ToDecimal(dgvRecibos.Rows[index].Cells[12].Value) != 0.00m)
+                    {
+                        frmPagoCuotas WinCuotas = new frmPagoCuotas();
+                        WinCuotas._ReciboId = Convert.ToInt32(dgvRecibos.Rows[index].Cells[0].Value);
+                        WinCuotas._ImporteDocumento = Convert.ToDecimal(dgvRecibos.Rows[index].Cells[12].Value);
+                        WinCuotas.ShowDialog();
+                    }
+                    else
+                    {
+                        DevComponents.DotNetBar.MessageBoxEx.Show("El cuadro de detalle de Items debe tener al menos un Item.", VariablesMetodosEstaticos.encabezado,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
     }
 }

@@ -38,6 +38,7 @@
             this.dgvResultado = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtubicacion = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             this.SuspendLayout();
@@ -174,11 +175,24 @@
             this.nombres.ReadOnly = true;
             this.nombres.Width = 300;
             // 
+            // txtubicacion
+            // 
+            this.txtubicacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtubicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtubicacion.Location = new System.Drawing.Point(501, 121);
+            this.txtubicacion.Name = "txtubicacion";
+            this.txtubicacion.ReadOnly = true;
+            this.txtubicacion.Size = new System.Drawing.Size(59, 21);
+            this.txtubicacion.TabIndex = 113;
+            this.txtubicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtubicacion.Visible = false;
+            // 
             // frmBusquedaCtaResidente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 174);
+            this.Controls.Add(this.txtubicacion);
             this.Controls.Add(this.dgvResultado);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
@@ -192,6 +206,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -207,5 +222,6 @@
         internal System.Windows.Forms.DataGridView dgvResultado;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombres;
+        internal System.Windows.Forms.TextBox txtubicacion;
     }
 }

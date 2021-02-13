@@ -236,6 +236,7 @@
               <xs:element name="a_2018" msprop:Generator_ColumnVarNameInTable="columna_2018" msprop:Generator_ColumnPropNameInRow="a_2018" msprop:Generator_ColumnPropNameInTable="a_2018Column" msprop:Generator_UserColumnName="a_2018" type="xs:decimal" minOccurs="0" />
               <xs:element name="a_2019" msprop:Generator_ColumnVarNameInTable="columna_2019" msprop:Generator_ColumnPropNameInRow="a_2019" msprop:Generator_ColumnPropNameInTable="a_2019Column" msprop:Generator_UserColumnName="a_2019" type="xs:decimal" minOccurs="0" />
               <xs:element name="a_2020" msprop:Generator_ColumnVarNameInTable="columna_2020" msprop:Generator_ColumnPropNameInRow="a_2020" msprop:Generator_ColumnPropNameInTable="a_2020Column" msprop:Generator_UserColumnName="a_2020" type="xs:decimal" minOccurs="0" />
+              <xs:element name="a_2021" msprop:Generator_ColumnVarNameInTable="columna_2021" msprop:Generator_ColumnPropNameInRow="a_2021" msprop:Generator_ColumnPropNameInTable="a_2021Column" msprop:Generator_UserColumnName="a_2021" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

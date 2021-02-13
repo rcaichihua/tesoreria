@@ -356,28 +356,6 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                    //if (chkcuentas.Checked)
-                    //{
-                    //    DataTable dtCuenta;
-
-                    //    foreach (DataRow item in dtsRecibo.Tables[0].Rows)
-                    //    {
-                    //        dtCuenta = new DataTable();
-
-                    //        dtCuenta = cn.EjecutarSqlDTS("select CODIGO_CONTABLE2,DENOMINACION2 from contable_privado where CODIGO_CONTABLE1='" + item[6] + "'").Tables[0];
-
-                    //        if (dtCuenta.Rows.Count <= 0)
-                    //        {
-                    //            item[6] = "S/CTA";
-                    //            item[7] = "S/NOMBRE";
-                    //        }
-                    //        else
-                    //        {
-                    //            item[6] = dtCuenta.Rows[0][0];
-                    //            item[7] = dtCuenta.Rows[0][1];
-                    //        }
-                    //    }
-                    //}
                 }
                 else
                 {

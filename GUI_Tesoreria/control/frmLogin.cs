@@ -99,6 +99,7 @@ namespace GUI_Tesoreria.control
 
 
 
+
                     if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
                     //if(1==1)
                     {
@@ -210,26 +211,26 @@ namespace GUI_Tesoreria.control
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            string con_are = "SBLMLAN";
+            //string con_are = "SBLMLAN";
             try
             {
-                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
-                foreach (NetworkInterface adapter in nics)
-                {
-                    VariablesMetodosEstaticos.mac_pc = adapter.GetPhysicalAddress().ToString();
-                    if (con_are.ToLower() == adapter.Name.ToString().ToLower() || adapter.Name.ToString().ToLower() == "sblmlan1")
-                    {
-                        VariablesMetodosEstaticos.tiene_mac = true;
-                        break;
-                    }
-                }
+                //NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+                //foreach (NetworkInterface adapter in nics)
+                //{
+                //    VariablesMetodosEstaticos.mac_pc = adapter.GetPhysicalAddress().ToString();
+                //    if (con_are.ToLower() == adapter.Name.ToString().ToLower() || adapter.Name.ToString().ToLower() == "sblmlan1")
+                //    {
+                //        VariablesMetodosEstaticos.tiene_mac = true;
+                //        break;
+                //    }
+                //}
 
-                if (VariablesMetodosEstaticos.tiene_mac == false)
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("Debe configurar los parametros del sistema correctamente, contacte con el administrador. Se saldrá del sistema.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
-                                                                                                       MessageBoxDefaultButton.Button1);
-                    Application.Exit();
-                }
+                //if (VariablesMetodosEstaticos.tiene_mac == false)
+                //{
+                //    DevComponents.DotNetBar.MessageBoxEx.Show("Debe configurar los parametros del sistema correctamente, contacte con el administrador. Se saldrá del sistema.", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
+                //                                                                                       MessageBoxDefaultButton.Button1);
+                //    Application.Exit();
+                //}
                 //davy
                 VariablesMetodosEstaticos.tiene_mac = true;
                 //quitar luego

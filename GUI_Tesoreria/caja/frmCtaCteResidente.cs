@@ -16,6 +16,7 @@ namespace GUI_Tesoreria.caja
         private CNegocio cn = new CNegocio();
         public int idResidente;
         public string nombreResidente = "";
+        public string Ubicacion = "";
         public new Form ParentForm;
         public DataGridView dgv;
         public bool binv = false;
@@ -410,6 +411,7 @@ namespace GUI_Tesoreria.caja
                     Reportes.rptEstadoDeCuentaResidente rptCtaCte = new Reportes.rptEstadoDeCuentaResidente();
                     rptCtaCte.SetDataSource(dtsResultado.Tables[0]);
                     rptCtaCte.SetParameterValue("@nombreresidente", nombreResidente);
+                    rptCtaCte.SetParameterValue("@ubicacion", Ubicacion);
                     winReport.crvReportes.ReportSource = rptCtaCte;
                     winReport.WindowState = FormWindowState.Maximized;
                     winReport.ShowDialog();
@@ -419,7 +421,7 @@ namespace GUI_Tesoreria.caja
                     DevComponents.DotNetBar.MessageBoxEx.Show("No tiene deudas para el rango seleccionado", VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
         }
