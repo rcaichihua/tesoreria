@@ -590,6 +590,14 @@ namespace GUI_Tesoreria.caja
         {
             try
             {
+                if (txtFecha.Text!=DateTime.Now.ToString("dd/MM/yyyy"))
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de emisión del recibo no coincide con la fecha actual.",
+                        VariablesMetodosEstaticos.encabezado, MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (!ValidarCampos(false))
                 {
                     return;
@@ -933,19 +941,24 @@ namespace GUI_Tesoreria.caja
                     string rubroPension = "";
                     string descripAcuenta = "";
 
-                    DireccionID =Convert.ToInt32(cn.TraerDataset("usp_obtiene_direccion_x_residente", Convert.ToInt32(txtCodigo.Text.Trim())).Tables[0].Rows[0][0]);
+                    DireccionID =Convert.ToInt32(cn.TraerDataset("usp_obtiene_direccion_x_residente", 
+                        Convert.ToInt32(txtCodigo.Text.Trim())).Tables[0].Rows[0][0]);
                     //PENSION ANTERIOR COBRANZA DUDOSA
-                    if (DireccionID == 1 && Convert.ToInt32(row.Cells[1].Value) < (DateTime.Now.Year-1))//canevaro
+                    //if (DireccionID == 1 && Convert.ToInt32(row.Cells[1].Value) < (DateTime.Now.Year-1))//canevaro
+                    if (DireccionID == 1 && ObtieneDiferenciaMeses(Convert.ToDateTime(txtFecha.Text), Convert.ToDateTime("01/" + 
+                        NombreMesANumero(row.Cells[2].Value.ToString()) +"/"+ row.Cells[1].Value.ToString()))>12)//canevaro
                     {
                         rubroPension = "7027"; //pension canevaro
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 2 && Convert.ToInt32(row.Cells[1].Value) < (DateTime.Now.Year - 1))//perifericos
+                    else if (DireccionID == 2 && ObtieneDiferenciaMeses(Convert.ToDateTime(txtFecha.Text), Convert.ToDateTime("01/" +
+                        NombreMesANumero(row.Cells[2].Value.ToString()) + "/" + row.Cells[1].Value.ToString())) > 12)//perifericos
                     {
                         rubroPension = "7029"; //pension perifericos
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
                     }
-                    else if (DireccionID == 3 && Convert.ToInt32(row.Cells[1].Value) < (DateTime.Now.Year - 1))//svp
+                    else if (DireccionID == 3 && ObtieneDiferenciaMeses(Convert.ToDateTime(txtFecha.Text), Convert.ToDateTime("01/" +
+                        NombreMesANumero(row.Cells[2].Value.ToString()) + "/" + row.Cells[1].Value.ToString())) > 12)//svp
                     {
                         rubroPension = "7028"; //pension svp
                         idCtaContable = Convert.ToInt32(cn.TraerDataset("usp_obtiene_idcta_x_idrubro", rubroPension).Tables[0].Rows[0][0]);
@@ -1016,6 +1029,58 @@ namespace GUI_Tesoreria.caja
                     detalleRecibo.Rows.Add(_filaDetalle);
                 }
             }
+        }
+
+        private string NombreMesANumero(string NombreMes)
+        {
+            string _Mes;
+            _Mes = "";
+
+            switch (NombreMes)
+            {
+                case "ENERO":
+                    _Mes = "01";
+                    break;
+                case "FEBRERO":
+                    _Mes = "02";
+                    break;
+                case "MARZO":
+                    _Mes = "03";
+                    break;
+                case "ABRIL":
+                    _Mes = "04";
+                    break;
+                case "MAYO":
+                    _Mes = "05";
+                    break;
+                case "JUNIO":
+                    _Mes = "06";
+                    break;
+                case "JULIO":
+                    _Mes = "07";
+                    break;
+                case "AGOSTO":
+                    _Mes = "08";
+                    break;
+                case "SETIEMBRE":
+                    _Mes = "09";
+                    break;
+                case "OCTUBRE":
+                    _Mes = "10";
+                    break;
+                case "NOVIEMBRE":
+                    _Mes = "11";
+                    break;
+                case "DICIEMBRE":
+                    _Mes = "12";
+                    break;
+            }
+            return _Mes;
+        }
+
+        private int ObtieneDiferenciaMeses(DateTime fecha1,DateTime fecha2)
+        {
+            return Math.Abs((fecha2.Month - fecha1.Month) + 12 * (fecha2.Year - fecha1.Year));
         }
 
         private void EfectuarPago()

@@ -59,7 +59,7 @@ namespace GUI_Tesoreria.caja
                     int estado = 0;
 
                     if (RBTodos.Checked) estado = 2;
-                    if (RBActivos.Checked) estado = 1;
+                    if (RBActivos.Checked) estado = 1; 
                     if (RBAnulados.Checked) estado = 0;
                     if (ChTodos.Checked) idCliente = 0;
 
