@@ -1065,6 +1065,9 @@ namespace GUI_Tesoreria.caja
                 case "SETIEMBRE":
                     _Mes = "09";
                     break;
+                case "SEPTIEMBRE":
+                    _Mes = "09";
+                    break;
                 case "OCTUBRE":
                     _Mes = "10";
                     break;

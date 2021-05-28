@@ -29,6 +29,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
         public bool Save_ { get; set; }
         public string caja { get; set; }
         public DateTime _FechaLiq { get; set; }
+        public string _Fuente_ { get; set; }
 
         public frmEdicionVouchers()
         {
@@ -57,6 +58,13 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             txtTotalCambioDolar.Text = Total.ToString("###,###,##0.00");
             txtNumDocumento.Text = NroVoucher;
             txtObservacionesPago.Text = Observaciones;
+            if (_Fuente_=="08")
+            {
+                cboModalidadPago.Enabled = false;
+                cboConcepto.Enabled = false;
+                txtTipoCambio.ReadOnly = true;
+                txtObservacionesPago.Enabled = false;
+            }
         }
 
         private void cargarModalidadPago()
@@ -166,16 +174,10 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
                 if (!verificaDuplicidad())
                 {
-                    MessageBox.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", VariablesGlobales.NombreMensajes,
+                    MessageBox.Show("Error de duplicidad. El voucher/Cheque ya fue registrado. Verifique.", 
+                        VariablesGlobales.NombreMensajes,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                    return;
-                }
-                //if (Existe_ == true)
-                //{
-                //    DevComponents.DotNetBar.MessageBoxEx.Show("Este voucher ya se encuentra generado dentro de una liquidación y no se puede modificar.", VariablesMetodosEstaticos.encabezado,
-                //                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
+                    return;                }
 
                 dtresu = cn.TraerDataset("usp_ActualizaVoucherPago", Tabla, IdDocumento, cboModalidadPago.SelectedValue, cboConcepto.SelectedValue,
                 cboEntidadFinanciera.SelectedValue, cboCuenta.SelectedValue, Convert.ToDecimal(txtImportePago.Text),
@@ -249,15 +251,24 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             DataTable dtTotalRepetido = new DataTable();
             dtTotalRepetido = cn.TraerDataset("usp_verifica_duplicidad_voucher_general",Tabla
                 , txtNumDocumento.Text.Trim().ToUpper(), cboEntidadFinanciera.SelectedValue,
-                cboConcepto.SelectedValue,dtpFechaPago.Value.ToString("yyyyMMdd"),Convert.ToDecimal(txtTotalCambioDolar.Text)).Tables[0];
+                cboConcepto.SelectedValue,dtpFechaPago.Value.ToString("yyyyMMdd"),
+                Convert.ToDecimal(txtTotalCambioDolar.Text)).Tables[0];
+
             if (dtTotalRepetido.Rows.Count > 0)
             {
-                MessageBox.Show("El documento ya se ingreso como " + cboConcepto.Text.ToUpper() +
+                if (Convert.ToInt16(dtTotalRepetido.Rows[0][0])!= IdDocumento)
+                {
+                    MessageBox.Show("El documento ya se ingreso como " + cboConcepto.Text.ToUpper() +
                     " con el importe de " + dtTotalRepetido.Rows[0][0].ToString() + "." +
                     Environment.NewLine + "ingrese el vocher bajo otro CONCEPTO para que se pueda registrar.",
                     VariablesGlobales.NombreMensajes,
                                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                rspta = false;
+                    rspta = false;
+                }
+                else
+                {
+                    rspta = true;
+                }
             }
             else
             {

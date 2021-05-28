@@ -97,9 +97,6 @@ namespace GUI_Tesoreria.control
 
 
 
-
-
-
                     if (varGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
                     //if(1==1)
                     {

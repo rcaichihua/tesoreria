@@ -65,6 +65,7 @@ namespace BL_Tesoreria
             catch (Exception ex) { throw ex; }
 
 
+
         }
 
         public int EjecutarSP(string ProcedimientoAlmacenado, params object[] Argumentos)

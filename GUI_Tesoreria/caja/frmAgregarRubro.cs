@@ -80,7 +80,14 @@ namespace GUI_Tesoreria.caja
 
             if (VariablesMetodosEstaticos.idcaja > 15)
             {
-                dgvGlosa.Visible = true;
+                if (FuenteIngreso == 8)
+                {
+                    dgvGlosa.Visible = false;
+                }
+                else
+                {
+                    dgvGlosa.Visible = true;
+                }
             }
             else
             {

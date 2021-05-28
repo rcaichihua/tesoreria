@@ -72,13 +72,16 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             decimal totalDeposito = 0.00m;
             decimal totalDepoMas = 0.00m;
 
-            if (caja == "01") //cementerio, albergues, comedores, alta direccion
+            if (caja == "01" || caja == "03") //cementerio, albergues, comedores, alta direccion y sevilla
             {
                 foreach (DataGridViewRow item in this.dgvModalidadIngreso.Rows)
                 {
-                    totalDeposito = totalDeposito + (Convert.ToDecimal(item.Cells[6].Value) > 0 ? Convert.ToDecimal(item.Cells[6].Value) : 0.00m);
-                    totalDepoMas = totalDepoMas + Convert.ToDecimal(item.Cells[7].Value);
+                        totalDeposito = totalDeposito + (Convert.ToDecimal(item.Cells[6].Value) > 0 ?
+                        Convert.ToDecimal(item.Cells[6].Value) : 0.00m);
+
+                        totalDepoMas = totalDepoMas + Convert.ToDecimal(item.Cells[7].Value);
                 }
+
                 txtDiferenciaDepositoIngreso.Text = (totalDepoMas).ToString("###,###,##0.00");
                 txtTotalDeposito.Text = totalDeposito.ToString("###,###,##0.00");
                 txtDiferenciaDepositoIngreso.Text= (totalDeposito - Convert.ToDecimal(txtIngresoTotalCaja.Text)).ToString("###,###,##0.00");
@@ -187,9 +190,14 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         caja = "02"; //02 sistema inmobiliaria
                         groupBox4.Text = "Listado ingresos recaudación";
                     }
+                    else if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 8)
+                    {
+                        caja = "03"; //02 sistema Instituto sevilla.
+                        groupBox4.Text = "Listado ingresos Inst. Sevilla.";
+                    }
                     else
                     {
-                        caja = "01";
+                        caja = "01";//para otros programas alta direccion, cementerio, albergues y comedores.
                         groupBox4.Text= "Listado de modalidades de pago";
                     }
                     dsResultado = cn.TraerDataset("usp_consultaLiquidaciones",
@@ -198,6 +206,7 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         cboFuenteIngreso.SelectedValue,
                         VariablesMetodosEstaticos.intAnnioActual.ToString(),
                         caja);
+
                     if (dsResultado.Tables[0].Rows.Count* dsResultado.Tables[1].Rows.Count > 0)
                     {
                         txtSubTotalCaja.Text = Convert.ToDecimal(dsResultado.Tables[0].Rows[0][1]).ToString("###,###,##0.00");
@@ -354,12 +363,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             {
                 if (this.dgvModalidadIngreso.Columns[e.ColumnIndex].Name == "Depositos")
                 {
-                    dtResultadoBusqueda = cn.TraerDataset("usp_ListaDepositosdeEfectivo", cboFuenteIngreso.SelectedValue,
-                        //Convert.ToInt32(dgvModalidadIngreso.Rows[index].Cells[2].Value) == 11 ? 11 : 3,
+                        dtResultadoBusqueda = cn.TraerDataset("usp_ListaDepositosdeEfectivo", cboFuenteIngreso.SelectedValue,
                         dgvModalidadIngreso.Rows[index].Cells[2].Value,
                         Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyMMdd"),
                         dgvModalidadIngreso.Rows[index].Cells[9].Value.ToString()).Tables[0];
-
+                        
                         if (dtResultadoBusqueda.Rows.Count>0)
                         {
                             frmListadoDepositosLiquidacion frmDetalle = new frmListadoDepositosLiquidacion
@@ -417,57 +425,21 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     {
                         if (item.Cells[8].Value.ToString() == "PA" || item.Cells[8].Value.ToString() == "SD")
                         {
-                            DevComponents.DotNetBar.MessageBoxEx.Show("Hay pagos parciales(PA) o pagos sin deposito(SD), no se puede generar la liquidación.", VariablesMetodosEstaticos.encabezado,
+                            DevComponents.DotNetBar.MessageBoxEx.Show("Hay pagos parciales(PA) o pagos sin deposito(SD), " +
+                                "no se puede generar la liquidación.", VariablesMetodosEstaticos.encabezado,
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                     }   
                 }
 
-                //if (Convert.ToInt32(cboFuenteIngreso.SelectedValue)==3)
-                //{
-                //    decimal total;
-                //    total = 0.00m;
-                //    foreach (DataGridViewRow item in dgvIngresosInmobiliaria.Rows)
-                //    {
-                //        total = Convert.ToDecimal(item.Cells[4].Value);
-                //        if (total != Convert.ToDecimal(txtTotalDeposito.Text))
-                //        {
-                //            DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
-                //                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //            return;
-                //        }
-                //    }                   
-                //}
-                //else
-                //{
-                //    decimal total;
-                //    total = 0.00m;
-                //    foreach (DataGridViewRow item in dgvModalidadIngreso.Rows)
-                //    {
-                //        total = total + Convert.ToDecimal(item.Cells[5].Value);
-                //    }
-
-                //    if (total != Convert.ToDecimal(txtTotalDeposito.Text))
-                //    {
-                //        DevComponents.DotNetBar.MessageBoxEx.Show("Ha ocurrido un error con la diferencia de deposito, contacte con sistemas.", VariablesMetodosEstaticos.encabezado,
-                //                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        return;
-                //    }
-                //}
-
                 if (Convert.ToDecimal(txtDiferenciaDepositoIngreso.Text)<0)
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show("La diferencia de depositos de más esta en negativo, verifique si no tiene pagos parciales(PA).", VariablesMetodosEstaticos.encabezado,
+                    DevComponents.DotNetBar.MessageBoxEx.Show("La diferencia de depositos de más esta en negativo, " +
+                        "verifique si no tiene pagos parciales(PA).", VariablesMetodosEstaticos.encabezado,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                //if (cn.TraerDataset("usp_VerificaFechaLiquidacion", Convert.ToDateTime(mtbFechaLiquidacion.Text).ToString("yyyyMMdd")).Tables[0].Rows[0][0].ToString()=="0")
-                //{
-                //    DevComponents.DotNetBar.MessageBoxEx.Show("La fecha de liquidación ingresada no puede ser menor a la última liquidación ingresada.", VariablesMetodosEstaticos.encabezado,
-                //           MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    return;
-                //}
                 /*CAJA=02 ES DE INMOBILIARIA Y VERIFICA QUE A TODAS LAS LIQUIDACIONES DE LOS COBRADORES NO LE FALTE INGRESAR UN VOUCHER*/
                 if (caja=="02")
                 {
@@ -481,7 +453,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         {
                             if (Convert.ToDecimal(item[1]) + Convert.ToDecimal(item[3]) - Convert.ToDecimal(item[2]) < 0)
                             {
-                                DevComponents.DotNetBar.MessageBoxEx.Show("Falta ingresar el voucher en la liquidacion de uno o mas cobradores, verifíque.", VariablesMetodosEstaticos.encabezado,
+                                DevComponents.DotNetBar.MessageBoxEx.Show("Falta ingresar el voucher en la liquidacion " +
+                                    "de uno o mas cobradores, verifíque.", VariablesMetodosEstaticos.encabezado,
                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                                 return;
@@ -497,16 +470,21 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"), txtIngresoTotalCaja.Text, txtTotalDeposito.Text,
                     txtObservaciones.Text, VariablesMetodosEstaticos.varNombreUser, 
                     VariablesMetodosEstaticos.host_user+"/"+VariablesMetodosEstaticos.ip_user).Tables[0];
+
                     idLiquidacion = Convert.ToInt32(dtResultadoLiq.Rows[0][0]);
 
                     if (idLiquidacion > 0)
                     {
                         foreach (DataGridViewRow item in dgvModalidadIngreso.Rows)
                         {
-                            cn.EjecutarSP("usp_IngresoLiquidacionDetalle", idLiquidacion, item.Cells[2].Value, item.Cells[5].Value, item.Cells[8].Value);
+                            cn.EjecutarSP("usp_IngresoLiquidacionDetalle", idLiquidacion, item.Cells[2].Value, 
+                                item.Cells[5].Value, item.Cells[8].Value);
                         }
-                        DevComponents.DotNetBar.MessageBoxEx.Show("La liquidación fue generado correctamente", VariablesMetodosEstaticos.encabezado, 
+
+                        DevComponents.DotNetBar.MessageBoxEx.Show("La liquidación fue generado correctamente", 
+                            VariablesMetodosEstaticos.encabezado, 
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         btnGeneraLiquidación.Enabled = false;
                         btnIngresoRecibosCaja.Enabled = true;
                         txtObservaciones.ReadOnly = true;
@@ -533,7 +511,9 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                     (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 3 ? "1" :
                     (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 4 ? "2" :
                     (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 5 ? "5" :
-                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 6 ? "6" : "0")))))) + "").Tables[0];
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 6 ? "6" :
+                    (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 8 ? "8" : "0"))))))) + "").Tables[0];
+
                 if (Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 5 || Convert.ToInt32(cboFuenteIngreso.SelectedValue) == 6)
                 {
                     win.Glosa = cn.TraerDataset("USP_DETALLE_COMEDORES", Convert.ToDateTime(mtbFechaCajaOrigen.Text).ToString("yyyyMMdd"),

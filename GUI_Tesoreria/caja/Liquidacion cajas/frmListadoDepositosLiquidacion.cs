@@ -33,7 +33,11 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
             AnularAutocompletadoColumnas();
             dgvListadoVouchers.DataSource = dtListadoVouchers;
             AnchoFilas();
-            SumarTotales();           
+            SumarTotales();
+            if (_Fuente=="08")
+            {
+                btnExportar.Enabled = false;
+            }
         }
 
         private void AnularAutocompletadoColumnas()
@@ -117,8 +121,8 @@ namespace GUI_Tesoreria.caja.Liquidacion_cajas
                         NroVoucher = dgvListadoVouchers.Rows[index].Cells[10].Value.ToString(),
                         Observaciones = dgvListadoVouchers.Rows[index].Cells[15].Value.ToString(),
                         caja= TipoCaja,
-                        _FechaLiq=_FechaLiq
-
+                        _FechaLiq=_FechaLiq,
+                        _Fuente_=_Fuente
                     };
                     winfrmEdicionVouchers.Existe_ = Existe;
                     winfrmEdicionVouchers.ShowDialog();
